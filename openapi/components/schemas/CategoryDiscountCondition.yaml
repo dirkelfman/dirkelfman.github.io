@@ -1,0 +1,8 @@
+type: object
+properties:
+  categoryId:
+    type: integer
+    description: Unique identifier of the category to which the discount condition applies.
+    format: int32
+additionalProperties: false
+description: Represents a product category and quantity constraint

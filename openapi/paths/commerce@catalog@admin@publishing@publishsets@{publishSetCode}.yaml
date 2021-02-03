@@ -1,0 +1,50 @@
+get:
+  tags:
+    - Publishing
+  summary: Retrieves the details of a single PublishSet.
+  parameters:
+    - name: publishSetCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml
+delete:
+  tags:
+    - Publishing
+  summary: "Removes all details about a PublishSet from the product service.\r\nIf the discardDrafts param is true, it also deletes the product drafts."
+  parameters:
+    - name: publishSetCode
+      in: path
+      description: The code of the PublishSet to delete
+      required: true
+      schema:
+        type: string
+        description: The code of the PublishSet to delete
+        nullable: true
+    - name: discardDrafts
+      in: query
+      description: Whether to also discard the drafts for this publish set.
+      schema:
+        type: boolean
+        description: Whether to also discard the drafts for this publish set.
+        default: false
+        nullable: true
+  responses:
+    '200':
+      description: Success

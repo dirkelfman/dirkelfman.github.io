@@ -1,0 +1,20 @@
+type: object
+properties:
+  startIndex:
+    type: integer
+    format: int32
+  pageSize:
+    type: integer
+    format: int32
+  pageCount:
+    type: integer
+    format: int32
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./SearchTuningRule.yaml
+    nullable: true
+additionalProperties: false

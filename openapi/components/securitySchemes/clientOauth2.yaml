@@ -1,0 +1,5 @@
+type: oauth2
+flows:
+  clientCredentials:
+    tokenUrl: /platform/applications/internal/access-tokens/oauth/
+    scopes: {}

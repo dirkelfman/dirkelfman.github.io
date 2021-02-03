@@ -1,0 +1,49 @@
+required:
+  - name
+  - sortExpressions
+  - startDate
+type: object
+properties:
+  productSortDefinitionId:
+    type: integer
+    description: System or user provided ID for the ProductSortDefinition
+    format: int32
+    nullable: true
+  categoryId:
+    type: integer
+    description: ''
+    format: int32
+    nullable: true
+  name:
+    type: string
+    description: Short Name for the sort definition. Required.
+  startDate:
+    type: string
+    description: The Start Date when the sort definition becomes active
+    format: date-time
+  endDate:
+    type: string
+    description: Optional end date for a product sort definition
+    format: date-time
+    nullable: true
+  sortExpressions:
+    type: array
+    items:
+      $ref: ./ProductSortExpression.yaml
+    description: "Sort expression to apply\r\nMax two expressions"
+  boosted:
+    type: array
+    items:
+      $ref: ./ProductSortOverride.yaml
+    description: List of products being positioned
+    nullable: true
+  buried:
+    type: array
+    items:
+      $ref: ./ProductSortOverride.yaml
+    description: List of products being positioned
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: "Defines a default sort for a list of products and allows some products to be\r\nboosted to the top or pinned ot a specific position, or buried at the bottom of the\r\nlist.  Only 10 items can be boosted or pinned and up to"

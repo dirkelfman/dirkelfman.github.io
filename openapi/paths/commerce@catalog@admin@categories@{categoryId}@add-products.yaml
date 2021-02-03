@@ -1,0 +1,28 @@
+post:
+  tags:
+    - Category
+  summary: >-
+    Adds the products in the provided product code list to the specified
+    category.
+  parameters:
+    - name: categoryId
+      in: path
+      description: Unique identifier of the category that you want produts added to.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the category that you want produts added to.
+        format: int32
+  requestBody:
+    description: A list of products to be added to the category.
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+          description: A list of products to be added to the category.
+          nullable: true
+  responses:
+    '200':
+      description: Success

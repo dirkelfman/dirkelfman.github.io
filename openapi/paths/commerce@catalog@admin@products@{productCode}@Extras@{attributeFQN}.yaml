@@ -1,0 +1,98 @@
+get:
+  tags:
+    - Product
+  summary: Get individual extra
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+put:
+  tags:
+    - Product
+  summary: Update extra
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductExtra.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+delete:
+  tags:
+    - Product
+  summary: Delete extra
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

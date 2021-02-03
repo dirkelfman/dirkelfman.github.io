@@ -1,0 +1,18 @@
+type: object
+properties:
+  synonymId:
+    type: integer
+    description: The unique identifier for the synonym definition
+    format: int32
+    nullable: true
+  key:
+    type: string
+    description: If key is defined then map is directed
+    nullable: true
+  synonyms:
+    type: array
+    items:
+      type: string
+    description: List of synonyms.  If no key is defined the matches are bidirectional
+    nullable: true
+additionalProperties: false

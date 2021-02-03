@@ -1,0 +1,12 @@
+type: object
+properties:
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./PublishSet.yaml
+    nullable: true
+additionalProperties: false
+description: Non-paged collection of PublishSets.

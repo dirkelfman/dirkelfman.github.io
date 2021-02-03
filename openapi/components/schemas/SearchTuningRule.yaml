@@ -1,0 +1,49 @@
+type: object
+properties:
+  siteId:
+    type: integer
+    format: int32
+  searchTuningRuleCode:
+    type: string
+    nullable: true
+  searchTuningRuleName:
+    type: string
+    nullable: true
+  searchTuningRuleDescription:
+    type: string
+    nullable: true
+  keywords:
+    type: array
+    items:
+      type: string
+    nullable: true
+  filters:
+    type: array
+    items:
+      $ref: ./SearchTuningRuleFilter.yaml
+    nullable: true
+  active:
+    type: boolean
+  isDefault:
+    type: boolean
+  activeStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  activeEndDate:
+    type: string
+    format: date-time
+    nullable: true
+  boostedProductCodes:
+    type: array
+    items:
+      type: string
+    nullable: true
+  blockedProductCodes:
+    type: array
+    items:
+      type: string
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false

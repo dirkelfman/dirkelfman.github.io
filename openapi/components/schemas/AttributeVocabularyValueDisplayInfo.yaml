@@ -1,0 +1,15 @@
+type: object
+properties:
+  cmsId:
+    type: string
+    description: Id of the image in the CMS.
+    nullable: true
+  imageUrl:
+    type: string
+    description: URL of the image.
+    nullable: true
+  colorValue:
+    type: string
+    description: Hex Color value to display in a color picker
+    nullable: true
+additionalProperties: false

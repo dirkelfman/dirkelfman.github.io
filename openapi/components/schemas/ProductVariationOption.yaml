@@ -1,0 +1,23 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    description: >-
+      Unique identifier of the product variation option. System-supplied and
+      read-only.
+    nullable: true
+  value:
+    type: object
+    additionalProperties: false
+    description: >-
+      Name of the product variation option used on the admin side independent of
+      how it appears on the storefront. For example, the internal "SZ" attribute
+      might appear as "size" on the storefront.
+    nullable: true
+  content:
+    $ref: ./AttributeVocabularyValueLocalizedContent.yaml
+additionalProperties: false
+description: >-
+  An option for a product variation. For example, a T-shirt with size and color
+  configurable options, might have a product variation option of "size" or
+  "color."

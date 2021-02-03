@@ -1,0 +1,69 @@
+get:
+  tags:
+    - PriceList
+  parameters:
+    - name: priceListCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+put:
+  tags:
+    - PriceList
+  parameters:
+    - name: priceListCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PriceList.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/PriceList.yaml
+delete:
+  tags:
+    - PriceList
+  parameters:
+    - name: priceListCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: cascadeDeleteEntries
+      in: query
+      schema:
+        type: boolean
+        default: false
+  responses:
+    '200':
+      description: Success

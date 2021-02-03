@@ -1,0 +1,97 @@
+required:
+  - currencyCode
+  - productCode
+type: object
+properties:
+  priceListCode:
+    type: string
+    description: "External unique identifier of the PriceList. Must be unique an only contain url sanitized characters. Max length is\r\n50"
+    nullable: true
+  priceListEntrySequence:
+    type: integer
+    format: int32
+  productCode:
+    type: string
+  productName:
+    type: string
+    nullable: true
+  isVariation:
+    type: boolean
+  options:
+    type: array
+    items:
+      $ref: ./ProductOption.yaml
+    nullable: true
+  currencyCode:
+    type: string
+  startDate:
+    type: string
+    format: date-time
+    nullable: true
+  endDate:
+    type: string
+    format: date-time
+    nullable: true
+  priceListEntryMode:
+    type: string
+    nullable: true
+  priceListEntryTypeCode:
+    type: string
+    nullable: true
+  discountsRestrictedMode:
+    type: string
+    nullable: true
+  discountsRestricted:
+    type: boolean
+    nullable: true
+  discountsRestrictedStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  discountsRestrictedEndDate:
+    type: string
+    format: date-time
+    nullable: true
+  msrpMode:
+    type: string
+    nullable: true
+  msrp:
+    type: number
+    format: double
+    nullable: true
+  mapMode:
+    type: string
+    nullable: true
+  map:
+    type: number
+    format: double
+    nullable: true
+  mapStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  mapEndDate:
+    type: string
+    format: date-time
+    nullable: true
+  costMode:
+    type: string
+    nullable: true
+  cost:
+    type: number
+    format: double
+    nullable: true
+  priceEntries:
+    type: array
+    items:
+      $ref: ./PriceListEntryPrice.yaml
+    nullable: true
+  extraEntries:
+    type: array
+    items:
+      $ref: ./PriceListEntryExtra.yaml
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: Category

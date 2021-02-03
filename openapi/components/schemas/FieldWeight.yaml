@@ -1,0 +1,11 @@
+type: object
+properties:
+  searchFieldName:
+    type: string
+    description: field in the index to target
+    nullable: true
+  weight:
+    type: integer
+    description: weight to apply to boost field
+    format: int32
+additionalProperties: false

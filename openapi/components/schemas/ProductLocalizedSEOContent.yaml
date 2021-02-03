@@ -1,0 +1,40 @@
+type: object
+properties:
+  localeCode:
+    type: string
+    description: 'Lanugage used for product content. Currently, only en_US is supported.'
+    nullable: true
+  metaTagTitle:
+    type: string
+    description: >-
+      Metadata title. Metadata can be used to manage information internally.
+      Sometimes used for SEO.
+    nullable: true
+  metaTagDescription:
+    type: string
+    description: >-
+      Metadata description. Metadata can be used to manage information
+      internally. Sometimes used for SEO.
+    nullable: true
+  metaTagKeywords:
+    type: string
+    description: >-
+      Metadata keywords. Metadata can be used to manage information internally.
+      Sometimes used for SEO.
+    nullable: true
+  titleTagTitle:
+    type: string
+    description: >-
+      Used to customize the HTML title tag within the head section of the
+      product details page
+    nullable: true
+  seoFriendlyUrl:
+    type: string
+    description: "Human-readable identifier that you can give to the product to create friendly URLs. For example, \r\ninstead of \"http: //example.com/products?category=2&id=25,\" the friendly URL can be \"http: //example.com/products/category/2/25.\""
+    nullable: true
+additionalProperties: false
+description: >-
+  Container for language-specific content to display on the storefront. You'll
+  have a container for each supported language (LocaleCode). This enables you to
+  display a product in multiple languages yet manage it as a single product
+  internally.

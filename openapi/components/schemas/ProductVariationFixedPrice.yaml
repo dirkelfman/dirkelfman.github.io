@@ -1,0 +1,27 @@
+type: object
+properties:
+  currencyCode:
+    type: string
+    description: Which currency is in use.
+    nullable: true
+  listPrice:
+    type: number
+    description: Variation price for fixed pricing
+    format: double
+    nullable: true
+  salePrice:
+    type: number
+    description: Variation sale price whne fixed pricing
+    format: double
+    nullable: true
+  msrp:
+    type: number
+    description: Manufacturer Suggested Retail Price.
+    format: double
+    nullable: true
+  creditValue:
+    type: number
+    description: Credit amt of the product
+    format: double
+    nullable: true
+additionalProperties: false

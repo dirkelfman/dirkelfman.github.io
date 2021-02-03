@@ -1,0 +1,10 @@
+type: object
+properties:
+  unit:
+    type: string
+    nullable: true
+  value:
+    type: number
+    format: double
+    nullable: true
+additionalProperties: false

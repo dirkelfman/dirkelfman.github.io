@@ -1,0 +1,98 @@
+get:
+  tags:
+    - Product
+  summary: Get individual property
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+put:
+  tags:
+    - Product
+  summary: Update property
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductProperty.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductProperty.yaml
+delete:
+  tags:
+    - Product
+  summary: Delete property
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

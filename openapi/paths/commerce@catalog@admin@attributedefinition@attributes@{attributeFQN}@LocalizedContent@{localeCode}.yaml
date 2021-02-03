@@ -1,0 +1,82 @@
+get:
+  tags:
+    - Attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: localeCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+put:
+  tags:
+    - Attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: localeCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AttributeLocalizedContent.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeLocalizedContent.yaml
+delete:
+  tags:
+    - Attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: localeCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success

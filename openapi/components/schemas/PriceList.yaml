@@ -1,0 +1,83 @@
+required:
+  - name
+  - priceListCode
+type: object
+properties:
+  priceListCode:
+    type: string
+  priceListSequence:
+    type: integer
+    format: int32
+  parentPriceListCode:
+    type: string
+    description: 'Parent PriceList code, Can be null for root level priceLists'
+    nullable: true
+  parentPriceListName:
+    type: string
+    description: >-
+      Parent PriceList name, Can be null for root level priceLists. Read only in
+      contract.
+    nullable: true
+  name:
+    type: string
+    description: Name of the priceList. Max length is 100
+  description:
+    type: string
+    description: Description of the price list. Max length is 300
+    nullable: true
+  enabled:
+    type: boolean
+    description: Is the price list enabled and valid in the storefront. Default is true.
+    nullable: true
+  filteredInStorefront:
+    type: boolean
+    description: >-
+      When true, only products with valid price list entries will be visible in
+      the storefront. Default is false
+    nullable: true
+  validForAllSites:
+    type: boolean
+    description: >-
+      When true, no valid sites need to be specifiied. Price list is considered
+      valid for all sites. Default is true
+    nullable: true
+  validSites:
+    type: array
+    items:
+      type: integer
+      format: int32
+    description: >-
+      When ValidForAllSites = false, a list of siteIDs that the price list is
+      valid for should be supplied
+    nullable: true
+  defaultForSites:
+    type: array
+    items:
+      type: integer
+      format: int32
+    nullable: true
+  indexedSites:
+    type: array
+    items:
+      type: integer
+      format: int32
+    nullable: true
+  mappedCustomerSegments:
+    type: array
+    items:
+      type: string
+    description: "List of customer segment code associated with this price list.\r\nUsed to resolve default price list"
+    nullable: true
+  rank:
+    type: integer
+    description: Used to prioritize price list resolution when more than 1 price list maps
+    format: int32
+    nullable: true
+  resolvable:
+    type: boolean
+    description: "Determines if this price list can be resolved as the current price list \r\nwithin a session."
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: Category

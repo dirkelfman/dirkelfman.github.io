@@ -1,0 +1,191 @@
+type: object
+properties:
+  productCode:
+    type: string
+    description: >-
+      Merchant-created code indentifier associated with the product, for
+      example, a SKU or product item number.
+    nullable: true
+  productUsage:
+    type: string
+    description: >-
+      Indicates the usage type of this product. Must be one of the values in
+      ProductUsageConst.
+    nullable: true
+  fulfillmentTypesSupported:
+    type: array
+    items:
+      type: string
+    description: Indicates the fulfillment types the product supports.
+    nullable: true
+  masterCatalogId:
+    type: integer
+    description: >-
+      Indentifier of the Master Catalog that this product is a member of.
+      System-supplied and read-only
+    format: int32
+    nullable: true
+  productSequence:
+    type: integer
+    description: System generated monotonically increasing sequence
+    format: int32
+    nullable: true
+  productTypeId:
+    type: integer
+    description: >-
+      Unique identifier of the productType of the product. Refers to a valid
+      ProductType that was previously created with the ProductType resource.
+    format: int32
+    nullable: true
+  isValidForProductType:
+    type: boolean
+    description: >-
+      Read only flag that indicates if the product meets the product type
+      constraints (All adminRequired attributes have a valid value)
+    nullable: true
+  baseProductCode:
+    type: string
+    description: >-
+      This is the base product ProductCode of a product that is a variation. It
+      is read-only and only populated for products that are variations of a
+      configurable base product.
+    nullable: true
+  productInCatalogs:
+    type: array
+    items:
+      $ref: ./ProductInCatalogInfo.yaml
+    description: >-
+      Catalog specifc info for each catalog a product is valid in. There should
+      always be one or more entries here.
+    nullable: true
+  content:
+    $ref: ./ProductLocalizedContent.yaml
+  price:
+    $ref: ./ProductPrice.yaml
+  pricingBehavior:
+    $ref: ./ProductPricingBehaviorInfo.yaml
+  seoContent:
+    $ref: ./ProductLocalizedSEOContent.yaml
+  options:
+    type: array
+    items:
+      $ref: ./ProductOption.yaml
+    description: >-
+      The Options defined in the product Type that are currently assigned to
+      this product
+    nullable: true
+  extras:
+    type: array
+    items:
+      $ref: ./ProductExtra.yaml
+    description: >-
+      The Extras defined in the product Type that are currently assigned to this
+      product
+    nullable: true
+  properties:
+    type: array
+    items:
+      $ref: ./ProductProperty.yaml
+    description: >-
+      The Properties defined in the product Type that are currently assigned to
+      this product
+    nullable: true
+  isTaxable:
+    type: boolean
+    description: 'If true, the product is subject to tax.'
+    nullable: true
+  inventoryInfo:
+    $ref: ./ProductInventoryInfo.yaml
+  shippingClassId:
+    type: integer
+    format: int32
+    nullable: true
+  isRecurring:
+    type: boolean
+    description: >-
+      If true, the product can be purchased or fulfilled at regular intervals,
+      for example, monthly billing or a subscription.
+    nullable: true
+  upc:
+    type: string
+    description: UPC code of the product.
+    nullable: true
+  supplierInfo:
+    $ref: ./ProductSupplierInfo.yaml
+  isPackagedStandAlone:
+    type: boolean
+    description: Does this product need to be packaged on its own
+    nullable: true
+  standAlonePackageType:
+    type: string
+    description: When packaged alone this is the package type
+    nullable: true
+  packageHeight:
+    $ref: ./Measurement.yaml
+  packageWidth:
+    $ref: ./Measurement.yaml
+  packageLength:
+    $ref: ./Measurement.yaml
+  packageWeight:
+    $ref: ./Measurement.yaml
+  applicableDiscounts:
+    type: array
+    items:
+      $ref: ./Discount.yaml
+    description: Read only. List of discounts that are available for a product.
+    nullable: true
+  isVariation:
+    type: boolean
+    description: >-
+      Read only. If true, this is a product variation of a product with
+      configurable options. System-supplied and read-only.
+  variationKey:
+    type: string
+    description: >-
+      Read only. If IsVariation true, thish provides a unique key to manage the
+      variation of the base product.
+    nullable: true
+  hasConfigurableOptions:
+    type: boolean
+    description: >-
+      Read only. If true, this product has configurable options. The product is
+      not purchasable until the shopper selects options that resolve to a
+      product variation. System-supplied and read-only.
+  hasStandAloneOptions:
+    type: boolean
+    description: >-
+      Read only. If true, the product has stand-alone options that a shopper may
+      select. System-supplied and read-only.
+  variationOptions:
+    type: array
+    items:
+      $ref: ./ProductVariationOption.yaml
+    description: >-
+      Read only List of variations that exist for a product. This is only
+      populated when IsVariation is true. To get the list of options, the GET
+      request must include the VariationOptions response group.
+    nullable: true
+  publishingInfo:
+    $ref: ./ProductPublishingInfo.yaml
+  bundledProducts:
+    type: array
+    items:
+      $ref: ./BundledProduct.yaml
+    description: "list of other products that are included in a BundleProduct\r\nThis requires that the ProductUssage be set to Bundle"
+    nullable: true
+  productImageGroups:
+    type: array
+    items:
+      $ref: ./ProductImageGroup.yaml
+    description: "List of the image groups this product uses.\r\nImage groups are used to map different images to different product options.\r\nIf the product doesn't have options then all images will be in the default\r\nimage group."
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+  slicingSettings:
+    $ref: ./SlicingSettings.yaml
+additionalProperties: false
+description: >-
+  Use the Products resource to create and manage products for your store. You
+  can create products with options that a shopper configures (such as a T-shirt
+  color and size). The system can manage inventory for all combinations of your
+  product options, and can calculate tax and shipping costs.

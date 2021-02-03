@@ -1,0 +1,19 @@
+type: object
+properties:
+  discountsRestricted:
+    type: boolean
+    nullable: true
+  discountsRestrictedStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  discountsRestrictedEndDate:
+    type: string
+    format: date-time
+    nullable: true
+  variationPricingMethod:
+    type: string
+    description: Only used when product is a variation
+    nullable: true
+additionalProperties: false
+description: Pricing behavior associated with the product

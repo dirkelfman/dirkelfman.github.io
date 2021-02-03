@@ -1,0 +1,126 @@
+type: object
+properties:
+  adminName:
+    type: string
+    description: >-
+      Name of the product displayed in the admin, This field does not need to be
+      unqiue, but is required. It can include spaces...and is limited to a
+      length of 50.
+    nullable: true
+  namespace:
+    type: string
+    description: "NameSpace, each application creating attributes will have a uniqe namespace to avoid name (Code) collisions. The namespace provided must be a valid registered\r\nnamespace. If no namespace is specified it is assumed to be the namespace of the Tenant."
+    nullable: true
+  attributeCode:
+    type: string
+    description: "Unique identifier of the Attribute. Must be unique within a namespace and cannot be changed once the attribute is created. This value will be generated and match the attribute\r\nsequence if not provided on create."
+    nullable: true
+  attributeFQN:
+    type: string
+    description: >-
+      Attribute fully qualified name, Read only value that combines namespace
+      and attribute code as NameSpace~AttributeCode
+    nullable: true
+  isValueMappingAttribute:
+    type: boolean
+    description: >-
+      Specifies if this attribute can can be used to generalize values of
+      another attribute
+    nullable: true
+  valueMappingAttributeFQN:
+    type: string
+    description: Attribute fully qualified name of a corresponding value mapping atribuite
+    nullable: true
+  attributeSequence:
+    type: integer
+    description: >-
+      Read only System generated monotonically increasing unique sequence for
+      each attribute created.
+    format: int32
+    nullable: true
+  attributeDataTypeSequence:
+    type: integer
+    description: >-
+      Read only System generated monotonically increasing unique sequence for
+      each attribute,DataType created (this is used to optimize indexed field
+      names in search).
+    format: int32
+    nullable: true
+  masterCatalogId:
+    type: integer
+    description: >-
+      Indentifier of the master that this attribute is a member of.
+      System-supplied and read-only. Attributes will be created in the
+      MasterCatalog of the supplied context.
+    format: int32
+    nullable: true
+  inputType:
+    maxLength: 20
+    type: string
+    description: "The InputType type of the attribute. Must be a valid value for InputType defined in InputTypeConst and the combination of types set must match an entry in the AttributeTypeRules resource. \r\nThis value cannot be changed after create"
+    nullable: true
+  valueType:
+    maxLength: 20
+    type: string
+    description: "The ValueType of the attribute.  Must be a valid value for ValueType defined in ValueTypeTypeConst and the combination of types set must match an entry in the AttributeTypeRules resource. \r\nThis value cannot be changed after create"
+    nullable: true
+  dataType:
+    maxLength: 20
+    type: string
+    description: "The DataType of the attribute.  Must be a valid value for DataType defined in DataTypeTypeConst and the combination of types set must match an entry in the AttributeTypeRules resource. \r\nThis value cannot be changed after create"
+    nullable: true
+  isOption:
+    type: boolean
+    description: >-
+      Specifies if this attribute can have a usage type of Option in a
+      ProductType. This value can only be true when when it matches an
+      AttributeTypeRule in the AttributeTypeRules resource.
+    nullable: true
+  isExtra:
+    type: boolean
+    description: >-
+      Specifies if this attribute can have a usage type of Extra in a
+      ProductType. This value can only be true when when it matches an
+      AttributeTypeRule in the AttributeTypeRules resource.
+    nullable: true
+  isProperty:
+    type: boolean
+    description: >-
+      Specifies if this attribute can have a usage type of Property in a
+      ProductType. This value can only be true when when it matches an
+      AttributeTypeRule in the AttributeTypeRules resource.
+    nullable: true
+  attributeMetadata:
+    type: array
+    items:
+      $ref: ./AttributeMetadataItem.yaml
+    description: >-
+      Attribute Metadata. This list can contain opaque data (key value pairs)
+      that can be used as a property bag for UI concerns.
+    nullable: true
+  content:
+    $ref: ./AttributeLocalizedContent.yaml
+  localizedContent:
+    type: array
+    items:
+      $ref: ./AttributeLocalizedContent.yaml
+    description: >-
+      The Content of an attribute. This content is always in the default
+      language of the MasterCatalog.
+    nullable: true
+  validation:
+    $ref: ./AttributeValidation.yaml
+  vocabularyValues:
+    type: array
+    items:
+      $ref: ./AttributeVocabularyValue.yaml
+    description: >-
+      The list of Values for this attribute. Only available for
+      ValueType:PredefinedVocabulary
+    nullable: true
+  searchSettings:
+    $ref: ./AttributeSearchSettings.yaml
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: Attribute

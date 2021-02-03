@@ -1,0 +1,76 @@
+get:
+  tags:
+    - Attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: responseGroups
+      in: query
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+put:
+  tags:
+    - Attribute
+  summary: Update attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Attribute.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+delete:
+  tags:
+    - Attribute
+  summary: Delete attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Discount
+  summary: Retrieves the localized content specified for the specified discount.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml
+put:
+  tags:
+    - Discount
+  summary: >-
+    Modifies the localized content for the specified discount. Allows you to
+    rename the discount without modifying any other discount properties.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  requestBody:
+    description: >-
+      New Name and/or LocaleCode. Properties of the content to update. Required
+      property: Name.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DiscountLocalizedContent.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountLocalizedContent.yaml

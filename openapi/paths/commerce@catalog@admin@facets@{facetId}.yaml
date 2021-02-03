@@ -1,0 +1,81 @@
+get:
+  tags:
+    - Facet
+  summary: Retrieves the details of a Facet Definition
+  parameters:
+    - name: facetId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+    - name: validate
+      in: query
+      description: ''
+      schema:
+        type: boolean
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+put:
+  tags:
+    - Facet
+  summary: Modifies a Facet definition
+  parameters:
+    - name: facetId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Facet.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+delete:
+  tags:
+    - Facet
+  summary: Deletes the Facet definition from the store
+  parameters:
+    - name: facetId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  responses:
+    '200':
+      description: Success

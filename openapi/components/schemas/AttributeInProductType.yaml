@@ -1,0 +1,62 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    description: >-
+      Unique identifier of the Attribute. Must be an attribute fully qualilfied
+      name that already exists. If no namespace is specified Tenant is assumed
+    nullable: true
+  isInheritedFromBaseType:
+    type: boolean
+    description: >-
+      If True, the attribute is part of the base product type and can only have
+      order modified.
+    nullable: true
+  order:
+    type: integer
+    description: Used to order the display of the attributes within a section
+    format: int32
+    nullable: true
+  isRequiredByAdmin:
+    type: boolean
+    description: >-
+      If True, the admin must include this attribute in products of this
+      productType
+    nullable: true
+  isHiddenProperty:
+    type: boolean
+    description: >-
+      If True, the property is hidden in the storefront. This field only applies
+      to properties.
+    nullable: true
+  isAdminOnlyProperty:
+    type: boolean
+    description: >-
+      If true, this property is not available on the storefront. If false, this
+      property will be available on storefront. The IsHiddenProperty hides the
+      property from the customer, but is still available from the API.
+    nullable: true
+  isProductDetailsOnlyProperty:
+    type: boolean
+    description: >-
+      If True this property will not be returned  storefront product listings
+      (Search,GetProduct) it will still be returned on GetProduct,
+      ValidateProduct...)
+    nullable: true
+  isMultiValueProperty:
+    type: boolean
+    description: >-
+      If True, the property can have multiple values selected on the product.
+      Only applies to PredefinedVocabulary properties.
+    nullable: true
+  displayInfo:
+    $ref: ./AttributeInProductTypeDisplayInfo.yaml
+  vocabularyValues:
+    type: array
+    items:
+      $ref: ./AttributeVocabularyValueInProductType.yaml
+    description: The collection of vocabulary values included in this product type.
+    nullable: true
+  attributeDetail:
+    $ref: ./Attribute.yaml
+additionalProperties: false

@@ -1,0 +1,30 @@
+required:
+  - attributeFQN
+type: object
+properties:
+  attributeFQN:
+    type: string
+    description: "AttributeFQN of the extra\r\nReadOnly"
+  value:
+    type: object
+    additionalProperties: false
+    description: "The value stored with the extra\r\nReadOnly"
+    nullable: true
+  price:
+    type: number
+    description: PriceList price for the extra
+    format: double
+  attributeCode:
+    type: string
+    description: "AttributeCode.\r\nReadOnly"
+    nullable: true
+  attributeName:
+    type: string
+    description: "Name of attribute that this extra is based on.\r\nReadOnly"
+    nullable: true
+  displayValue:
+    type: string
+    description: "Value to display.  Currently only vaild when Value is a string type.\r\nReadOnly"
+    nullable: true
+additionalProperties: false
+description: Extra for an entry on a price list

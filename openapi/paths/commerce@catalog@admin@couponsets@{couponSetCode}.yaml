@@ -1,0 +1,89 @@
+get:
+  tags:
+    - CouponSet
+  summary: Returns a single Mozu.ProductAdmin.Contracts.CouponSet
+  parameters:
+    - name: couponSetCode
+      in: path
+      description: CouponSetCode for the requested CouponSet
+      required: true
+      schema:
+        type: string
+        description: CouponSetCode for the requested CouponSet
+        nullable: true
+    - name: includeCounts
+      in: query
+      description: Include the redemption counts and coupon counts
+      schema:
+        type: boolean
+        description: Include the redemption counts and coupon counts
+        default: false
+    - name: responseGroups
+      in: query
+      description: >-
+        "counts" includes the number of redemptions, coupon codes, and assigned
+        discounts.
+      schema:
+        type: string
+        description: >-
+          "counts" includes the number of redemptions, coupon codes, and
+          assigned discounts.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+put:
+  tags:
+    - CouponSet
+  summary: "Update a Mozu.ProductAdmin.Contracts.CouponSet representation.\r\nYou can not update the Code or ID once the set is created."
+  parameters:
+    - name: couponSetCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CouponSet.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+delete:
+  tags:
+    - CouponSet
+  parameters:
+    - name: couponSetCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success

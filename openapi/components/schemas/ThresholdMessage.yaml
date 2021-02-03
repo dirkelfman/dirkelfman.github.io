@@ -1,0 +1,35 @@
+required:
+  - content
+  - discountId
+  - thresholdValue
+type: object
+properties:
+  discountId:
+    type: integer
+    description: Unique identifier of the discount. System-supplied and read-only.
+    format: int32
+  thresholdValue:
+    type: number
+    description: >-
+      The cart total amount that must be met before the threshold message is
+      displayed
+    format: double
+  isActive:
+    type: boolean
+    description: Indicates if threshold messages are active for this discount
+  showInCart:
+    type: boolean
+    description: Indicates if the threshold message will display in the cart
+  showOnCheckout:
+    type: boolean
+    description: Indicates if the threshold message will display on the checkout page
+  requiresCouponCode:
+    type: boolean
+    description: >-
+      Indicates if the threshold message will display when a promo code is
+      evaluated
+  content:
+    $ref: ./ThresholdMessageLocalizedContent.yaml
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false

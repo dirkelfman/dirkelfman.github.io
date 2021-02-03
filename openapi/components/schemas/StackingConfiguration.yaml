@@ -1,0 +1,14 @@
+type: object
+properties:
+  stackingEnabled:
+    type: boolean
+    description: Indicates if discount stacking is enabled for discounts in this catalog
+  productOrderLayers:
+    type: integer
+    description: Number of Product Order discount layers
+    format: int32
+  productLineItemLayers:
+    type: integer
+    description: Number of Product Line Item discount layers
+    format: int32
+additionalProperties: false

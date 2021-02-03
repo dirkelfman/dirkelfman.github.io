@@ -1,0 +1,12 @@
+type: object
+properties:
+  stackingConfiguration:
+    $ref: ./StackingConfiguration.yaml
+  usePostDiscountedOrderValue:
+    type: boolean
+    description: >-
+      Use the pre or post line item discounts order total to evaluate the order
+      minimum constraint
+    nullable: true
+additionalProperties: false
+description: Tenant level discount settings

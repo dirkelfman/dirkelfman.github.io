@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Product
+  summary: >-
+    Action that allows productCodes to be Renamed. Changing the resource
+    identifier of a product could cause problems for established products.
+  requestBody:
+    description: >-
+      An array specifying the existing productCode and the new productCode it
+      should be renamed to
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/ProductCodeRename.yaml
+          description: >-
+            An array specifying the existing productCode and the new productCode
+            it should be renamed to
+          nullable: true
+  responses:
+    '200':
+      description: Success

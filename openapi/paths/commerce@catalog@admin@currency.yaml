@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Currency
+  summary: Adds a new product sort definition.
+  requestBody:
+    description: "Properties of the currency-localization to create.\r\nRequired properties: CurrencyCode"
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CurrencyLocalization.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+get:
+  tags:
+    - Currency
+  summary: Gets all currency-localizations.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalizationCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalizationCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalizationCollection.yaml

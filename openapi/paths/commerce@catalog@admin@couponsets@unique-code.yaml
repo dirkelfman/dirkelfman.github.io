@@ -1,0 +1,17 @@
+get:
+  tags:
+    - CouponSet
+  summary: Returns a random 4 character code that is unique as a coupon set code.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: string
+        text/json:
+          schema:
+            type: string
+        text/plain:
+          schema:
+            type: string

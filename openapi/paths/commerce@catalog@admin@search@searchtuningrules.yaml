@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Search
+  parameters:
+    - name: startIndex
+      in: query
+      schema:
+        type: integer
+        format: int32
+        default: 0
+        nullable: true
+    - name: pageSize
+      in: query
+      schema:
+        type: integer
+        format: int32
+        default: 0
+        nullable: true
+    - name: sortBy
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: filter
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: responseGroups
+      in: query
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleCollection.yaml
+post:
+  tags:
+    - Search
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SearchTuningRule.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRule.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRule.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchTuningRule.yaml

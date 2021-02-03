@@ -1,0 +1,32 @@
+type: object
+properties:
+  localeCode:
+    type: string
+    description: 'Lanugage used for product content. Currently, only en_US is supported.'
+    nullable: true
+  productName:
+    type: string
+    description: Name of the product.
+    nullable: true
+  productFullDescription:
+    type: string
+    description: Long description of the product typically used for a product details page.
+    nullable: true
+  productShortDescription:
+    type: string
+    description: >-
+      Brief description of the product typically used when the product is
+      displayed in a list or search results.
+    nullable: true
+  productImages:
+    type: array
+    items:
+      $ref: ./ProductLocalizedImage.yaml
+    description: List of images associated with the product.
+    nullable: true
+additionalProperties: false
+description: >-
+  Container for language-specific content to display on the storefront. You'll
+  have a container for each supported language (LocaleCode). This enables you to
+  display a product in multiple languages yet manage it as a single product
+  internally.

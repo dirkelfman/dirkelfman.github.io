@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: MasterCatalogId (readonly)
+    format: int32
+  name:
+    type: string
+    description: Name of the MasterCatalog (readonly)
+    nullable: true
+  productPublishingMode:
+    type: string
+    description: The product publishing mode of this MasterCatalog
+    nullable: true
+  enableLiveEdit:
+    type: boolean
+    description: >-
+      If the publishingMode is Pending and LiveEditsEnabled = true, DataViewMode
+      live can be passed in the header and live products can be directly edited.
+    nullable: true
+  isDeleted:
+    type: boolean
+    description: >-
+      Indicates whether the MasterCatalog has been deleted and should no longer
+      be used
+additionalProperties: false

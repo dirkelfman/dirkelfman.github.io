@@ -1,0 +1,274 @@
+openapi: 3.0.1
+info:
+  title: Kibo ProductAdmin Service
+  version: v1
+paths:
+  /commerce/catalog/admin/attributedefinition/attributes:
+    $ref: paths/commerce@catalog@admin@attributedefinition@attributes.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent/{localeCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@LocalizedContent@{localeCode}.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@LocalizedContent.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@VocabularyValues@{value}.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@VocabularyValues@{value}@LocalizedContent@{localeCode}.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@VocabularyValues@{value}@LocalizedContent.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@VocabularyValues.yaml
+  '/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/localizedContent':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@attributes@{attributeFQN}@VocabularyValues@{value}@localizedContent.yaml
+  /commerce/catalog/admin/attributedefinition/attributes/typerules:
+    $ref: paths/commerce@catalog@admin@attributedefinition@attributes@typerules.yaml
+  /commerce/catalog/admin/categories:
+    $ref: paths/commerce@catalog@admin@categories.yaml
+  '/commerce/catalog/admin/categories/{categoryId}':
+    $ref: 'paths/commerce@catalog@admin@categories@{categoryId}.yaml'
+  '/commerce/catalog/admin/categories/{categoryId}/children':
+    $ref: 'paths/commerce@catalog@admin@categories@{categoryId}@children.yaml'
+  /commerce/catalog/admin/categories/ValidateDynamicExpression:
+    $ref: paths/commerce@catalog@admin@categories@ValidateDynamicExpression.yaml
+  /commerce/catalog/admin/categories/ValidateRealTimeDynamicExpression:
+    $ref: >-
+      paths/commerce@catalog@admin@categories@ValidateRealTimeDynamicExpression.yaml
+  '/commerce/catalog/admin/categories/{categoryId}/remove-products':
+    $ref: 'paths/commerce@catalog@admin@categories@{categoryId}@remove-products.yaml'
+  '/commerce/catalog/admin/categories/{categoryId}/add-products':
+    $ref: 'paths/commerce@catalog@admin@categories@{categoryId}@add-products.yaml'
+  /commerce/catalog/admin/corefields/search:
+    $ref: paths/commerce@catalog@admin@corefields@search.yaml
+  /commerce/catalog/admin/corefields/search/product:
+    $ref: paths/commerce@catalog@admin@corefields@search@product.yaml
+  /commerce/catalog/admin/corefields/search/category:
+    $ref: paths/commerce@catalog@admin@corefields@search@category.yaml
+  /commerce/catalog/admin/corefields/search/boost:
+    $ref: paths/commerce@catalog@admin@corefields@search@boost.yaml
+  /commerce/catalog/admin/couponsets/unique-code:
+    $ref: paths/commerce@catalog@admin@couponsets@unique-code.yaml
+  /commerce/catalog/admin/couponsets/validate-unique-code:
+    $ref: paths/commerce@catalog@admin@couponsets@validate-unique-code.yaml
+  '/commerce/catalog/admin/couponsets/{couponSetCode}':
+    $ref: 'paths/commerce@catalog@admin@couponsets@{couponSetCode}.yaml'
+  /commerce/catalog/admin/couponsets:
+    $ref: paths/commerce@catalog@admin@couponsets.yaml
+  '/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes':
+    $ref: 'paths/commerce@catalog@admin@couponsets@{couponSetCode}@couponcodes.yaml'
+  '/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes/{couponCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@couponsets@{couponSetCode}@couponcodes@{couponCode}.yaml
+  '/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes/remove':
+    $ref: >-
+      paths/commerce@catalog@admin@couponsets@{couponSetCode}@couponcodes@remove.yaml
+  '/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts':
+    $ref: >-
+      paths/commerce@catalog@admin@couponsets@{couponSetCode}@assigneddiscounts.yaml
+  '/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts/{discountId}':
+    $ref: >-
+      paths/commerce@catalog@admin@couponsets@{couponSetCode}@assigneddiscounts@{discountId}.yaml
+  /commerce/catalog/admin/currency:
+    $ref: paths/commerce@catalog@admin@currency.yaml
+  '/commerce/catalog/admin/currency/{currencyCode}':
+    $ref: 'paths/commerce@catalog@admin@currency@{currencyCode}.yaml'
+  '/commerce/catalog/admin/currency/{currencyCode}/exchangerates':
+    $ref: 'paths/commerce@catalog@admin@currency@{currencyCode}@exchangerates.yaml'
+  '/commerce/catalog/admin/currency/{currencyCode}/exchangerates/{toCurrencyCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@currency@{currencyCode}@exchangerates@{toCurrencyCode}.yaml
+  /commerce/catalog/admin/discounts/generate-random-coupon:
+    $ref: paths/commerce@catalog@admin@discounts@generate-random-coupon.yaml
+  /commerce/catalog/admin/discounts:
+    $ref: paths/commerce@catalog@admin@discounts.yaml
+  '/commerce/catalog/admin/discounts/{discountId}':
+    $ref: 'paths/commerce@catalog@admin@discounts@{discountId}.yaml'
+  '/commerce/catalog/admin/discounts/{discountId}/content':
+    $ref: 'paths/commerce@catalog@admin@discounts@{discountId}@content.yaml'
+  '/commerce/catalog/admin/discounts/{discountId}/target':
+    $ref: 'paths/commerce@catalog@admin@discounts@{discountId}@target.yaml'
+  '/commerce/catalog/admin/discountsettings/{catalogId}':
+    $ref: 'paths/commerce@catalog@admin@discountsettings@{catalogId}.yaml'
+  '/commerce/catalog/admin/facets/{facetId}':
+    $ref: 'paths/commerce@catalog@admin@facets@{facetId}.yaml'
+  /commerce/catalog/admin/facets:
+    $ref: paths/commerce@catalog@admin@facets.yaml
+  '/commerce/catalog/admin/facets/category/{categoryId}':
+    $ref: 'paths/commerce@catalog@admin@facets@category@{categoryId}.yaml'
+  '/commerce/catalog/admin/locationinventory/{locationCode}':
+    $ref: 'paths/commerce@catalog@admin@locationinventory@{locationCode}.yaml'
+  '/commerce/catalog/admin/locationinventory/{locationCode}/{productCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@locationinventory@{locationCode}@{productCode}.yaml
+  /commerce/catalog/admin/mastercatalogs:
+    $ref: paths/commerce@catalog@admin@mastercatalogs.yaml
+  '/commerce/catalog/admin/mastercatalogs/{masterCatalogId}':
+    $ref: 'paths/commerce@catalog@admin@mastercatalogs@{masterCatalogId}.yaml'
+  /commerce/catalog/admin/pricelists:
+    $ref: paths/commerce@catalog@admin@pricelists.yaml
+  '/commerce/catalog/admin/pricelists/{priceListCode}':
+    $ref: 'paths/commerce@catalog@admin@pricelists@{priceListCode}.yaml'
+  '/commerce/catalog/admin/pricelists/{priceListCode}/entries':
+    $ref: 'paths/commerce@catalog@admin@pricelists@{priceListCode}@entries.yaml'
+  '/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@pricelists@{priceListCode}@entries@{productCode}@{currencyCode}.yaml
+  /commerce/catalog/admin/pricelists/bulkaddentries:
+    $ref: paths/commerce@catalog@admin@pricelists@bulkaddentries.yaml
+  /commerce/catalog/admin/pricelists/bulkupdateentries:
+    $ref: paths/commerce@catalog@admin@pricelists@bulkupdateentries.yaml
+  /commerce/catalog/admin/pricelists/bulkdeleteentries:
+    $ref: paths/commerce@catalog@admin@pricelists@bulkdeleteentries.yaml
+  /commerce/catalog/admin/products:
+    $ref: paths/commerce@catalog@admin@products.yaml
+  '/commerce/catalog/admin/products/{productCode}':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}.yaml'
+  '/commerce/catalog/admin/products/{productCode}/ProductInCatalogs/{catalogId}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@ProductInCatalogs@{catalogId}.yaml
+  '/commerce/catalog/admin/products/{productCode}/ProductInCatalogs':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}@ProductInCatalogs.yaml'
+  /commerce/catalog/admin/products/Actions/RenameProductCodes:
+    $ref: paths/commerce@catalog@admin@products@Actions@RenameProductCodes.yaml
+  '/commerce/catalog/admin/products/{productCode}/variations':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}@variations.yaml'
+  '/commerce/catalog/admin/products/{productCode}/variations/{variationKey}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@variations@{variationKey}.yaml
+  '/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@variations@{variationKey}@localizedDeltaPrice.yaml
+  '/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@variations@{variationKey}@localizedDeltaPrice@{currencyCode}.yaml
+  '/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@variations@{variationKey}@localizedPrice.yaml
+  '/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@variations@{variationKey}@localizedPrice@{currencyCode}.yaml
+  '/commerce/catalog/admin/products/{productCode}/Extras':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}@Extras.yaml'
+  '/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Extras@{attributeFQN}.yaml
+  '/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Extras@{attributeFQN}@Values@{value}@localizedDeltaPrice.yaml
+  '/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Extras@{attributeFQN}@Values@{value}@localizedDeltaPrice@{currencyCode}.yaml
+  '/commerce/catalog/admin/products/{ProductCode}/LocationInventory':
+    $ref: 'paths/commerce@catalog@admin@products@{ProductCode}@LocationInventory.yaml'
+  '/commerce/catalog/admin/products/{ProductCode}/LocationInventory/{LocationCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{ProductCode}@LocationInventory@{LocationCode}.yaml
+  '/commerce/catalog/admin/products/{productCode}/Options':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}@Options.yaml'
+  '/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Options@{attributeFQN}.yaml
+  '/commerce/catalog/admin/products/{productCode}/Properties':
+    $ref: 'paths/commerce@catalog@admin@products@{productCode}@Properties.yaml'
+  '/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Properties@{attributeFQN}.yaml
+  '/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Properties@{attributeFQN}@values@{value}@LocalizedContent.yaml
+  '/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@products@{productCode}@Properties@{attributeFQN}@values@{value}@LocalizedContent@{localeCode}.yaml
+  /commerce/catalog/admin/productsortdefinitions:
+    $ref: paths/commerce@catalog@admin@productsortdefinitions.yaml
+  '/commerce/catalog/admin/productsortdefinitions/{productSortDefinitionId}':
+    $ref: >-
+      paths/commerce@catalog@admin@productsortdefinitions@{productSortDefinitionId}.yaml
+  /commerce/catalog/admin/attributedefinition/producttypes:
+    $ref: paths/commerce@catalog@admin@attributedefinition@producttypes.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/variations':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@variations.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Extras.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Extras@{attributeFQN}.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Options.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Options@{attributeFQN}.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Properties':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Properties.yaml
+  '/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Properties/{attributeFQN}':
+    $ref: >-
+      paths/commerce@catalog@admin@attributedefinition@producttypes@{productTypeId}@Properties@{attributeFQN}.yaml
+  /commerce/catalog/admin/publishing/publishdrafts:
+    $ref: paths/commerce@catalog@admin@publishing@publishdrafts.yaml
+  /commerce/catalog/admin/publishing/discarddrafts:
+    $ref: paths/commerce@catalog@admin@publishing@discarddrafts.yaml
+  /commerce/catalog/admin/publishing/publishsets:
+    $ref: paths/commerce@catalog@admin@publishing@publishsets.yaml
+  '/commerce/catalog/admin/publishing/publishsets/{publishSetCode}':
+    $ref: 'paths/commerce@catalog@admin@publishing@publishsets@{publishSetCode}.yaml'
+  '/commerce/catalog/admin/search/synonym-definitions/{localeCode}':
+    $ref: 'paths/commerce@catalog@admin@search@synonym-definitions@{localeCode}.yaml'
+  '/commerce/catalog/admin/search/master-catalog-synonym-definitions/{languageCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@search@master-catalog-synonym-definitions@{languageCode}.yaml
+  /commerce/catalog/admin/search/synonyms:
+    $ref: paths/commerce@catalog@admin@search@synonyms.yaml
+  '/commerce/catalog/admin/search/synonyms/{synonymId}':
+    $ref: 'paths/commerce@catalog@admin@search@synonyms@{synonymId}.yaml'
+  /commerce/catalog/admin/search/searchtuningrules:
+    $ref: paths/commerce@catalog@admin@search@searchtuningrules.yaml
+  '/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}':
+    $ref: >-
+      paths/commerce@catalog@admin@search@searchtuningrules@{searchTuningRuleCode}.yaml
+  /commerce/catalog/admin/search/searchtuningrulesortfields:
+    $ref: paths/commerce@catalog@admin@search@searchtuningrulesortfields.yaml
+  '/commerce/catalog/admin/search/{name}/categorysuggestsettings':
+    $ref: 'paths/commerce@catalog@admin@search@{name}@categorysuggestsettings.yaml'
+  '/commerce/catalog/admin/search/{name}/listingsettings':
+    $ref: 'paths/commerce@catalog@admin@search@{name}@listingsettings.yaml'
+  '/commerce/catalog/admin/search/{name}/productsuggestsettings':
+    $ref: 'paths/commerce@catalog@admin@search@{name}@productsuggestsettings.yaml'
+  /commerce/catalog/admin/search/settings:
+    $ref: paths/commerce@catalog@admin@search@settings.yaml
+  '/commerce/catalog/admin/search/settings/{name}':
+    $ref: 'paths/commerce@catalog@admin@search@settings@{name}.yaml'
+  /commerce/catalog/admin/search/settings/systemdefault:
+    $ref: paths/commerce@catalog@admin@search@settings@systemdefault.yaml
+  '/commerce/catalog/admin/search/{name}/sitesearchsettings':
+    $ref: 'paths/commerce@catalog@admin@search@{name}@sitesearchsettings.yaml'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\""
+      scheme: bearer
+      bearerFormat: JWT
+    clientOauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /platform/applications/internal/access-tokens/oauth/
+          scopes: {}
+security:
+  - bearerAuth: []
+    clientOauth2: []

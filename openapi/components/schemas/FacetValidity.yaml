@@ -1,0 +1,8 @@
+type: object
+properties:
+  isValid:
+    type: boolean
+  reasonCode:
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,8 @@
+type: object
+properties:
+  productCode:
+    type: string
+    description: Product code of the product to discount.
+    nullable: true
+additionalProperties: false
+description: Product to discount.

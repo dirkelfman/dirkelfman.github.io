@@ -1,0 +1,58 @@
+get:
+  tags:
+    - MasterCatalog
+  summary: Get a MasterCatalog
+  parameters:
+    - name: masterCatalogId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml
+put:
+  tags:
+    - MasterCatalog
+  summary: Update the publishingMode of a MasterCatalog
+  parameters:
+    - name: masterCatalogId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/MasterCatalog.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/MasterCatalog.yaml

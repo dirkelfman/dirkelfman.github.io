@@ -1,0 +1,12 @@
+type: object
+properties:
+  currencyCode:
+    type: string
+    description: Which currency to use.
+    nullable: true
+  deltaPrice:
+    type: number
+    description: Amount of money saved when discounts are applied.
+    format: double
+additionalProperties: false
+description: 'How much a product option costs above the cost of the base product, if at all.'

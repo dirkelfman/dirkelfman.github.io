@@ -1,0 +1,19 @@
+delete:
+  tags:
+    - CouponSet
+  parameters:
+    - name: couponSetCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: discountId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: Success

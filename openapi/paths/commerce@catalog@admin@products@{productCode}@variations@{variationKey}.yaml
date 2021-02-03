@@ -1,0 +1,122 @@
+get:
+  tags:
+    - Product
+  summary: >-
+    Retrieves an existing product variation for a specific product and variation
+    key.
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+    - name: variationKey
+      in: path
+      description: >-
+        Unique identifier for a single product variation. System-supplied and
+        read-only.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Unique identifier for a single product variation. System-supplied and
+          read-only.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+put:
+  tags:
+    - Product
+  summary: "Modifies an existing product variation specified by its variation key. Typically used to change the price or\r\ninventory count of an existing product variation. Read-only options are ignored."
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+    - name: variationKey
+      in: path
+      description: Unique identifier for a single variation. System-supplied and read-only.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Unique identifier for a single variation. System-supplied and
+          read-only.
+        nullable: true
+  requestBody:
+    description: Properties of the product variation that you are modifying. Required.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductVariation.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariation.yaml
+delete:
+  tags:
+    - Product
+  summary: Deletes an existing product variation.
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+    - name: variationKey
+      in: path
+      description: >-
+        Unique identifier for a single product variation. System-supplied and
+        read-only.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Unique identifier for a single product variation. System-supplied and
+          read-only.
+        nullable: true
+  responses:
+    '200':
+      description: Success

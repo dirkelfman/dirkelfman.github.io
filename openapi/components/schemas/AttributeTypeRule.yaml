@@ -1,0 +1,20 @@
+type: object
+properties:
+  attributeInputType:
+    type: string
+    description: AttributeInputType identifier
+    nullable: true
+  attributeDataType:
+    type: string
+    description: AttributeDataType identifier
+    nullable: true
+  attributeValueType:
+    type: string
+    description: AttributeValueType identifier
+    nullable: true
+  attributeUsageType:
+    type: string
+    description: AttributeUsageType identifier
+    nullable: true
+additionalProperties: false
+description: Attribute Value Localized Resource

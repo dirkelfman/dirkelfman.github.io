@@ -1,0 +1,12 @@
+type: object
+properties:
+  value:
+    type: string
+    nullable: true
+  boost:
+    type: integer
+    format: int32
+  operator:
+    type: string
+    nullable: true
+additionalProperties: false

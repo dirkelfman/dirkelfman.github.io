@@ -1,0 +1,54 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Unique identifier of the image. System-supplied and read-only.
+    format: int32
+    nullable: true
+  localeCode:
+    type: string
+    description: Language used for the image content.
+    nullable: true
+  imageLabel:
+    type: string
+    description: Image title that appears on the storefront.
+    nullable: true
+  altText:
+    type: string
+    description: >-
+      Descriptive text associated with the image or video that appears on the
+      storefront.
+    nullable: true
+  imageUrl:
+    type: string
+    description: URL of the image.
+    nullable: true
+  cmsId:
+    type: string
+    description: Id of the image in the CMS.
+    nullable: true
+  videoUrl:
+    type: string
+    description: URL of a video associated with the product.
+    nullable: true
+  mediaType:
+    type: string
+    description: >-
+      Type of media. Used by the client to determine how to render the image or
+      video or what have you.
+    nullable: true
+  sequence:
+    type: integer
+    description: >-
+      For products with multiple images, the order in which this image appears
+      on the storefront.
+    format: int32
+    nullable: true
+  productImageGroupId:
+    type: string
+    description: Image group to which this image belongs.  Default is null.
+    nullable: true
+additionalProperties: false
+description: >-
+  Contains the image label and alternate text for a product image or video in
+  the language specified by LocalCode.

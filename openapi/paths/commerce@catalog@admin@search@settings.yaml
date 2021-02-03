@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Search
+  summary: Get site search settings
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchSettingsCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchSettingsCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchSettingsCollection.yaml
+put:
+  tags:
+    - Search
+  summary: Adds or Updates (Upsert) the Search Settings for a specific site
+  parameters:
+    - name: fromSystemDefault
+      in: query
+      schema:
+        type: boolean
+        default: false
+    - name: name
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: makeDefault
+      in: query
+      schema:
+        type: boolean
+        default: false
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SearchSettings.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml

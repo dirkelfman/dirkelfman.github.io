@@ -1,0 +1,9 @@
+type: object
+properties:
+  text:
+    type: string
+    nullable: true
+  tree:
+    $ref: ./Expression.yaml
+additionalProperties: false
+description: Category

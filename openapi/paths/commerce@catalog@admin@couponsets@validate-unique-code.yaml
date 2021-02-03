@@ -1,0 +1,15 @@
+post:
+  tags:
+    - CouponSet
+  summary: Tests code for uniqueness and validity
+  parameters:
+    - name: code
+      in: query
+      description: ''
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

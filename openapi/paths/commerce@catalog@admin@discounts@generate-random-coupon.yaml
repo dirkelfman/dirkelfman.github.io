@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Discount
+  summary: Generates a random code for a coupon.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: string
+        text/json:
+          schema:
+            type: string
+        text/plain:
+          schema:
+            type: string

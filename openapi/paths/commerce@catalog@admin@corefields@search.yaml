@@ -1,0 +1,16 @@
+get:
+  tags:
+    - CoreFields
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CoreFieldCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CoreFieldCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CoreFieldCollection.yaml

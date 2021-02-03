@@ -1,0 +1,12 @@
+type: object
+properties:
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./MasterCatalog.yaml
+    nullable: true
+additionalProperties: false
+description: Collection of MasterCatalogs

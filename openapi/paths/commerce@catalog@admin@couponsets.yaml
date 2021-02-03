@@ -1,0 +1,87 @@
+get:
+  tags:
+    - CouponSet
+  summary: Returns a paged collection of CouponSets
+  parameters:
+    - name: startIndex
+      in: query
+      description: ''
+      schema:
+        type: integer
+        description: ''
+        format: int32
+        default: 0
+        nullable: true
+    - name: pageSize
+      in: query
+      description: ''
+      schema:
+        type: integer
+        description: ''
+        format: int32
+        default: 0
+        nullable: true
+    - name: sortBy
+      in: query
+      description: ''
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: filter
+      in: query
+      description: ''
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: includeCounts
+      in: query
+      description: Include coupon and redemption counts
+      schema:
+        type: boolean
+        description: Include coupon and redemption counts
+        default: false
+    - name: responseGroups
+      in: query
+      description: '"counts" returns discount and couponCode counts'
+      schema:
+        type: string
+        description: '"counts" returns discount and couponCode counts'
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CouponSetCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CouponSetCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CouponSetCollection.yaml
+post:
+  tags:
+    - CouponSet
+  summary: Adds a single Mozu.ProductAdmin.Contracts.CouponSet
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CouponSet.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CouponSet.yaml

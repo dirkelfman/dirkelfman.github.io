@@ -1,0 +1,48 @@
+get:
+  tags:
+    - LocationInventory
+  parameters:
+    - name: locationCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/LocationInventory.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/LocationInventory.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/LocationInventory.yaml
+delete:
+  tags:
+    - LocationInventory
+  parameters:
+    - name: locationCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success

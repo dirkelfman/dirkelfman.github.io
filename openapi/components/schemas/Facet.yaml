@@ -1,0 +1,45 @@
+type: object
+properties:
+  facetId:
+    type: integer
+    description: The unique identifier for the facet definition
+    format: int32
+    nullable: true
+  source:
+    $ref: ./FacetSource.yaml
+  facetType:
+    type: string
+    description: "The type of facet. Allowable values are: Value, RangeQuery \r\nMust be a valid value for DataType defined in FacetTypeConst."
+    nullable: true
+  order:
+    type: integer
+    description: Used to order the display of the facets within a section
+    format: int32
+  categoryId:
+    type: integer
+    description: The category that the facet is being configured at
+    format: int32
+  valueSortType:
+    type: string
+    description: "Determines how the facet values will be sorted in the store. \r\nMust be a valid value for DataType defined in FacetValueSortTypeConst. \r\nAllowable values are: CountAscending, CountDescending, ValuesAscending, ValuesDescending, AttributeDefinition, AttributeDefinitionDescending.\r\nThe default if no value is specified will be CountDescending."
+    nullable: true
+  overrideFacetId:
+    type: integer
+    description: The ID of a parent category's facet being overriden
+    format: int32
+    nullable: true
+  isHidden:
+    type: boolean
+    description: Indicates whether the facet is hidden for the given category
+  validity:
+    $ref: ./FacetValidity.yaml
+  rangeQueries:
+    type: array
+    items:
+      $ref: ./FacetRangeQuery.yaml
+    description: List of ranges if the Facet is of type Range
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: The definition of a Facet

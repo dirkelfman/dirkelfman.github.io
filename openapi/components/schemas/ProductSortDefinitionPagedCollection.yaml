@@ -1,0 +1,23 @@
+type: object
+properties:
+  startIndex:
+    type: integer
+    format: int32
+  pageSize:
+    type: integer
+    format: int32
+  pageCount:
+    type: integer
+    format: int32
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./ProductSortDefinition.yaml
+    nullable: true
+additionalProperties: false
+description: >-
+  Collection of product sort definitions where product sort definitions are
+  returned in a series of pages.

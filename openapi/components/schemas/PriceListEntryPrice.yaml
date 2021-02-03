@@ -1,0 +1,20 @@
+type: object
+properties:
+  minQty:
+    type: integer
+    format: int32
+  listPriceMode:
+    type: string
+    nullable: true
+  listPrice:
+    type: number
+    format: double
+    nullable: true
+  salePriceMode:
+    type: string
+    nullable: true
+  salePrice:
+    type: number
+    format: double
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,115 @@
+get:
+  tags:
+    - ProductSortDefinition
+  summary: >-
+    Retrieves a list of product sort definitions according to any specified
+    filter criteria and sort options.
+  parameters:
+    - name: startIndex
+      in: query
+      description: >-
+        Used to page results from a query. Indicates the zero-based offset in
+        the complete result set where the returned entities begin. The default
+        value is 0.
+      schema:
+        type: integer
+        description: >-
+          Used to page results from a query. Indicates the zero-based offset in
+          the complete result set where the returned entities begin. The default
+          value is 0.
+        format: int32
+        default: 0
+        nullable: true
+    - name: pageSize
+      in: query
+      description: >-
+        Used to page results from a query. Indicates the maximum number of
+        entities to return from a query. The default value is 20 and the maximum
+        value is 200.
+      schema:
+        type: integer
+        description: >-
+          Used to page results from a query. Indicates the maximum number of
+          entities to return from a query. The default value is 20 and the
+          maximum value is 200.
+        format: int32
+        default: 0
+        nullable: true
+    - name: sortBy
+      in: query
+      description: >-
+        The element to sort the results by and the order in which the results
+        appear. Either ascending (a-z) or descending (z-a) order.
+      schema:
+        type: string
+        description: >-
+          The element to sort the results by and the order in which the results
+          appear. Either ascending (a-z) or descending (z-a) order.
+        nullable: true
+    - name: filter
+      in: query
+      description: >-
+        A set of filter expressions representing the search parameters for a
+        query: eq=equals, ne=not equals, gt=greater than, lt = less than or
+        equals, gt = greater than or equals, lt = less than or equals, sw =
+        starts with, or cont = contains. Optional.
+      schema:
+        type: string
+        description: >-
+          A set of filter expressions representing the search parameters for a
+          query: eq=equals, ne=not equals, gt=greater than, lt = less than or
+          equals, gt = greater than or equals, lt = less than or equals, sw =
+          starts with, or cont = contains. Optional.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinitionPagedCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinitionPagedCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinitionPagedCollection.yaml
+post:
+  tags:
+    - ProductSortDefinition
+  summary: Adds a new product sort definition
+  parameters:
+    - name: useProvidedId
+      in: query
+      description: >-
+        If true, the provided Id value will be used as the
+        ProductSortDefinitionId. If omitted or false, the system will generate a
+        ProductSortDefinitionId
+      schema:
+        type: boolean
+        description: >-
+          If true, the provided Id value will be used as the
+          ProductSortDefinitionId. If omitted or false, the system will generate
+          a ProductSortDefinitionId
+        default: false
+  requestBody:
+    description: >-
+      Properties of the new product sort definition. Required properties of
+      StartDate and Name.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductSortDefinition.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml

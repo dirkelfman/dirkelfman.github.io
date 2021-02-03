@@ -1,0 +1,62 @@
+delete:
+  tags:
+    - Currency
+  summary: >-
+    Delete a single exchange rate for a specified currency-code and target
+    currency-code.
+  parameters:
+    - name: currencyCode
+      in: path
+      description: Currency code
+      required: true
+      schema:
+        type: string
+        description: Currency code
+        nullable: true
+    - name: toCurrencyCode
+      in: path
+      description: C
+      required: true
+      schema:
+        type: string
+        description: C
+        nullable: true
+  responses:
+    '200':
+      description: Success
+get:
+  tags:
+    - Currency
+  summary: >-
+    Retrieves a single exchange rate for a specified currency-code and
+    target-currency-code.
+  parameters:
+    - name: currencyCode
+      in: path
+      description: Currency code
+      required: true
+      schema:
+        type: string
+        description: Currency code
+        nullable: true
+    - name: toCurrencyCode
+      in: path
+      description: Target currency code
+      required: true
+      schema:
+        type: string
+        description: Target currency code
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CurrencyExchangeRate.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CurrencyExchangeRate.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CurrencyExchangeRate.yaml

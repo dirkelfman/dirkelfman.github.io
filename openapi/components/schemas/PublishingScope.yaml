@@ -1,0 +1,17 @@
+type: object
+properties:
+  allPending:
+    type: boolean
+    description: True = scope to all pending products
+    nullable: true
+  productCodes:
+    type: array
+    items:
+      type: string
+    description: List of specific productCodes to scope publish operation against
+    nullable: true
+  publishSetCode:
+    type: string
+    description: The Publish Set to publish
+    nullable: true
+additionalProperties: false

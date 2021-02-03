@@ -1,0 +1,11 @@
+type: object
+properties:
+  sortFields:
+    type: array
+    items:
+      type: string
+    nullable: true
+  inclusionExclusionType:
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,93 @@
+get:
+  tags:
+    - Attribute
+  parameters:
+    - name: attributeFQN
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+put:
+  tags:
+    - Attribute
+  summary: Update attribute vocabulary value
+  parameters:
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: value
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AttributeVocabularyValue.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeVocabularyValue.yaml
+delete:
+  tags:
+    - Attribute
+  summary: Delete Attribute Vocabulary Value
+  parameters:
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: value
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

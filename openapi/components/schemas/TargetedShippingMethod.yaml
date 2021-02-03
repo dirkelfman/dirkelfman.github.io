@@ -1,0 +1,17 @@
+required:
+  - code
+type: object
+properties:
+  code:
+    maxLength: 64
+    minLength: 0
+    type: string
+    description: "Unique identifier of the shipping method as it appears in the SiteShippingMethod property of the Shipping Settings\r\nresource."
+  name:
+    type: string
+    description: >-
+      Name of the shipping method as it appears in
+      SiteShippingMethodLocalizedContent of the Shipping Settings resource.
+    nullable: true
+additionalProperties: false
+description: "Shipping method that is eligible for free shipping. This is the shipping method that is defined with the Shipping\r\nSettings resource."

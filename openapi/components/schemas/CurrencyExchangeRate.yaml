@@ -1,0 +1,29 @@
+required:
+  - rate
+type: object
+properties:
+  fromCurrencyCode:
+    type: string
+    description: The source currency code
+    nullable: true
+  toCurrencyCode:
+    type: string
+    description: The target currency code
+    nullable: true
+  rate:
+    type: number
+    description: The exchange rate
+    format: double
+  multiplier:
+    type: number
+    description: An additional multiplier to use in calculations
+    format: double
+    nullable: true
+  referenceData:
+    type: string
+    description: Reference data for miscellaneous metadata from updates
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: The exchange rate between two currencies

@@ -1,0 +1,19 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    description: Unique identifier of the Attribute.
+    nullable: true
+  isRequired:
+    type: boolean
+    nullable: true
+  isMultiSelect:
+    type: boolean
+    nullable: true
+  values:
+    type: array
+    items:
+      $ref: ./ProductExtraValue.yaml
+    nullable: true
+additionalProperties: false
+description: "Product options for configurable or stand-alone products. A configurable option is one that the shopper chooses when ordering, for example, \r\nthe color of a T-shirt. A stand-alone option is independent of the product and can be added to the product order. For example, a monogram."

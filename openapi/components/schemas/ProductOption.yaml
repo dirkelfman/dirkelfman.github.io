@@ -1,0 +1,18 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    description: Unique identifier of the Attribute.
+    nullable: true
+  isProductImageGroupSelector:
+    type: boolean
+    description: Defines whether or not this option can be used to segment product images
+    nullable: true
+  values:
+    type: array
+    items:
+      $ref: ./ProductOptionValue.yaml
+    description: List of all the values for this product option.
+    nullable: true
+additionalProperties: false
+description: "Product options for configurable or stand-alone products. A configurable option is one that the shopper chooses when ordering, for example, \r\nthe color of a T-shirt. A stand-alone option is independent of the product and can be added to the product order. For example, a monogram."

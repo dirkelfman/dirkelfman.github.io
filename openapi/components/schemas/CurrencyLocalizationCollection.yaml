@@ -1,0 +1,12 @@
+type: object
+properties:
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./CurrencyLocalization.yaml
+    nullable: true
+additionalProperties: false
+description: Non-pages collection of currency-localizations.

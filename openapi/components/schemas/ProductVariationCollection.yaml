@@ -1,0 +1,14 @@
+type: object
+properties:
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./ProductVariation.yaml
+    nullable: true
+additionalProperties: false
+description: >-
+  Collection of product variations returned as a whole. A collection is not
+  paged.

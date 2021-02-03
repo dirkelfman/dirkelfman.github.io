@@ -1,0 +1,9 @@
+type: object
+properties:
+  displayIntention:
+    type: string
+    description: >-
+      Defines the intended display of this Attribute in the storeFront (ex.
+      DropDown, ImagePicker, RadioButtons....)
+    nullable: true
+additionalProperties: false

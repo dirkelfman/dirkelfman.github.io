@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Facet
+  summary: Adds a new Facet to a category in a catalog.
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Facet.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Facet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Facet.yaml

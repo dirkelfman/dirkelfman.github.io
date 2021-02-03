@@ -1,0 +1,80 @@
+required:
+  - type
+type: object
+properties:
+  type:
+    type: string
+    description: "    Type of target to which the discount applies. Possible values: <pre>Product</pre> or <pre>Shipping</pre>. \r\nIf this is a <pre>Product</pre> type, you can specify which products or categories that the discount applies to.\r\n    If this is a <pre>Shipping</pre> type then you must specify which shipping methods apply."
+  includeAllProducts:
+    type: boolean
+    description: 'If yes, the discount applies to all products sold on the storefront.'
+    nullable: true
+  includedCategoriesOperator:
+    type: string
+    description: "Applies to Included categories\r\nWhen Any, the target product can belong to any specified category.\r\nWhen All, the target product must belong to all specified categories.\r\nDefaults to Any"
+    nullable: true
+  categories:
+    type: array
+    items:
+      $ref: ./TargetedCategory.yaml
+    description: >-
+      List of categories to discount. When a discount applies to a category, all
+      products in the category are discounted.
+    nullable: true
+  excludedCategoriesOperator:
+    type: string
+    description: "Applies to Included categories\r\nDefaults to Any"
+    nullable: true
+  excludedCategories:
+    type: array
+    items:
+      $ref: ./TargetedCategory.yaml
+    description: >-
+      List of categories to exclude from the discount. Useful to exclude
+      specific child categories.
+    nullable: true
+  products:
+    type: array
+    items:
+      $ref: ./TargetedProduct.yaml
+    description: List of products that are eligible for the discount.
+    nullable: true
+  excludedProducts:
+    type: array
+    items:
+      $ref: ./TargetedProduct.yaml
+    description: List of products that are excluded from the discount.
+    nullable: true
+  excludeItemsWithExistingShippingDiscounts:
+    type: boolean
+    description: "Prevents order scoped discounts from layering over items that already have a shipping discount with the \r\nsame type."
+    nullable: true
+  excludeItemsWithExistingProductDiscounts:
+    type: boolean
+    description: "Prevents order scoped discounts from layering over items that already have a product discount with the \r\nsame type."
+    nullable: true
+  shippingMethods:
+    type: array
+    items:
+      $ref: ./TargetedShippingMethod.yaml
+    description: >-
+      Shipping method that is eligible for shipping discounts. This is a
+      shipping method defined in Shipping Settings.
+    nullable: true
+  shippingZones:
+    type: array
+    items:
+      $ref: ./TargetedShippingZone.yaml
+    description: Shipping Zones that are applicable for this discount
+    nullable: true
+  maximumQuantityPerRedemption:
+    type: integer
+    description: "When a condition is specified, this property limits the number of items that can be targeted per discount redemption with an order.\r\nif multiple redemptions are allowed per order then multiples of this value would be allowed in multiples of the associated \r\ncondition.\r\nIf no condition is specified then this value is not used.  \r\nIf null and condition exists, then defaults to 1."
+    format: int32
+    nullable: true
+  appliesToLeastExpensiveProductsFirst:
+    type: boolean
+    description: "Determines which way the discount is optimized.  Consumers favor(default - false/null) or tenants favor (when this is set to true)\r\nApplies to discounts where target is not a specific product or list of products.  \r\nMay also impact behavior of Buy X Get Y so that X is the most expensive items and Y the least expensive."
+    nullable: true
+additionalProperties: false
+description: "What to discount. Specifies the type of discount (percentage off, monetary amount, or free shipping) and which products, categories, or shipping methods are eligible for the discount.\r\nCan also specify the minimum amount that the order must total for the discount to apply."

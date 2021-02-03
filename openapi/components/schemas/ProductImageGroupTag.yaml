@@ -1,0 +1,12 @@
+required:
+  - fqn
+type: object
+properties:
+  fqn:
+    type: string
+  values:
+    type: array
+    items:
+      type: string
+    nullable: true
+additionalProperties: false

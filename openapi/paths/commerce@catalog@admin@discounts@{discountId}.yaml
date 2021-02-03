@@ -1,0 +1,74 @@
+get:
+  tags:
+    - Discount
+  summary: Retrieves the details of a single discount.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+put:
+  tags:
+    - Discount
+  summary: Modifies a discount.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  requestBody:
+    description: "Properties of the discount to update. \r\n            Required properties: Content.Name, AmountType, StartDate, and Target.Type. \r\n            Any unspecified properties are set to null and boolean variables are set to false."
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Discount.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+delete:
+  tags:
+    - Discount
+  summary: Deletes a discount specified by its discount ID.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  responses:
+    '200':
+      description: Success

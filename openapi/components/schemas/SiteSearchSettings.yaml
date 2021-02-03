@@ -1,0 +1,33 @@
+type: object
+properties:
+  fieldWeights:
+    type: array
+    items:
+      $ref: ./SiteSearchFieldWeight.yaml
+    nullable: true
+  customBoosts:
+    type: array
+    items:
+      type: string
+    nullable: true
+  fieldValueBoost:
+    $ref: ./FieldValueBoost.yaml
+  minimumMatchPercents:
+    type: array
+    items:
+      type: integer
+      format: int32
+    nullable: true
+  phraseSlop:
+    type: integer
+    format: int32
+  personalizationExperience:
+    type: string
+    nullable: true
+  personalizationFactor:
+    type: number
+    format: double
+    nullable: true
+  searchChildProductsByDefault:
+    type: boolean
+additionalProperties: false

@@ -1,0 +1,43 @@
+type: object
+properties:
+  valueSequence:
+    type: integer
+    description: Read only System generated monotonically increasing unique sequence.
+    format: int32
+    nullable: true
+  value:
+    type: object
+    additionalProperties: false
+    description: "The actual value of the attribute vocabulary. This value must be unique within the vocabulary for a single attribute and match the datatype of the attribute. \r\nString data type requires a canonical value here or one will be system generated if null. The actual string content displayed to users should be stored as Content. \r\nString values require content to be present.\r\nOnce this value is set it cannot be changed."
+    nullable: true
+  mappedGenericValues:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+    description: "The actual values of the related generic attribute. This value must match the datatype of the attribute and already exist \r\nwithin the Vocabulary values of the related ValueMappingAttribute. Only supporting string at this time."
+    nullable: true
+  productName:
+    type: string
+    description: The ProductName when the Attribute DataType is ProductCode.
+    nullable: true
+  content:
+    $ref: ./AttributeVocabularyValueLocalizedContent.yaml
+  localizedContent:
+    type: array
+    items:
+      $ref: ./AttributeVocabularyValueLocalizedContent.yaml
+    description: >-
+      The Content of an attribute value. This content is in multiple locals
+      supported by the master catalog and is only valid for String DataType.
+    nullable: true
+  displayOrder:
+    type: integer
+    description: >-
+      The order in which the attribute value displays. If you omit a value for
+      this property, Mozu infers the display order from the attribute value's
+      position the list.
+    format: int32
+    nullable: true
+additionalProperties: false
+description: Value of an attribute

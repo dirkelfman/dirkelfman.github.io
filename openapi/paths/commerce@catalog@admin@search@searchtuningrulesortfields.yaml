@@ -1,0 +1,37 @@
+get:
+  tags:
+    - Search
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+post:
+  tags:
+    - Search
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchTuningRuleSortFields.yaml

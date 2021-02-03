@@ -1,0 +1,13 @@
+type: object
+properties:
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+  attributeVocabularyValueDetail:
+    $ref: ./AttributeVocabularyValue.yaml
+additionalProperties: false
+description: >-
+  A value of a product option for this product. For example, a computer product
+  may have an option called "Memory" that can have the values "6GB,"8GB," and
+  "12GB."

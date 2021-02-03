@@ -1,0 +1,17 @@
+type: object
+properties:
+  code:
+    type: string
+    description: The PublishSet unique identifier
+    nullable: true
+  productCount:
+    type: integer
+    description: Number of product drafts that are included in the publish set
+    format: int32
+  productCodes:
+    type: array
+    items:
+      type: string
+    description: List of specific product codes that are included in the publish set
+    nullable: true
+additionalProperties: false

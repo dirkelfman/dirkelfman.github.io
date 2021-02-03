@@ -1,0 +1,11 @@
+post:
+  tags:
+    - Publishing
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PublishingScope.yaml
+  responses:
+    '200':
+      description: Success

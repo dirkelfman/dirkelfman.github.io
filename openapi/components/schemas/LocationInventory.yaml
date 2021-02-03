@@ -1,0 +1,36 @@
+type: object
+properties:
+  locationCode:
+    type: string
+    nullable: true
+  productCode:
+    type: string
+    nullable: true
+  productName:
+    type: string
+    nullable: true
+  stockOnHand:
+    type: integer
+    format: int32
+    nullable: true
+  stockAvailable:
+    type: integer
+    format: int32
+    nullable: true
+  stockOnBackOrder:
+    type: integer
+    format: int32
+    nullable: true
+  baseProductCode:
+    type: string
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  mfgPartNumber:
+    type: string
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: The inventory for a product at a specific Location

@@ -1,0 +1,75 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: integer
+    description: >-
+      Internal unique identifier of the couponset. System-supplied and
+      read-only.
+    format: int32
+    nullable: true
+  couponSetCode:
+    maxLength: 32
+    type: string
+    description: "Unique tenant supplied identifier.\r\nUsed as the prefix for generated sets.\r\nRequired\r\nSystem generated if left null."
+    nullable: true
+  name:
+    maxLength: 200
+    type: string
+    description: CouponSet Name
+  couponCodeType:
+    type: string
+    description: "Determines if the coupon is a persisted list of codes (static) or a list based on generated specification\r\n(dynamic)."
+    nullable: true
+  status:
+    type: string
+    description: "CouponSet status which can be: Active, Expired,  Inactive\r\nSystem-supplied and read-only."
+    nullable: true
+  canBeDeleted:
+    type: boolean
+    description: "Signifies that the coupon has not been exported and can be updated\r\nReadOnly"
+  maxRedemptionsPerUser:
+    type: integer
+    description: "Maximum number of times any single user can redeem any code.\r\nMust be null, >=1 or -1.\r\nDefaults to 1 on creation if null.\r\n-1 indicates unlimited."
+    format: int32
+    nullable: true
+  maxRedemptionsPerCouponCode:
+    type: integer
+    description: "Maximum number of times any code can de used.\r\nMust be null, >=1 or -1.\r\nDefaults to 1 on creation if null.\r\n-1 indicates unlimited."
+    format: int32
+    nullable: true
+  endDate:
+    type: string
+    description: Date and time that the coupon codes becomes expired
+    format: date-time
+    nullable: true
+  startDate:
+    type: string
+    description: Date and time that the coupon codes becomes active
+    format: date-time
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+  setSize:
+    type: integer
+    description: "Sets the number of codes to generate for dynamic coupons\r\nRequired when CouponCodeType is \"Dynamic\""
+    format: int32
+    nullable: true
+  couponCodeCount:
+    type: integer
+    description: "Count of associated couponCodes.\r\nMust use \"counts\" response group to get this value\r\nReadOnly"
+    format: int32
+    nullable: true
+  redemptionCount:
+    type: integer
+    description: ReadOnly count of all redemptions for this coupon set.
+    format: int32
+    nullable: true
+  assignedDiscountCount:
+    type: integer
+    description: "ReadOnly sum of all redemptions for this coupon.\r\nUse \"counts\" response group."
+    format: int32
+    nullable: true
+additionalProperties: false
+description: Represents a claimable item that allows a user to use one or more discounts.

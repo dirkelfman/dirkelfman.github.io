@@ -1,0 +1,74 @@
+delete:
+  tags:
+    - Currency
+  summary: Deletes the currency-localization specified by its currency code.
+  parameters:
+    - name: currencyCode
+      in: path
+      description: Currency code.
+      required: true
+      schema:
+        type: string
+        description: Currency code.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+get:
+  tags:
+    - Currency
+  summary: Gets a single currency-localization.
+  parameters:
+    - name: currencyCode
+      in: path
+      description: Currency code.
+      required: true
+      schema:
+        type: string
+        description: Currency code.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+put:
+  tags:
+    - Currency
+  summary: Updates the details of a currency-localization.
+  parameters:
+    - name: currencyCode
+      in: path
+      description: Currency code.
+      required: true
+      schema:
+        type: string
+        description: Currency code.
+        nullable: true
+  requestBody:
+    description: Properties of the currency-localization to update.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CurrencyLocalization.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CurrencyLocalization.yaml

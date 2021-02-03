@@ -1,0 +1,64 @@
+get:
+  tags:
+    - Product
+  summary: Get extras for the product
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductExtra.yaml
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductExtra.yaml
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductExtra.yaml
+post:
+  tags:
+    - Product
+  summary: Add extra
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductExtra.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductExtra.yaml

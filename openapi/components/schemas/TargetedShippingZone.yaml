@@ -1,0 +1,11 @@
+required:
+  - zone
+type: object
+properties:
+  zone:
+    maxLength: 200
+    minLength: 0
+    type: string
+    description: "Indicates the shipping zone that this discount is valid for.  If zone is provided the\r\nmethod selected must be valid for the zone and both populated in the order for the discount\r\nto be valid."
+additionalProperties: false
+description: "Shipping method that is eligible for free shipping. This is the shipping method that is defined with the Shipping\r\nSettings resource."

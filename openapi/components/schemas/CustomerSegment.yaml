@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: "The Customer segment Id.\r\nThis is the  system Id not the code."
+    format: int32
+additionalProperties: false
+description: Represents a customer segment

@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Facet
+  summary: >-
+    Retrieves a list of configured, and optionally available, Facet
+    Configurations for the specified category
+  parameters:
+    - name: categoryId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+    - name: includeAvailable
+      in: query
+      description: ''
+      schema:
+        type: boolean
+        description: ''
+        nullable: true
+    - name: validate
+      in: query
+      description: ''
+      schema:
+        type: boolean
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/FacetSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/FacetSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/FacetSet.yaml

@@ -1,0 +1,11 @@
+type: object
+properties:
+  boostType:
+    type: string
+    nullable: true
+  fields:
+    type: array
+    items:
+      $ref: ./BoostField.yaml
+    nullable: true
+additionalProperties: false

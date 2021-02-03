@@ -1,0 +1,22 @@
+type: object
+properties:
+  localeCode:
+    type: string
+    description: >-
+      Language used for the attribute name and description. Currently, only
+      en_US is supported.
+    nullable: true
+  name:
+    type: string
+    description: Name of the attribute in the language specified by LocaleCode.
+    nullable: true
+  description:
+    type: string
+    description: Description of the attribute in the language specified by LocaleCode.
+    nullable: true
+additionalProperties: false
+description: >-
+  Container for language-specific content to display on the storefront. You'll
+  have a container for each supported language (LocaleCode). This enables you to
+  display an attribute in multiple languages yet manage it as a single attribute
+  internally.

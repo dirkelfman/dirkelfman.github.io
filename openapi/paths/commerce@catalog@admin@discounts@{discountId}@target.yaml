@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Discount
+  summary: >-
+    Retrieves the discount target, that is which products, categories, or
+    shipping methods are eligible for the discount.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml
+put:
+  tags:
+    - Discount
+  summary: >-
+    Modifies properties of the discount target, for example, the dollar amount,
+    or precentage off the price.
+  parameters:
+    - name: discountId
+      in: path
+      description: Unique identifier of the discount. System-supplied and read-only.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the discount. System-supplied and read-only.
+        format: int32
+  requestBody:
+    description: "Properties of the discount target to modify. \r\n            Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false."
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DiscountTarget.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountTarget.yaml

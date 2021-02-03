@@ -1,0 +1,24 @@
+type: object
+properties:
+  tenantId:
+    type: integer
+    description: Read-only TenantId
+    format: int32
+  siteId:
+    type: integer
+    description: Read-only  Site Id
+    format: int32
+  localeCode:
+    type: string
+    description: The locale code to which this definition applies
+    nullable: true
+  synonymDefinitions:
+    type: array
+    items:
+      $ref: ./SynonymDefinition.yaml
+    description: List of mappings for this definition
+    nullable: true
+additionalProperties: false
+description: >-
+  Non-paged collection of all synonyms for a Site-Locale. Used for bulk
+  operations

@@ -1,0 +1,98 @@
+get:
+  tags:
+    - ProductType
+  summary: Get individual option
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+put:
+  tags:
+    - ProductType
+  summary: Update option
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AttributeInProductType.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/AttributeInProductType.yaml
+delete:
+  tags:
+    - ProductType
+  summary: Delete option
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

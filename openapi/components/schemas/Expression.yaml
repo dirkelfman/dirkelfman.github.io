@@ -1,0 +1,29 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Container or Predicate
+    nullable: true
+  logicalOperator:
+    type: string
+    description: And or Or (if Container with More than one Node)
+    nullable: true
+  nodes:
+    type: array
+    items:
+      $ref: ./Expression.yaml
+    nullable: true
+  left:
+    type: string
+    description: The field target of a predicate
+    nullable: true
+  operator:
+    type: string
+    description: The operator of a predicate
+    nullable: true
+  right:
+    type: object
+    additionalProperties: false
+    description: The literal values of a predicate
+    nullable: true
+additionalProperties: false

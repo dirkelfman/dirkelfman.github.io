@@ -1,0 +1,12 @@
+type: object
+properties:
+  mfgPartNumber:
+    type: string
+    nullable: true
+  distPartNumber:
+    type: string
+    nullable: true
+  cost:
+    $ref: ./ProductCost.yaml
+additionalProperties: false
+description: Supplier info for the product

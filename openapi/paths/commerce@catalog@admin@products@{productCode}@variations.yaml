@@ -1,0 +1,98 @@
+get:
+  tags:
+    - Product
+  summary: "Retrieves a paged list of product variations for a specific product according to any specified filter criteria and\r\nsort options."
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-supplied code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-supplied code associated with the product, for example, a
+          SKU. Required.
+        nullable: true
+    - name: startIndex
+      in: query
+      description: "Used to page results from a query. Indicates the zero-based offset in the complete result set\r\nwhere the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items,\r\nstartIndex=3. The default value is 0. Optional."
+      schema:
+        type: integer
+        description: "Used to page results from a query. Indicates the zero-based offset in the complete result set\r\nwhere the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items,\r\nstartIndex=3. The default value is 0. Optional."
+        format: int32
+        default: 0
+        nullable: true
+    - name: pageSize
+      in: query
+      description: "Used to page results from a query. Indicates the maximum number of entities to return from a\r\nquery. The default value is 20 and the maximum value is 200. Optional."
+      schema:
+        type: integer
+        description: "Used to page results from a query. Indicates the maximum number of entities to return from a\r\nquery. The default value is 20 and the maximum value is 200. Optional."
+        format: int32
+        default: 0
+        nullable: true
+    - name: sortBy
+      in: query
+      description: "The element to sort the results by and the order in which the results appear. Either ascending\r\n(a-z) or descending (z-a) order. Optional."
+      schema:
+        type: string
+        description: "The element to sort the results by and the order in which the results appear. Either ascending\r\n(a-z) or descending (z-a) order. Optional."
+        nullable: true
+    - name: filter
+      in: query
+      description: "A set of filter expressions representing the search parameters for a query: eq=equals, ne=not\r\nequals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw =\r\nstarts with, or cont = contains. Optional."
+      schema:
+        type: string
+        description: "A set of filter expressions representing the search parameters for a query: eq=equals, ne=not\r\nequals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw =\r\nstarts with, or cont = contains. Optional."
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationPagedCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationPagedCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariationPagedCollection.yaml
+put:
+  tags:
+    - Product
+  summary: "Modifies multiple product variations for an existing product in one operation. Use to set IsActive to true for\r\nvariations that represent configurable options for sale. Also use to change the price or inventory count of an\r\nexisting product variation. Read-only options are ignored."
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-supplied code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-supplied code associated with the product, for example, a
+          SKU. Required.
+        nullable: true
+  requestBody:
+    description: Properties of the product variations that you are modifying. Required.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductVariationCollection.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariationCollection.yaml

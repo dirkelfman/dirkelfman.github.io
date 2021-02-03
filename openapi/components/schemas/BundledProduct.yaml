@@ -1,0 +1,32 @@
+type: object
+properties:
+  productCode:
+    type: string
+    description: Product Code
+    nullable: true
+  quantity:
+    type: integer
+    description: Qty of the bundled PRoduct
+    format: int32
+  price:
+    $ref: ./ProductPrice.yaml
+  productName:
+    type: string
+    description: Read only Name of the BundledProduct
+    nullable: true
+  packageHeight:
+    $ref: ./Measurement.yaml
+  packageWidth:
+    $ref: ./Measurement.yaml
+  packageLength:
+    $ref: ./Measurement.yaml
+  packageWeight:
+    $ref: ./Measurement.yaml
+  fulfillmentTypesSupported:
+    type: array
+    items:
+      type: string
+    description: Indicates the fulfillment types the product supports.
+    nullable: true
+additionalProperties: false
+description: Price of the product and currency used.

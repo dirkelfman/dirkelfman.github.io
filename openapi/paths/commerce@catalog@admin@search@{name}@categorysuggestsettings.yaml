@@ -1,0 +1,76 @@
+get:
+  tags:
+    - Search
+  summary: Get CategorySuggestSettings for a specific SearchSettings
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+put:
+  tags:
+    - Search
+  summary: >-
+    Adds or Updates (Upsert) the CategorySuggestSettings for a specific
+    SearchSetting
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SuggestSettings.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SuggestSettings.yaml
+delete:
+  tags:
+    - Search
+  summary: Deletes the CategorySuggestSettings for a specific SearchSetting
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

@@ -1,0 +1,31 @@
+type: object
+properties:
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+  deltaPrice:
+    $ref: ./ProductExtraValueDeltaPrice.yaml
+  localizedDeltaPrice:
+    type: array
+    items:
+      $ref: ./ProductExtraValueDeltaPrice.yaml
+    nullable: true
+  deltaWeight:
+    type: number
+    format: double
+    nullable: true
+  isDefaulted:
+    type: boolean
+    nullable: true
+  quantity:
+    type: integer
+    format: int32
+    nullable: true
+  attributeVocabularyValueDetail:
+    $ref: ./AttributeVocabularyValue.yaml
+additionalProperties: false
+description: >-
+  A value of a product option for this product. For example, a computer product
+  may have an option called "Memory" that can have the values "6GB,"8GB," and
+  "12GB."

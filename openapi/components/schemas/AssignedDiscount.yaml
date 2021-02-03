@@ -1,0 +1,19 @@
+required:
+  - discountId
+type: object
+properties:
+  couponSetCode:
+    type: string
+    description: 'ReadOnly, CouponSetCode copied from URI'
+    nullable: true
+  couponSetId:
+    type: integer
+    description: 'ReadOnly, CouponSetId'
+    format: int32
+  discountId:
+    type: integer
+    description: Discount Id for the associated discount
+    format: int32
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false

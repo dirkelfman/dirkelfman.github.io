@@ -1,0 +1,51 @@
+get:
+  tags:
+    - DiscountSettings
+  parameters:
+    - name: catalogId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml
+put:
+  tags:
+    - DiscountSettings
+  parameters:
+    - name: catalogId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DiscountSettings.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountSettings.yaml

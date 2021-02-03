@@ -1,0 +1,8 @@
+type: object
+properties:
+  categoryId:
+    type: integer
+    description: Unique identifier of the category. System-supplied and read-only.
+    format: int32
+additionalProperties: false
+description: Categories to which the product belongs.

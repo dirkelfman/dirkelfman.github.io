@@ -1,0 +1,65 @@
+type: object
+properties:
+  catalogId:
+    type: integer
+    description: >-
+      The CatalogId of the catalog that the product is associated with (The
+      catalog must a valid catalog within the MasterCatalog that the product
+      belongs to)
+    format: int32
+  isActive:
+    type: boolean
+    description: >-
+      If true, the product is marked as available for sale in the catalog.
+      Setting a product to IsActive = false will prevent it from being shown on
+      the customer facing storefront.
+    nullable: true
+  isContentOverridden:
+    type: boolean
+    description: >-
+      If true, the content for this product is overridden in the catalog. If
+      false, the MasterCatalog level content will be used for the product.
+    nullable: true
+  content:
+    $ref: ./ProductLocalizedContent.yaml
+  isPriceOverridden:
+    type: boolean
+    description: >-
+      If true, the price for this product is overridden in the catalog. If
+      false, the MasterCatalog level price will be used for the product.
+    nullable: true
+  price:
+    $ref: ./ProductPrice.yaml
+  isSeoContentOverridden:
+    type: boolean
+    description: >-
+      If true, the SEO content for this product is overridden in the catalog. If
+      false, the MasterCatalog level SEO content will be used for the product.
+    nullable: true
+  seoContent:
+    $ref: ./ProductLocalizedSEOContent.yaml
+  productCategories:
+    type: array
+    items:
+      $ref: ./ProductCategory.yaml
+    description: Categories to which the product belongs for this catalog.
+    nullable: true
+  primaryProductCategory:
+    $ref: ./ProductCategory.yaml
+  dateFirstAvailableInCatalog:
+    type: string
+    description: >-
+      Date this product was first Available for sale in the catalog. This is
+      utilized in expressions that reference DaysInCatloag.
+    format: date-time
+    nullable: true
+  activeDateRange:
+    $ref: ./ActiveDateRange.yaml
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: >-
+  Use the Products resource to create and manage products for your store. You
+  can create products with options that a shopper configures (such as a T-shirt
+  color and size). The system can manage inventory for all combinations of your
+  product options, and can calculate tax and shipping costs.

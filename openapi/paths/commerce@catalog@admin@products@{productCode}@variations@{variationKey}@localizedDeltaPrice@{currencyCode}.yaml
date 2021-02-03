@@ -1,0 +1,100 @@
+get:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: variationKey
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: currencyCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+put:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: variationKey
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: currencyCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductVariationDeltaPrice.yaml
+delete:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: variationKey
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: currencyCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success

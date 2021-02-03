@@ -1,0 +1,26 @@
+required:
+  - couponCode
+type: object
+properties:
+  couponSetId:
+    type: integer
+    description: ReadOnly system id for releated couponset.
+    format: int32
+  couponSetCode:
+    type: string
+    description: Link to associated coupon
+    nullable: true
+  couponCode:
+    type: string
+    description: The code the customer uses to claim this coupon
+  canBeDeleted:
+    type: boolean
+  redemptionCount:
+    type: integer
+    description: "Total number of times this code has been redeemed. ReadOnly, calculated.\r\nOnly returned with response group includeCounts"
+    format: int32
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: Coupon in a coupon set.

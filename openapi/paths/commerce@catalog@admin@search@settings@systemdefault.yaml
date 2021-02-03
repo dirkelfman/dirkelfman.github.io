@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Search
+  summary: Get the System Default search settings
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SearchSettings.yaml

@@ -1,0 +1,25 @@
+post:
+  tags:
+    - PriceList
+  parameters:
+    - name: publishEvents
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: invalidateCache
+      in: query
+      schema:
+        type: boolean
+        default: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/PriceListEntry.yaml
+          nullable: true
+  responses:
+    '200':
+      description: Success

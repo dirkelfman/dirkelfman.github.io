@@ -1,0 +1,25 @@
+type: object
+properties:
+  currencyCode:
+    type: string
+    description: Which currency is in use.
+    nullable: true
+  value:
+    type: number
+    description: How much more the variation costs above the cost of the base product.
+    format: double
+    nullable: true
+  msrp:
+    type: number
+    description: Manufacturer Suggested Retail Price.
+    format: double
+    nullable: true
+  creditValue:
+    type: number
+    description: Credit amt of the product
+    format: double
+    nullable: true
+additionalProperties: false
+description: >-
+  How much more a product variation costs above the cost of the base product. If
+  the price of the base product changes, this price is adjusted automatically.

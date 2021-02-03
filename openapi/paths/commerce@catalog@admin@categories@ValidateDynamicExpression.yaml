@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Category
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DynamicExpression.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DynamicExpression.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DynamicExpression.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DynamicExpression.yaml

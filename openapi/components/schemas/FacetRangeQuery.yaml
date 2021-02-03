@@ -1,0 +1,11 @@
+type: object
+properties:
+  rangeValueStart:
+    type: object
+    additionalProperties: false
+    nullable: true
+  rangeValueEnd:
+    type: object
+    additionalProperties: false
+    nullable: true
+additionalProperties: false

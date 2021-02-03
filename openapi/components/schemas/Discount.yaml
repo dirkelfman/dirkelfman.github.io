@@ -1,0 +1,121 @@
+required:
+  - amountType
+  - content
+  - scope
+  - target
+type: object
+properties:
+  id:
+    type: integer
+    description: Unique identifier of the discount. System-supplied and read-only.
+    format: int32
+    nullable: true
+  content:
+    $ref: ./DiscountLocalizedContent.yaml
+  scope:
+    type: string
+    description: 'Scope to which the discount applies, valid values are: Order, LineItem'
+  conditions:
+    $ref: ./DiscountCondition.yaml
+  target:
+    $ref: ./DiscountTarget.yaml
+  currentRedemptionCount:
+    type: integer
+    description: >-
+      How many times this discount has been redeemed. System-supplied and
+      read-only.
+    format: int32
+    nullable: true
+  amount:
+    type: number
+    description: "    Amount of the discount, as a percentage or monetary amount, for example 15% or $15.\r\nMust be either null or greater than zero."
+    format: double
+    nullable: true
+  amountType:
+    type: string
+    description: "Type of discount, which can be either a percentage off the price, \r\na specific monetary amount, or free. \r\nPossible values: \r\n\tPercentage \r\n\tAmount \r\n\tFree\r\n\tFixedPrice"
+  status:
+    type: string
+    description: >-
+      Discount status which can be "Active," "Scheduled," or "Expired."
+      System-supplied and read-only.
+    nullable: true
+  canBeDeleted:
+    type: boolean
+    description: Signifies that the discount is not referenced and can be hard deleted
+  doesNotApplyToSalePrice:
+    type: boolean
+    description: "Determines if the discount should apply to sale price or regular price only.\r\nDiscounts will apply to sale prices by default.\r\nOnly applies to LineItem product discounts."
+    nullable: true
+  doesNotApplyToProductsWithSalePrice:
+    type: boolean
+    description: "Determines whether or not a discount applies to a items with a sale price.  Applicable \r\non order and line item discounts.  For line items, when this is true, the discount will \r\nbe disqualified.  For order level discounts, when true, the discount will not be applied \r\nto those items have a sale price."
+    nullable: true
+  maximumUsesPerUser:
+    type: integer
+    description: "Maximum number of times a user can redeem this discount.\r\n Must be either null or greater than zero."
+    format: int32
+    nullable: true
+  maximumDiscountImpactPerOrder:
+    type: number
+    description: "Maximum impact this discount can apply on a single order.\r\n Must be either null or greater than zero."
+    format: double
+    nullable: true
+  maximumDiscountImpactPerRedemption:
+    type: number
+    description: "Maximum impact this discount can apply on a single line item.\r\n Must be either null or greater than zero."
+    format: double
+    nullable: true
+  maximumRedemptionsPerOrder:
+    type: integer
+    description: "Maximum number of redemptions allowed per order.\r\nIf null, defaults to unlimited."
+    format: int32
+    nullable: true
+  includedPriceLists:
+    type: array
+    items:
+      type: string
+    description: "Products receiving a price from a price list specified here or a child of a specified \r\nprice list can be discounted."
+    nullable: true
+  doesNotApplyToMultiShipToOrders:
+    type: boolean
+    description: "Flag to allow or prevent application to multi-ship-to orders,\r\nOnly applicable to shipping discounts."
+    nullable: true
+  isBxGx:
+    type: boolean
+    description: "Readonly property indicating that the condition required purchase is the \r\nsame as the target items.  Used in BxGx and BoGo type discounts."
+    nullable: true
+  canBeStackedUpon:
+    type: boolean
+    description: Indicates whether or not stacking is enabled for this discount
+    nullable: true
+  stackingLayer:
+    type: integer
+    description: Indicates which stacking layer this discount is a part of
+    format: int32
+    nullable: true
+  thresholdMessage:
+    $ref: ./ThresholdMessage.yaml
+  preventLineItemShippingDiscounts:
+    type: boolean
+    description: "Prevents Line Item Shipping discounts from being applied when a Line Item Product  \r\ndiscount has been applied"
+    nullable: true
+  preventOrderProductDiscounts:
+    type: boolean
+    description: "Prevents Order Product discounts from being applied when a Line Item Product  \r\nor Shipping discount has been applied"
+    nullable: true
+  preventOrderShippingDiscounts:
+    type: boolean
+    description: "Prevents Order Shipping discounts from being applied when a Line Item Product/Shipping  \r\nor Order Product discount has been applied"
+    nullable: true
+  hasPurchaseConditions:
+    type: boolean
+    description: "Indicates if this discount has purchase conditions that must be met before \r\nthe discount is applied"
+  purchaseRequirementType:
+    type: string
+    description: "The type of purchase requirement for this discount, either purchase conditions and targets which   \r\nSupports BoGo, and BxGx scenarios. Or Target only that only have a target and no purchase conditions"
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: "Allows you to define and manage discounts to apply to your products, product categories, or orders. The discounts can be a specified monetary amount off the price, percentage off the price, or for free shipping.\r\nYou can create a coupon code that applies to the discount."

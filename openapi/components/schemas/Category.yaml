@@ -1,0 +1,80 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Internal unique identifier of the category. System-supplied and read-only.
+    format: int32
+    nullable: true
+  categoryType:
+    type: string
+    description: 'The Type of Category Static, Dyanmic, DynamicPreComputed'
+    nullable: true
+  catalogId:
+    type: integer
+    description: The CatalogId that the category belongs to.
+    format: int32
+    nullable: true
+  parentCategoryId:
+    type: integer
+    description: >-
+      Unique identifier of the category to which this category belongs. If nil,
+      this is a top-level category. System-supplied and read-only.
+    format: int32
+    nullable: true
+  parentCategoryCode:
+    type: string
+    nullable: true
+  parentCategoryName:
+    type: string
+    nullable: true
+  parentIsActive:
+    type: boolean
+    nullable: true
+  categoryCode:
+    type: string
+    description: External unique identifier of the category.
+    nullable: true
+  isActive:
+    type: boolean
+    description: >-
+      If false, the category is considered unavailable in runtime (default is
+      true if not specified on create)
+    nullable: true
+  isDisplayed:
+    type: boolean
+    description: 'If true, the category appears to shoppers on the storefront.'
+    nullable: true
+  sequence:
+    type: integer
+    description: >-
+      Order in which categories appear when they are at the same level
+      (siblings). For example, you could change the sequence of categories so
+      that a specific category always appears first.
+    format: int32
+    nullable: true
+  content:
+    $ref: ./CategoryLocalizedContent.yaml
+  dynamicExpression:
+    $ref: ./DynamicExpression.yaml
+  productCount:
+    type: integer
+    description: >-
+      Number of products contained in this category. This count includes all
+      products contained in any subcategories of this category.
+    format: int32
+    nullable: true
+  childCount:
+    type: integer
+    description: >-
+      Number of subcategories that belong to this category. These subcategories
+      are at the same level (siblings).
+    format: int32
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+  shouldSlice:
+    type: boolean
+    description: 'If True, search displays sliced view'
+    nullable: true
+additionalProperties: false
+description: Category

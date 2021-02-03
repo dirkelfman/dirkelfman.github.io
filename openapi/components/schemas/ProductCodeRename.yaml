@@ -1,0 +1,12 @@
+type: object
+properties:
+  existingProductCode:
+    type: string
+    description: The existing ProductCode that should be renamed
+    nullable: true
+  newProductCode:
+    type: string
+    description: The new ProductCode that will be the result of the rename
+    nullable: true
+additionalProperties: false
+description: A tuple used to rename the productCode of a product

@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ProductSortDefinition
+  summary: Gets a single product sort definition.
+  parameters:
+    - name: productSortDefinitionId
+      in: path
+      description: Unique identifier of the product sort definition.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the product sort definition.
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+put:
+  tags:
+    - ProductSortDefinition
+  summary: Updates the details of a product sort definition
+  parameters:
+    - name: productSortDefinitionId
+      in: path
+      description: Unique identifier of the product sort definition.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the product sort definition.
+        format: int32
+  requestBody:
+    description: The details of the product sort definition to update.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductSortDefinition.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductSortDefinition.yaml
+delete:
+  tags:
+    - ProductSortDefinition
+  summary: >-
+    Deletes the product sort definition specified by its
+    ProductSortDefinitionID.
+  parameters:
+    - name: productSortDefinitionId
+      in: path
+      description: Unique identifier of the product sort definition.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the product sort definition.
+        format: int32
+  responses:
+    '200':
+      description: Success

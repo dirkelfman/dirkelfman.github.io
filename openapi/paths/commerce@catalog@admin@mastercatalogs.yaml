@@ -1,0 +1,16 @@
+get:
+  tags:
+    - MasterCatalog
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalogCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/MasterCatalogCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/MasterCatalogCollection.yaml

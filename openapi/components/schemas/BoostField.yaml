@@ -1,0 +1,11 @@
+type: object
+properties:
+  fieldName:
+    type: string
+    nullable: true
+  valueExpressions:
+    type: array
+    items:
+      $ref: ./BoostValue.yaml
+    nullable: true
+additionalProperties: false

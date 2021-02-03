@@ -1,0 +1,105 @@
+get:
+  tags:
+    - Product
+  summary: >-
+    Retrieves details about a product based on the specified response group. For
+    example, to get the BaseProductCode of a product.
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+    - name: responseGroups
+      in: query
+      description: >-
+        Used to get more specific information from the request. For example to
+        get discounts applied to a product use the AppliedProducts response
+        group. Available response groups: ApplicableDiscounts, VariationOptions,
+        and BaseProductCode.
+      schema:
+        type: string
+        description: >-
+          Used to get more specific information from the request. For example to
+          get discounts applied to a product use the AppliedProducts response
+          group. Available response groups: ApplicableDiscounts,
+          VariationOptions, and BaseProductCode.
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+put:
+  tags:
+    - Product
+  summary: Modifies an existing product.
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+  requestBody:
+    description: >-
+      Properties of the product that you want to update. Required properties:
+      ProductCode, Content.ProductName, and Price.ListPrice.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Product.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+delete:
+  tags:
+    - Product
+  summary: Deletes the product specified by its product code.
+  parameters:
+    - name: productCode
+      in: path
+      description: >-
+        Merchant-created code associated with the product, for example, a SKU.
+        Required.
+      required: true
+      schema:
+        type: string
+        description: >-
+          Merchant-created code associated with the product, for example, a SKU.
+          Required.
+        nullable: true
+  responses:
+    '200':
+      description: Success

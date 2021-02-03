@@ -1,0 +1,98 @@
+get:
+  tags:
+    - Product
+  summary: Get individual option
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+put:
+  tags:
+    - Product
+  summary: Update option
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductOption.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductOption.yaml
+delete:
+  tags:
+    - Product
+  summary: Delete option
+  parameters:
+    - name: productCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: attributeFQN
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

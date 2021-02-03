@@ -1,0 +1,12 @@
+type: object
+properties:
+  key:
+    type: string
+    nullable: true
+  value:
+    type: string
+    nullable: true
+additionalProperties: false
+description: >-
+  Attribute Metadata Item.  It can be utilized for storing abitrary key/value
+  pairs of data related to an attribute.

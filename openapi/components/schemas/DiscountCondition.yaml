@@ -1,0 +1,122 @@
+type: object
+properties:
+  maxRedemptionCount:
+    type: integer
+    description: >-
+      Maximum number of times that the discount can be redeemed. Default is null
+      (no limit to discount redemptions).
+    format: int32
+    nullable: true
+  requiresCoupon:
+    type: boolean
+    description: 'If true, the shopper needs to enter a coupon code to redeem the discount.'
+  couponCode:
+    type: string
+    description: >-
+      Code of the coupon associated with the discount (if a coupon code is
+      required). The merchant can supply the code or the system can generate it.
+    nullable: true
+  requiresAuthenticatedUser:
+    type: boolean
+    description: "Determines is this discount can be used by an anonymous user \r\nDefaults to false to allow discounts for anonymous users."
+  includedPaymentWorkflows:
+    type: array
+    items:
+      type: string
+    description: List of payment types that trigger this discount to be valid.
+    nullable: true
+  includedCategories:
+    type: array
+    items:
+      $ref: ./CategoryDiscountCondition.yaml
+    description: >-
+      List of categories that must be purchased in order for the discount to be
+      valid.
+    nullable: true
+  excludedCategories:
+    type: array
+    items:
+      $ref: ./CategoryDiscountCondition.yaml
+    description: >-
+      List of categories to discount. When a discount applies to a category, all
+      products in the category are discounted.
+    nullable: true
+  includedProducts:
+    type: array
+    items:
+      $ref: ./ProductDiscountCondition.yaml
+    description: List of products that are eligible for the discount.
+    nullable: true
+  excludedProducts:
+    type: array
+    items:
+      $ref: ./ProductDiscountCondition.yaml
+    description: List of products that are eligible for the discount.
+    nullable: true
+  customerSegments:
+    type: array
+    items:
+      $ref: ./CustomerSegment.yaml
+    description: List of customer groups for which the discount applies
+    nullable: true
+  minimumQuantityRequiredProducts:
+    type: integer
+    description: "Minimum quantity of products in the specified IncludedProducts that must be purchased to\r\nqualify for the associated discount.\r\nDefaults to 1 if  null and IncludedProducts has values."
+    format: int32
+    nullable: true
+  minimumQuantityProductsRequiredInCategories:
+    type: integer
+    description: "Minimum quantity of products in the categories specified in IncludedCategories that must be purchased to\r\nqualify for the associated discount.\r\nDefaults to 1 if  null and IncludedCategories has values"
+    format: int32
+    nullable: true
+  minimumOrderAmount:
+    type: number
+    description: "Only applies to order.\r\nMinimum order subtotal after discounts in order for the associated discount to be applied"
+    format: double
+    nullable: true
+  maximumOrderAmount:
+    type: number
+    description: "Only applies to order.\r\nMaximum order subtotal after discounts in order for the associated discount to be applied"
+    format: double
+    nullable: true
+  categoriesToExcludeFromMinOrderTotal:
+    type: array
+    items:
+      $ref: ./CategoryDiscountCondition.yaml
+    description: >-
+      List of categories to discount. When a discount applies to a category, all
+      products in the category are discounted.
+    nullable: true
+  productsToExcludeFromMinOrderTotal:
+    type: array
+    items:
+      $ref: ./ProductDiscountCondition.yaml
+    description: List of products that are eligible for the discount.
+    nullable: true
+  minimumLifetimeValueAmount:
+    type: number
+    description: Minimum lifetime value amount required for this discount to apply
+    format: double
+    nullable: true
+  startDate:
+    type: string
+    description: 'Date when the discount can goes into effect, in the format yyyy-mm-dd.'
+    format: date-time
+    nullable: true
+  expirationDate:
+    type: string
+    description: Date when the discount expires. Default is null (no expiration date).
+    format: date-time
+    nullable: true
+  minimumCategorySubtotalBeforeDiscounts:
+    type: number
+    description: "Minimum amount that must be purchased in the combined categories defined in \r\nIncludedCategories.  Amount is calculated before discounting.\r\nNot used if IncludedCategories is empty."
+    format: double
+    nullable: true
+  minimumRequiredQuantityPerRedemption:
+    type: integer
+    description: Defines a minimum quantity that is required for a target only discount
+    format: int32
+    nullable: true
+additionalProperties: false
+description: "Specifies constraints that must be satified for a discount to be applied to a target.\r\nConstraints are Anded together"

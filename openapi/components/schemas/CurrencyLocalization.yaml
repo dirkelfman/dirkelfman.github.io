@@ -1,0 +1,20 @@
+type: object
+properties:
+  currencyCode:
+    type: string
+    description: Currency Code
+    nullable: true
+  decimalPlaces:
+    type: integer
+    description: Number of decimal places to round to
+    format: int32
+    nullable: true
+  roundingStrategy:
+    type: integer
+    description: The rounding strategy to use
+    format: int32
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: A currency and some localization options

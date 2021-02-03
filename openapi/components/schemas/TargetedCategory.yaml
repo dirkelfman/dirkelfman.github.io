@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Unique identifier of the category to which the discount applies.
+    format: int32
+    nullable: true
+additionalProperties: false
+description: >-
+  Category to discount. When a discount applies to a category, all products in
+  the category are discounted.

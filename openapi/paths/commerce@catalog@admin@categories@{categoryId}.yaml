@@ -1,0 +1,129 @@
+get:
+  tags:
+    - Category
+  summary: Retrieves the details of a single category.
+  parameters:
+    - name: categoryId
+      in: path
+      description: Unique identifier of the category.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the category.
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+put:
+  tags:
+    - Category
+  summary: >-
+    Modifies a category such as moving it to another location in the category
+    tree, or changing whether it is visible on the storefront. This PUT replaces
+    the existing resource, so be sure to include all the information that you
+    want to maintain for the category. Any unspecified properties are set to
+    null.
+  parameters:
+    - name: categoryId
+      in: path
+      description: Unique identifier of the category that you want to modify. Required.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the category that you want to modify. Required.
+        format: int32
+    - name: cascadeVisibility
+      in: query
+      description: >-
+        If true, when changing the display option for the category, change it
+        for all subcategories also. Optional.
+      schema:
+        type: boolean
+        description: >-
+          If true, when changing the display option for the category, change it
+          for all subcategories also. Optional.
+        default: false
+  requestBody:
+    description: >-
+      Properties of the category that you want to modify. Required properties
+      ParentCategoryID and Content.Name.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Category.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+delete:
+  tags:
+    - Category
+  summary: Deletes the category specified by its category ID.
+  parameters:
+    - name: categoryId
+      in: path
+      description: Unique identifier of the category that you want to delete.
+      required: true
+      schema:
+        type: integer
+        description: Unique identifier of the category that you want to delete.
+        format: int32
+    - name: cascadeDelete
+      in: query
+      description: >-
+        If true, any subcategories of a category are deleted when this category
+        is deleted. Otherwise only the given category is deleted. Default is
+        false.
+      schema:
+        type: boolean
+        description: >-
+          If true, any subcategories of a category are deleted when this
+          category is deleted. Otherwise only the given category is deleted.
+          Default is false.
+        default: false
+    - name: forceDelete
+      in: query
+      description: >-
+        If true, category (and optionally subcategories) will be deleted even if
+        there are products referecing them.  Default is false.
+      schema:
+        type: boolean
+        description: >-
+          If true, category (and optionally subcategories) will be deleted even
+          if there are products referecing them.  Default is false.
+        default: false
+    - name: reassignToParent
+      in: query
+      description: >-
+        If true, and child categories of the given category will be reassigned
+        to the parent of the given category. Only applies if cascadeDelete is
+        false. Default is false.
+      schema:
+        type: boolean
+        description: >-
+          If true, and child categories of the given category will be reassigned
+          to the parent of the given category. Only applies if cascadeDelete is
+          false. Default is false.
+        default: false
+  responses:
+    '200':
+      description: Success

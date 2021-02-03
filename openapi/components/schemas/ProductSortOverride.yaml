@@ -1,0 +1,22 @@
+required:
+  - productCode
+type: object
+properties:
+  productCode:
+    type: string
+    description: The product code of the product being overridden
+  sliceValue:
+    type: string
+    description: The slicing value of the product being overridden
+    nullable: true
+  position:
+    type: integer
+    description: "Indicates the relative position of the product to other overridden products.\r\nPosition is absolute if IsPinned is true.\r\nNot applicable to buried products. Buried products will be given a default\r\nposition of -1"
+    format: int32
+    nullable: true
+  isPinned:
+    type: boolean
+    description: "Flag to indicate that the product is pinned at the specified position.\r\nNot applicable to buried products"
+    nullable: true
+additionalProperties: false
+description: "Represents a product that is positioned out of its normal sort position.\r\nIt can be boosted to the top of the list, positioned exactly or buried at the bottom"

@@ -1,0 +1,27 @@
+type: object
+properties:
+  productCode:
+    type: string
+    description: >-
+      The ProductCode of the product to adjust only required when updating via
+      locationInventory resource
+    nullable: true
+  locationCode:
+    type: string
+    description: >-
+      The Location code of the product to adjust only required when updating via
+      a sub resource of product
+    nullable: true
+  type:
+    type: string
+    description: >-
+      The type of StockOnHandAdjustment, which can be either Absolute or Delta.
+      Absolute means that Value is the exact number of stock on hand. Delta
+      means that Value is added to or subtracted from the value of StockOnHand.
+    nullable: true
+  value:
+    type: integer
+    description: The absolute or delta value to be applied to StockOnHand.
+    format: int32
+additionalProperties: false
+description: "Used to modify a product's inventory. This can be an absolute number (number of items in stock) or delta (increase or decrease number of items in stock). \r\nStockOnHandAdjustment applies only PUT operations. Possible values: \"Absolute\" or \"Delta.\""

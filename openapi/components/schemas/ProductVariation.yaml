@@ -1,0 +1,96 @@
+type: object
+properties:
+  isActive:
+    type: boolean
+    description: >-
+      If true, the merchant accepts the variation generated from the
+      configurable options as a product offering. If IsActive is false then the
+      product variation is not for sale--either because it was never a product
+      offering or it was permanently dropped. IsActive is not intended for
+      temporary unavailability. Default is false.
+    nullable: true
+  isOrphan:
+    type: boolean
+    description: >-
+      If true, the variation is no longer possible. The system sets IsOrphan to
+      true when the merchant has changed something to make this variation
+      impossible. For example, if the merchant stopped selling all "small"
+      shirts, all product variations with the "small" option are set to
+      IsOrphan. System-supplied and read-only.
+    nullable: true
+  variationExists:
+    type: boolean
+    description: >-
+      If true, the product variation exists. When the merchant sets IsActive to
+      true, the system sets VariationExists to true and creates a Variation Key
+      as a unique identifier for this variation. System-supplied and read-only.
+    nullable: true
+  variationkey:
+    type: string
+    description: >-
+      Unique identifier for a single variation ("small" + "red" +
+      "short-sleeved"). System-supplied and read-only.
+    nullable: true
+  variationProductCode:
+    type: string
+    description: >-
+      Descriptive code to refer to a single variation. Typically this is a
+      sequence appended to the base ProduceCode. A merchant can create this code
+      to easily recognize a product variation. By default, the system creates
+      this code by appending a number to the base product. After the merchant
+      supplies this code, it becomes read-only.
+    nullable: true
+  deltaPrice:
+    $ref: ./ProductVariationDeltaPrice.yaml
+  localizedDeltaPrice:
+    type: array
+    items:
+      $ref: ./ProductVariationDeltaPrice.yaml
+    description: "How much more the variation costs above the cost of the base product. If the price of the base product changes, this price is adjusted accordingly.\r\nThis collection allows for multiple currencies."
+    nullable: true
+  fixedPrice:
+    $ref: ./ProductVariationFixedPrice.yaml
+  localizedFixedPrice:
+    type: array
+    items:
+      $ref: ./ProductVariationFixedPrice.yaml
+    description: "Price of the variation using fixed per currency\r\nThis collection allows for multiple currencies."
+    nullable: true
+  deltaWeight:
+    type: number
+    description: Weight of the product with this variation.
+    format: double
+    nullable: true
+  fixedWeight:
+    type: number
+    description: Fixed weight of the product with this variation.
+    format: double
+    nullable: true
+  options:
+    type: array
+    items:
+      $ref: ./ProductVariationOption.yaml
+    description: >-
+      List of values for this product variation: such as "small, "red.. these
+      are read only here as the variationKey defines the values "
+    nullable: true
+  upc:
+    type: string
+    description: Price Lookup Unit code for the product
+    nullable: true
+  fulfillmentTypesSupported:
+    type: array
+    items:
+      type: string
+    description: Indicates the fulfillment types the product supports.
+    nullable: true
+  supplierInfo:
+    $ref: ./ProductSupplierInfo.yaml
+additionalProperties: false
+description: >-
+  The ProductVariation resource helps merchants manage their products with
+  configurable options. Using this reasource, the system creates a matrix of all
+  possible combinations of the product options and the merchant confirms which
+  variations match products for sale. For example, a T-shirt with three color
+  and three size options has nine possible product variations. The system keeps
+  track of inventory for each variation.

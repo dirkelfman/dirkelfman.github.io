@@ -1,0 +1,18 @@
+required:
+  - messageTemplate
+type: object
+properties:
+  localeCode:
+    maxLength: 8
+    minLength: 0
+    type: string
+    description: >-
+      Language used for the discount in the current catalog. Defaults setting
+      for the active catalog.
+    nullable: true
+  messageTemplate:
+    type: string
+    description: Locale-based contents of the Threshold Message.
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false

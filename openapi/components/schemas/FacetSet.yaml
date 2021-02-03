@@ -1,0 +1,15 @@
+type: object
+properties:
+  configured:
+    type: array
+    items:
+      $ref: ./Facet.yaml
+    description: Facets that are configured
+    nullable: true
+  available:
+    type: array
+    items:
+      $ref: ./FacetSource.yaml
+    description: 'Facets that are not configured, but COULD BE!'
+    nullable: true
+additionalProperties: false

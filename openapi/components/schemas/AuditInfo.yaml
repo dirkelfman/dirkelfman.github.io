@@ -1,0 +1,17 @@
+type: object
+properties:
+  updateDate:
+    type: string
+    format: date-time
+    nullable: true
+  createDate:
+    type: string
+    format: date-time
+    nullable: true
+  updateBy:
+    type: string
+    nullable: true
+  createBy:
+    type: string
+    nullable: true
+additionalProperties: false

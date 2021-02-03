@@ -1,0 +1,74 @@
+get:
+  tags:
+    - Search
+  summary: Get ListingSettings for a specific SearchSettings
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+put:
+  tags:
+    - Search
+  summary: Adds or Updates (Upsert) the ListingSettings for a specific SearchSetting
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ListingSettings.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ListingSettings.yaml
+delete:
+  tags:
+    - Search
+  summary: Deletes the ListingSettings for a specific SearchSetting
+  parameters:
+    - name: name
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success

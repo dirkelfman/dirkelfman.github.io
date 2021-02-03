@@ -1,0 +1,134 @@
+get:
+  tags:
+    - Category
+  summary: >-
+    Retrieves a list of categories according to any specified filter criteria
+    and sort options.
+  parameters:
+    - name: startIndex
+      in: query
+      description: >-
+        Used to page results from a query. Indicates the zero-based offset in
+        the complete result set where the returned entities begin. The default
+        value is 0.
+      schema:
+        type: integer
+        description: >-
+          Used to page results from a query. Indicates the zero-based offset in
+          the complete result set where the returned entities begin. The default
+          value is 0.
+        format: int32
+        default: 0
+        nullable: true
+    - name: pageSize
+      in: query
+      description: >-
+        Used to page results from a query. Indicates the maximum number of
+        entities to return from a query. The default value is 20 and the maximum
+        value is 200.
+      schema:
+        type: integer
+        description: >-
+          Used to page results from a query. Indicates the maximum number of
+          entities to return from a query. The default value is 20 and the
+          maximum value is 200.
+        format: int32
+        default: 0
+        nullable: true
+    - name: sortBy
+      in: query
+      description: >-
+        The element to sort the results by and the order in which the results
+        appear. Either ascending (a-z) or descending (z-a) order.
+      schema:
+        type: string
+        description: >-
+          The element to sort the results by and the order in which the results
+          appear. Either ascending (a-z) or descending (z-a) order.
+        nullable: true
+    - name: filter
+      in: query
+      description: >-
+        A set of filter expressions representing the search parameters for a
+        query: eq=equals, ne=not equals, gt=greater than, lt = less than or
+        equals, gt = greater than or equals, lt = less than or equals, sw =
+        starts with, or cont = contains. Optional.
+      schema:
+        type: string
+        description: >-
+          A set of filter expressions representing the search parameters for a
+          query: eq=equals, ne=not equals, gt=greater than, lt = less than or
+          equals, gt = greater than or equals, lt = less than or equals, sw =
+          starts with, or cont = contains. Optional.
+        nullable: true
+    - name: responseGroups
+      in: query
+      description: ''
+      schema:
+        type: string
+        description: ''
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml
+post:
+  tags:
+    - Category
+  summary: >-
+    Adds a new category to the catalog's category hierarchy. Specify a
+    ParentCategoryID to determine where to locate the category in the hierarchy;
+    if not specified it becomes a top-level category.
+  parameters:
+    - name: incrementSequence
+      in: query
+      description: >-
+        Sets the sequence number of the category to the current max sequence
+        value plus 1 (e.g. 5 + 1 = 6)
+      schema:
+        type: boolean
+        description: >-
+          Sets the sequence number of the category to the current max sequence
+          value plus 1 (e.g. 5 + 1 = 6)
+        default: false
+    - name: useProvidedId
+      in: query
+      description: >-
+        If true, the provided Id value will be used as the CategoryId. If
+        omitted or false, the system will generate a CategoryId
+      schema:
+        type: boolean
+        description: >-
+          If true, the provided Id value will be used as the CategoryId. If
+          omitted or false, the system will generate a CategoryId
+        default: false
+  requestBody:
+    description: >-
+      Properties of the new category. Required properties ParentCategoryID and
+      Content.Name.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Category.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Category.yaml

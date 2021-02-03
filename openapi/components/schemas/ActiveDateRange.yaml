@@ -1,0 +1,12 @@
+type: object
+properties:
+  startDate:
+    type: string
+    format: date-time
+    nullable: true
+  endDate:
+    type: string
+    format: date-time
+    nullable: true
+additionalProperties: false
+description: Active Effectivity Dates

@@ -1,0 +1,14 @@
+type: object
+properties:
+  localeCode:
+    type: string
+    description: >-
+      Language used for the string attribute value. Currently, only en_US is
+      supported.
+    nullable: true
+  stringValue:
+    type: string
+    description: Localized Value in the language of the locale code
+    nullable: true
+additionalProperties: false
+description: Attribute Value Localized Resource

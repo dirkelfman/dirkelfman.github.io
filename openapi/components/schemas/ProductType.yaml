@@ -1,0 +1,61 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Unique identifier of the ProductType. System-supplied and read-only.
+    format: int32
+    nullable: true
+  name:
+    type: string
+    description: Name of the productType
+    nullable: true
+  masterCatalogId:
+    type: integer
+    description: >-
+      Indentifier of the Master Catalog that this ProductType is a member of.
+      System-supplied and read-only.
+    format: int32
+    nullable: true
+  isBaseProductType:
+    type: boolean
+    description: >-
+      System supplied and read only. There is only one BaseProductType per
+      MasterCatalog.
+  productCount:
+    type: integer
+    description: >-
+      Indicates the number of products currently using this Product Type.
+      System-supplied and read-only.
+    format: int32
+    nullable: true
+  productUsages:
+    type: array
+    items:
+      type: string
+    description: List of ProductUsages supported by the ProductType.
+    nullable: true
+  goodsType:
+    type: string
+    description: The TYpe of Goods of this product
+    nullable: true
+  options:
+    type: array
+    items:
+      $ref: ./AttributeInProductType.yaml
+    description: Collection of the Attributes that are Options in this productType
+    nullable: true
+  extras:
+    type: array
+    items:
+      $ref: ./AttributeInProductType.yaml
+    description: Collection of the Attributes that are Extras in this productType
+    nullable: true
+  properties:
+    type: array
+    items:
+      $ref: ./AttributeInProductType.yaml
+    description: Collection of the Attributes that are Properties in this productType
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false

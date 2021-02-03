@@ -1,0 +1,51 @@
+get:
+  tags:
+    - Search
+  parameters:
+    - name: localeCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+post:
+  tags:
+    - Search
+  parameters:
+    - name: localeCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SynonymDefinitionCollection.yaml

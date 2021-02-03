@@ -1,0 +1,58 @@
+get:
+  tags:
+    - CouponSet
+  parameters:
+    - name: couponSetCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: couponCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: includeCounts
+      in: query
+      schema:
+        type: boolean
+        default: false
+    - name: responseGroups
+      in: query
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Coupon.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/Coupon.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/Coupon.yaml
+delete:
+  tags:
+    - CouponSet
+  parameters:
+    - name: couponSetCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: couponCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success

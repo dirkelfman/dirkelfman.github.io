@@ -1,0 +1,23 @@
+type: object
+properties:
+  startIndex:
+    type: integer
+    format: int32
+  pageSize:
+    type: integer
+    format: int32
+  pageCount:
+    type: integer
+    format: int32
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./ProductVariation.yaml
+    nullable: true
+additionalProperties: false
+description: >-
+  Collection of product variations where the variations are returned in a series
+  of pages.

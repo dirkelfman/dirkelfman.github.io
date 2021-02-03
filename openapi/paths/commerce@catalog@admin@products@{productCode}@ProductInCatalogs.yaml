@@ -1,0 +1,94 @@
+get:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+put:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/ProductInCatalogInfo.yaml
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ProductInCatalogInfo.yaml
+post:
+  tags:
+    - Product
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductInCatalogInfo.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductInCatalogInfo.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductInCatalogInfo.yaml

@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Publishing
+  summary: Retrieves a list of PublishSets including the product counts.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PublishSetCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/PublishSetCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/PublishSetCollection.yaml
+post:
+  tags:
+    - Publishing
+  summary: ''
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PublishSet.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/PublishSet.yaml

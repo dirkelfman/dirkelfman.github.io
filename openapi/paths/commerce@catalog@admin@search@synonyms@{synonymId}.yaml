@@ -1,0 +1,64 @@
+get:
+  tags:
+    - Search
+  parameters:
+    - name: synonymId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+put:
+  tags:
+    - Search
+  parameters:
+    - name: synonymId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SynonymDefinition.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/SynonymDefinition.yaml
+delete:
+  tags:
+    - Search
+  parameters:
+    - name: synonymId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: Success

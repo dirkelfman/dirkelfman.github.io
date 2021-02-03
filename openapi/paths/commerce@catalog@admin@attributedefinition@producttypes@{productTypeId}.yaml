@@ -1,0 +1,74 @@
+get:
+  tags:
+    - ProductType
+  summary: Get product type by Id
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+put:
+  tags:
+    - ProductType
+  summary: Update product type
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductType.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductType.yaml
+delete:
+  tags:
+    - ProductType
+  summary: Delete product type
+  parameters:
+    - name: productTypeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: integer
+        description: ''
+        format: int32
+  responses:
+    '200':
+      description: Success

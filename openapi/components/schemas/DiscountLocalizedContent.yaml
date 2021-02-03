@@ -1,0 +1,27 @@
+required:
+  - name
+type: object
+properties:
+  localeCode:
+    maxLength: 8
+    minLength: 0
+    type: string
+    description: >-
+      Lanugage used for the discount in the current catalog. Defaults setting
+      for the active catalog.
+    nullable: true
+  name:
+    maxLength: 200
+    minLength: 0
+    type: string
+    description: Name of the discount.
+  friendlyDescription:
+    type: string
+    description: >-
+      Promotional text or HTML that can be utilized as friendly content like
+      "Buy this product now and get X!"
+    nullable: true
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: "Container for the language-specific name of the discount. You will have a container for each supported language\r\n(LocaleCode).\r\nThis enables you to display the discount name in multiple languages yet manage it as a single discount internally."

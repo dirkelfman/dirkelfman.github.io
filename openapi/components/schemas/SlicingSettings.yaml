@@ -1,0 +1,8 @@
+type: object
+properties:
+  slicingAttributeFqn:
+    type: string
+    description: Product option FQN to create slices on
+    nullable: true
+additionalProperties: false
+description: Container class for Slicing Settings

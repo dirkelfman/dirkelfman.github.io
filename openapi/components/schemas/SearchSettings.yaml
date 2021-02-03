@@ -1,0 +1,19 @@
+type: object
+properties:
+  settingsName:
+    type: string
+    nullable: true
+  isDefault:
+    type: boolean
+  siteSearchSettings:
+    $ref: ./SiteSearchSettings.yaml
+  productSuggestSettings:
+    $ref: ./ProductSuggestSettings.yaml
+  categorySuggestSettings:
+    $ref: ./SuggestSettings.yaml
+  listingSettings:
+    $ref: ./ListingSettings.yaml
+  auditInfo:
+    $ref: ./AuditInfo.yaml
+additionalProperties: false
+description: Settings to control product search and indexing behavior
