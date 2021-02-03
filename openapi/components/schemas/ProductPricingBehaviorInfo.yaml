@@ -1,0 +1,14 @@
+type: object
+properties:
+  discountsRestricted:
+    type: boolean
+    nullable: true
+  discountsRestrictedStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  discountsRestrictedEndDate:
+    type: string
+    format: date-time
+    nullable: true
+additionalProperties: false

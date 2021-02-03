@@ -1,0 +1,9 @@
+type: object
+properties:
+  queryEntry:
+    type: string
+    nullable: true
+  queryType:
+    type: string
+    nullable: true
+additionalProperties: false

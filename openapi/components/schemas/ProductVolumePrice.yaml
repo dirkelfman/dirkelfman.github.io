@@ -1,0 +1,16 @@
+type: object
+properties:
+  isCurrent:
+    type: boolean
+  minQty:
+    type: integer
+    format: int32
+  maxQty:
+    type: integer
+    format: int32
+    nullable: true
+  priceRange:
+    $ref: ./ProductPriceRange.yaml
+  price:
+    $ref: ./ProductPrice.yaml
+additionalProperties: false

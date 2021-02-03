@@ -1,0 +1,24 @@
+type: object
+properties:
+  manageStock:
+    type: boolean
+    nullable: true
+  outOfStockBehavior:
+    type: string
+    nullable: true
+  onlineStockAvailable:
+    type: integer
+    format: int32
+    nullable: true
+  onlineSoftStockAvailable:
+    type: integer
+    format: int32
+    nullable: true
+  onlineLocationCode:
+    type: string
+    nullable: true
+  availableDate:
+    type: string
+    format: date-time
+    nullable: true
+additionalProperties: false

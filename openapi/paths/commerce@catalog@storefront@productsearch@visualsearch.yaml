@@ -1,0 +1,117 @@
+get:
+  tags:
+    - ProductSearch
+  parameters:
+    - name: SearchTerm
+      in: query
+      required: true
+      schema:
+        minLength: 2
+        type: string
+    - name: Filters
+      in: query
+      schema:
+        type: array
+        items:
+          $ref: ../components/schemas/RequestFilter.yaml
+        nullable: true
+    - name: Returnfields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        nullable: true
+    - name: Searchfields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        nullable: true
+    - name: Ignoregrouping
+      in: query
+      schema:
+        type: boolean
+    - name: NumResults
+      in: query
+      schema:
+        maximum: 10000
+        minimum: 1
+        type: integer
+        format: int32
+        nullable: true
+    - name: PageNumber
+      in: query
+      schema:
+        maximum: 1000
+        minimum: 1
+        type: integer
+        format: int32
+        nullable: true
+    - name: ApplicationId
+      in: query
+      schema:
+        maxLength: 50
+        minLength: 1
+        type: string
+        nullable: true
+    - name: CatalogId
+      in: query
+      schema:
+        maxLength: 50
+        minLength: 1
+        type: string
+        nullable: true
+    - name: SessionId
+      in: query
+      schema:
+        maxLength: 100
+        type: string
+        nullable: true
+    - name: TrackingId
+      in: query
+      schema:
+        maxLength: 100
+        type: string
+        nullable: true
+    - name: ApiKey
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: Revision
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: Cip
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: DisplayDebug
+      in: query
+      schema:
+        type: boolean
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/VisualSearchResult.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/VisualSearchResult.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/VisualSearchResult.yaml

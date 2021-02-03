@@ -1,0 +1,58 @@
+post:
+  tags:
+    - ProductRuntime
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: variationProductCode
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: customerAccountId
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: allowInactive
+      in: query
+      schema:
+        type: boolean
+        nullable: true
+    - name: skipInventoryCheck
+      in: query
+      schema:
+        type: boolean
+        default: false
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DiscountSelections.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DiscountValidationSummary.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/DiscountValidationSummary.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/DiscountValidationSummary.yaml

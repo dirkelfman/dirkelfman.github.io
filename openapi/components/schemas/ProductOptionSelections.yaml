@@ -1,0 +1,11 @@
+type: object
+properties:
+  variationProductCode:
+    type: string
+    nullable: true
+  options:
+    type: array
+    items:
+      $ref: ./ProductOptionSelection.yaml
+    nullable: true
+additionalProperties: false

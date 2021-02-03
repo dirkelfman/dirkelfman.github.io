@@ -1,0 +1,10 @@
+required:
+  - field
+type: object
+properties:
+  field:
+    type: string
+  direction:
+    type: string
+    nullable: true
+additionalProperties: false

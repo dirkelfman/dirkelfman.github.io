@@ -1,0 +1,33 @@
+type: object
+properties:
+  searchEngine:
+    type: string
+    nullable: true
+  facets:
+    type: array
+    items:
+      $ref: ./Facet.yaml
+    nullable: true
+  solrDebugInfo:
+    $ref: ./SolrDebugInfo.yaml
+  nextCursorMark:
+    type: string
+    nullable: true
+  startIndex:
+    type: integer
+    format: int32
+  pageSize:
+    type: integer
+    format: int32
+  pageCount:
+    type: integer
+    format: int32
+  totalCount:
+    type: integer
+    format: int32
+  items:
+    type: array
+    items:
+      $ref: ./Product.yaml
+    nullable: true
+additionalProperties: false

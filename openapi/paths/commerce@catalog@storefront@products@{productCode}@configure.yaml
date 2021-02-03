@@ -1,0 +1,63 @@
+post:
+  tags:
+    - ProductRuntime
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: includeOptionDetails
+      in: query
+      schema:
+        type: boolean
+        nullable: true
+    - name: skipInventoryCheck
+      in: query
+      schema:
+        type: boolean
+        default: false
+        nullable: true
+    - name: quantity
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: purchaseLocation
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: variationProductCodeFilter
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductOptionSelections.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ConfiguredProduct.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ConfiguredProduct.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ConfiguredProduct.yaml

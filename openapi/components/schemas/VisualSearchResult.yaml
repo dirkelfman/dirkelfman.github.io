@@ -1,0 +1,17 @@
+type: object
+properties:
+  results:
+    type: array
+    items:
+      type: object
+      additionalProperties:
+        type: object
+        additionalProperties: false
+    nullable: true
+  trackingId:
+    type: string
+    nullable: true
+  pageId:
+    type: string
+    nullable: true
+additionalProperties: false

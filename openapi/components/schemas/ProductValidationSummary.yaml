@@ -1,0 +1,70 @@
+type: object
+properties:
+  productCode:
+    type: string
+    nullable: true
+  purchaseLocation:
+    type: string
+    nullable: true
+  productUsage:
+    type: string
+    nullable: true
+  fulfillmentTypesSupported:
+    type: array
+    items:
+      type: string
+    nullable: true
+  goodsType:
+    type: string
+    nullable: true
+  bundledProducts:
+    type: array
+    items:
+      $ref: ./BundledProductSummary.yaml
+    nullable: true
+  upc:
+    type: string
+    nullable: true
+  mfgPartNumber:
+    type: string
+    nullable: true
+  variationProductCode:
+    type: string
+    nullable: true
+  purchasableState:
+    $ref: ./ProductPurchasableState.yaml
+  price:
+    $ref: ./ProductPrice.yaml
+  measurements:
+    $ref: ./PackageMeasurements.yaml
+  isPackagedStandAlone:
+    type: boolean
+    nullable: true
+  image:
+    $ref: ./ProductImage.yaml
+  productShortDescription:
+    type: string
+    nullable: true
+  productName:
+    type: string
+    nullable: true
+  categories:
+    type: array
+    items:
+      $ref: ./Category.yaml
+    nullable: true
+  properties:
+    type: array
+    items:
+      $ref: ./ProductProperty.yaml
+    nullable: true
+  pricingBehavior:
+    $ref: ./ProductPricingBehaviorInfo.yaml
+  inventoryInfo:
+    $ref: ./ProductInventoryInfo.yaml
+  isTaxable:
+    type: boolean
+  productType:
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,12 @@
+type: object
+properties:
+  expression:
+    type: string
+    nullable: true
+  boostScore:
+    type: number
+    format: double
+  boostOp:
+    type: string
+    nullable: true
+additionalProperties: false

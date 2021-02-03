@@ -1,0 +1,21 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    nullable: true
+  isRequired:
+    type: boolean
+    nullable: true
+  isMultiValue:
+    type: boolean
+    nullable: true
+  values:
+    type: array
+    items:
+      $ref: ./ProductOptionValue.yaml
+    nullable: true
+  attributeDetail:
+    $ref: ./AttributeDetail.yaml
+  isProductImageGroupSelector:
+    type: boolean
+additionalProperties: false

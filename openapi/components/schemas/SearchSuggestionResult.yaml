@@ -1,0 +1,11 @@
+type: object
+properties:
+  query:
+    type: string
+    nullable: true
+  suggestionGroups:
+    type: array
+    items:
+      $ref: ./SearchSuggestionGroup.yaml
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,48 @@
+get:
+  tags:
+    - ProductCategoryRuntime
+  parameters:
+    - name: categoryId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+    - name: excludeProductsAlreadyAssignedCategory
+      in: query
+      schema:
+        type: boolean
+        default: true
+        nullable: true
+    - name: pageSize
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: cursorMark
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductCollection.yaml

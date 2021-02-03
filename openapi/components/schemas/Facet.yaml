@@ -1,0 +1,17 @@
+type: object
+properties:
+  label:
+    type: string
+    nullable: true
+  facetType:
+    type: string
+    nullable: true
+  field:
+    type: string
+    nullable: true
+  values:
+    type: array
+    items:
+      $ref: ./FacetValue.yaml
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,15 @@
+type: object
+properties:
+  priceListCode:
+    type: string
+    nullable: true
+  priceListId:
+    type: integer
+    format: int32
+  name:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+additionalProperties: false

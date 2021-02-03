@@ -1,0 +1,162 @@
+type: object
+properties:
+  slices:
+    type: array
+    items:
+      $ref: ./Product.yaml
+    nullable: true
+  productCode:
+    type: string
+    nullable: true
+  purchaseLocation:
+    type: string
+    nullable: true
+  productSequence:
+    type: integer
+    format: int32
+    nullable: true
+  productUsage:
+    type: string
+    nullable: true
+  fulfillmentTypesSupported:
+    type: array
+    items:
+      type: string
+    nullable: true
+  goodsType:
+    type: string
+    nullable: true
+  bundledProducts:
+    type: array
+    items:
+      $ref: ./BundledProduct.yaml
+    nullable: true
+  content:
+    $ref: ./ProductContent.yaml
+  purchasableState:
+    $ref: ./ProductPurchasableState.yaml
+  isActive:
+    type: boolean
+    nullable: true
+  publishState:
+    type: string
+    nullable: true
+  price:
+    $ref: ./ProductPrice.yaml
+  priceRange:
+    $ref: ./ProductPriceRange.yaml
+  volumePriceBands:
+    type: array
+    items:
+      $ref: ./ProductVolumePrice.yaml
+    nullable: true
+  volumePriceRange:
+    $ref: ./ProductPriceRange.yaml
+  availableShippingDiscounts:
+    type: array
+    items:
+      $ref: ./Discount.yaml
+    nullable: true
+  productType:
+    type: string
+    nullable: true
+  productTypeId:
+    type: integer
+    format: int32
+    nullable: true
+  isTaxable:
+    type: boolean
+  isRecurring:
+    type: boolean
+  pricingBehavior:
+    $ref: ./ProductPricingBehaviorInfo.yaml
+  inventoryInfo:
+    $ref: ./ProductInventoryInfo.yaml
+  createDate:
+    type: string
+    format: date-time
+  updateDate:
+    type: string
+    format: date-time
+  dateFirstAvailableInCatalog:
+    type: string
+    format: date-time
+    nullable: true
+  catalogStartDate:
+    type: string
+    format: date-time
+    nullable: true
+  catalogEndDate:
+    type: string
+    format: date-time
+    nullable: true
+  daysAvailableInCatalog:
+    type: integer
+    format: int32
+    nullable: true
+  upc:
+    type: string
+    nullable: true
+  upCs:
+    type: array
+    items:
+      type: string
+    nullable: true
+  mfgPartNumber:
+    type: string
+    nullable: true
+  mfgPartNumbers:
+    type: array
+    items:
+      type: string
+    nullable: true
+  variationProductCode:
+    type: string
+    nullable: true
+  categories:
+    type: array
+    items:
+      $ref: ./Category.yaml
+    nullable: true
+  measurements:
+    $ref: ./PackageMeasurements.yaml
+  isPackagedStandAlone:
+    type: boolean
+    nullable: true
+  properties:
+    type: array
+    items:
+      $ref: ./ProductProperty.yaml
+    nullable: true
+  options:
+    type: array
+    items:
+      $ref: ./ProductOption.yaml
+    nullable: true
+  variations:
+    type: array
+    items:
+      $ref: ./VariationSummary.yaml
+    nullable: true
+  validPriceLists:
+    type: array
+    items:
+      type: string
+    nullable: true
+  locationsInStock:
+    type: array
+    items:
+      type: string
+    nullable: true
+  slicingAttributeFQN:
+    type: string
+    nullable: true
+  productImageGroups:
+    type: array
+    items:
+      $ref: ./ProductImageGroup.yaml
+    nullable: true
+  sliceValue:
+    type: string
+    nullable: true
+additionalProperties: false

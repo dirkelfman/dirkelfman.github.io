@@ -1,0 +1,29 @@
+type: object
+properties:
+  name:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  pageTitle:
+    type: string
+    nullable: true
+  metaTagTitle:
+    type: string
+    nullable: true
+  metaTagDescription:
+    type: string
+    nullable: true
+  metaTagKeywords:
+    type: string
+    nullable: true
+  slug:
+    type: string
+    nullable: true
+  categoryImages:
+    type: array
+    items:
+      $ref: ./CategoryImage.yaml
+    nullable: true
+additionalProperties: false

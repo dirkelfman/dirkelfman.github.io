@@ -1,0 +1,12 @@
+type: object
+properties:
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+  stringValue:
+    type: string
+    nullable: true
+  displayInfo:
+    $ref: ./AttributeVocabularyValueDisplayInfo.yaml
+additionalProperties: false

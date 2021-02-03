@@ -1,0 +1,153 @@
+post:
+  tags:
+    - ProductSearch
+  parameters:
+    - name: query
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: filter
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetTemplate
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetTemplateSubset
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facet
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetFieldRangeQuery
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetHierPrefix
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetHierValue
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetHierDepth
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetStartIndex
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetPageSize
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetSettings
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetValueFilter
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: pageSize
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: startIndex
+      in: query
+      schema:
+        type: integer
+        format: int32
+        default: 0
+        nullable: true
+    - name: searchSettings
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: responseGroups
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetTemplateExclude
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetPrefix
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: responseOptions
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: cursorMark
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: facetValueSort
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: shouldSlice
+      in: query
+      schema:
+        type: boolean
+        nullable: true
+    - name: mid
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProductSortDefinition.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductSearchResult.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductSearchResult.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductSearchResult.yaml

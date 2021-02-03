@@ -1,0 +1,11 @@
+type: object
+properties:
+  name:
+    type: string
+    nullable: true
+  suggestions:
+    type: array
+    items:
+      $ref: ./SearchSuggestion.yaml
+    nullable: true
+additionalProperties: false

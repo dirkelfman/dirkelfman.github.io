@@ -1,0 +1,8 @@
+type: object
+properties:
+  applicableDiscounts:
+    type: array
+    items:
+      $ref: ./Discount.yaml
+    nullable: true
+additionalProperties: false

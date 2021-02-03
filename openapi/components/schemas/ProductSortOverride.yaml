@@ -1,0 +1,16 @@
+required:
+  - productCode
+type: object
+properties:
+  productCode:
+    type: string
+  sliceValue:
+    type: string
+    nullable: true
+  position:
+    type: integer
+    format: int32
+  isPinned:
+    type: boolean
+    nullable: true
+additionalProperties: false

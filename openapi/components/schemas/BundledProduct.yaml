@@ -1,0 +1,35 @@
+type: object
+properties:
+  content:
+    $ref: ./ProductContent.yaml
+  productCode:
+    type: string
+    nullable: true
+  goodsType:
+    type: string
+    nullable: true
+  quantity:
+    type: integer
+    format: int32
+  measurements:
+    $ref: ./PackageMeasurements.yaml
+  isPackagedStandAlone:
+    type: boolean
+    nullable: true
+  inventoryInfo:
+    $ref: ./ProductInventoryInfo.yaml
+  optionAttributeFQN:
+    type: string
+    nullable: true
+  optionValue:
+    type: object
+    additionalProperties: false
+    nullable: true
+  creditValue:
+    type: number
+    format: double
+    nullable: true
+  productType:
+    type: string
+    nullable: true
+additionalProperties: false

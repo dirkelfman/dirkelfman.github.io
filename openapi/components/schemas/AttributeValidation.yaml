@@ -1,0 +1,30 @@
+type: object
+properties:
+  regularExpression:
+    type: string
+    nullable: true
+  minStringLength:
+    type: integer
+    format: int32
+    nullable: true
+  maxStringLength:
+    type: integer
+    format: int32
+    nullable: true
+  minNumericValue:
+    type: number
+    format: double
+    nullable: true
+  maxNumericValue:
+    type: number
+    format: double
+    nullable: true
+  minDateValue:
+    type: string
+    format: date-time
+    nullable: true
+  maxDateValue:
+    type: string
+    format: date-time
+    nullable: true
+additionalProperties: false

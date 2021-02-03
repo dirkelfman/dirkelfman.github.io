@@ -1,0 +1,12 @@
+required:
+  - productImageGroupId
+type: object
+properties:
+  productImageGroupId:
+    type: string
+  productImageGroupTags:
+    type: array
+    items:
+      $ref: ./ProductImageGroupTag.yaml
+    nullable: true
+additionalProperties: false

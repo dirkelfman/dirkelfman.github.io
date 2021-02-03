@@ -1,0 +1,42 @@
+type: object
+properties:
+  priceListCode:
+    type: string
+    nullable: true
+  priceListId:
+    type: integer
+    format: int32
+  enabled:
+    type: boolean
+  name:
+    type: string
+    nullable: true
+  resolvable:
+    type: boolean
+  isIndexed:
+    type: boolean
+    nullable: true
+  filteredInStoreFront:
+    type: boolean
+  isSiteDefault:
+    type: boolean
+  description:
+    type: string
+    nullable: true
+  ancestors:
+    type: array
+    items:
+      $ref: ./PriceListNode.yaml
+    nullable: true
+  descendants:
+    type: array
+    items:
+      $ref: ./PriceListNode.yaml
+    nullable: true
+  validSites:
+    type: array
+    items:
+      type: integer
+      format: int32
+    nullable: true
+additionalProperties: false

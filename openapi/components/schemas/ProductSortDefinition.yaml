@@ -1,0 +1,25 @@
+type: object
+properties:
+  sortExpressions:
+    type: array
+    items:
+      $ref: ./ProductSortExpression.yaml
+    nullable: true
+  categoryId:
+    type: integer
+    format: int32
+    nullable: true
+  name:
+    type: string
+    nullable: true
+  boosted:
+    type: array
+    items:
+      $ref: ./ProductSortOverride.yaml
+    nullable: true
+  buried:
+    type: array
+    items:
+      $ref: ./ProductSortOverride.yaml
+    nullable: true
+additionalProperties: false

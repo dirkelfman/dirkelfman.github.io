@@ -1,0 +1,64 @@
+get:
+  tags:
+    - PriceListRuntime
+  parameters:
+    - name: customerAccountId
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml
+post:
+  tags:
+    - PriceListRuntime
+  parameters:
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          additionalProperties:
+            $ref: ../components/schemas/JToken.yaml
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ResolvedPriceList.yaml

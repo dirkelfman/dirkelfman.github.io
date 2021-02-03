@@ -1,0 +1,9 @@
+type: object
+properties:
+  attributeFqn:
+    type: string
+    nullable: true
+  value:
+    type: string
+    nullable: true
+additionalProperties: false

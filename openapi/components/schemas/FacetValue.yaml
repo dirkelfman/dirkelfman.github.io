@@ -1,0 +1,34 @@
+type: object
+properties:
+  label:
+    type: string
+    nullable: true
+  isApplied:
+    type: boolean
+    nullable: true
+  count:
+    type: integer
+    format: int32
+  value:
+    type: string
+    nullable: true
+  filterValue:
+    type: string
+    nullable: true
+  rangeQueryValueStart:
+    type: string
+    nullable: true
+  rangeQueryValueEnd:
+    type: string
+    nullable: true
+  parentFacetValue:
+    type: string
+    nullable: true
+  isDisplayed:
+    type: boolean
+  childrenFacetValues:
+    type: array
+    items:
+      $ref: ./FacetValue.yaml
+    nullable: true
+additionalProperties: false

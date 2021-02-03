@@ -1,0 +1,30 @@
+post:
+  tags:
+    - ProductRuntime
+  parameters:
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LocationInventoryQuery.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/LocationInventoryCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/LocationInventoryCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/LocationInventoryCollection.yaml

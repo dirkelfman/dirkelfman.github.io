@@ -1,0 +1,10 @@
+type: object
+properties:
+  isPurchasable:
+    type: boolean
+  messages:
+    type: array
+    items:
+      $ref: ./ValidationMessage.yaml
+    nullable: true
+additionalProperties: false

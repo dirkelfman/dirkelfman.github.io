@@ -1,0 +1,41 @@
+type: object
+properties:
+  valueType:
+    type: string
+    nullable: true
+  inputType:
+    type: string
+    nullable: true
+  dataType:
+    type: string
+    nullable: true
+  usageType:
+    type: string
+    nullable: true
+  dataTypeSequence:
+    type: integer
+    format: int32
+  name:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  validation:
+    $ref: ./AttributeValidation.yaml
+  searchableInStorefront:
+    type: boolean
+  searchDisplayValue:
+    type: boolean
+  allowFilteringAndSortingInStorefront:
+    type: boolean
+  indexValueWithCase:
+    type: boolean
+    nullable: true
+  customWeightInStorefrontSearch:
+    type: boolean
+    nullable: true
+  displayIntention:
+    type: string
+    nullable: true
+additionalProperties: false

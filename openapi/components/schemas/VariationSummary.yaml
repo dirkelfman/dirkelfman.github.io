@@ -1,0 +1,13 @@
+type: object
+properties:
+  productCode:
+    type: string
+    nullable: true
+  options:
+    type: array
+    items:
+      $ref: ./VariationOption.yaml
+    nullable: true
+  inventoryInfo:
+    $ref: ./ProductInventoryInfo.yaml
+additionalProperties: false

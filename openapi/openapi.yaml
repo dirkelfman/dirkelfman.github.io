@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: Kibo ProductRuntime Service
+  version: v1
+paths:
+  /commerce/catalog/storefront/currencies/exchangerates:
+    $ref: paths/commerce@catalog@storefront@currencies@exchangerates.yaml
+  /commerce/catalog/storefront/pricelists/resolved:
+    $ref: paths/commerce@catalog@storefront@pricelists@resolved.yaml
+  '/commerce/catalog/storefront/pricelists/{priceListCode}':
+    $ref: 'paths/commerce@catalog@storefront@pricelists@{priceListCode}.yaml'
+  /commerce/catalog/storefront/pricelists:
+    $ref: paths/commerce@catalog@storefront@pricelists.yaml
+  /commerce/catalog/storefront/pricelists/default/get:
+    $ref: paths/commerce@catalog@storefront@pricelists@default@get.yaml
+  /commerce/catalog/storefront/categories/tree:
+    $ref: paths/commerce@catalog@storefront@categories@tree.yaml
+  /commerce/catalog/storefront/categories:
+    $ref: paths/commerce@catalog@storefront@categories.yaml
+  '/commerce/catalog/storefront/categories/{categoryId}':
+    $ref: 'paths/commerce@catalog@storefront@categories@{categoryId}.yaml'
+  '/commerce/catalog/storefront/categories/{categoryId}/dynamicOutOfSync':
+    $ref: >-
+      paths/commerce@catalog@storefront@categories@{categoryId}@dynamicOutOfSync.yaml
+  /commerce/catalog/storefront/products:
+    $ref: paths/commerce@catalog@storefront@products.yaml
+  '/commerce/catalog/storefront/products/{productCode}/locationinventory':
+    $ref: >-
+      paths/commerce@catalog@storefront@products@{productCode}@locationinventory.yaml
+  /commerce/catalog/storefront/products/locationinventory:
+    $ref: paths/commerce@catalog@storefront@products@locationinventory.yaml
+  /commerce/catalog/storefront/products/costs:
+    $ref: paths/commerce@catalog@storefront@products@costs.yaml
+  '/commerce/catalog/storefront/products/{productCode}':
+    $ref: 'paths/commerce@catalog@storefront@products@{productCode}.yaml'
+  '/commerce/catalog/storefront/products/indexing/{productCode}':
+    $ref: 'paths/commerce@catalog@storefront@products@indexing@{productCode}.yaml'
+  '/commerce/catalog/storefront/products/{productCode}/summary':
+    $ref: 'paths/commerce@catalog@storefront@products@{productCode}@summary.yaml'
+  '/commerce/catalog/storefront/products/{productCode}/configure':
+    $ref: 'paths/commerce@catalog@storefront@products@{productCode}@configure.yaml'
+  '/commerce/catalog/storefront/products/{productCode}/validate':
+    $ref: 'paths/commerce@catalog@storefront@products@{productCode}@validate.yaml'
+  '/commerce/catalog/storefront/products/{productCode}/validateDiscounts':
+    $ref: >-
+      paths/commerce@catalog@storefront@products@{productCode}@validateDiscounts.yaml
+  /commerce/catalog/storefront/productsearch/suggest:
+    $ref: paths/commerce@catalog@storefront@productsearch@suggest.yaml
+  /commerce/catalog/storefront/productsearch/suggest2:
+    $ref: paths/commerce@catalog@storefront@productsearch@suggest2.yaml
+  /commerce/catalog/storefront/productsearch/visualsearch:
+    $ref: paths/commerce@catalog@storefront@productsearch@visualsearch.yaml
+  /commerce/catalog/storefront/productsearch/randomAccessCursor:
+    $ref: paths/commerce@catalog@storefront@productsearch@randomAccessCursor.yaml
+  /commerce/catalog/storefront/productsearch/search:
+    $ref: paths/commerce@catalog@storefront@productsearch@search.yaml
+  /commerce/catalog/storefront/productsearch/siteSearch:
+    $ref: paths/commerce@catalog@storefront@productsearch@siteSearch.yaml
+  /commerce/catalog/storefront/productsearch/previewsearchsort:
+    $ref: paths/commerce@catalog@storefront@productsearch@previewsearchsort.yaml
+  /commerce/catalog/storefront/productsearch/searchDebug:
+    $ref: paths/commerce@catalog@storefront@productsearch@searchDebug.yaml
+  /commerce/catalog/storefront/productsearch/searchTuningRules/validate:
+    $ref: >-
+      paths/commerce@catalog@storefront@productsearch@searchTuningRules@validate.yaml
+  '/commerce/catalog/storefront/productsearch/searchTuningRules/{siteId}':
+    $ref: >-
+      paths/commerce@catalog@storefront@productsearch@searchTuningRules@{siteId}.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\""
+      scheme: bearer
+      bearerFormat: JWT
+    clientOauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /platform/applications/internal/access-tokens/oauth/
+          scopes: {}
+security:
+  - bearerAuth: []
+    clientOauth2: []

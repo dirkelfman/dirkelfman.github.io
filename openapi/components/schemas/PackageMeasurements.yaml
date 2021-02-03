@@ -1,0 +1,11 @@
+type: object
+properties:
+  packageHeight:
+    $ref: ./Measurement.yaml
+  packageWidth:
+    $ref: ./Measurement.yaml
+  packageLength:
+    $ref: ./Measurement.yaml
+  packageWeight:
+    $ref: ./Measurement.yaml
+additionalProperties: false

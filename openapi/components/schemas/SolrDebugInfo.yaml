@@ -1,0 +1,26 @@
+type: object
+properties:
+  searchTuningRuleCode:
+    type: string
+    nullable: true
+  boostedProductCodes:
+    type: array
+    items:
+      type: string
+    nullable: true
+  blockedProductCodes:
+    type: array
+    items:
+      type: string
+    nullable: true
+  boostQueries:
+    type: array
+    items:
+      type: string
+    nullable: true
+  boostFunctions:
+    type: array
+    items:
+      type: string
+    nullable: true
+additionalProperties: false

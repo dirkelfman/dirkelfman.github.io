@@ -1,0 +1,19 @@
+type: object
+properties:
+  discountId:
+    type: integer
+    format: int32
+  expirationDate:
+    type: string
+    format: date-time
+    nullable: true
+  name:
+    type: string
+    nullable: true
+  friendlyDescription:
+    type: string
+    nullable: true
+  impact:
+    type: number
+    format: double
+additionalProperties: false

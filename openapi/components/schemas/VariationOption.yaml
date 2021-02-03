@@ -1,0 +1,13 @@
+type: object
+properties:
+  valueSequence:
+    type: integer
+    format: int32
+  attributeFQN:
+    type: string
+    nullable: true
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+additionalProperties: false

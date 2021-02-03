@@ -1,0 +1,10 @@
+type: object
+properties:
+  suggestionType:
+    type: string
+    nullable: true
+  suggestion:
+    type: object
+    additionalProperties: false
+    nullable: true
+additionalProperties: false

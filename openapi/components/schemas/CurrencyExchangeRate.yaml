@@ -1,0 +1,28 @@
+type: object
+properties:
+  fromCurrencyCode:
+    type: string
+    nullable: true
+  toCurrencyCode:
+    type: string
+    nullable: true
+  rate:
+    type: number
+    format: double
+    nullable: true
+  multiplier:
+    type: number
+    format: double
+    nullable: true
+  decimalPlaces:
+    type: integer
+    format: int32
+    nullable: true
+  roundingStrategy:
+    type: integer
+    format: int32
+    nullable: true
+  referenceData:
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,22 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    nullable: true
+  isHidden:
+    type: boolean
+    nullable: true
+  isMultiValue:
+    type: boolean
+    nullable: true
+  attributeDetail:
+    $ref: ./AttributeDetail.yaml
+  values:
+    type: array
+    items:
+      $ref: ./ProductPropertyValue.yaml
+    nullable: true
+  propertyType:
+    type: string
+    nullable: true
+additionalProperties: false

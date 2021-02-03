@@ -1,0 +1,20 @@
+type: object
+properties:
+  productCode:
+    type: string
+    nullable: true
+  productSequence:
+    type: integer
+    format: int32
+    nullable: true
+  productTypeId:
+    type: integer
+    format: int32
+    nullable: true
+  publishState:
+    type: string
+    nullable: true
+  updateDate:
+    type: string
+    format: date-time
+additionalProperties: false

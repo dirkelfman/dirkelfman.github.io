@@ -1,0 +1,29 @@
+type: object
+properties:
+  productName:
+    type: string
+    nullable: true
+  productFullDescription:
+    type: string
+    nullable: true
+  productShortDescription:
+    type: string
+    nullable: true
+  metaTagTitle:
+    type: string
+    nullable: true
+  metaTagDescription:
+    type: string
+    nullable: true
+  metaTagKeywords:
+    type: string
+    nullable: true
+  seoFriendlyUrl:
+    type: string
+    nullable: true
+  productImages:
+    type: array
+    items:
+      $ref: ./ProductImage.yaml
+    nullable: true
+additionalProperties: false

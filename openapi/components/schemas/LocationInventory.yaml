@@ -1,0 +1,23 @@
+type: object
+properties:
+  productCode:
+    type: string
+    nullable: true
+  locationCode:
+    type: string
+    nullable: true
+  stockAvailable:
+    type: integer
+    format: int32
+    nullable: true
+  softStockAvailable:
+    type: integer
+    format: int32
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  mfgPartNumber:
+    type: string
+    nullable: true
+additionalProperties: false

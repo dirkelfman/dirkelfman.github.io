@@ -1,0 +1,48 @@
+get:
+  tags:
+    - ProductRuntime
+  parameters:
+    - name: productCode
+      in: path
+      required: true
+      schema:
+        type: string
+        nullable: true
+    - name: responseGroups
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: productVersion
+      in: query
+      schema:
+        type: integer
+        format: int64
+        nullable: true
+    - name: lastModifiedDate
+      in: query
+      schema:
+        type: string
+        format: date-time
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProductForIndexing.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/ProductForIndexing.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/ProductForIndexing.yaml

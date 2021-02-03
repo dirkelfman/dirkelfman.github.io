@@ -1,0 +1,7 @@
+type: object
+properties:
+  lower:
+    $ref: ./ProductPrice.yaml
+  upper:
+    $ref: ./ProductPrice.yaml
+additionalProperties: false

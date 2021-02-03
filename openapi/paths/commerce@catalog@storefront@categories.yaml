@@ -1,0 +1,47 @@
+get:
+  tags:
+    - ProductCategoryRuntime
+  parameters:
+    - name: filter
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: startIndex
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: pageSize
+      in: query
+      schema:
+        type: integer
+        format: int32
+        nullable: true
+    - name: sortBy
+      in: query
+      schema:
+        type: string
+        nullable: true
+    - name: x-vol-site
+      in: header
+      schema:
+        type: integer
+    - name: x-vol-tenant
+      in: header
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml
+        text/json:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml
+        text/plain:
+          schema:
+            $ref: ../components/schemas/CategoryPagedCollection.yaml

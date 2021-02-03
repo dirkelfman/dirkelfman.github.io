@@ -1,0 +1,16 @@
+type: object
+properties:
+  couponCode:
+    type: string
+    nullable: true
+  discount:
+    $ref: ./Discount.yaml
+  discounts:
+    type: array
+    items:
+      $ref: ./Discount.yaml
+    nullable: true
+  impact:
+    type: number
+    format: double
+additionalProperties: false

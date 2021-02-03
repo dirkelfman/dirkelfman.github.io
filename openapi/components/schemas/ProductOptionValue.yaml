@@ -1,0 +1,38 @@
+type: object
+properties:
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+  attributeValueId:
+    type: integer
+    format: int32
+  stringValue:
+    type: string
+    nullable: true
+  isEnabled:
+    type: boolean
+    nullable: true
+  isSelected:
+    type: boolean
+    nullable: true
+  isDefault:
+    type: boolean
+    nullable: true
+  deltaWeight:
+    type: number
+    format: double
+    nullable: true
+  deltaPrice:
+    type: number
+    format: double
+    nullable: true
+  shopperEnteredValue:
+    type: object
+    additionalProperties: false
+    nullable: true
+  bundledProduct:
+    $ref: ./BundledProduct.yaml
+  displayInfo:
+    $ref: ./AttributeVocabularyValueDisplayInfo.yaml
+additionalProperties: false

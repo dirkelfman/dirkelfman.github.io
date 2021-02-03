@@ -1,0 +1,18 @@
+type: object
+properties:
+  attributeFQN:
+    type: string
+    nullable: true
+  value:
+    type: object
+    additionalProperties: false
+    nullable: true
+  attributeValueId:
+    type: integer
+    format: int32
+    nullable: true
+  shopperEnteredValue:
+    type: object
+    additionalProperties: false
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,25 @@
+type: object
+properties:
+  imageLabel:
+    type: string
+    nullable: true
+  altText:
+    type: string
+    nullable: true
+  imageUrl:
+    type: string
+    nullable: true
+  cmsId:
+    type: string
+    nullable: true
+  videoUrl:
+    type: string
+    nullable: true
+  mediaType:
+    type: string
+    nullable: true
+  sequence:
+    type: integer
+    format: int32
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,21 @@
+post:
+  tags:
+    - ProductSearch
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SearchTuningRuleValidationRequest.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: string
+        text/json:
+          schema:
+            type: string
+        text/plain:
+          schema:
+            type: string

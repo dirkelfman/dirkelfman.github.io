@@ -1,0 +1,33 @@
+type: object
+properties:
+  categoryId:
+    type: integer
+    format: int32
+  parentCategory:
+    $ref: ./Category.yaml
+  categoryCode:
+    type: string
+    nullable: true
+  content:
+    $ref: ./CategoryContent.yaml
+  childrenCategories:
+    type: array
+    items:
+      $ref: ./Category.yaml
+    nullable: true
+  sequence:
+    type: integer
+    format: int32
+    nullable: true
+  isDisplayed:
+    type: boolean
+  count:
+    type: integer
+    format: int32
+    nullable: true
+  updateDate:
+    type: string
+    format: date-time
+  shouldSlice:
+    type: boolean
+additionalProperties: false

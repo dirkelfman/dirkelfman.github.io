@@ -1,0 +1,44 @@
+type: object
+properties:
+  msrp:
+    type: number
+    format: double
+    nullable: true
+  price:
+    type: number
+    format: double
+    nullable: true
+  priceType:
+    type: string
+    nullable: true
+  salePrice:
+    type: number
+    format: double
+    nullable: true
+  salePriceType:
+    type: string
+    nullable: true
+  catalogSalePrice:
+    type: number
+    format: double
+    nullable: true
+  catalogListPrice:
+    type: number
+    format: double
+    nullable: true
+  discount:
+    $ref: ./AppliedDiscount.yaml
+  creditValue:
+    type: number
+    format: double
+    nullable: true
+  effectivePricelistCode:
+    type: string
+    nullable: true
+  priceListEntryCode:
+    type: string
+    nullable: true
+  priceListEntryMode:
+    type: string
+    nullable: true
+additionalProperties: false
