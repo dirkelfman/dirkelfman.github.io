@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+</head>
+<body>
+<button id="btnChangeMode">Change Mode</button> <label id="lblMode">focused</label>
+  <rapi-doc id="docElement" spec-url="http://localhost/product_admin.json"
+    render-style="focused"
+    heading-text="Kibo"
+    show-header="false"></rapi-doc>
+  <script type="text/javascript">
+    const btn = document.getElementById('btnChangeMode');
+    const rapiDoc = document.getElementById('docElement');
+    const lbl = document.getElementById('lblMode');
+    let mode = 'focused';
+    btn.addEventListener('click', function() {
+      if (mode === 'view') {
+        mode = 'read';
+      } else if (mode ==='read') {
+        mode = 'focused';
+      } else {
+        mode = 'view';
+      }
+      rapiDoc.setAttribute('render-style', mode);
+      lbl.innerText = mode;
+    });
+  </script>
+</body> 
+</html>
