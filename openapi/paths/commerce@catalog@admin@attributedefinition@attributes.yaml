@@ -32,7 +32,7 @@ get:
         type: string
         nullable: true
   responses:
-    '200':
+    "200":
       description: Success
       content:
         application/json:
@@ -44,18 +44,28 @@ get:
         text/plain:
           schema:
             $ref: ../components/schemas/AttributeCollection.yaml
+  x-code-samples:
+    - lang: JavaScript
+      source:
+        $ref: ../code_samples/javascript/commerce@catalog@admin@attributedefinition@attributes/sample1.js
+    - lang: Java
+      source:
+        $ref: ../code_samples/java/commerce@catalog@admin@attributedefinition@attributes/sample1.java
+    - lang: C#
+      source:
+        $ref: ../code_samples/java/commerce@catalog@admin@attributedefinition@attributes/sample1.java
 post:
   tags:
     - Attribute
   summary: Add / Create Attribute
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../components/schemas/Attribute.yaml
   responses:
-    '200':
+    "200":
       description: Success
       content:
         application/json:
