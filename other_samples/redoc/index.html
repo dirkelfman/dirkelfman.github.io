@@ -1,24 +1,107 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReDoc</title>
-    <!-- needed for adaptive design -->
-    <meta charset="utf-8"/>
+    <title>ReDoc Demo: Multiple apis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
-
-    <!--
-    ReDoc doesn't change outer page styles
-    -->
     <style>
       body {
         margin: 0;
-        padding: 0;
+        padding-top: 40px;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+      }
+      #links_container {
+          margin: 0;
+          padding: 0;
+          background-color: #0033a0;
+      }
+
+      #links_container li {
+          display: inline-block;
+          padding: 10px;
+          color: white;
+          cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <redoc spec-url='/dist.yaml'></redoc>
-    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+
+    <!-- Top navigation placeholder -->
+    <nav>
+      <ul id="links_container">
+      </ul>
+    </nav>
+
+    <redoc scroll-y-offset="body > nav"></redoc>
+
+    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-alpha.17/bundles/redoc.standalone.js"> </script>
+    <script>
+      // list of APIS
+      var apis = [
+        {
+          name: 'Commerce Runtime',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/CommerceRuntimeAPI.json'
+        },
+        {
+          name: 'Content',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/ContentAPI.json'
+        },
+        {
+          name: 'Customer',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/CustomerAPI.json'
+        },
+        {
+          name: 'Inventory',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/InventoryAPI.json'
+        },
+        {
+          name: 'Location',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/LocationAPI.json'
+        },
+        {
+          name: 'MZDB',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/MZDBAPI.json'
+        },
+        {
+          name: 'Order Routing',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/OrderRoutingAPI.json'
+        },
+        {
+          name: 'Product Admin',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/ProductAdminAPI.json'
+        },
+        {
+          name: 'Product Runtime',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/ProductRuntimeAPI.json'
+        },
+        {
+          name: 'Shipping Admin',
+          url: 'https://raw.githubusercontent.com/dirkelfman/dirkelfman.github.io/master/specs/ShippingAdminAPI.json'
+        }
+      ];
+
+      // initially render first API
+      Redoc.init(apis[0].url);
+
+      function onClick() {
+        var url = this.getAttribute('data-link');
+        Redoc.init(url);
+      }
+
+      // dynamically building navigation items
+      var $list = document.getElementById('links_container');
+      apis.forEach(function(api) {
+        var $listitem = document.createElement('li');
+        $listitem.setAttribute('data-link', api.url);
+        $listitem.innerText = api.name;
+        $listitem.addEventListener('click', onClick);
+        $list.appendChild($listitem);
+      });
+    </script>
   </body>
 </html>

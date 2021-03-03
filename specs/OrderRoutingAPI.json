@@ -1,0 +1,4497 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {
+      
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "t17215.dev01.kubedev.kibo-dev.com",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "after-action-controller",
+      "description": "After Action Controller"
+    },
+    {
+      "name": "auth-controller",
+      "description": "Auth Controller"
+    },
+    {
+      "name": "data-list-controller",
+      "description": "Data List Controller"
+    },
+    {
+      "name": "environment-controller",
+      "description": "Environment Controller"
+    },
+    {
+      "name": "filter-controller",
+      "description": "Filter Controller"
+    },
+    {
+      "name": "group-controller",
+      "description": "Group Controller"
+    },
+    {
+      "name": "routing-controller",
+      "description": "Routing Controller"
+    },
+    {
+      "name": "settings-controller",
+      "description": "Settings Controller"
+    },
+    {
+      "name": "site-controller",
+      "description": "Site Controller"
+    },
+    {
+      "name": "sort-controller",
+      "description": "Sort Controller"
+    },
+    {
+      "name": "tenant-controller",
+      "description": "Tenant Controller"
+    }
+  ],
+  "paths": {
+    "/api/v1/action/delete/{actionID}": {
+      "delete": {
+        "tags": [
+          "after-action-controller"
+        ],
+        "summary": "deleteAction",
+        "operationId": "deleteActionUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionID",
+            "in": "path",
+            "description": "actionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/action/noinv": {
+      "post": {
+        "tags": [
+          "after-action-controller"
+        ],
+        "summary": "saveNoInvAction",
+        "operationId": "saveNoInvActionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "query",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "loc",
+            "description": "loc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/action/partial": {
+      "post": {
+        "tags": [
+          "after-action-controller"
+        ],
+        "summary": "savePartialAction",
+        "operationId": "savePartialActionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "query",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "loc",
+            "description": "loc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/action/test": {
+      "get": {
+        "tags": [
+          "after-action-controller"
+        ],
+        "summary": "testAction",
+        "operationId": "testActionUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/action/{actionID}": {
+      "get": {
+        "tags": [
+          "after-action-controller"
+        ],
+        "summary": "getAction",
+        "operationId": "getActionUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "actionID",
+            "in": "path",
+            "description": "actionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupAfterAction"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "orderRouting",
+        "operationId": "orderRoutingUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/associate": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "storeAssociate",
+        "operationId": "storeAssociateUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/filters": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "getFilters",
+        "operationId": "getFiltersUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/manager": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "storeManager",
+        "operationId": "storeManagerUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/user/behaviors": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "getAuthorizedUserRoles",
+        "operationId": "getAuthorizedUserRolesUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/user/hello": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "home",
+        "operationId": "homeUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/user/principal": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "getPrincipal",
+        "operationId": "getPrincipalUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Principal"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/authtest/user/username": {
+      "get": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "getAuthorizedUserName",
+        "operationId": "getAuthorizedUserNameUsingGET",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/dataList": {
+      "post": {
+        "tags": [
+          "data-list-controller"
+        ],
+        "summary": "createCustomDataList",
+        "operationId": "createCustomDataListUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "customDataList",
+            "description": "customDataList",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomDataList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomDataListResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/dataList/{dataListID}": {
+      "get": {
+        "tags": [
+          "data-list-controller"
+        ],
+        "summary": "getCustomDataList",
+        "operationId": "getCustomDataListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataListID",
+            "in": "path",
+            "description": "dataListID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomDataListResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "data-list-controller"
+        ],
+        "summary": "updateCustomDataList",
+        "operationId": "updateCustomDataListUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataListID",
+            "in": "path",
+            "description": "dataListID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "newDataList",
+            "description": "newDataList",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomDataList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomDataListResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "data-list-controller"
+        ],
+        "summary": "deleteCustomDataList",
+        "operationId": "deleteCustomDataListUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataListID",
+            "in": "path",
+            "description": "dataListID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/environment/export": {
+      "get": {
+        "tags": [
+          "environment-controller"
+        ],
+        "summary": "exportEnvironment",
+        "operationId": "exportEnvironmentUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "environmentID",
+            "in": "query",
+            "description": "environmentID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "siteID",
+            "in": "query",
+            "description": "siteID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "tenantID",
+            "in": "query",
+            "description": "tenantID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentExportModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "environment-controller"
+        ],
+        "summary": "importEnvironment",
+        "operationId": "importEnvironmentUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentExportModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/criteriaSet": {
+      "post": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "saveCriteriaSetFilter",
+        "operationId": "saveCriteriaSetFilterUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loc",
+            "description": "loc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationCriteriaSetFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/customDataListFilter": {
+      "post": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "saveCustomDataListFilter",
+        "operationId": "saveCustomDataListFilterUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "filter",
+            "description": "filter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomDataListFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/customDataValueFilter": {
+      "post": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "saveCustomDataValueFilter",
+        "operationId": "saveCustomDataValueFilterUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "customDataValueFilter",
+            "description": "customDataValueFilter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomDataValueFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/delete/{filterID}": {
+      "delete": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "deleteFilter",
+        "operationId": "deleteFilterUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterID",
+            "in": "path",
+            "description": "filterID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/testcriteria": {
+      "get": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "testFilter",
+        "operationId": "testFilterUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/testset": {
+      "get": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "testSetFilter",
+        "operationId": "testSetFilterUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/filter/{filterID}": {
+      "get": {
+        "tags": [
+          "filter-controller"
+        ],
+        "summary": "getFilter",
+        "operationId": "getFilterUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterID",
+            "in": "path",
+            "description": "filterID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AbstractFilter"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/": {
+      "post": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "saveGroup",
+        "operationId": "saveGroupUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loc",
+            "description": "loc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/delete/{groupID}": {
+      "delete": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "deleteGroup",
+        "operationId": "deleteGroupUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/test": {
+      "get": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "testGroup",
+        "operationId": "testGroupUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/{groupID}": {
+      "get": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "getGroup",
+        "operationId": "getGroupUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/{groupID}/setFilters": {
+      "post": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "setGroupFilters",
+        "operationId": "setGroupFiltersUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "filterIDs",
+            "description": "filterIDs",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "groupID",
+            "in": "path",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/group/{groupID}/setSorts": {
+      "post": {
+        "tags": [
+          "group-controller"
+        ],
+        "summary": "setGroupSorts",
+        "operationId": "setGroupSortsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "description": "groupID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "sorts",
+            "description": "sorts",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LocationSort"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationGroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/routing/candidates": {
+      "post": {
+        "tags": [
+          "routing-controller"
+        ],
+        "summary": "suggestCandidates",
+        "operationId": "suggestCandidatesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CandidateSuggestionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CandidateSuggestionsResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/routing/samplerequest": {
+      "get": {
+        "tags": [
+          "routing-controller"
+        ],
+        "summary": "getSampleRequest",
+        "operationId": "getSampleRequestUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SuggestionRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/routing/suggestion": {
+      "post": {
+        "tags": [
+          "routing-controller"
+        ],
+        "summary": "suggestRouting",
+        "operationId": "suggestRoutingUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SuggestionRequest"
+            }
+          },
+          {
+            "name": "returnSuggestionLog",
+            "in": "query",
+            "description": "returnSuggestionLog",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SuggestionResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/routing/suggestionLog/": {
+      "get": {
+        "tags": [
+          "routing-controller"
+        ],
+        "summary": "getSuggestionLog",
+        "operationId": "getSuggestionLogUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "externalResponseID",
+            "in": "query",
+            "description": "externalResponseID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderID",
+            "in": "query",
+            "description": "orderID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "responseID",
+            "in": "query",
+            "description": "responseID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "suggestionID",
+            "in": "query",
+            "description": "suggestionID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JsonNode"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/settings": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "getSettings",
+        "operationId": "getSettingsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "getDefaults",
+            "in": "query",
+            "description": "getDefaults",
+            "required": false,
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "siteID",
+            "in": "query",
+            "description": "siteID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "tenantID",
+            "in": "query",
+            "description": "tenantID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderRoutingSettings"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "saveSettings",
+        "operationId": "saveSettingsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "settings",
+            "description": "settings",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderRoutingSettings"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderRoutingSettings"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "deleteSettings",
+        "operationId": "deleteSettingsUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "siteID",
+            "in": "query",
+            "description": "siteID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "tenantID",
+            "in": "query",
+            "description": "tenantID",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/settings/filterAttributes": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "getFilterAttributes",
+        "operationId": "getFilterAttributesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FilterAttribute"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "saveFilterAttribute",
+        "operationId": "saveFilterAttributeUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "attribute",
+            "description": "attribute",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FilterAttribute"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FilterAttribute"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/settings/filterAttributes/{attributeName}": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "getFilterAttribute",
+        "operationId": "getFilterAttributeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "attributeName",
+            "in": "path",
+            "description": "attributeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FilterAttribute"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "deleteFilterAttribute",
+        "operationId": "deleteFilterAttributeUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "attributeName",
+            "in": "path",
+            "description": "attributeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FilterAttribute"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/site": {
+      "post": {
+        "tags": [
+          "site-controller"
+        ],
+        "summary": "createSite",
+        "operationId": "createSiteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSiteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Site"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "site-controller"
+        ],
+        "summary": "deleteTenantData",
+        "operationId": "deleteTenantDataUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSiteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Site"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/site/": {
+      "post": {
+        "tags": [
+          "site-controller"
+        ],
+        "summary": "createSite",
+        "operationId": "createSiteUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSiteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Site"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "site-controller"
+        ],
+        "summary": "deleteTenantData",
+        "operationId": "deleteTenantDataUsingDELETE_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSiteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Site"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/sort/": {
+      "post": {
+        "tags": [
+          "sort-controller"
+        ],
+        "summary": "saveSort",
+        "operationId": "saveSortUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loc",
+            "description": "loc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationSort"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationSort"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/sort/delete/{sortID}": {
+      "delete": {
+        "tags": [
+          "sort-controller"
+        ],
+        "summary": "deleteSort",
+        "operationId": "deleteSortUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sortID",
+            "in": "path",
+            "description": "sortID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/sort/test": {
+      "get": {
+        "tags": [
+          "sort-controller"
+        ],
+        "summary": "testSort",
+        "operationId": "testSortUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationSort"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/sort/{sortID}": {
+      "get": {
+        "tags": [
+          "sort-controller"
+        ],
+        "summary": "getSort",
+        "operationId": "getSortUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sortID",
+            "in": "path",
+            "description": "sortID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationSort"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/tenant": {
+      "post": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "createTenant",
+        "operationId": "createTenantUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "deleteTenantData",
+        "operationId": "deleteTenantDataUsingDELETE_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/tenant/": {
+      "post": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "createTenant",
+        "operationId": "createTenantUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "deleteTenantData",
+        "operationId": "deleteTenantDataUsingDELETE_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/tenant/clone": {
+      "post": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "cloneTenantData",
+        "operationId": "cloneTenantDataUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CloneTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/tenant/clone/": {
+      "post": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "summary": "cloneTenantData",
+        "operationId": "cloneTenantDataUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CloneTenantRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tenant"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AbstractFilter": {
+      "type": "object",
+      "properties": {
+        "booleanOperator": {
+          "type": "string",
+          "enum": [
+            "filter.logic.equal",
+            "filter.logic.not.equal",
+            "filter.logic.greater.than",
+            "filter.logic.less.than",
+            "filter.logic.greater.or.equal",
+            "filter.logic.less.or.equal",
+            "filter.logic.in",
+            "filter.logic.not.in",
+            "filter.logic.between",
+            "filter.logic.starts.with",
+            "filter.logic.ends.with",
+            "filter.logic.contains",
+            "filter.logic.subset"
+          ]
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customAttributeName": {
+          "type": "string"
+        },
+        "dotDelimitedPropertyName": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "AbstractFilter"
+    },
+    "AssignmentSuggestion": {
+      "type": "object",
+      "properties": {
+        "locationCode": {
+          "type": "string"
+        },
+        "orderItemID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "AssignmentSuggestion"
+    },
+    "CandidateSuggestion": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "directShip": {
+          "type": "boolean"
+        },
+        "distance": {
+          "$ref": "#/definitions/DecimalMeasure"
+        },
+        "express": {
+          "type": "boolean"
+        },
+        "inventory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CandidateSuggestionInventory"
+          }
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "locationCode": {
+          "type": "string"
+        },
+        "locationName": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "pickup": {
+          "type": "boolean"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "transferEnabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "CandidateSuggestion"
+    },
+    "CandidateSuggestionInventory": {
+      "type": "object",
+      "properties": {
+        "available": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "partNumber": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "upc": {
+          "type": "string"
+        }
+      },
+      "title": "CandidateSuggestionInventory"
+    },
+    "CandidateSuggestionsRequest": {
+      "type": "object",
+      "properties": {
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exclusionListLocationCode": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExclusionListEntryLocationCode"
+          }
+        },
+        "inventoryRequestType": {
+          "type": "string",
+          "enum": [
+            "ALL",
+            "PARTIAL",
+            "ANY",
+            "ALL_STORES"
+          ]
+        },
+        "isExpress": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "locationCodeWhiteList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orderType": {
+          "type": "string",
+          "enum": [
+            "DIRECTSHIP",
+            "TRANSFER"
+          ]
+        },
+        "pickupLocationCode": {
+          "type": "string"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/ShippingAddress"
+        }
+      },
+      "title": "CandidateSuggestionsRequest"
+    },
+    "CandidateSuggestionsResponse": {
+      "type": "object",
+      "properties": {
+        "candidateSuggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CandidateSuggestion"
+          }
+        }
+      },
+      "title": "CandidateSuggestionsResponse"
+    },
+    "CloneTenantRequest": {
+      "type": "object",
+      "properties": {
+        "sourceTenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "targetTenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "targetTenantName": {
+          "type": "string"
+        }
+      },
+      "title": "CloneTenantRequest"
+    },
+    "CreateSiteRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CreateSiteRequest"
+    },
+    "CreateTenantRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CreateTenantRequest"
+    },
+    "CustomDataList": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customDataListID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataType": {
+          "type": "string",
+          "enum": [
+            "STRING",
+            "NUMBER",
+            "LOCATION"
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomDataListEntry"
+          }
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "dataset.ready",
+            "dataset.processing",
+            "dataset.error.processing"
+          ]
+        },
+        "stringValues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "title": "CustomDataList"
+    },
+    "CustomDataListEntry": {
+      "type": "object",
+      "properties": {
+        "customDataListEntryID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataValid": {
+          "type": "boolean"
+        },
+        "list": {
+          "$ref": "#/definitions/CustomDataList"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "stringValue": {
+          "type": "string"
+        }
+      },
+      "title": "CustomDataListEntry"
+    },
+    "CustomDataListEntryResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "locationAddress": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "locationName": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "stringValue": {
+          "type": "string"
+        }
+      },
+      "title": "CustomDataListEntryResponse"
+    },
+    "CustomDataListFilter": {
+      "type": "object",
+      "properties": {
+        "booleanOperator": {
+          "type": "string",
+          "enum": [
+            "filter.logic.equal",
+            "filter.logic.not.equal",
+            "filter.logic.greater.than",
+            "filter.logic.less.than",
+            "filter.logic.greater.or.equal",
+            "filter.logic.less.or.equal",
+            "filter.logic.in",
+            "filter.logic.not.in",
+            "filter.logic.between",
+            "filter.logic.starts.with",
+            "filter.logic.ends.with",
+            "filter.logic.contains",
+            "filter.logic.subset"
+          ]
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customAttributeName": {
+          "type": "string"
+        },
+        "customDataListID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dotDelimitedPropertyName": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "CustomDataListFilter"
+    },
+    "CustomDataListResponse": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "dataType": {
+          "type": "string",
+          "enum": [
+            "STRING",
+            "NUMBER",
+            "LOCATION"
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomDataListEntryResponse"
+          }
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "dataset.ready",
+            "dataset.processing",
+            "dataset.error.processing"
+          ]
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "updater": {
+          "type": "string"
+        }
+      },
+      "title": "CustomDataListResponse"
+    },
+    "CustomDataValueFilter": {
+      "type": "object",
+      "properties": {
+        "booleanOperator": {
+          "type": "string",
+          "enum": [
+            "filter.logic.equal",
+            "filter.logic.not.equal",
+            "filter.logic.greater.than",
+            "filter.logic.less.than",
+            "filter.logic.greater.or.equal",
+            "filter.logic.less.or.equal",
+            "filter.logic.in",
+            "filter.logic.not.in",
+            "filter.logic.between",
+            "filter.logic.starts.with",
+            "filter.logic.ends.with",
+            "filter.logic.contains",
+            "filter.logic.subset"
+          ]
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customAttributeName": {
+          "type": "string"
+        },
+        "customDataValue": {
+          "$ref": "#/definitions/CustomDataValueOfobject"
+        },
+        "dotDelimitedPropertyName": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "CustomDataValueFilter"
+    },
+    "CustomDataValueOfobject": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customDataValueID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "CustomDataValueOfobject"
+    },
+    "DecimalMeasure": {
+      "type": "object",
+      "properties": {
+        "unit": {
+          "$ref": "#/definitions/UnitOfQuantity"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "title": "DecimalMeasure"
+    },
+    "DeleteSiteRequest": {
+      "type": "object",
+      "properties": {
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteSiteRequest"
+    },
+    "DeleteTenantRequest": {
+      "type": "object",
+      "properties": {
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteTenantRequest"
+    },
+    "Dimension": {
+      "type": "object",
+      "title": "Dimension"
+    },
+    "EnvironmentExportModel": {
+      "type": "object",
+      "properties": {
+        "customDataListEntries": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "customDataLists": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "customDataValues": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "environmentValues": {
+          "type": "object"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "fulfillmentLimits": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "groupAfterActions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "groupFilters": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "groupSorts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSetDataDefinitionMaps": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSetDataDefinitions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSetEntries": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSetEntryMaps": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSetFilterDefinitions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationCriteriaSets": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationExclusionLists": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationSorts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationStatusHolds": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "locationStatuses": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "rankedLocationMaps": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "EnvironmentExportModel"
+    },
+    "ExclusionListEntryLocationCode": {
+      "type": "object",
+      "properties": {
+        "locationCode": {
+          "type": "string"
+        },
+        "orderItemID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ExclusionListEntryLocationCode"
+    },
+    "FilterAttribute": {
+      "type": "object",
+      "properties": {
+        "filterTypeGroup": {
+          "type": "string",
+          "enum": [
+            "ORDER_FLAGS",
+            "ORDER_INFO",
+            "FULFILLMENT_LOCATION_INFO",
+            "FULFILLMENT_INVENTORY_INFO",
+            "ITEM_ATTRIBUTES",
+            "UNKNOWN"
+          ]
+        },
+        "langTag": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "propertyPath": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string",
+          "enum": [
+            "unit.type.currency",
+            "unit.type.distance",
+            "unit.type.length",
+            "unit.type.volume",
+            "unit.type.area",
+            "unit.type.weight",
+            "unit.type.dimensionless"
+          ]
+        }
+      },
+      "title": "FilterAttribute"
+    },
+    "FulfillmentLimit": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "durationType": {
+          "type": "string",
+          "enum": [
+            "HOURS",
+            "DAYS",
+            "WEEKS",
+            "MONTHS"
+          ]
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fulfillmentLimit": {
+          "type": "number"
+        },
+        "fulfillmentLimitID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fulfillmentType": {
+          "type": "string",
+          "enum": [
+            "ORDERS",
+            "ITEMS",
+            "DOLLARS"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "FulfillmentLimit"
+    },
+    "GroupAfterAction": {
+      "type": "object",
+      "properties": {
+        "actionID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "failoverAction": {
+          "type": "string",
+          "enum": [
+            "LINE_ITEM_SPLIT_ASSIGN_IF_FULFILLED",
+            "LINE_ITEM_SPLIT_CANCEL_WITHOUT_INVENTORY",
+            "QUANTITY_SPLIT_ASSIGN_IF_FULFILLED",
+            "QUANTITY_SPLIT_CANCEL_WITHOUT_INVENTORY",
+            "CANCEL_ORDER",
+            "ASSIGN_TO_CUSTOMER_CARE",
+            "ASSIGN_TO_GROUP",
+            "LINE_ITEM_SPLIT_ASSIGN_CUSTOMER_CARE_WITHOUT_INVENTORY",
+            "QUANTITY_SPLIT_ASSIGN_CUSTOMER_CARE_WITHOUT_INVENTORY",
+            "SEND_ORDER_TO_BIDDING",
+            "LINE_ITEM_SPLIT_BACKORDER_WITHOUT_INVENTORY",
+            "QUANTITY_SPLIT_BACKORDER_WITHOUT_INVENTORY",
+            "ASSIGN_TO_BACKORDER"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "restartAttempt": {
+          "type": "string",
+          "enum": [
+            "START_AT_BEGINNING",
+            "CURRENT_GROUP",
+            "GROUP_RANK"
+          ]
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "GroupAfterAction"
+    },
+    "JsonNode": {
+      "type": "object",
+      "properties": {
+        "array": {
+          "type": "boolean"
+        },
+        "bigDecimal": {
+          "type": "boolean"
+        },
+        "bigInteger": {
+          "type": "boolean"
+        },
+        "binary": {
+          "type": "boolean"
+        },
+        "boolean": {
+          "type": "boolean"
+        },
+        "containerNode": {
+          "type": "boolean"
+        },
+        "double": {
+          "type": "boolean"
+        },
+        "float": {
+          "type": "boolean"
+        },
+        "floatingPointNumber": {
+          "type": "boolean"
+        },
+        "int": {
+          "type": "boolean"
+        },
+        "integralNumber": {
+          "type": "boolean"
+        },
+        "long": {
+          "type": "boolean"
+        },
+        "missingNode": {
+          "type": "boolean"
+        },
+        "nodeType": {
+          "type": "string",
+          "enum": [
+            "ARRAY",
+            "BINARY",
+            "BOOLEAN",
+            "MISSING",
+            "NULL",
+            "NUMBER",
+            "OBJECT",
+            "POJO",
+            "STRING"
+          ]
+        },
+        "null": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "boolean"
+        },
+        "object": {
+          "type": "boolean"
+        },
+        "pojo": {
+          "type": "boolean"
+        },
+        "short": {
+          "type": "boolean"
+        },
+        "textual": {
+          "type": "boolean"
+        },
+        "valueNode": {
+          "type": "boolean"
+        }
+      },
+      "title": "JsonNode"
+    },
+    "LocationCriteriaSet": {
+      "type": "object",
+      "properties": {
+        "columnDefinitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationCriteriaSetDataDefinition"
+          }
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "locationCriteriaSetID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "readyState": {
+          "type": "string",
+          "enum": [
+            "dataset.ready",
+            "dataset.processing",
+            "dataset.error.processing"
+          ]
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "LocationCriteriaSet"
+    },
+    "LocationCriteriaSetDataDefinition": {
+      "type": "object",
+      "properties": {
+        "columnName": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "dataDefinitionID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataUnitString": {
+          "type": "string"
+        },
+        "defaultValue": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterable": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortable": {
+          "type": "boolean"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unit": {
+          "$ref": "#/definitions/UnitOfobject"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "LocationCriteriaSetDataDefinition"
+    },
+    "LocationCriteriaSetFilter": {
+      "type": "object",
+      "properties": {
+        "acceptNulls": {
+          "type": "boolean"
+        },
+        "booleanOperator": {
+          "type": "string",
+          "enum": [
+            "filter.logic.equal",
+            "filter.logic.not.equal",
+            "filter.logic.greater.than",
+            "filter.logic.less.than",
+            "filter.logic.greater.or.equal",
+            "filter.logic.less.or.equal",
+            "filter.logic.in",
+            "filter.logic.not.in",
+            "filter.logic.between",
+            "filter.logic.starts.with",
+            "filter.logic.ends.with",
+            "filter.logic.contains",
+            "filter.logic.subset"
+          ]
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "customAttributeName": {
+          "type": "string"
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationCriteriaSetDataDefinition"
+          }
+        },
+        "dotDelimitedPropertyName": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        },
+        "locationCriteriaSet": {
+          "$ref": "#/definitions/LocationCriteriaSet"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "LocationCriteriaSetFilter"
+    },
+    "LocationGroup": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "afterActionNone": {
+          "$ref": "#/definitions/GroupAfterAction"
+        },
+        "afterActionPartial": {
+          "$ref": "#/definitions/GroupAfterAction"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "excludedLocationsFromDefaultGroup": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AbstractFilter"
+          }
+        },
+        "fulfillmentLimit": {
+          "$ref": "#/definitions/FulfillmentLimit"
+        },
+        "groupID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isDefaultGroup": {
+          "type": "boolean"
+        },
+        "locationIDs": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "rank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rankedLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RankedLocation"
+          }
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sorts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationSort"
+          }
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "useRetailerExclusionList": {
+          "type": "boolean"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "LocationGroup"
+    },
+    "LocationSort": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "descending": {
+          "type": "boolean"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "locationSortID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortingType": {
+          "type": "string",
+          "enum": [
+            "RANK",
+            "DISTANCE",
+            "LTD",
+            "COST",
+            "RANDOM",
+            "DATA_SET"
+          ]
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        },
+        "userContext": {
+          "$ref": "#/definitions/UserContextInformation"
+        }
+      },
+      "title": "LocationSort"
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "backorderable": {
+          "type": "boolean"
+        },
+        "customItemData": {
+          "type": "object"
+        },
+        "itemDependency": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderItemID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "partNumber": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "upc": {
+          "type": "string"
+        }
+      },
+      "title": "OrderItem"
+    },
+    "OrderRoutingSettings": {
+      "type": "object",
+      "properties": {
+        "allowInternationalAssignment": {
+          "type": "boolean"
+        },
+        "autoAssignLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "defaultStateChange": {
+          "type": "string",
+          "enum": [
+            "CANCEL",
+            "CUSTOMER_CARE",
+            "AVAILABLE",
+            "BACKORDER"
+          ]
+        },
+        "failoverActions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "LINE_ITEM_SPLIT_ASSIGN_IF_FULFILLED",
+              "LINE_ITEM_SPLIT_CANCEL_WITHOUT_INVENTORY",
+              "QUANTITY_SPLIT_ASSIGN_IF_FULFILLED",
+              "QUANTITY_SPLIT_CANCEL_WITHOUT_INVENTORY",
+              "CANCEL_ORDER",
+              "ASSIGN_TO_CUSTOMER_CARE",
+              "ASSIGN_TO_GROUP",
+              "LINE_ITEM_SPLIT_ASSIGN_CUSTOMER_CARE_WITHOUT_INVENTORY",
+              "QUANTITY_SPLIT_ASSIGN_CUSTOMER_CARE_WITHOUT_INVENTORY",
+              "SEND_ORDER_TO_BIDDING",
+              "LINE_ITEM_SPLIT_BACKORDER_WITHOUT_INVENTORY",
+              "QUANTITY_SPLIT_BACKORDER_WITHOUT_INVENTORY",
+              "ASSIGN_TO_BACKORDER"
+            ]
+          }
+        },
+        "filterAttributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilterAttribute"
+          }
+        },
+        "maxFulfillingLocations": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxSplitItemLocations": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productIdentifierMapping": {
+          "type": "string",
+          "enum": [
+            "PART_NUMBER_ONLY",
+            "UPC_ONLY",
+            "SKU_ONLY",
+            "PART_NUMBER_AND_UPC",
+            "PART_NUMBER_AND_SKU",
+            "UPC_AND_SKU",
+            "PART_NUMBER_AND_UPC_AND_SKU"
+          ]
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tooManyAssignsAction": {
+          "type": "string"
+        }
+      },
+      "title": "OrderRoutingSettings"
+    },
+    "Principal": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Principal"
+    },
+    "Quantity": {
+      "type": "object",
+      "title": "Quantity"
+    },
+    "RankedLocation": {
+      "type": "object",
+      "properties": {
+        "locationID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rank": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "RankedLocation"
+    },
+    "ShippingAddress": {
+      "type": "object",
+      "properties": {
+        "addressID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "customerID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "title": "ShippingAddress"
+    },
+    "Site": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Site"
+    },
+    "SiteService": {
+      "type": "object",
+      "title": "SiteService"
+    },
+    "StateChangeSuggestion": {
+      "type": "object",
+      "properties": {
+        "orderItemID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stateChange": {
+          "type": "string",
+          "enum": [
+            "CANCEL",
+            "CUSTOMER_CARE",
+            "AVAILABLE",
+            "BACKORDER"
+          ]
+        }
+      },
+      "title": "StateChangeSuggestion"
+    },
+    "SuggestionEvent": {
+      "type": "object",
+      "properties": {
+        "causeID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "NEW_REQUEST",
+            "ROUTE_SELECTED",
+            "MAKE_LOCATIONS_AVAILABLE",
+            "NO_ROUTE_FOUND",
+            "REMOVED_INACTIVE_LOCATIONS",
+            "REMOVED_ON_HOLD_LOCATIONS",
+            "REMOVED_OVERFULFILLED_LOCATIONS",
+            "GROUP",
+            "GROUP_FILTER",
+            "GROUP_SORT",
+            "FILTER",
+            "SORT",
+            "AFTER_ACTION",
+            "FOUND_FULL_ORDER_LOCATION",
+            "RESPONSE",
+            "AFTER_ACTION_SORT",
+            "DEFAULT_RESPONSE",
+            "MAX_SPLITS_EXCEEDED",
+            "AUTO_ASSIGN_LIMIT_EXCEEDED",
+            "INVENTORY_REQUEST",
+            "REMOVED_INTERNATIONAL_LOCATIONS"
+          ]
+        }
+      },
+      "title": "SuggestionEvent"
+    },
+    "SuggestionLog": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creatorUsername": {
+          "type": "string"
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SuggestionEvent"
+          }
+        },
+        "externalResponseID": {
+          "type": "string"
+        },
+        "orderID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "suggestionID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updaterUsername": {
+          "type": "string"
+        }
+      },
+      "title": "SuggestionLog"
+    },
+    "SuggestionRequest": {
+      "type": "object",
+      "properties": {
+        "bundlingStrategy": {
+          "type": "string",
+          "enum": [
+            "ITEM_DEPENDENCY"
+          ]
+        },
+        "customData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exclusionListLocationCode": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExclusionListEntryLocationCode"
+          }
+        },
+        "externalResponseID": {
+          "type": "string"
+        },
+        "fraud": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inventoryRequestType": {
+          "type": "string",
+          "enum": [
+            "ALL",
+            "PARTIAL",
+            "ANY",
+            "ALL_STORES"
+          ]
+        },
+        "isExpress": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "locationCodeWhiteList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "numShipmentsNotInRequest": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderType": {
+          "type": "string",
+          "enum": [
+            "DIRECTSHIP",
+            "TRANSFER"
+          ]
+        },
+        "pickupLocationCode": {
+          "type": "string"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/ShippingAddress"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "title": "SuggestionRequest"
+    },
+    "SuggestionResponse": {
+      "type": "object",
+      "properties": {
+        "assignmentSuggestions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AssignmentSuggestion"
+            }
+          }
+        },
+        "availableLocations": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "externalResponseID": {
+          "type": "string"
+        },
+        "responseID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stateChangeSuggestions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/StateChangeSuggestion"
+          }
+        },
+        "suggestionLog": {
+          "$ref": "#/definitions/SuggestionLog"
+        }
+      },
+      "title": "SuggestionResponse"
+    },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Tenant"
+    },
+    "TenantService": {
+      "type": "object",
+      "title": "TenantService"
+    },
+    "UnitOfQuantity": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "$ref": "#/definitions/Dimension"
+        },
+        "standardUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        }
+      },
+      "title": "UnitOfQuantity"
+    },
+    "UnitOfobject": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "$ref": "#/definitions/Dimension"
+        },
+        "standardUnit": {
+          "$ref": "#/definitions/UnitOfobject"
+        }
+      },
+      "title": "UnitOfobject"
+    },
+    "UserContextInformation": {
+      "type": "object",
+      "properties": {
+        "environmentID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loaded": {
+          "type": "boolean"
+        },
+        "pathString": {
+          "type": "string"
+        },
+        "siteID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "siteService": {
+          "$ref": "#/definitions/SiteService"
+        },
+        "tenantID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tenantService": {
+          "$ref": "#/definitions/TenantService"
+        }
+      },
+      "title": "UserContextInformation"
+    }
+  }
+}

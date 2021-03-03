@@ -1,0 +1,4322 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Kibo Location Service",
+    "version": "v1"
+  },
+  "paths": {
+    "/commerce/admin/locations": {
+      "post": {
+        "tags": [
+          "LocationAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/{locationCode}": {
+      "put": {
+        "tags": [
+          "LocationAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/attributedefinition/attributes": {
+      "get": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "responseGroups",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/attributedefinition/attributes/{attributeFQN}/VocabularyValues": {
+      "get": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "responseGroups",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeVocabularyValue"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeVocabularyValue"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeVocabularyValue"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeVocabularyValue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeVocabularyValue"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/attributedefinition/attributes/{attributeFQN}": {
+      "get": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "responseGroups",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Attribute"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attribute"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}": {
+      "delete": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "attributeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/attributedefinition/attributes/namespace": {
+      "post": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Namespace"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Namespace"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Namespace"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationAttributeDefinition"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Namespace"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroups": {
+      "post": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroups/id/{groupId}": {
+      "put": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroups/{locationGroupCode}": {
+      "put": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationGroup"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroupConfiguration/id/{locationGroupId}": {
+      "get": {
+        "tags": [
+          "LocationGroupConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationGroupConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroupConfiguration/{locationGroupCode}": {
+      "get": {
+        "tags": [
+          "LocationGroupConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationGroupConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "locationGroupCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationGroupConfiguration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationGroupConfiguration/location/{locationCode}": {
+      "get": {
+        "tags": [
+          "LocationGroupConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationGroupConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Clone-Tenant-Data": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Create-Site": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Create-Tenant": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Delete-Site": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Delete-Tenant": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Create-Catalog": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Create-Master-Catalog": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Delete-Catalog": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/admin/locations/provisioning/Delete-Master-Catalog": {
+      "post": {
+        "tags": [
+          "LocationProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/DS/location": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/CS/location": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/SP/locations": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/SP/locations/{locationCode}": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/{locationUsageType}/locations": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "locationUsageType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locationUsageTypes/{locationUsageType}/locations/{locationCode}": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "locationUsageType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/storefront/locations/{locationCode}": {
+      "get": {
+        "tags": [
+          "LocationRuntime"
+        ],
+        "parameters": [
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeAttributeDefinition",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/settings/locationUsages": {
+      "get": {
+        "tags": [
+          "LocationSettings"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsageCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsageCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsageCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/settings/locationUsages/{code}": {
+      "get": {
+        "tags": [
+          "LocationSettings"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationSettings"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationUsage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationUsage"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationUsage"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationUsage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationUsage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationtypes": {
+      "post": {
+        "tags": [
+          "LocationType"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationType"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocationType"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocationType"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocationType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/admin/locationtypes/{locationTypeCode}": {
+      "put": {
+        "tags": [
+          "LocationType"
+        ],
+        "parameters": [
+          {
+            "name": "locationTypeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocationType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LocationType"
+        ],
+        "parameters": [
+          {
+            "name": "locationTypeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocationType"
+        ],
+        "parameters": [
+          {
+            "name": "locationTypeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuditInfo": {
+        "type": "object",
+        "properties": {
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationType": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "address4": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityOrTown": {
+            "type": "string",
+            "nullable": true
+          },
+          "stateOrProvince": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalOrZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValidated": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Coordinates": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lng": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FulfillmentType": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Hours": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "openTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "closeTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "isClosed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegularHours": {
+        "type": "object",
+        "properties": {
+          "sunday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "monday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "tuesday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "wednesday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "thursday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "friday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "saturday": {
+            "$ref": "#/components/schemas/Hours"
+          },
+          "timeZone": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingOriginContact": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleNameOrInitial": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastNameOrSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyOrOrganization": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeMetadataItem": {
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeLocalizedContent": {
+        "type": "object",
+        "properties": {
+          "localeCode": {
+            "maxLength": 8,
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeValidation": {
+        "type": "object",
+        "properties": {
+          "regularExpression": {
+            "maxLength": 200,
+            "type": "string",
+            "nullable": true
+          },
+          "minStringLength": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxStringLength": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "minNumericValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxNumericValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "minDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "maxDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeValueLocalizedContent": {
+        "required": [
+          "localeCode",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeVocabularyValue": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isHidden": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/AttributeValueLocalizedContent"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Attribute": {
+        "required": [
+          "attributeCode",
+          "displayGroup",
+          "valueType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "adminName": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "maxLength": 200,
+            "type": "string",
+            "nullable": true
+          },
+          "attributeCode": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "inputType": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueType": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributeMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMetadataItem"
+            },
+            "nullable": true
+          },
+          "attributeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/AttributeLocalizedContent"
+          },
+          "validation": {
+            "$ref": "#/components/schemas/AttributeValidation"
+          },
+          "vocabularyValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeVocabularyValue"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isRequired": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isReadOnly": {
+            "type": "boolean"
+          },
+          "isMultiValued": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isVisible": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "displayGroup": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationAttribute": {
+        "type": "object",
+        "properties": {
+          "attributeDefinition": {
+            "$ref": "#/components/schemas/Attribute"
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          },
+          "fullyQualifiedName": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributeDefinitionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationType"
+            },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "geo": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "supportsInventory": {
+            "type": "boolean"
+          },
+          "fulfillmentTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FulfillmentType"
+            },
+            "nullable": true
+          },
+          "regularHours": {
+            "$ref": "#/components/schemas/RegularHours"
+          },
+          "shippingOriginContact": {
+            "$ref": "#/components/schemas/ShippingOriginContact"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationAttribute"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          },
+          "allowFulfillmentWithNoStock": {
+            "type": "boolean"
+          },
+          "isDisabled": {
+            "type": "boolean"
+          },
+          "express": {
+            "type": "boolean"
+          },
+          "transferEnabled": {
+            "type": "boolean"
+          },
+          "includeInInventoryAggregrate": {
+            "type": "boolean"
+          },
+          "includeInLocationExport": {
+            "type": "boolean"
+          },
+          "warehouseEnabled": {
+            "type": "boolean"
+          },
+          "requiresManifest": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Location"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Namespace": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "nameSpaceId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationGroup": {
+        "type": "object",
+        "properties": {
+          "locationGroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationGroupCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationGroupCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationGroup"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingMethodMappings": {
+        "type": "object",
+        "properties": {
+          "shippingMethods": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "returnLabelShippingMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "standardDefault": {
+            "type": "string",
+            "nullable": true
+          },
+          "express1DayDefault": {
+            "type": "string",
+            "nullable": true
+          },
+          "express2DayDefault": {
+            "type": "string",
+            "nullable": true
+          },
+          "express3DayDefault": {
+            "type": "string",
+            "nullable": true
+          },
+          "enableSmartPost": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "internationalUsReturnLabelShippingMethod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Carrier": {
+        "type": "object",
+        "properties": {
+          "carrierType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "shippingMethodMappings": {
+            "$ref": "#/components/schemas/ShippingMethodMappings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BoxType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "width": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "length": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BpmConfiguration": {
+        "type": "object",
+        "properties": {
+          "shipmentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "workflowContainerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "workflowProcessId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PackageSettings": {
+        "type": "object",
+        "properties": {
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationGroupConfiguration": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationGroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationGroupCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerFailedToPickupAfterAction": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerFailedToPickupDeadline": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sendCustomerPickupReminder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "enableForSTH": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enableForISPU": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enableAdvancedOptionForPickWaveCreation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "maximumNumberOfOrdersInPickWave": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "defaultNumberOfOrdersInPickWave": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pickWavePrintFormat": {
+            "type": "string",
+            "nullable": true
+          },
+          "closePickWavePermissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "wmsEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enableScanningOfUpcForShipToHome": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "allowReturns": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "returnRefundReduction": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "defaultReturnRefundReductionAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maximumReturnRefundReductionAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "defaultCarrier": {
+            "type": "string",
+            "nullable": true
+          },
+          "carriers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Carrier"
+            },
+            "nullable": true
+          },
+          "printReturnLabel": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "defaultPrinterType": {
+            "type": "string",
+            "nullable": true
+          },
+          "boxTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BoxType"
+            },
+            "nullable": true
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationAttribute"
+            },
+            "nullable": true
+          },
+          "bpmConfigurations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BpmConfiguration"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          },
+          "autoPackingListPopup": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "blockPartialStock": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "defaultMaxNumberOfShipmentsInPickWave": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "displayProductImagesInPickWaveDetails": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enablePnpForSTH": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enablePnpForBOPIS": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "blockPartialCancel": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "packageSettings": {
+            "$ref": "#/components/schemas/PackageSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantSitePairing": {
+        "type": "object",
+        "properties": {
+          "sourceSiteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetSiteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sitePairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantSitePairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantMasterCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantCatalogPairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantDataRequest": {
+        "type": "object",
+        "properties": {
+          "sourceEnvironment": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceScaleUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "masterCatalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantMasterCatalogPairing"
+            },
+            "nullable": true
+          },
+          "applicationsToClone": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomDomainRequest": {
+        "type": "object",
+        "properties": {
+          "domainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "zone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "isDomainManaged": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogRequest": {
+            "$ref": "#/components/schemas/CreateCatalogRequest"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateCustomDomainRequest"
+            },
+            "nullable": true
+          },
+          "isMozuStorefront": {
+            "type": "boolean"
+          },
+          "omsCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSiteRequest"
+            },
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "masterCatalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+            },
+            "nullable": true
+          },
+          "scaleUnitId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDevTenant": {
+            "type": "boolean"
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          },
+          "omsMerchantId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteTenantRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationUsage": {
+        "type": "object",
+        "properties": {
+          "locationUsageTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationTypeCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "locationCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationUsageCollection": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationUsage"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "clientOauth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/platform/applications/internal/access-tokens/oauth/",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [ ],
+      "clientOauth2": [ ]
+    }
+  ]
+}

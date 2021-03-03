@@ -1,0 +1,6578 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Kibo Location Service",
+    "version": "v1"
+  },
+  "paths": {
+    "/content/documentlists/files/documents/{documentId}/content": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documents/{documentId}/content": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documents/{documentId}/transform": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxWidth",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxHeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "crop",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "quality",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/files/documentTree/{documentName}/content": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documentTree/{documentName}/content": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HttpRequestMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documentTree/{documentName}/transform": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxWidth",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxHeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "crop",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "quality",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/files/documents": {
+      "post": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.DocumentCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.DocumentCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.DocumentCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documents": {
+      "post": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/files/documents/{documentId}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documents/{documentId}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Document"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/files/documentTree/{documentName}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/documentTree/{documentName}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists": {
+      "post": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/views/{viewName}/documents": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "viewName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/facets/{propertyName}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "propertyName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Facet"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Facet"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Facet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/folders": {
+      "post": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10,
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": true
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/folders/{folderId}": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentlists/{documentListName}/foldertree": {
+      "get": {
+        "tags": [
+          "DocumentList"
+        ],
+        "parameters": [
+          {
+            "name": "documentListName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "levels",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "rootFolderId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "rootFolderPath",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderTree"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderTree"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderTree"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlistTypes": {
+      "post": {
+        "tags": [
+          "DocumentListType"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentListType"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListTypeCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListTypeCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListTypeCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentlistTypes/{documentListTypeFQN}": {
+      "put": {
+        "tags": [
+          "DocumentListType"
+        ],
+        "parameters": [
+          {
+            "name": "documentListTypeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentListType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentListType"
+        ],
+        "parameters": [
+          {
+            "name": "documentListTypeFQN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documentpublishing/draft": {
+      "get": {
+        "tags": [
+          "DocumentPublishing"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "documentLists",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "DocumentPublishing"
+        ],
+        "parameters": [
+          {
+            "name": "documentLists",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/documentpublishing/active": {
+      "put": {
+        "tags": [
+          "DocumentPublishing"
+        ],
+        "parameters": [
+          {
+            "name": "documentLists",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/publishsets/{code}/items": {
+      "get": {
+        "tags": [
+          "DocumentPublishSet"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100,
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDraftSummaryPagedCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentPublishSet"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AddOrDeletePublishItem"
+                },
+                "nullable": true
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AddOrDeletePublishItem"
+                },
+                "nullable": true
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AddOrDeletePublishItem"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/publishsets/{code}": {
+      "post": {
+        "tags": [
+          "DocumentPublishSet"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "shouldDiscard",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/publishsets": {
+      "get": {
+        "tags": [
+          "DocumentPublishSet"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100,
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublishSetSummaryPagedCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublishSetSummaryPagedCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublishSetSummaryPagedCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documenttypes": {
+      "post": {
+        "tags": [
+          "DocumentType"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DocumentType"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTypeCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTypeCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTypeCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/documenttypes/{documentTypeName}": {
+      "get": {
+        "tags": [
+          "DocumentType"
+        ],
+        "parameters": [
+          {
+            "name": "documentTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DocumentType"
+        ],
+        "parameters": [
+          {
+            "name": "documentTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DocumentType"
+        ],
+        "parameters": [
+          {
+            "name": "documentTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/globalprovisioning": {
+      "post": {
+        "tags": [
+          "GlobalProvisioning"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/globalprovisioning/update": {
+      "post": {
+        "tags": [
+          "GlobalProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "shouldRepair",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/propertytypes": {
+      "get": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyTypeCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyTypeCollection"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyTypeCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/propertytypes/{propertyTypeName}": {
+      "get": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "propertyTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "propertyTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "propertyTypeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Clone-Tenant-Data": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Create-Tenant": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Create-Master-Catalog": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Create-Catalog": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Create-Site": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Delete-Site": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Delete-Tenant": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Delete-Master-Catalog": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/content/cmsprovisioning/Delete-Catalog": {
+      "post": {
+        "tags": [
+          "Provisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Version": {
+        "type": "object",
+        "properties": {
+          "major": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minor": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "build": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "majorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeyValuePair`2": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpContent": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair`2"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpMethod": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpRequestMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "method": {
+            "$ref": "#/components/schemas/HttpMethod"
+          },
+          "requestUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair`2"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Mozu.Content.Contracts.R4.PropertyValue": {
+        "type": "object",
+        "properties": {
+          "propertyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Mozu.Content.Contracts.R4.Document": {
+        "type": "object",
+        "properties": {
+          "contentLength": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "contentMimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentUpdateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "documentListName": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.PropertyValue"
+            },
+            "nullable": true
+          },
+          "publishState": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "publishSetCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Mozu.Content.Contracts.R4.DocumentCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Mozu.Content.Contracts.R4.Document"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JToken"
+        }
+      },
+      "ActiveDateRange": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Document": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishSetCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "listFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentLength": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "contentMimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentUpdateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "publishState": {
+            "type": "string",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "activeDateRange": {
+            "$ref": "#/components/schemas/ActiveDateRange"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Document"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ViewField": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "View": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "usages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "isVisibleInStorefront": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "filter": {
+            "type": "string",
+            "nullable": true
+          },
+          "includeInactiveMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAdminDefault": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ViewField"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentList": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true
+          },
+          "listFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "supportsPublishing": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enablePublishing": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "supportsActiveDateRanges": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enableActiveDateRanges": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/View"
+            },
+            "nullable": true
+          },
+          "usages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "security": {
+            "type": "string",
+            "nullable": true
+          },
+          "scopeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "scopeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentListType": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentListCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentList"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Facet": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Folder": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentListName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FolderCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Folder"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FolderTree": {
+        "type": "object",
+        "properties": {
+          "folder": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FolderTree"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentInstallation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "locale": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentListType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentListTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "scopeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "installationPackage": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultDocuments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentInstallation"
+            },
+            "nullable": true
+          },
+          "documentTypeFQNs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "supportsPublishing": {
+            "type": "boolean"
+          },
+          "enablePublishing": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "supportsActiveDateRanges": {
+            "type": "boolean"
+          },
+          "enableActiveDateRanges": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/View"
+            },
+            "nullable": true
+          },
+          "usages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentListTypeCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentListType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentDraftSummary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "listFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "activeUpdateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "draftUpdateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "activeUpdatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishType": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishSetCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentDraftSummaryPagedCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentDraftSummary"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddOrDeletePublishItem": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "docListFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "scopeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "scopeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublishSetSummary": {
+        "type": "object",
+        "properties": {
+          "publishSetCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublishSetSummaryPagedCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublishSetSummary"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "adminName": {
+            "type": "string",
+            "nullable": true
+          },
+          "installationPackage": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isQueryable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isSortable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isAggregatable": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Property": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRequired": {
+            "type": "boolean"
+          },
+          "isMultiValued": {
+            "type": "boolean"
+          },
+          "propertyType": {
+            "$ref": "#/components/schemas/PropertyType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypeFQN": {
+            "type": "string",
+            "nullable": true
+          },
+          "adminName": {
+            "type": "string",
+            "nullable": true
+          },
+          "installationPackage": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentTypeCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyTypeCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantSitePairing": {
+        "type": "object",
+        "properties": {
+          "sourceSiteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetSiteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sitePairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantSitePairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantMasterCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantCatalogPairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantDataRequest": {
+        "type": "object",
+        "properties": {
+          "sourceEnvironment": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceScaleUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "masterCatalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantMasterCatalogPairing"
+            },
+            "nullable": true
+          },
+          "applicationsToClone": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomDomainRequest": {
+        "type": "object",
+        "properties": {
+          "domainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "zone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "isDomainManaged": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogRequest": {
+            "$ref": "#/components/schemas/CreateCatalogRequest"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateCustomDomainRequest"
+            },
+            "nullable": true
+          },
+          "isMozuStorefront": {
+            "type": "boolean"
+          },
+          "omsCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSiteRequest"
+            },
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "masterCatalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+            },
+            "nullable": true
+          },
+          "scaleUnitId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDevTenant": {
+            "type": "boolean"
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "omsMerchantId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteTenantRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "clientOauth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/platform/applications/internal/access-tokens/oauth/",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [ ],
+      "clientOauth2": [ ]
+    }
+  ]
+}

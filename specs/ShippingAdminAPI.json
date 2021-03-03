@@ -1,0 +1,4579 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Kibo Shipping Admin Service",
+    "version": "v1"
+  },
+  "paths": {
+    "/commerce/shipping/admin/carriers": {
+      "get": {
+        "tags": [
+          "CarrierConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfigurationCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfigurationCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfigurationCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/{carrierId}": {
+      "get": {
+        "tags": [
+          "CarrierConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CarrierConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CarrierConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierConfiguration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CarrierConfiguration"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/global/carriers/{carrierId}/serviceTypes/{localeCode}": {
+      "get": {
+        "tags": [
+          "CarrierConfigurationGlobal"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "localeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/global/carriers/serviceTypes/{localeCode}": {
+      "get": {
+        "tags": [
+          "CarrierConfigurationGlobal"
+        ],
+        "parameters": [
+          {
+            "name": "localeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/global/carriers/{tenantId}/enableUPSSurePost": {
+      "post": {
+        "tags": [
+          "CarrierConfigurationGlobal"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credentials/{carrierId}": {
+      "post": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "locationGroupCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "locationGroupCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredential"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "locationGroupCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credentials": {
+      "get": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credentials/private/{carrierId}": {
+      "get": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credentials/resolve/{carrierId}/{locationCode}": {
+      "get": {
+        "tags": [
+          "CarrierCredential"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-site",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredential"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credential-sets/{carrierId}": {
+      "post": {
+        "tags": [
+          "CarrierCredentialSet"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credential-sets/{carrierId}/{code}": {
+      "get": {
+        "tags": [
+          "CarrierCredentialSet"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CarrierCredentialSet"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrierCredentialSet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSet"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CarrierCredentialSet"
+        ],
+        "parameters": [
+          {
+            "name": "carrierId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/carriers/credential-sets": {
+      "get": {
+        "tags": [
+          "CarrierCredentialSet"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSetCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSetCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarrierCredentialSetCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/migrate/SyncCredentialsToUnified": {
+      "post": {
+        "tags": [
+          "ShippingAdminMigration"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/migrate/CopyCredentialsToCARS": {
+      "post": {
+        "tags": [
+          "ShippingAdminMigration"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/migrate/ReencryptCredentials": {
+      "post": {
+        "tags": [
+          "ShippingAdminMigration"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Clone-Tenant-Data": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloneTenantDataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Create-Master-Catalog": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Create-Catalog": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Create-Site": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Create-Tenant": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Delete-Master-Catalog": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteMasterCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Delete-Catalog": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCatalogRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Delete-Site": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSiteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/provisioning/Delete-Tenant": {
+      "post": {
+        "tags": [
+          "ShippingAdminProvisioning"
+        ],
+        "parameters": [
+          {
+            "name": "attemptNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/orderhandlingfees": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/orderhandlingfees/{id}": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/producthandlingfees": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRuleCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/producthandlingfees/{id}": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandlingFeeRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandlingFeeRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/shippinginclusions": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRuleCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRuleCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRuleCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/rules/shippinginclusions/{id}": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingInclusionRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingInclusionRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfileCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfileCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfileCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/shipping/admin/profiles/{profilecode}/shippingstates": {
+      "get": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profileCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ShippingProfile"
+        ],
+        "parameters": [
+          {
+            "name": "profilecode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingStates"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingStates"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingStates"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingStates"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingStates"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/targetrules": {
+      "get": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "startIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRuleCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRuleCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRuleCollection"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commerce/targetrules/{code}": {
+      "get": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetRule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/commerce/targetrules/validate": {
+      "post": {
+        "tags": [
+          "TargetRules"
+        ],
+        "parameters": [
+          {
+            "name": "x-vol-master-catalog",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-vol-tenant",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetRule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Setting": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomTableRateContent": {
+        "type": "object",
+        "properties": {
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomTableRate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/CustomTableRateContent"
+          },
+          "rateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "deliveryDuration": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuditInfo": {
+        "type": "object",
+        "properties": {
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierConfiguration": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "enabledForReturns": {
+            "type": "boolean"
+          },
+          "settings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Setting"
+            },
+            "nullable": true
+          },
+          "customTableRates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomTableRate"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          },
+          "areCredentialsSet": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierConfigurationCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarrierConfiguration"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceTypeLocalizedContent": {
+        "type": "object",
+        "properties": {
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceType": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryDuration": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/ServiceTypeLocalizedContent"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierCredentialSetValue": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierCredentialSet": {
+        "type": "object",
+        "properties": {
+          "carrierId": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarrierCredentialSetValue"
+            },
+            "nullable": true
+          },
+          "integrationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierCredential": {
+        "type": "object",
+        "properties": {
+          "carrierId": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "locationGroupCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "credentialSet": {
+            "$ref": "#/components/schemas/CarrierCredentialSet"
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierCredentialCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarrierCredential"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrierCredentialSetCollection": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarrierCredentialSet"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantSitePairing": {
+        "type": "object",
+        "properties": {
+          "sourceSiteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetSiteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sitePairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantSitePairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantMasterCatalogPairing": {
+        "type": "object",
+        "properties": {
+          "sourceMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetMasterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantCatalogPairing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloneTenantDataRequest": {
+        "type": "object",
+        "properties": {
+          "sourceEnvironment": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceScaleUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "targetTenantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "masterCatalogPairings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloneTenantMasterCatalogPairing"
+            },
+            "nullable": true
+          },
+          "applicationsToClone": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomDomainRequest": {
+        "type": "object",
+        "properties": {
+          "domainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "zone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "isDomainManaged": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "catalogRequest": {
+            "$ref": "#/components/schemas/CreateCatalogRequest"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "localeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateCustomDomainRequest"
+            },
+            "nullable": true
+          },
+          "isMozuStorefront": {
+            "type": "boolean"
+          },
+          "omsCatalogId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSiteRequest"
+            },
+            "nullable": true
+          },
+          "defaultLocaleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "masterCatalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMasterCatalogRequest"
+            },
+            "nullable": true
+          },
+          "scaleUnitId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDevTenant": {
+            "type": "boolean"
+          },
+          "devAccountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          },
+          "omsMerchantId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteMasterCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteCatalogRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "masterCatalogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catalogId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteSiteRequest": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteTenantRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HandlingFeeRule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shippingTargetRuleCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productTargetRuleCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "serviceTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceType"
+            },
+            "nullable": true
+          },
+          "valueType": {
+            "type": "string",
+            "nullable": true
+          },
+          "appliesTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HandlingFeeRuleCollection": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HandlingFeeRule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringStringIEnumerableKeyValuePair": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpContent": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          "Continue",
+          "SwitchingProtocols",
+          "Processing",
+          "EarlyHints",
+          "OK",
+          "Created",
+          "Accepted",
+          "NonAuthoritativeInformation",
+          "NoContent",
+          "ResetContent",
+          "PartialContent",
+          "MultiStatus",
+          "AlreadyReported",
+          "IMUsed",
+          "MultipleChoices",
+          "Ambiguous",
+          "MovedPermanently",
+          "Moved",
+          "Found",
+          "Redirect",
+          "SeeOther",
+          "RedirectMethod",
+          "NotModified",
+          "UseProxy",
+          "Unused",
+          "TemporaryRedirect",
+          "RedirectKeepVerb",
+          "PermanentRedirect",
+          "BadRequest",
+          "Unauthorized",
+          "PaymentRequired",
+          "Forbidden",
+          "NotFound",
+          "MethodNotAllowed",
+          "NotAcceptable",
+          "ProxyAuthenticationRequired",
+          "RequestTimeout",
+          "Conflict",
+          "Gone",
+          "LengthRequired",
+          "PreconditionFailed",
+          "RequestEntityTooLarge",
+          "RequestUriTooLong",
+          "UnsupportedMediaType",
+          "RequestedRangeNotSatisfiable",
+          "ExpectationFailed",
+          "MisdirectedRequest",
+          "UnprocessableEntity",
+          "Locked",
+          "FailedDependency",
+          "UpgradeRequired",
+          "PreconditionRequired",
+          "TooManyRequests",
+          "RequestHeaderFieldsTooLarge",
+          "UnavailableForLegalReasons",
+          "InternalServerError",
+          "NotImplemented",
+          "BadGateway",
+          "ServiceUnavailable",
+          "GatewayTimeout",
+          "HttpVersionNotSupported",
+          "VariantAlsoNegotiates",
+          "InsufficientStorage",
+          "LoopDetected",
+          "NotExtended",
+          "NetworkAuthenticationRequired"
+        ],
+        "type": "string"
+      },
+      "HttpMethod": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpRequestMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "method": {
+            "$ref": "#/components/schemas/HttpMethod"
+          },
+          "requestUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpResponseMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "reasonPhrase": {
+            "type": "string",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "trailingHeaders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "requestMessage": {
+            "$ref": "#/components/schemas/HttpRequestMessage"
+          },
+          "isSuccessStatusCode": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingInclusionRule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shippingTargetRuleCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productTargetRuleCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "serviceTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceType"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingInclusionRuleCollection": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingInclusionRule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingProfile": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetedSiteIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "shippingInclusionRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingInclusionRule"
+            },
+            "nullable": true
+          },
+          "productHandlingFeeRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HandlingFeeRule"
+            },
+            "nullable": true
+          },
+          "orderHandlingFeeRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HandlingFeeRule"
+            },
+            "nullable": true
+          },
+          "auditInfo": {
+            "$ref": "#/components/schemas/AuditInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingProfileCollection": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingProfile"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "State": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingStates": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "states": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/State"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TargetRule": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "expression": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TargetRuleCollection": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TargetRule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "clientOauth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/platform/applications/internal/access-tokens/oauth/",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [ ],
+      "clientOauth2": [ ]
+    }
+  ]
+}
