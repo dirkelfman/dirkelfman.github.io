@@ -1,6 +1,7 @@
 # Kibo ProductAdmin Service OpenAPI Definition
 
 ## Working on your OpenAPI Definition
+### Preview [here](/other_samples/redoc/index.html)
 
 ### Install
 
