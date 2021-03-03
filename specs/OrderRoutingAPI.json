@@ -11,7 +11,8 @@
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
+    },
+    "prefix": "OR"
   },
   "host": "t17215.dev01.kubedev.kibo-dev.com",
   "basePath": "/api",

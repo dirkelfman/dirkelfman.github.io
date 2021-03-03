@@ -2,7 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Kibo ProductAdmin Service",
-    "version": "v1"
+    "version": "v1",
+    "prefix": "PA"
   },
   "paths": {
     "/commerce/catalog/admin/attributedefinition/attributes": {

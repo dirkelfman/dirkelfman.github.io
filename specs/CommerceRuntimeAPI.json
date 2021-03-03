@@ -2,7 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Kibo CommerceRuntime Service",
-    "version": "v1"
+    "version": "v1",
+    "prefix": "CR"
   },
   "paths": {
     "/commerce/carsproxy/api/v1/generateLabel": {

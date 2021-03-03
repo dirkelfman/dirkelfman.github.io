@@ -2,7 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Kibo Customer Service",
-    "version": "v1"
+    "version": "v1",
+    "prefix": "CU"
   },
   "paths": {
     "/commerce/customer/accountattributedefinition/attributes": {

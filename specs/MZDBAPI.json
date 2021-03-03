@@ -2,7 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Kibo MZDB Service",
-    "version": "v1"
+    "version": "v1",
+    "prefix": "MZDB"
   },
   "paths": {
     "/platform/appdata/all": {

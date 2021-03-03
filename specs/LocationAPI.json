@@ -2,7 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Kibo Location Service",
-    "version": "v1"
+    "version": "v1",
+    "prefix": "L"
   },
   "paths": {
     "/commerce/admin/locations": {

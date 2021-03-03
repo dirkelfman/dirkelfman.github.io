@@ -3,7 +3,8 @@
     "info": {
         "title": "Inventory",
         "description": "Swagger JSON for inventory apis",
-        "version": "5.0"
+        "version": "5.0",
+        "prefix": "I"
     },
     "servers": [
         {

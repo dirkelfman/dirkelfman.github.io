@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Kibo Location Service",
-    "version": "v1"
+    "title": "Kibo Content Service",
+    "version": "v1",
+    "prefix": "CO"
   },
   "paths": {
     "/content/documentlists/files/documents/{documentId}/content": {
