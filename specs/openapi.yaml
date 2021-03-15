@@ -810,7 +810,6 @@ paths:
       parameters:
         - name: cartId
           in: path
-          description: Unique identifier of the user.
           required: true
           schema:
             type: string
@@ -2652,7 +2651,6 @@ paths:
       parameters:
         - name: checkoutId
           in: path
-          description: Unique identifier of the checkout to change
           required: true
           schema:
             type: string
@@ -2729,16 +2727,6 @@ paths:
       responses:
         '200':
           description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Checkout'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/Checkout'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/Checkout'
       security:
         - bearerAuth: []
           clientOauth2: []
@@ -2925,16 +2913,6 @@ paths:
       responses:
         '200':
           description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Destination'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/Destination'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/Destination'
       security:
         - bearerAuth: []
           clientOauth2: []
@@ -15147,7 +15125,7 @@ paths:
   /v1/export/create:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Create an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15168,7 +15146,7 @@ paths:
   /v1/export:
     post:
       tags:
-        - InventoryInventoryExport Inventory
+        - InventoryInventoryExportInventory
       description: Run Export Settings Job
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15189,7 +15167,7 @@ paths:
   /v1/export/update:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Update an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15212,7 +15190,7 @@ paths:
   '/v1/export/{exportSettingsName}':
     delete:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Deletes an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15230,7 +15208,7 @@ paths:
   /v1/export/ftp/create:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Create an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15251,7 +15229,7 @@ paths:
   /v1/export/ftp/update:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Update an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15274,7 +15252,7 @@ paths:
   '/v1/export/ftp/{exportSettingsName}/{exportSettingsFTPName}':
     delete:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: >-
         Deletes an Export Settings FTP. Not specifying exportSettingsFTPID
         deletes ALL ftp settings for the specified export settings.
@@ -15297,7 +15275,7 @@ paths:
   /v1/export/s3/create:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Create an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15318,7 +15296,7 @@ paths:
   /v1/export/s3/update:
     post:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: Update an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15341,7 +15319,7 @@ paths:
   '/v1/export/s3/{exportSettingsName}/{exportSettingsS3Name}':
     delete:
       tags:
-        - InventoryExport Inventory
+        - 'InventoryExportInventory '
       description: >-
         Deletes an Export Settings S3. Not specifying exportSettingsS3ID deletes
         ALL s3 settings for the specified export settings.
@@ -15364,7 +15342,7 @@ paths:
   '/v1/config/fetchfile/{fetchFileConfigID}':
     delete:
       tags:
-        - InventoryFetch File Config
+        - 'InventoryFetchFile Config '
       description: Deletes a fetch file config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15390,7 +15368,7 @@ paths:
   '/v1/config/fetchfile/testConnection/{fetchFileConfigID}':
     get:
       tags:
-        - InventoryFetch File Config
+        - 'InventoryFetchFile Config '
       description: >-
         Attempts to connect to a fetch file endpoint and lists current files if
         successful
@@ -15420,7 +15398,7 @@ paths:
   /v5/inventory/redistribute:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Create jobs to redistribute inventory across tags for the given tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15437,7 +15415,7 @@ paths:
   '/v1/pendingItem/{pendingItemID}':
     delete:
       tags:
-        - InventoryPending Items
+        - 'InventoryPendingItems '
       description: Delete Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15460,7 +15438,7 @@ paths:
   '/v1/pendingItem/release/{tenantID}':
     post:
       tags:
-        - InventoryPending Items
+        - 'InventoryPendingItems '
       description: Release Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15483,7 +15461,7 @@ paths:
   /v1/productMapping:
     get:
       tags:
-        - InventoryProduct Mapping
+        - 'InventoryProductMapping '
       description: Gets a list Product Mappings for the specified tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15499,7 +15477,7 @@ paths:
       summary: Gets a list Product Mappings for the specified tenant
     post:
       tags:
-        - InventoryProduct Mapping
+        - 'InventoryProductMapping '
       description: Creates a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15518,7 +15496,7 @@ paths:
   '/v1/productMapping/{direction}':
     delete:
       tags:
-        - InventoryProduct Mapping
+        - 'InventoryProductMapping '
       description: Delete a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15662,7 +15640,7 @@ paths:
   /v1/tagCategory:
     get:
       tags:
-        - InventoryTag Category
+        - 'InventoryTagCategory '
       description: Get all tag categories for a tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15681,7 +15659,7 @@ paths:
   '/v1/tagCategory/{tag_category_name}':
     get:
       tags:
-        - InventoryTag Category
+        - 'InventoryTagCategory '
       description: Get a tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15698,7 +15676,7 @@ paths:
       summary: Get a tag category
     put:
       tags:
-        - InventoryTag category
+        - 'InventoryTagcategory '
       description: Update the designated tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15723,7 +15701,7 @@ paths:
       summary: Update the designated tag category
     delete:
       tags:
-        - InventoryTag category
+        - 'InventoryTagcategory '
       description: Delete a Tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16170,7 +16148,7 @@ paths:
   /v1/config/fetchfile:
     get:
       tags:
-        - InventoryFetch File Config
+        - 'InventoryFetchFile Config '
       description: Get the Fetch File Configs for the current tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16186,7 +16164,7 @@ paths:
       summary: Get the Fetch File Configs for the current tenant
     post:
       tags:
-        - InventoryFetch File Config
+        - 'InventoryFetchFile Config '
       description: Save a new Fetch File Config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16374,7 +16352,7 @@ paths:
   /v5/inventory/refresh:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Refresh Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16393,7 +16371,7 @@ paths:
   /v5/inventory/sync-refresh:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Refresh Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16423,7 +16401,7 @@ paths:
   /v5/inventory/adjust:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Adjust Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16453,7 +16431,7 @@ paths:
   /v5/inventory/sync-adjust:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Adjust Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16483,7 +16461,7 @@ paths:
   /v5/inventory/delete:
     post:
       tags:
-        - InventoryModify Inventory
+        - 'InventoryModifyInventory '
       description: Delete Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16503,7 +16481,7 @@ paths:
   /v5/inventory/getOrderItemInformation:
     post:
       tags:
-        - InventoryOrder Item
+        - 'InventoryOrderItem '
       description: Get Order Item Information
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16524,7 +16502,7 @@ paths:
   /v5/inventory/getOrderItemLog:
     post:
       tags:
-        - InventoryOrder Item
+        - 'InventoryOrderItem '
       description: Get Order Item Log
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16545,7 +16523,7 @@ paths:
   /v5/inventory/clearEventQueue:
     post:
       tags:
-        - InventoryOrder Item
+        - 'InventoryOrderItem '
       description: Clear pending events
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16566,7 +16544,7 @@ paths:
   /v1/pendingItem:
     get:
       tags:
-        - InventoryPending Items
+        - 'InventoryPendingItems '
       description: Get Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16589,7 +16567,7 @@ paths:
   /v1/pendingItem/release:
     post:
       tags:
-        - InventoryPending Items
+        - 'InventoryPendingItems '
       description: Release All Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16606,7 +16584,7 @@ paths:
   /v1/tenantConfig:
     get:
       tags:
-        - InventoryTenant Config
+        - 'InventoryTenantConfig '
       description: Gets tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16622,7 +16600,7 @@ paths:
       summary: Gets tenant config
     post:
       tags:
-        - InventoryTenant Config
+        - 'InventoryTenantConfig '
       description: Creates or updates tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -32317,28 +32295,28 @@ tags:
     x-displayName: Subscription
   - name: InventoryBin
     x-displayName: InventoryBin
-  - name: InventoryExport Inventory
-    x-displayName: InventoryExport Inventory
-  - name: InventoryInventoryExport Inventory
-    x-displayName: InventoryInventoryExport Inventory
-  - name: InventoryFetch File Config
-    x-displayName: InventoryFetch File Config
-  - name: InventoryModify Inventory
-    x-displayName: InventoryModify Inventory
-  - name: InventoryPending Items
-    x-displayName: InventoryPending Items
-  - name: InventoryProduct Mapping
-    x-displayName: InventoryProduct Mapping
+  - name: 'InventoryExportInventory '
+    x-displayName: 'InventoryExportInventory '
+  - name: InventoryInventoryExportInventory
+    x-displayName: InventoryInventoryExportInventory
+  - name: 'InventoryFetchFile Config '
+    x-displayName: 'InventoryFetchFile Config '
+  - name: 'InventoryModifyInventory '
+    x-displayName: 'InventoryModifyInventory '
+  - name: 'InventoryPendingItems '
+    x-displayName: 'InventoryPendingItems '
+  - name: 'InventoryProductMapping '
+    x-displayName: 'InventoryProductMapping '
   - name: InventorySilo
     x-displayName: InventorySilo
   - name: InventoryInventorySite
     x-displayName: InventoryInventorySite
   - name: InventoryTag
     x-displayName: InventoryTag
-  - name: InventoryTag Category
-    x-displayName: InventoryTag Category
-  - name: InventoryTag category
-    x-displayName: InventoryTag category
+  - name: 'InventoryTagCategory '
+    x-displayName: 'InventoryTagCategory '
+  - name: 'InventoryTagcategory '
+    x-displayName: 'InventoryTagcategory '
   - name: InventoryTenant
     x-displayName: InventoryTenant
   - name: InventoryInventoryTenant
@@ -32351,10 +32329,10 @@ tags:
     x-displayName: InventoryInventory
   - name: InventoryJob
     x-displayName: InventoryJob
-  - name: InventoryOrder Item
-    x-displayName: InventoryOrder Item
-  - name: InventoryTenant Config
-    x-displayName: InventoryTenant Config
+  - name: 'InventoryOrderItem '
+    x-displayName: 'InventoryOrderItem '
+  - name: 'InventoryTenantConfig '
+    x-displayName: 'InventoryTenantConfig '
   - name: InventoryWave
     x-displayName: InventoryWave
   - name: LocationAdmin
@@ -32550,25 +32528,25 @@ x-tagGroups:
   - name: inventory
     tags:
       - InventoryBin
-      - InventoryExport Inventory
-      - InventoryInventoryExport Inventory
-      - InventoryFetch File Config
-      - InventoryModify Inventory
-      - InventoryPending Items
-      - InventoryProduct Mapping
+      - 'InventoryExportInventory '
+      - InventoryInventoryExportInventory
+      - 'InventoryFetchFile Config '
+      - 'InventoryModifyInventory '
+      - 'InventoryPendingItems '
+      - 'InventoryProductMapping '
       - InventorySilo
       - InventoryInventorySite
       - InventoryTag
-      - InventoryTag Category
-      - InventoryTag category
+      - 'InventoryTagCategory '
+      - 'InventoryTagcategory '
       - InventoryTenant
       - InventoryInventoryTenant
       - InventoryAllocation
       - InventoryAudit
       - InventoryInventory
       - InventoryJob
-      - InventoryOrder Item
-      - InventoryTenant Config
+      - 'InventoryOrderItem '
+      - 'InventoryTenantConfig '
       - InventoryWave
   - name: location
     tags:
@@ -54030,7 +54008,6 @@ components:
       properties:
         id:
           type: string
-          description: "The Order ID to be used in rate calculation\r\nInformational only"
           nullable: true
         content:
           $ref: '#/components/schemas/CustomTableRateContent'
@@ -54042,25 +54019,6 @@ components:
           format: double
         deliveryDuration:
           type: string
-          description: >-
-            Estimate Date/Time when the shipment for this will be sent. 
-            Primarily utilize to estimate delivery date.
-          format: date-time
-          nullable: true
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/RateRequestAttribute'
-          description: Order Attributes. Made available for Arc.js to use
-          nullable: true
-        customAttributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
-          nullable: true
-          deprecated: true
-        data:
-          type: object
           nullable: true
       additionalProperties: false
     CustomTableRateContent:
@@ -54069,13 +54027,8 @@ components:
         localeCode:
           type: string
           nullable: true
-        attributeDefinitionId:
-          type: integer
-          format: int32
-          nullable: true
-        values:
-          type: array
-          items: {}
+        name:
+          type: string
           nullable: true
       additionalProperties: false
     HandlingFeeRule:
@@ -54249,11 +54202,9 @@ components:
       properties:
         key:
           type: string
-          description: Severity
           nullable: true
         value:
           type: string
-          description: Message
           nullable: true
       additionalProperties: false
     ShippingInclusionRule:
@@ -54261,7 +54212,6 @@ components:
       properties:
         id:
           type: string
-          description: Help Link
           nullable: true
         sequence:
           type: integer
@@ -54337,39 +54287,9 @@ components:
           items:
             $ref: '#/components/schemas/ShippingProfile'
           nullable: true
-        content:
-          $ref: '#/components/schemas/ShippingRateLocalizedContent'
-        amount:
-          type: number
-          format: double
-          nullable: true
-        daysInTransit:
-          type: integer
-          format: int32
-          nullable: true
-        shippingItemRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShippingItemRate'
-          nullable: true
-        customAttributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
-          nullable: true
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShippingRateValidationMessage'
-          nullable: true
-        data:
-          type: object
-          nullable: true
       additionalProperties: false
     ShippingStates:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/OrderJob'
       properties:
         countryCode:
           type: string
@@ -54628,8 +54548,6 @@ components:
       additionalProperties: false
     RateRequestAttribute:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/OrderJob'
       properties:
         fullyQualifiedName:
           type: string
@@ -54831,8 +54749,6 @@ components:
         data:
           type: object
           nullable: true
-        isValueSet:
-          type: boolean
       additionalProperties: false
     AutoCaptureJob:
       type: object
@@ -54931,8 +54847,6 @@ components:
           nullable: true
         orderShipped:
           type: boolean
-        websiteName:
-          type: string
           nullable: true
         orderFulfillmentDetailsChanged:
           type: boolean
@@ -55244,7 +55158,6 @@ components:
           nullable: true
         prodServiceURL:
           type: string
-          description: "Gift card payment authorization setting. Options can be authorize and charge the shopper's credit card when the order is placed, \"AuthorizeAndCaptureOnOrderPlacement,\" \r\nauthorize the shopper's gift card when the order is placed and charge the gift card when it is shipped, \"AuthorizeOnOrderPlacementAndCaptureOnOrderShipment,\" \r\nor authorize and charge the shopper's gift card for the full amount when the order is shipped, \"AuthorizeAndCaptureOnOrderShipment.\""
           nullable: true
         testServiceURL:
           type: string
@@ -55274,8 +55187,6 @@ components:
           items:
             type: object
           nullable: true
-        auditInfo:
-          $ref: '#/components/schemas/AuditInfo'
       additionalProperties: false
     GeneralSettings:
       type: object
@@ -55415,8 +55326,8 @@ components:
         localeCode:
           type: string
           nullable: true
-        customerAtStore:
-          type: boolean
+        value:
+          type: string
           nullable: true
       additionalProperties: false
     Mapping:
@@ -55665,7 +55576,6 @@ components:
       properties:
         gatewayAccountId:
           type: string
-          description: A unique code for purchase order payment term
           nullable: true
         processingGatewayAccountId:
           type: string
@@ -55853,7 +55763,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/components/schemas/StoreFrontProductCreateSiteRequest'
+            type: string
           nullable: true
         attributeFQN:
           type: string
