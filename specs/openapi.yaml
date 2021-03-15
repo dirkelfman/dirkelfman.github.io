@@ -58,7 +58,7 @@ paths:
   '/platform/adminuser/authtickets/wsfed/auth/{id}':
     post:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       parameters:
         - name: id
           in: path
@@ -93,7 +93,7 @@ paths:
   '/platform/adminuser/authtickets/wsfed/SignOut/{id}':
     get:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       parameters:
         - name: id
           in: path
@@ -123,7 +123,7 @@ paths:
   '/platform/adminuser/authtickets/wsfed/challenge/{id}':
     get:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       parameters:
         - name: id
           in: path
@@ -162,7 +162,7 @@ paths:
   /platform/adminuser/authtickets/tenants:
     post:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       summary: >-
         Authenticates a user for a particular tenant given a set of user
         credentials adn a tenantId.
@@ -197,7 +197,7 @@ paths:
           clientOauth2: []
     put:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       summary: >-
         Reauthenticates the current user for a different tenant. If the user
         does not have access to the tenant, the operation fails.
@@ -233,7 +233,7 @@ paths:
   /platform/adminuser/authtickets:
     delete:
       tags:
-        - PublicAdminAuthTicket
+        - TenantAuthTicket
       summary: Logs out a user by deleting the refresh token
       parameters:
         - name: refreshToken
@@ -250,7 +250,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/tenants':
     get:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Get tenant scope for users
       parameters:
         - name: userId
@@ -278,7 +278,7 @@ paths:
   '/platform/adminuser/accounts/{userId}':
     get:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Retrieves the details of a user specified by user ID.
       parameters:
         - name: userId
@@ -305,7 +305,7 @@ paths:
           clientOauth2: []
     put:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Modifies user information for a specified user.
       parameters:
         - name: userId
@@ -343,7 +343,7 @@ paths:
           clientOauth2: []
     delete:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Removes a user account from the site.
       parameters:
         - name: userId
@@ -361,7 +361,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/userbyid':
     get:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Retrieves the details of a user specified by user ID.
       parameters:
         - name: userId
@@ -394,7 +394,7 @@ paths:
   /platform/adminuser/accounts:
     get:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: >-
         Retrieves a list of Admin users for a specified site according to any
         specified filter criteria and sort options.
@@ -448,7 +448,7 @@ paths:
           clientOauth2: []
     post:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Creates a new user
       requestBody:
         description: The user to be created
@@ -475,7 +475,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/roles':
     get:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Retrieves all the roles for a specified user on the specified tenant.
       parameters:
         - name: userId
@@ -503,7 +503,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/roles/{roleId}':
     post:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Adds a role to the specified user's Admin account.
       parameters:
         - name: userId
@@ -527,7 +527,7 @@ paths:
           clientOauth2: []
     delete:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Removes a role from the specified Admin account.
       parameters:
         - name: userId
@@ -552,7 +552,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/Change-Password':
     post:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Changes a user's password.
       parameters:
         - name: userId
@@ -576,7 +576,7 @@ paths:
   '/platform/adminuser/accounts/{userId}/Change-User-Password':
     post:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Changes a user's password to the provided new password
       parameters:
         - name: userId
@@ -600,7 +600,7 @@ paths:
   /platform/adminuser/accounts/Reset-Password:
     post:
       tags:
-        - PublicAdminUser
+        - TenenantUser
       summary: Resets the password for a user specified by email address.
       requestBody:
         description: "Email address of the user who has requested a password reset. \r\n            Note that the site ID is passed in the request header."
@@ -617,7 +617,7 @@ paths:
   /platform/developer/authtickets:
     post:
       tags:
-        - PublicDeveloperAdminAuthTicket
+        - DeveloperAuthTicket
       summary: >-
         Authenticates a user for a particular tenant given a set of user
         credentials adn a tenantId.
@@ -652,7 +652,7 @@ paths:
           clientOauth2: []
     put:
       tags:
-        - PublicDeveloperAdminAuthTicket
+        - DeveloperAuthTicket
       summary: >-
         Reauthenticates the current user for a different tenant. If the user
         does not have access to the tenant, the operation fails.
@@ -687,7 +687,7 @@ paths:
           clientOauth2: []
     delete:
       tags:
-        - PublicDeveloperAdminAuthTicket
+        - DeveloperAuthTicket
       summary: Logs out a user by deleting the refresh token
       parameters:
         - name: refreshToken
@@ -704,7 +704,7 @@ paths:
   /platform/adminuser/roles:
     get:
       tags:
-        - PublicRole
+        - TenantRole
       summary: Retrieves a list of all roles defined for this tenant.
       parameters:
         - name: startIndex
@@ -810,6 +810,7 @@ paths:
       parameters:
         - name: cartId
           in: path
+          description: Unique identifier of the user.
           required: true
           schema:
             type: string
@@ -2651,6 +2652,7 @@ paths:
       parameters:
         - name: checkoutId
           in: path
+          description: Unique identifier of the checkout to change
           required: true
           schema:
             type: string
@@ -2727,6 +2729,16 @@ paths:
       responses:
         '200':
           description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkout'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Checkout'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Checkout'
       security:
         - bearerAuth: []
           clientOauth2: []
@@ -2913,6 +2925,16 @@ paths:
       responses:
         '200':
           description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Destination'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Destination'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Destination'
       security:
         - bearerAuth: []
           clientOauth2: []
@@ -10810,7 +10832,7 @@ paths:
   /content/propertytypes:
     get:
       tags:
-        - PropertyType
+        - DocumentPropertyType
       summary: Retrieves a PagedCollection of Mozu.Content.Contracts.PropertyTypes
       parameters:
         - name: pageSize
@@ -10845,7 +10867,7 @@ paths:
           clientOauth2: []
     post:
       tags:
-        - PropertyType
+        - DocumentPropertyType
       summary: Creates a new Mozu.Content.Contracts.PropertyType
       requestBody:
         description: ''
@@ -10878,7 +10900,7 @@ paths:
   '/content/propertytypes/{propertyTypeName}':
     get:
       tags:
-        - PropertyType
+        - DocumentPropertyType
       summary: Retrieves a specific Mozu.Content.Contracts.PropertyType
       parameters:
         - name: propertyTypeName
@@ -10905,7 +10927,7 @@ paths:
           clientOauth2: []
     put:
       tags:
-        - PropertyType
+        - DocumentPropertyType
       summary: Updates a Mozu.Content.Contracts.PropertyType
       parameters:
         - name: propertyTypeName
@@ -10944,7 +10966,7 @@ paths:
           clientOauth2: []
     delete:
       tags:
-        - PropertyType
+        - DocumentPropertyType
       summary: Delete a specific Mozu.Content.Contracts.PropertyType
       parameters:
         - name: propertyTypeName
@@ -11183,7 +11205,7 @@ paths:
   /commerce/customer/authtickets:
     post:
       tags:
-        - AuthTicket
+        - StorefrontAuthTicket
       summary: >-
         Authenticates a user for a particular site given a set of user
         credentials.
@@ -11212,7 +11234,7 @@ paths:
   /commerce/customer/authtickets/refresh:
     put:
       tags:
-        - AuthTicket
+        - StorefrontAuthTicket
       summary: Refreshes a user's authentication.
       parameters:
         - name: refreshToken
@@ -11239,7 +11261,7 @@ paths:
   /commerce/customer/authtickets/anonymousshopper:
     get:
       tags:
-        - AuthTicket
+        - StorefrontAuthTicket
       responses:
         '200':
           description: Success
@@ -15093,7 +15115,7 @@ paths:
   '/v1/bin/{bin_id}':
     post:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Update the designated bin
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15125,7 +15147,7 @@ paths:
   /v1/export/create:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Create an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15146,7 +15168,7 @@ paths:
   /v1/export:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryInventoryExport Inventory
       description: Run Export Settings Job
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15167,7 +15189,7 @@ paths:
   /v1/export/update:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Update an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15190,7 +15212,7 @@ paths:
   '/v1/export/{exportSettingsName}':
     delete:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Deletes an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15208,7 +15230,7 @@ paths:
   /v1/export/ftp/create:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Create an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15229,7 +15251,7 @@ paths:
   /v1/export/ftp/update:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Update an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15252,7 +15274,7 @@ paths:
   '/v1/export/ftp/{exportSettingsName}/{exportSettingsFTPName}':
     delete:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: >-
         Deletes an Export Settings FTP. Not specifying exportSettingsFTPID
         deletes ALL ftp settings for the specified export settings.
@@ -15275,7 +15297,7 @@ paths:
   /v1/export/s3/create:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Create an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15296,7 +15318,7 @@ paths:
   /v1/export/s3/update:
     post:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: Update an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15319,7 +15341,7 @@ paths:
   '/v1/export/s3/{exportSettingsName}/{exportSettingsS3Name}':
     delete:
       tags:
-        - Export Inventory Controller
+        - InventoryExport Inventory
       description: >-
         Deletes an Export Settings S3. Not specifying exportSettingsS3ID deletes
         ALL s3 settings for the specified export settings.
@@ -15342,7 +15364,7 @@ paths:
   '/v1/config/fetchfile/{fetchFileConfigID}':
     delete:
       tags:
-        - Fetch File Config Controller
+        - InventoryFetch File Config
       description: Deletes a fetch file config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15368,7 +15390,7 @@ paths:
   '/v1/config/fetchfile/testConnection/{fetchFileConfigID}':
     get:
       tags:
-        - Fetch File Config Controller
+        - InventoryFetch File Config
       description: >-
         Attempts to connect to a fetch file endpoint and lists current files if
         successful
@@ -15398,7 +15420,7 @@ paths:
   /v5/inventory/redistribute:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Create jobs to redistribute inventory across tags for the given tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15415,7 +15437,7 @@ paths:
   '/v1/pendingItem/{pendingItemID}':
     delete:
       tags:
-        - Pending Items Controller
+        - InventoryPending Items
       description: Delete Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15438,7 +15460,7 @@ paths:
   '/v1/pendingItem/release/{tenantID}':
     post:
       tags:
-        - Pending Items Controller
+        - InventoryPending Items
       description: Release Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15461,7 +15483,7 @@ paths:
   /v1/productMapping:
     get:
       tags:
-        - Product Mapping Controller
+        - InventoryProduct Mapping
       description: Gets a list Product Mappings for the specified tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15477,7 +15499,7 @@ paths:
       summary: Gets a list Product Mappings for the specified tenant
     post:
       tags:
-        - Product Mapping Controller
+        - InventoryProduct Mapping
       description: Creates a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15496,7 +15518,7 @@ paths:
   '/v1/productMapping/{direction}':
     delete:
       tags:
-        - Product Mapping Controller
+        - InventoryProduct Mapping
       description: Delete a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15521,7 +15543,7 @@ paths:
   /v1/silo/provision:
     post:
       tags:
-        - Silo Controller
+        - InventorySilo
       description: Provision a silo based on a tenant ID.
       requestBody:
         $ref: '#/components/requestBodies/ProvisionSiloRequest'
@@ -15538,7 +15560,7 @@ paths:
   /v1/site:
     post:
       tags:
-        - Site Controller
+        - InventoryInventorySite
       description: Creates a site
       requestBody:
         $ref: '#/components/requestBodies/CreateSiteRequest'
@@ -15555,7 +15577,7 @@ paths:
   '/v1/tagCategory/{tag_category_name}/tag':
     post:
       tags:
-        - Tag Controller
+        - InventoryTag
       description: Create a tag
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15575,7 +15597,7 @@ paths:
   '/v1/tagCategory/{tag_category_name}/tag/{tag_value}':
     get:
       tags:
-        - Tag Controller
+        - InventoryTag
       description: Get a tag
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15593,7 +15615,7 @@ paths:
       summary: Get a tag
     put:
       tags:
-        - Tag Controller
+        - InventoryTag
       description: Update the designated tag
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15619,7 +15641,7 @@ paths:
       summary: Update the designated tag
     delete:
       tags:
-        - Tag Controller
+        - InventoryTag
       description: Delete a Tag
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15640,7 +15662,7 @@ paths:
   /v1/tagCategory:
     get:
       tags:
-        - Tag Category Controller
+        - InventoryTag Category
       description: Get all tag categories for a tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15659,7 +15681,7 @@ paths:
   '/v1/tagCategory/{tag_category_name}':
     get:
       tags:
-        - Tag Category Controller
+        - InventoryTag Category
       description: Get a tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15676,7 +15698,7 @@ paths:
       summary: Get a tag category
     put:
       tags:
-        - Tag category Controller
+        - InventoryTag category
       description: Update the designated tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15701,7 +15723,7 @@ paths:
       summary: Update the designated tag category
     delete:
       tags:
-        - Tag category Controller
+        - InventoryTag category
       description: Delete a Tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15721,7 +15743,7 @@ paths:
   /v1/tenant/clone:
     post:
       tags:
-        - Tenant Controller
+        - InventoryTenant
       description: Clones a tenant
       requestBody:
         $ref: '#/components/requestBodies/CloneTenantRequest'
@@ -15738,7 +15760,7 @@ paths:
   /v1/tenant:
     post:
       tags:
-        - Tenant Controller
+        - InventoryInventoryTenant
       description: Creates a tenant
       requestBody:
         $ref: '#/components/requestBodies/CreateTenantRequest'
@@ -15755,7 +15777,7 @@ paths:
   /v5/inventory/allocate:
     post:
       tags:
-        - Allocation Controller
+        - InventoryAllocation
       description: Allocates inventory based on the given request
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15783,7 +15805,7 @@ paths:
   /v5/inventory/deallocate:
     post:
       tags:
-        - Allocation Controller
+        - InventoryAllocation
       description: Deallocates inventory based on the given request
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15811,7 +15833,7 @@ paths:
   /v5/inventory/fulfill:
     post:
       tags:
-        - Allocation Controller
+        - InventoryAllocation
       description: Fulfills inventory based on the given request
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15839,7 +15861,7 @@ paths:
   /v1/audit/search:
     post:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Search for a list of Audits
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15858,7 +15880,7 @@ paths:
   '/v1/audit/allOpen/{location_code}':
     get:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Get all of the open   audits at the given location
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15884,7 +15906,7 @@ paths:
   /v1/audit:
     post:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Create a new audit
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15903,7 +15925,7 @@ paths:
   '/v1/audit/{audit_id}/complete':
     post:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Complete an audit
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15931,7 +15953,7 @@ paths:
   '/v1/audit/{audit_id}/cancel':
     post:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Cancel an audit
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15957,7 +15979,7 @@ paths:
   '/v1/audit/{audit_id}':
     get:
       tags:
-        - Audit Controller
+        - InventoryAudit
       description: Get details of the specified audit
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15990,7 +16012,7 @@ paths:
   /v1/bin:
     get:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Get a list of bins
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16034,7 +16056,7 @@ paths:
       summary: Get a list of bins
     post:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Create a bin
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16053,7 +16075,7 @@ paths:
   /v1/bin/searchInventory:
     post:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Search bins for a inventory by bin name or any product identifier
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16072,7 +16094,7 @@ paths:
   /v1/bin/loadInventory:
     post:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Loads bin inventory for designated bins
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16091,7 +16113,7 @@ paths:
   /v1/bin/binTypes:
     get:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Get list of bin types
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16110,7 +16132,7 @@ paths:
   /v1/bin/binStatuses:
     get:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Get list of bin statuses
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16129,7 +16151,7 @@ paths:
   /v1/bin/updateBins:
     post:
       tags:
-        - Bin Controller
+        - InventoryBin
       description: Update the designated bins
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16148,7 +16170,7 @@ paths:
   /v1/config/fetchfile:
     get:
       tags:
-        - Fetch File Config Controller
+        - InventoryFetch File Config
       description: Get the Fetch File Configs for the current tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16164,7 +16186,7 @@ paths:
       summary: Get the Fetch File Configs for the current tenant
     post:
       tags:
-        - Fetch File Config Controller
+        - InventoryFetch File Config
       description: Save a new Fetch File Config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16183,7 +16205,7 @@ paths:
   /v5/inventory:
     get:
       tags:
-        - Inventory Controller
+        - InventoryInventory
       description: Get inventory from specified location
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16215,7 +16237,7 @@ paths:
       summary: Get inventory from specified location
     post:
       tags:
-        - Inventory Controller
+        - InventoryInventory
       description: Queries for specified inventory at given location
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16237,7 +16259,7 @@ paths:
   /v5/inventory/aggregate:
     post:
       tags:
-        - Inventory Controller
+        - InventoryInventory
       description: Aggregates Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16259,7 +16281,7 @@ paths:
   '/v1/queue/{jobID}':
     get:
       tags:
-        - Job Controller
+        - InventoryJob
       description: Get the specified job
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16292,7 +16314,7 @@ paths:
   /v1/queue:
     get:
       tags:
-        - Job Controller
+        - InventoryJob
       description: Get the requested jobs
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16352,7 +16374,7 @@ paths:
   /v5/inventory/refresh:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Refresh Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16371,7 +16393,7 @@ paths:
   /v5/inventory/sync-refresh:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Refresh Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16401,7 +16423,7 @@ paths:
   /v5/inventory/adjust:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Adjust Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16431,7 +16453,7 @@ paths:
   /v5/inventory/sync-adjust:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Adjust Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16461,7 +16483,7 @@ paths:
   /v5/inventory/delete:
     post:
       tags:
-        - Modify Inventory Controller
+        - InventoryModify Inventory
       description: Delete Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16481,7 +16503,7 @@ paths:
   /v5/inventory/getOrderItemInformation:
     post:
       tags:
-        - Order Item Controller
+        - InventoryOrder Item
       description: Get Order Item Information
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16502,7 +16524,7 @@ paths:
   /v5/inventory/getOrderItemLog:
     post:
       tags:
-        - Order Item Controller
+        - InventoryOrder Item
       description: Get Order Item Log
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16523,7 +16545,7 @@ paths:
   /v5/inventory/clearEventQueue:
     post:
       tags:
-        - Order Item Controller
+        - InventoryOrder Item
       description: Clear pending events
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16544,7 +16566,7 @@ paths:
   /v1/pendingItem:
     get:
       tags:
-        - Pending Items Controller
+        - InventoryPending Items
       description: Get Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16567,7 +16589,7 @@ paths:
   /v1/pendingItem/release:
     post:
       tags:
-        - Pending Items Controller
+        - InventoryPending Items
       description: Release All Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16584,7 +16606,7 @@ paths:
   /v1/tenantConfig:
     get:
       tags:
-        - Tenant Config Controller
+        - InventoryTenant Config
       description: Gets tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16600,7 +16622,7 @@ paths:
       summary: Gets tenant config
     post:
       tags:
-        - Tenant Config Controller
+        - InventoryTenant Config
       description: Creates or updates tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16619,7 +16641,7 @@ paths:
   /v1/wave/suggestion:
     post:
       tags:
-        - Wave Controller
+        - InventoryWave
       description: Query Wave Suggestion (as a post)
       requestBody:
         $ref: '#/components/requestBodies/WaveSuggestionRequest'
@@ -20002,7 +20024,7 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/ApiDocumentationDeleteSiteRequest'
+              $ref: '#/components/schemas/DeleteSiteRequest'
         required: true
       responses:
         '200':
@@ -20143,7 +20165,7 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/ApiDocumentationDeleteTenantRequest'
+              $ref: '#/components/schemas/DeleteTenantRequest'
         required: true
       responses:
         '200':
@@ -28263,7 +28285,7 @@ paths:
   /commerce/catalog/storefront/campaigns/all:
     get:
       tags:
-        - Campaign
+        - StoreFrontCampaign
       summary: Returns list of campaigns
       responses:
         '200':
@@ -28290,7 +28312,7 @@ paths:
   '/commerce/catalog/storefront/campaigns/{campaignId}':
     get:
       tags:
-        - Campaign
+        - StoreFrontCampaign
       summary: Returns specific campaign
       parameters:
         - name: campaignId
@@ -28318,7 +28340,7 @@ paths:
   /commerce/catalog/storefront/currencies/exchangerates:
     get:
       tags:
-        - CurrencyRuntime
+        - StoreFrontCurrency
       summary: >-
         Retrieves a list of currency exchange rates based on the context's
         currency code.
@@ -28347,7 +28369,7 @@ paths:
   /commerce/catalog/storefront/pricelists/resolved:
     get:
       tags:
-        - PriceListRuntime
+        - StoreFrontPriceList
       parameters:
         - name: customerAccountId
           in: query
@@ -28372,7 +28394,7 @@ paths:
           clientOauth2: []
     post:
       tags:
-        - PriceListRuntime
+        - StoreFrontPriceList
       requestBody:
         content:
           application/json:
@@ -28396,7 +28418,7 @@ paths:
   '/commerce/catalog/storefront/pricelists/{priceListCode}':
     get:
       tags:
-        - PriceListRuntime
+        - StoreFrontPriceList
       summary: Retrieves the price list for the given priceListCode
       parameters:
         - name: priceListCode
@@ -28423,7 +28445,7 @@ paths:
   /commerce/catalog/storefront/categories/tree:
     get:
       tags:
-        - ProductCategoryRuntime
+        - StoreFrontProductCategory
       summary: >-
         Retrieves the list of product categories that appear on the storefront
         organized in a hierarchical format. Hidden categories do not appear in
@@ -28447,7 +28469,7 @@ paths:
   /commerce/catalog/storefront/categories:
     get:
       tags:
-        - ProductCategoryRuntime
+        - StoreFrontProductCategory
       summary: "Retrieves a list of product categories that appear on the storefront as a flat list.\r\nHidden categories do not appear in the list."
       parameters:
         - name: filter
@@ -28491,7 +28513,7 @@ paths:
   '/commerce/catalog/storefront/categories/{categoryId}':
     get:
       tags:
-        - ProductCategoryRuntime
+        - StoreFrontProductCategory
       summary: >-
         Retrieves the name and details of a category that appears on the
         storefront.
@@ -28531,7 +28553,7 @@ paths:
   /commerce/catalog/storefront/products:
     get:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: "Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.\r\nThe following filter criteria can be applied: @FilterSet1@"
       parameters:
         - name: filter
@@ -28618,7 +28640,7 @@ paths:
   '/commerce/catalog/storefront/products/{productCode}/locationinventory':
     get:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       parameters:
         - name: productCode
           in: path
@@ -28651,7 +28673,7 @@ paths:
   /commerce/catalog/storefront/products/locationinventory:
     post:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       requestBody:
         content:
           application/json:
@@ -28679,7 +28701,7 @@ paths:
   /commerce/catalog/storefront/products/costs:
     post:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       requestBody:
         content:
           application/json:
@@ -28704,7 +28726,7 @@ paths:
   '/commerce/catalog/storefront/products/{productCode}':
     get:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: Retrieves information about a single product given its product code.
       parameters:
         - name: productCode
@@ -28794,7 +28816,7 @@ paths:
   '/commerce/catalog/storefront/products/indexing/{productCode}':
     get:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: >-
         Retrieves information about a single product given its product code for
         Mozu to index in the search engine
@@ -28842,7 +28864,7 @@ paths:
   '/commerce/catalog/storefront/products/{productCode}/configure':
     post:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: >-
         Creates a new product selection. A create occurs each time a shopper
         selects a product option as they configure a product. Once all the
@@ -28914,7 +28936,7 @@ paths:
   '/commerce/catalog/storefront/products/{productCode}/validate':
     post:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: Validate the final state of shopper-selected options.
       parameters:
         - name: productCode
@@ -28976,7 +28998,7 @@ paths:
   '/commerce/catalog/storefront/products/{productCode}/validateDiscounts':
     post:
       tags:
-        - ProductRuntime
+        - StoreFrontProduct
       summary: >-
         Validate if a collection of discounts is valid for a product.  This
         includes discounts that would normally be considered order level
@@ -29037,7 +29059,7 @@ paths:
   /commerce/catalog/storefront/productsearch/suggest:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       summary: Suggests possible search terms as the shopper enters search text.
       parameters:
         - name: query
@@ -29087,7 +29109,7 @@ paths:
   /commerce/catalog/storefront/productsearch/suggest2:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       summary: >-
         Suggests possible search terms as the shopper enters search text. 
         Utlizes new SearchSettings resource to drive search.
@@ -29142,7 +29164,7 @@ paths:
   /commerce/catalog/storefront/productsearch/visualsearch:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       parameters:
         - name: SearchTerm
           in: query
@@ -29243,7 +29265,7 @@ paths:
   /commerce/catalog/storefront/productsearch/randomAccessCursor:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       summary: "Generate a cursor that then allows you to retrieve all products with efficient deep paging.\r\nOptionally provide a query and/or filter to generate a cursor for a subset of products.\r\nAfter retrieving the cursor, provide a cursorMark to the cursorMark argument of the /search or /getProducts operations.\r\nYou may provide cursorMarks in any order or even in parallel operations."
       parameters:
         - name: query
@@ -29285,7 +29307,7 @@ paths:
   /commerce/catalog/storefront/productsearch/search:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       summary: >-
         Searches the categories displayed on the storefront for products or
         product options that the shopper types in a search query.
@@ -29463,7 +29485,7 @@ paths:
   /commerce/catalog/storefront/productsearch/siteSearch:
     get:
       tags:
-        - ProductSearch
+        - StoreFrontProductSearch
       parameters:
         - name: query
           in: query
@@ -31978,26 +32000,13 @@ paths:
   '/commerce/catalog/admin/searchSchema/fieldTypes/{language}':
     get:
       tags:
-        - FieldTypeDefinition
+        - StoreFrontFieldTypeDefinition
       parameters:
         - name: language
           in: path
           required: true
           schema:
             type: string
-            nullable: true
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       responses:
         '200':
           description: Success
@@ -32017,261 +32026,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FieldTypeDefinitionRepositoryEntry'
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Clone-Tenant-Data:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CloneTenantDataRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Create-Tenant:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StoreFrontProductCreateTenantRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Create-Master-Catalog:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateMasterCatalogRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Create-Catalog:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateCatalogRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Create-Site:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StoreFrontProductCreateSiteRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Delete-Tenant:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StoreFrontProductDeleteTenantRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Delete-Master-Catalog:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DeleteMasterCatalogRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Delete-Catalog:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DeleteCatalogRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/Delete-Site:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: attemptNumber
-          in: query
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StoreFrontProductDeleteSiteRequest'
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/DeleteAllPodCollections:
-    post:
-      tags:
-        - Provisioning
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: string
-            text/json:
-              schema:
-                type: string
-            text/plain:
-              schema:
-                type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/provisioning/DoWholeDangPod:
-    post:
-      tags:
-        - Provisioning
-      parameters:
-        - name: recreate
-          in: query
-          schema:
-            type: boolean
-            default: false
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: string
-            text/json:
-              schema:
-                type: string
-            text/plain:
-              schema:
-                type: string
       security:
         - bearerAuth: []
           clientOauth2: []
   /commerce/catalog/admin/searchSchema/definition:
     get:
       tags:
-        - SchemaDefinition
-      parameters:
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
+        - StoreFrontSchemaDefinition
       responses:
         '200':
           description: Success
@@ -32297,30 +32058,17 @@ paths:
   '/commerce/catalog/admin/searchSchema/definition/{language}':
     get:
       tags:
-        - SchemaDefinition
+        - StoreFrontSchemaDefinition
       parameters:
         - name: language
           in: path
           required: true
           schema:
             type: string
-            nullable: true
         - name: published
           in: query
           schema:
             type: boolean
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       responses:
         '200':
           description: Success
@@ -32339,26 +32087,13 @@ paths:
           clientOauth2: []
     put:
       tags:
-        - SchemaDefinition
+        - StoreFrontSchemaDefinition
       parameters:
         - name: language
           in: path
           required: true
           schema:
             type: string
-            nullable: true
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -32383,26 +32118,13 @@ paths:
   '/commerce/catalog/admin/searchSchema/definition/{language}/revert':
     post:
       tags:
-        - SchemaDefinition
+        - StoreFrontSchemaDefinition
       parameters:
         - name: language
           in: path
           required: true
           schema:
             type: string
-            nullable: true
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       responses:
         '200':
           description: Success
@@ -32422,31 +32144,18 @@ paths:
   '/commerce/catalog/admin/searchSchema/definition/{language}/publish':
     post:
       tags:
-        - SchemaDefinition
+        - StoreFrontSchemaDefinition
       parameters:
         - name: language
           in: path
           required: true
           schema:
             type: string
-            nullable: true
         - name: reindex
           in: query
           schema:
             type: boolean
             default: false
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       responses:
         '200':
           description: Success
@@ -32466,20 +32175,7 @@ paths:
   /commerce/catalog/admin/searchSchema/synonyms/reload:
     post:
       tags:
-        - Synonym
-      parameters:
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
+        - StoreFrontSynonym
       responses:
         '200':
           description: Success
@@ -32499,25 +32195,12 @@ paths:
   /commerce/catalog/admin/searchSchema/synonyms:
     get:
       tags:
-        - Synonym
+        - StoreFrontSynonym
       parameters:
         - name: language
           in: query
           schema:
             type: string
-            nullable: true
-        - name: x-vol-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-master-catalog
-          in: header
-          schema:
-            type: integer
-        - name: x-vol-tenant
-          in: header
-          schema:
-            type: integer
       responses:
         '200':
           description: Success
@@ -32531,140 +32214,6 @@ paths:
             text/plain:
               schema:
                 type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/CleanUpUnAliasedCollections:
-    post:
-      tags:
-        - Util
-      responses:
-        '200':
-          description: Success
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/TestZk:
-    post:
-      tags:
-        - Util
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
-            text/json:
-              schema:
-                type: array
-                items:
-                  type: string
-            text/plain:
-              schema:
-                type: array
-                items:
-                  type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/ReIndexUcp:
-    post:
-      tags:
-        - Util
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: string
-            text/json:
-              schema:
-                type: string
-            text/plain:
-              schema:
-                type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/ApplySchemaMigrations:
-    post:
-      tags:
-        - Util
-      parameters:
-        - name: areYouReallySure
-          in: query
-          schema:
-            type: boolean
-        - name: collectionFilter
-          in: query
-          schema:
-            type: string
-            nullable: true
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
-            text/json:
-              schema:
-                type: array
-                items:
-                  type: string
-            text/plain:
-              schema:
-                type: array
-                items:
-                  type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/MakeSureEverybodyHasSchemaDefs:
-    post:
-      tags:
-        - Util
-      parameters:
-        - name: reindex
-          in: query
-          schema:
-            type: boolean
-            default: false
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: string
-            text/json:
-              schema:
-                type: string
-            text/plain:
-              schema:
-                type: string
-      security:
-        - bearerAuth: []
-          clientOauth2: []
-  /commerce/catalog/admin/searchSchema/util/DeleteEverything:
-    post:
-      tags:
-        - Util
-      parameters:
-        - name: number
-          in: query
-          schema:
-            type: integer
-            format: int32
-      responses:
-        '200':
-          description: Success
       security:
         - bearerAuth: []
           clientOauth2: []
@@ -32698,14 +32247,14 @@ paths:
         - bearerAuth: []
           clientOauth2: []
 tags:
-  - name: PublicAdminAuthTicket
-    x-displayName: PublicAdminAuthTicket
-  - name: PublicAdminUser
-    x-displayName: PublicAdminUser
-  - name: PublicDeveloperAdminAuthTicket
-    x-displayName: PublicDeveloperAdminAuthTicket
-  - name: PublicRole
-    x-displayName: PublicRole
+  - name: TenantAuthTicket
+    x-displayName: TenantAuthTicket
+  - name: TenenantUser
+    x-displayName: TenenantUser
+  - name: DeveloperAuthTicket
+    x-displayName: DeveloperAuthTicket
+  - name: TenantRole
+    x-displayName: TenantRole
   - name: Cart
     x-displayName: Cart
   - name: Channel
@@ -32736,16 +32285,16 @@ tags:
     x-displayName: DocumentPublishSet
   - name: DocumentType
     x-displayName: DocumentType
-  - name: PropertyType
-    x-displayName: PropertyType
+  - name: DocumentPropertyType
+    x-displayName: DocumentPropertyType
   - name: AccountAttributeDefinition
     x-displayName: AccountAttributeDefinition
   - name: AddressValidation
     x-displayName: AddressValidation
   - name: AddressValidationCapability
     x-displayName: AddressValidationCapability
-  - name: AuthTicket
-    x-displayName: AuthTicket
+  - name: StorefrontAuthTicket
+    x-displayName: StorefrontAuthTicket
   - name: B2BAccount
     x-displayName: B2BAccount
   - name: Credit
@@ -32766,44 +32315,48 @@ tags:
     x-displayName: Event
   - name: Subscription
     x-displayName: Subscription
-  - name: Bin Controller
-    x-displayName: Bin Controller
-  - name: Export Inventory Controller
-    x-displayName: Export Inventory Controller
-  - name: Fetch File Config Controller
-    x-displayName: Fetch File Config Controller
-  - name: Modify Inventory Controller
-    x-displayName: Modify Inventory Controller
-  - name: Pending Items Controller
-    x-displayName: Pending Items Controller
-  - name: Product Mapping Controller
-    x-displayName: Product Mapping Controller
-  - name: Silo Controller
-    x-displayName: Silo Controller
-  - name: Site Controller
-    x-displayName: Site Controller
-  - name: Tag Controller
-    x-displayName: Tag Controller
-  - name: Tag Category Controller
-    x-displayName: Tag Category Controller
-  - name: Tag category Controller
-    x-displayName: Tag category Controller
-  - name: Tenant Controller
-    x-displayName: Tenant Controller
-  - name: Allocation Controller
-    x-displayName: Allocation Controller
-  - name: Audit Controller
-    x-displayName: Audit Controller
-  - name: Inventory Controller
-    x-displayName: Inventory Controller
-  - name: Job Controller
-    x-displayName: Job Controller
-  - name: Order Item Controller
-    x-displayName: Order Item Controller
-  - name: Tenant Config Controller
-    x-displayName: Tenant Config Controller
-  - name: Wave Controller
-    x-displayName: Wave Controller
+  - name: InventoryBin
+    x-displayName: InventoryBin
+  - name: InventoryExport Inventory
+    x-displayName: InventoryExport Inventory
+  - name: InventoryInventoryExport Inventory
+    x-displayName: InventoryInventoryExport Inventory
+  - name: InventoryFetch File Config
+    x-displayName: InventoryFetch File Config
+  - name: InventoryModify Inventory
+    x-displayName: InventoryModify Inventory
+  - name: InventoryPending Items
+    x-displayName: InventoryPending Items
+  - name: InventoryProduct Mapping
+    x-displayName: InventoryProduct Mapping
+  - name: InventorySilo
+    x-displayName: InventorySilo
+  - name: InventoryInventorySite
+    x-displayName: InventoryInventorySite
+  - name: InventoryTag
+    x-displayName: InventoryTag
+  - name: InventoryTag Category
+    x-displayName: InventoryTag Category
+  - name: InventoryTag category
+    x-displayName: InventoryTag category
+  - name: InventoryTenant
+    x-displayName: InventoryTenant
+  - name: InventoryInventoryTenant
+    x-displayName: InventoryInventoryTenant
+  - name: InventoryAllocation
+    x-displayName: InventoryAllocation
+  - name: InventoryAudit
+    x-displayName: InventoryAudit
+  - name: InventoryInventory
+    x-displayName: InventoryInventory
+  - name: InventoryJob
+    x-displayName: InventoryJob
+  - name: InventoryOrder Item
+    x-displayName: InventoryOrder Item
+  - name: InventoryTenant Config
+    x-displayName: InventoryTenant Config
+  - name: InventoryWave
+    x-displayName: InventoryWave
   - name: LocationAdmin
     x-displayName: LocationAdmin
   - name: LocationAttributeDefinition
@@ -32828,38 +32381,38 @@ tags:
     x-displayName: TenantData
   - name: UserData
     x-displayName: UserData
-  - name: after-action-controller
-    description: After Action Controller
+  - description: 'OrderRoutingAfterAction '
+    name: after-action-controller
     x-displayName: after-action-controller
-  - name: auth-controller
-    description: Auth Controller
+  - description: OrderRoutingAuth
+    name: auth-controller
     x-displayName: auth-controller
-  - name: data-list-controller
-    description: Data List Controller
+  - description: 'OrderRoutingDataList '
+    name: data-list-controller
     x-displayName: data-list-controller
-  - name: environment-controller
-    description: Environment Controller
+  - description: OrderRoutingEnvironment
+    name: environment-controller
     x-displayName: environment-controller
-  - name: filter-controller
-    description: Filter Controller
+  - description: OrderRoutingFilter
+    name: filter-controller
     x-displayName: filter-controller
-  - name: group-controller
-    description: Group Controller
+  - description: OrderRoutingGroup
+    name: group-controller
     x-displayName: group-controller
-  - name: routing-controller
-    description: Routing Controller
+  - description: OrderRoutingRouting
+    name: routing-controller
     x-displayName: routing-controller
-  - name: settings-controller
-    description: Settings Controller
+  - description: OrderRoutingSettings
+    name: settings-controller
     x-displayName: settings-controller
-  - name: site-controller
-    description: Site Controller
+  - description: OrderRoutingSite
+    name: site-controller
     x-displayName: site-controller
-  - name: sort-controller
-    description: Sort Controller
+  - description: OrderRoutingSort
+    name: sort-controller
     x-displayName: sort-controller
-  - name: tenant-controller
-    description: Tenant Controller
+  - description: OrderRoutingTenant
+    name: tenant-controller
     x-displayName: tenant-controller
   - name: DiscountRuntime
     x-displayName: DiscountRuntime
@@ -32899,18 +32452,18 @@ tags:
     x-displayName: Publishing
   - name: Search
     x-displayName: Search
-  - name: Campaign
-    x-displayName: Campaign
-  - name: CurrencyRuntime
-    x-displayName: CurrencyRuntime
-  - name: PriceListRuntime
-    x-displayName: PriceListRuntime
-  - name: ProductCategoryRuntime
-    x-displayName: ProductCategoryRuntime
-  - name: ProductRuntime
-    x-displayName: ProductRuntime
-  - name: ProductSearch
-    x-displayName: ProductSearch
+  - name: StoreFrontCampaign
+    x-displayName: StoreFrontCampaign
+  - name: StoreFrontCurrency
+    x-displayName: StoreFrontCurrency
+  - name: StoreFrontPriceList
+    x-displayName: StoreFrontPriceList
+  - name: StoreFrontProductCategory
+    x-displayName: StoreFrontProductCategory
+  - name: StoreFrontProduct
+    x-displayName: StoreFrontProduct
+  - name: StoreFrontProductSearch
+    x-displayName: StoreFrontProductSearch
   - name: ReferenceData
     x-displayName: ReferenceData
   - name: CarrierConfiguration
@@ -32941,25 +32494,21 @@ tags:
     x-displayName: ReturnSettings
   - name: ShippingSettings
     x-displayName: ShippingSettings
-  - name: FieldTypeDefinition
-    x-displayName: FieldTypeDefinition
-  - name: Provisioning
-    x-displayName: Provisioning
-  - name: SchemaDefinition
-    x-displayName: SchemaDefinition
-  - name: Synonym
-    x-displayName: Synonym
-  - name: Util
-    x-displayName: Util
+  - name: StoreFrontFieldTypeDefinition
+    x-displayName: StoreFrontFieldTypeDefinition
+  - name: StoreFrontSchemaDefinition
+    x-displayName: StoreFrontSchemaDefinition
+  - name: StoreFrontSynonym
+    x-displayName: StoreFrontSynonym
   - name: Tenants
     x-displayName: Tenants
 x-tagGroups:
   - name: adminuser
     tags:
-      - PublicAdminAuthTicket
-      - PublicAdminUser
-      - PublicDeveloperAdminAuthTicket
-      - PublicRole
+      - TenantAuthTicket
+      - TenenantUser
+      - DeveloperAuthTicket
+      - TenantRole
   - name: commerceruntime
     tags:
       - Cart
@@ -32979,13 +32528,13 @@ x-tagGroups:
       - DocumentPublishing
       - DocumentPublishSet
       - DocumentType
-      - PropertyType
+      - DocumentPropertyType
   - name: customer
     tags:
       - AccountAttributeDefinition
       - AddressValidation
       - AddressValidationCapability
-      - AuthTicket
+      - StorefrontAuthTicket
       - B2BAccount
       - Credit
       - CustomerAccount
@@ -33000,25 +32549,27 @@ x-tagGroups:
       - Subscription
   - name: inventory
     tags:
-      - Bin Controller
-      - Export Inventory Controller
-      - Fetch File Config Controller
-      - Modify Inventory Controller
-      - Pending Items Controller
-      - Product Mapping Controller
-      - Silo Controller
-      - Site Controller
-      - Tag Controller
-      - Tag Category Controller
-      - Tag category Controller
-      - Tenant Controller
-      - Allocation Controller
-      - Audit Controller
-      - Inventory Controller
-      - Job Controller
-      - Order Item Controller
-      - Tenant Config Controller
-      - Wave Controller
+      - InventoryBin
+      - InventoryExport Inventory
+      - InventoryInventoryExport Inventory
+      - InventoryFetch File Config
+      - InventoryModify Inventory
+      - InventoryPending Items
+      - InventoryProduct Mapping
+      - InventorySilo
+      - InventoryInventorySite
+      - InventoryTag
+      - InventoryTag Category
+      - InventoryTag category
+      - InventoryTenant
+      - InventoryInventoryTenant
+      - InventoryAllocation
+      - InventoryAudit
+      - InventoryInventory
+      - InventoryJob
+      - InventoryOrder Item
+      - InventoryTenant Config
+      - InventoryWave
   - name: location
     tags:
       - LocationAdmin
@@ -33074,12 +32625,12 @@ x-tagGroups:
       - Search
   - name: productruntime
     tags:
-      - Campaign
-      - CurrencyRuntime
-      - PriceListRuntime
-      - ProductCategoryRuntime
-      - ProductRuntime
-      - ProductSearch
+      - StoreFrontCampaign
+      - StoreFrontCurrency
+      - StoreFrontPriceList
+      - StoreFrontProductCategory
+      - StoreFrontProduct
+      - StoreFrontProductSearch
   - name: reference
     tags:
       - ReferenceData
@@ -33105,11 +32656,9 @@ x-tagGroups:
       - ShippingSettings
   - name: solrschemamanager
     tags:
-      - FieldTypeDefinition
-      - Provisioning
-      - SchemaDefinition
-      - Synonym
-      - Util
+      - StoreFrontFieldTypeDefinition
+      - StoreFrontSchemaDefinition
+      - StoreFrontSynonym
   - name: tenant
     tags:
       - Tenants
@@ -46349,6 +45898,23 @@ components:
           $ref: '#/components/schemas/UnitOfQuantity'
         value:
           type: number
+    DeleteSiteRequest:
+      title: DeleteSiteRequest
+      type: object
+      properties:
+        siteID:
+          type: integer
+          format: int32
+        tenantID:
+          type: integer
+          format: int32
+    DeleteTenantRequest:
+      title: DeleteTenantRequest
+      type: object
+      properties:
+        tenantID:
+          type: integer
+          format: int32
     Dimension:
       title: Dimension
       type: object
@@ -47345,23 +46911,6 @@ components:
           type: boolean
         userContext:
           $ref: '#/components/schemas/UserContextInformation'
-    ApiDocumentationDeleteSiteRequest:
-      title: DeleteSiteRequest
-      type: object
-      properties:
-        siteID:
-          type: integer
-          format: int32
-        tenantID:
-          type: integer
-          format: int32
-    ApiDocumentationDeleteTenantRequest:
-      title: DeleteTenantRequest
-      type: object
-      properties:
-        tenantID:
-          type: integer
-          format: int32
     AppliedLineItemDiscount:
       type: object
       allOf:
@@ -54481,6 +54030,7 @@ components:
       properties:
         id:
           type: string
+          description: "The Order ID to be used in rate calculation\r\nInformational only"
           nullable: true
         content:
           $ref: '#/components/schemas/CustomTableRateContent'
@@ -54492,6 +54042,25 @@ components:
           format: double
         deliveryDuration:
           type: string
+          description: >-
+            Estimate Date/Time when the shipment for this will be sent. 
+            Primarily utilize to estimate delivery date.
+          format: date-time
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateRequestAttribute'
+          description: Order Attributes. Made available for Arc.js to use
+          nullable: true
+        customAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+          nullable: true
+          deprecated: true
+        data:
+          type: object
           nullable: true
       additionalProperties: false
     CustomTableRateContent:
@@ -54500,8 +54069,13 @@ components:
         localeCode:
           type: string
           nullable: true
-        name:
-          type: string
+        attributeDefinitionId:
+          type: integer
+          format: int32
+          nullable: true
+        values:
+          type: array
+          items: {}
           nullable: true
       additionalProperties: false
     HandlingFeeRule:
@@ -54675,9 +54249,11 @@ components:
       properties:
         key:
           type: string
+          description: Severity
           nullable: true
         value:
           type: string
+          description: Message
           nullable: true
       additionalProperties: false
     ShippingInclusionRule:
@@ -54685,6 +54261,7 @@ components:
       properties:
         id:
           type: string
+          description: Help Link
           nullable: true
         sequence:
           type: integer
@@ -54760,9 +54337,39 @@ components:
           items:
             $ref: '#/components/schemas/ShippingProfile'
           nullable: true
+        content:
+          $ref: '#/components/schemas/ShippingRateLocalizedContent'
+        amount:
+          type: number
+          format: double
+          nullable: true
+        daysInTransit:
+          type: integer
+          format: int32
+          nullable: true
+        shippingItemRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingItemRate'
+          nullable: true
+        customAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+          nullable: true
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingRateValidationMessage'
+          nullable: true
+        data:
+          type: object
+          nullable: true
       additionalProperties: false
     ShippingStates:
       type: object
+      allOf:
+        - $ref: '#/components/schemas/OrderJob'
       properties:
         countryCode:
           type: string
@@ -55021,6 +54628,8 @@ components:
       additionalProperties: false
     RateRequestAttribute:
       type: object
+      allOf:
+        - $ref: '#/components/schemas/OrderJob'
       properties:
         fullyQualifiedName:
           type: string
@@ -55222,6 +54831,8 @@ components:
         data:
           type: object
           nullable: true
+        isValueSet:
+          type: boolean
       additionalProperties: false
     AutoCaptureJob:
       type: object
@@ -55320,6 +54931,8 @@ components:
           nullable: true
         orderShipped:
           type: boolean
+        websiteName:
+          type: string
           nullable: true
         orderFulfillmentDetailsChanged:
           type: boolean
@@ -55631,6 +55244,7 @@ components:
           nullable: true
         prodServiceURL:
           type: string
+          description: "Gift card payment authorization setting. Options can be authorize and charge the shopper's credit card when the order is placed, \"AuthorizeAndCaptureOnOrderPlacement,\" \r\nauthorize the shopper's gift card when the order is placed and charge the gift card when it is shipped, \"AuthorizeOnOrderPlacementAndCaptureOnOrderShipment,\" \r\nor authorize and charge the shopper's gift card for the full amount when the order is shipped, \"AuthorizeAndCaptureOnOrderShipment.\""
           nullable: true
         testServiceURL:
           type: string
@@ -55660,6 +55274,8 @@ components:
           items:
             type: object
           nullable: true
+        auditInfo:
+          $ref: '#/components/schemas/AuditInfo'
       additionalProperties: false
     GeneralSettings:
       type: object
@@ -55799,8 +55415,8 @@ components:
         localeCode:
           type: string
           nullable: true
-        value:
-          type: string
+        customerAtStore:
+          type: boolean
           nullable: true
       additionalProperties: false
     Mapping:
@@ -56049,6 +55665,7 @@ components:
       properties:
         gatewayAccountId:
           type: string
+          description: A unique code for purchase order payment term
           nullable: true
         processingGatewayAccountId:
           type: string
@@ -56236,7 +55853,7 @@ components:
         values:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/StoreFrontProductCreateSiteRequest'
           nullable: true
         attributeFQN:
           type: string
@@ -56305,10 +55922,6 @@ components:
           description: Value of the net term
           nullable: true
       additionalProperties: false
-    JToken:
-      type: array
-      items:
-        $ref: '#/components/schemas/JToken'
     FieldTypeDefinitionRepositoryEntry:
       type: object
       properties:
@@ -56319,193 +55932,8 @@ components:
           type: string
           nullable: true
         solrFieldType:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/JToken'
           nullable: true
         description:
-          type: string
-          nullable: true
-      additionalProperties: false
-    CloneTenantSitePairing:
-      type: object
-      properties:
-        sourceSiteId:
-          type: integer
-          format: int32
-        targetSiteId:
-          type: integer
-          format: int32
-      additionalProperties: false
-    CloneTenantCatalogPairing:
-      type: object
-      properties:
-        sourceCatalogId:
-          type: integer
-          format: int32
-        targetCatalogId:
-          type: integer
-          format: int32
-        sitePairings:
-          type: array
-          items:
-            $ref: '#/components/schemas/CloneTenantSitePairing'
-          nullable: true
-      additionalProperties: false
-    CloneTenantMasterCatalogPairing:
-      type: object
-      properties:
-        sourceMasterCatalogId:
-          type: integer
-          format: int32
-        targetMasterCatalogId:
-          type: integer
-          format: int32
-        catalogPairings:
-          type: array
-          items:
-            $ref: '#/components/schemas/CloneTenantCatalogPairing'
-          nullable: true
-      additionalProperties: false
-    CloneTenantDataRequest:
-      type: object
-      properties:
-        sourceEnvironment:
-          type: string
-          nullable: true
-        sourceScaleUnit:
-          type: string
-          nullable: true
-        sourceTenantId:
-          type: integer
-          format: int32
-        targetTenantId:
-          type: integer
-          format: int32
-        targetTenantName:
-          type: string
-          nullable: true
-        devAccountId:
-          type: integer
-          format: int32
-          nullable: true
-        masterCatalogPairings:
-          type: array
-          items:
-            $ref: '#/components/schemas/CloneTenantMasterCatalogPairing'
-          nullable: true
-        applicationsToClone:
-          type: array
-          items:
-            type: integer
-            format: int32
-          nullable: true
-        additionalData:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/JToken'
-          nullable: true
-      additionalProperties: false
-    CreateCatalogRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        masterCatalogId:
-          type: integer
-          format: int32
-        catalogId:
-          type: integer
-          format: int32
-        name:
-          type: string
-          nullable: true
-        defaultLocaleCode:
-          type: string
-          nullable: true
-        defaultCurrencyCode:
-          type: string
-          nullable: true
-      additionalProperties: false
-    CreateCustomDomainRequest:
-      type: object
-      properties:
-        domainName:
-          type: string
-          nullable: true
-        zone:
-          type: string
-          nullable: true
-        isPrimary:
-          type: boolean
-        isDomainManaged:
-          type: boolean
-      additionalProperties: false
-    CreateMasterCatalogRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        masterCatalogId:
-          type: integer
-          format: int32
-        name:
-          type: string
-          nullable: true
-        sites:
-          type: array
-          items:
-            $ref: '#/components/schemas/StoreFrontProductCreateSiteRequest'
-          nullable: true
-        defaultLocaleCode:
-          type: string
-          nullable: true
-        defaultCurrencyCode:
-          type: string
-          nullable: true
-      additionalProperties: false
-    DeleteMasterCatalogRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        masterCatalogId:
-          type: integer
-          format: int32
-      additionalProperties: false
-    DeleteCatalogRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        masterCatalogId:
-          type: integer
-          format: int32
-        catalogId:
-          type: integer
-          format: int32
-      additionalProperties: false
-    SchemaDefinitionField:
-      required:
-        - fieldDefinition
-        - fieldName
-      type: object
-      properties:
-        fieldName:
-          type: string
-        fieldDefinition:
-          type: string
-        friendlyName:
-          type: string
-          nullable: true
-        searchFieldName:
-          type: string
-          nullable: true
-        ingestFieldName:
           type: string
           nullable: true
       additionalProperties: false
@@ -56526,98 +55954,25 @@ components:
         auditInfo:
           $ref: '#/components/schemas/AuditInfo'
       additionalProperties: false
-    StoreFrontProductCreateSiteRequest:
+    SchemaDefinitionField:
+      required:
+        - fieldDefinition
+        - fieldName
       type: object
       properties:
-        tenantId:
-          type: integer
-          format: int32
-        masterCatalogId:
-          type: integer
-          format: int32
-          nullable: true
-        catalogId:
-          type: integer
-          format: int32
-          nullable: true
-        catalogRequest:
-          $ref: '#/components/schemas/CreateCatalogRequest'
-        siteId:
-          type: integer
-          format: int32
-        name:
+        fieldName:
+          type: string
+        fieldDefinition:
+          type: string
+        friendlyName:
           type: string
           nullable: true
-        localeCode:
+        searchFieldName:
           type: string
           nullable: true
-        countryCode:
+        ingestFieldName:
           type: string
           nullable: true
-        currencyCode:
-          type: string
-          nullable: true
-        domains:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateCustomDomainRequest'
-          nullable: true
-        isMozuStorefront:
-          type: boolean
-        omsCatalogId:
-          type: integer
-          format: int32
-          nullable: true
-      additionalProperties: false
-    StoreFrontProductCreateTenantRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        name:
-          type: string
-          nullable: true
-        masterCatalogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateMasterCatalogRequest'
-          nullable: true
-        scaleUnitId:
-          type: string
-          nullable: true
-        isDevTenant:
-          type: boolean
-        devAccountId:
-          type: integer
-          format: int32
-          nullable: true
-        additionalData:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/JToken'
-          nullable: true
-        omsMerchantId:
-          type: integer
-          format: int32
-          nullable: true
-      additionalProperties: false
-    StoreFrontProductDeleteSiteRequest:
-      type: object
-      properties:
-        tenantId:
-          type: integer
-          format: int32
-        siteId:
-          type: integer
-          format: int32
-      additionalProperties: false
-    StoreFrontProductDeleteTenantRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
       additionalProperties: false
   securitySchemes:
     bearerAuth:
