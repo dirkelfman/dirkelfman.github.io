@@ -15125,7 +15125,7 @@ paths:
   /v1/export/create:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Create an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15146,7 +15146,7 @@ paths:
   /v1/export:
     post:
       tags:
-        - InventoryInventoryExportInventory
+        - InventoryExportInventory
       description: Run Export Settings Job
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15167,7 +15167,7 @@ paths:
   /v1/export/update:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Update an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15190,7 +15190,7 @@ paths:
   '/v1/export/{exportSettingsName}':
     delete:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Deletes an Export Settings
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15208,7 +15208,7 @@ paths:
   /v1/export/ftp/create:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Create an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15229,7 +15229,7 @@ paths:
   /v1/export/ftp/update:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Update an Export Settings FTP
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15252,7 +15252,7 @@ paths:
   '/v1/export/ftp/{exportSettingsName}/{exportSettingsFTPName}':
     delete:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: >-
         Deletes an Export Settings FTP. Not specifying exportSettingsFTPID
         deletes ALL ftp settings for the specified export settings.
@@ -15275,7 +15275,7 @@ paths:
   /v1/export/s3/create:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Create an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15296,7 +15296,7 @@ paths:
   /v1/export/s3/update:
     post:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: Update an Export Settings S3
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15319,7 +15319,7 @@ paths:
   '/v1/export/s3/{exportSettingsName}/{exportSettingsS3Name}':
     delete:
       tags:
-        - 'InventoryExportInventory '
+        - InventoryExportInventory
       description: >-
         Deletes an Export Settings S3. Not specifying exportSettingsS3ID deletes
         ALL s3 settings for the specified export settings.
@@ -15342,7 +15342,7 @@ paths:
   '/v1/config/fetchfile/{fetchFileConfigID}':
     delete:
       tags:
-        - 'InventoryFetchFile Config '
+        - InventoryFetchFileConfig
       description: Deletes a fetch file config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15368,7 +15368,7 @@ paths:
   '/v1/config/fetchfile/testConnection/{fetchFileConfigID}':
     get:
       tags:
-        - 'InventoryFetchFile Config '
+        - InventoryFetchFileConfig
       description: >-
         Attempts to connect to a fetch file endpoint and lists current files if
         successful
@@ -15398,7 +15398,7 @@ paths:
   /v5/inventory/redistribute:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Create jobs to redistribute inventory across tags for the given tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15415,7 +15415,7 @@ paths:
   '/v1/pendingItem/{pendingItemID}':
     delete:
       tags:
-        - 'InventoryPendingItems '
+        - InventoryPendingItems
       description: Delete Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15438,7 +15438,7 @@ paths:
   '/v1/pendingItem/release/{tenantID}':
     post:
       tags:
-        - 'InventoryPendingItems '
+        - InventoryPendingItems
       description: Release Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15461,7 +15461,7 @@ paths:
   /v1/productMapping:
     get:
       tags:
-        - 'InventoryProductMapping '
+        - InventoryProductMapping
       description: Gets a list Product Mappings for the specified tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15477,7 +15477,7 @@ paths:
       summary: Gets a list Product Mappings for the specified tenant
     post:
       tags:
-        - 'InventoryProductMapping '
+        - InventoryProductMapping
       description: Creates a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15496,7 +15496,7 @@ paths:
   '/v1/productMapping/{direction}':
     delete:
       tags:
-        - 'InventoryProductMapping '
+        - InventoryProductMapping
       description: Delete a Product Mapping
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15538,7 +15538,7 @@ paths:
   /v1/site:
     post:
       tags:
-        - InventoryInventorySite
+        - InventorySite
       description: Creates a site
       requestBody:
         $ref: '#/components/requestBodies/CreateSiteRequest'
@@ -15640,7 +15640,7 @@ paths:
   /v1/tagCategory:
     get:
       tags:
-        - 'InventoryTagCategory '
+        - InventoryTagCategory
       description: Get all tag categories for a tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15659,7 +15659,7 @@ paths:
   '/v1/tagCategory/{tag_category_name}':
     get:
       tags:
-        - 'InventoryTagCategory '
+        - InventoryTagCategory
       description: Get a tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15676,7 +15676,7 @@ paths:
       summary: Get a tag category
     put:
       tags:
-        - 'InventoryTagcategory '
+        - InventoryTagcategory
       description: Update the designated tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15701,7 +15701,7 @@ paths:
       summary: Update the designated tag category
     delete:
       tags:
-        - 'InventoryTagcategory '
+        - InventoryTagcategory
       description: Delete a Tag category
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -15738,7 +15738,7 @@ paths:
   /v1/tenant:
     post:
       tags:
-        - InventoryInventoryTenant
+        - InventoryTenant
       description: Creates a tenant
       requestBody:
         $ref: '#/components/requestBodies/CreateTenantRequest'
@@ -16148,7 +16148,7 @@ paths:
   /v1/config/fetchfile:
     get:
       tags:
-        - 'InventoryFetchFile Config '
+        - InventoryFetchFileConfig
       description: Get the Fetch File Configs for the current tenant
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16164,7 +16164,7 @@ paths:
       summary: Get the Fetch File Configs for the current tenant
     post:
       tags:
-        - 'InventoryFetchFile Config '
+        - InventoryFetchFileConfig
       description: Save a new Fetch File Config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16183,7 +16183,7 @@ paths:
   /v5/inventory:
     get:
       tags:
-        - InventoryInventory
+        - Inventory
       description: Get inventory from specified location
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16215,7 +16215,7 @@ paths:
       summary: Get inventory from specified location
     post:
       tags:
-        - InventoryInventory
+        - Inventory
       description: Queries for specified inventory at given location
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16237,7 +16237,7 @@ paths:
   /v5/inventory/aggregate:
     post:
       tags:
-        - InventoryInventory
+        - Inventory
       description: Aggregates Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16352,7 +16352,7 @@ paths:
   /v5/inventory/refresh:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Refresh Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16371,7 +16371,7 @@ paths:
   /v5/inventory/sync-refresh:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Refresh Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16401,7 +16401,7 @@ paths:
   /v5/inventory/adjust:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Adjust Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16431,7 +16431,7 @@ paths:
   /v5/inventory/sync-adjust:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Adjust Inventory - synchronous
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16461,7 +16461,7 @@ paths:
   /v5/inventory/delete:
     post:
       tags:
-        - 'InventoryModifyInventory '
+        - InventoryModifyInventory
       description: Delete Inventory
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16481,7 +16481,7 @@ paths:
   /v5/inventory/getOrderItemInformation:
     post:
       tags:
-        - 'InventoryOrderItem '
+        - InventoryOrderItem
       description: Get Order Item Information
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16502,7 +16502,7 @@ paths:
   /v5/inventory/getOrderItemLog:
     post:
       tags:
-        - 'InventoryOrderItem '
+        - InventoryOrderItem
       description: Get Order Item Log
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16523,7 +16523,7 @@ paths:
   /v5/inventory/clearEventQueue:
     post:
       tags:
-        - 'InventoryOrderItem '
+        - InventoryOrderItem
       description: Clear pending events
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16544,7 +16544,7 @@ paths:
   /v1/pendingItem:
     get:
       tags:
-        - 'InventoryPendingItems '
+        - InventoryPendingItems
       description: Get Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16567,7 +16567,7 @@ paths:
   /v1/pendingItem/release:
     post:
       tags:
-        - 'InventoryPendingItems '
+        - InventoryPendingItems
       description: Release All Pending Items
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16584,7 +16584,7 @@ paths:
   /v1/tenantConfig:
     get:
       tags:
-        - 'InventoryTenantConfig '
+        - InventoryTenantConfig
       description: Gets tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -16600,7 +16600,7 @@ paths:
       summary: Gets tenant config
     post:
       tags:
-        - 'InventoryTenantConfig '
+        - InventoryTenantConfig
       description: Creates or updates tenant config
       parameters:
         - $ref: '#/components/parameters/x-vol-tenant'
@@ -32295,44 +32295,40 @@ tags:
     x-displayName: Subscription
   - name: InventoryBin
     x-displayName: InventoryBin
-  - name: 'InventoryExportInventory '
-    x-displayName: 'InventoryExportInventory '
-  - name: InventoryInventoryExportInventory
-    x-displayName: InventoryInventoryExportInventory
-  - name: 'InventoryFetchFile Config '
-    x-displayName: 'InventoryFetchFile Config '
-  - name: 'InventoryModifyInventory '
-    x-displayName: 'InventoryModifyInventory '
-  - name: 'InventoryPendingItems '
-    x-displayName: 'InventoryPendingItems '
-  - name: 'InventoryProductMapping '
-    x-displayName: 'InventoryProductMapping '
+  - name: InventoryExportInventory
+    x-displayName: InventoryExportInventory
+  - name: InventoryFetchFileConfig
+    x-displayName: InventoryFetchFileConfig
+  - name: InventoryModifyInventory
+    x-displayName: InventoryModifyInventory
+  - name: InventoryPendingItems
+    x-displayName: InventoryPendingItems
+  - name: InventoryProductMapping
+    x-displayName: InventoryProductMapping
   - name: InventorySilo
     x-displayName: InventorySilo
-  - name: InventoryInventorySite
-    x-displayName: InventoryInventorySite
+  - name: InventorySite
+    x-displayName: InventorySite
   - name: InventoryTag
     x-displayName: InventoryTag
-  - name: 'InventoryTagCategory '
-    x-displayName: 'InventoryTagCategory '
-  - name: 'InventoryTagcategory '
-    x-displayName: 'InventoryTagcategory '
+  - name: InventoryTagCategory
+    x-displayName: InventoryTagCategory
+  - name: InventoryTagcategory
+    x-displayName: InventoryTagcategory
   - name: InventoryTenant
     x-displayName: InventoryTenant
-  - name: InventoryInventoryTenant
-    x-displayName: InventoryInventoryTenant
   - name: InventoryAllocation
     x-displayName: InventoryAllocation
   - name: InventoryAudit
     x-displayName: InventoryAudit
-  - name: InventoryInventory
-    x-displayName: InventoryInventory
+  - name: Inventory
+    x-displayName: Inventory
   - name: InventoryJob
     x-displayName: InventoryJob
-  - name: 'InventoryOrderItem '
-    x-displayName: 'InventoryOrderItem '
-  - name: 'InventoryTenantConfig '
-    x-displayName: 'InventoryTenantConfig '
+  - name: InventoryOrderItem
+    x-displayName: InventoryOrderItem
+  - name: InventoryTenantConfig
+    x-displayName: InventoryTenantConfig
   - name: InventoryWave
     x-displayName: InventoryWave
   - name: LocationAdmin
@@ -32359,38 +32355,60 @@ tags:
     x-displayName: TenantData
   - name: UserData
     x-displayName: UserData
-  - description: 'OrderRoutingAfterAction '
-    name: after-action-controller
+  - description: OrderRoutingafterActionController
+    name: OrderRoutingafterActionController
+    x-displayName: OrderRoutingafterActionController
+  - description: OrderRoutingauthController
+    name: OrderRoutingauthController
+    x-displayName: OrderRoutingauthController
+  - description: OrderRoutingdataListController
+    name: OrderRoutingdataListController
+    x-displayName: OrderRoutingdataListController
+  - description: OrderRoutingenvironmentController
+    name: OrderRoutingenvironmentController
+    x-displayName: OrderRoutingenvironmentController
+  - description: OrderRoutingfilterController
+    name: OrderRoutingfilterController
+    x-displayName: OrderRoutingfilterController
+  - description: OrderRoutinggroupController
+    name: OrderRoutinggroupController
+    x-displayName: OrderRoutinggroupController
+  - description: OrderRoutingroutingController
+    name: OrderRoutingroutingController
+    x-displayName: OrderRoutingroutingController
+  - description: OrderRoutingsettingsController
+    name: OrderRoutingsettingsController
+    x-displayName: OrderRoutingsettingsController
+  - description: OrderRoutingsiteController
+    name: OrderRoutingsiteController
+    x-displayName: OrderRoutingsiteController
+  - description: OrderRoutingsortController
+    name: OrderRoutingsortController
+    x-displayName: OrderRoutingsortController
+  - description: OrderRoutingtenantController
+    name: OrderRoutingtenantController
+    x-displayName: OrderRoutingtenantController
+  - name: after-action-controller
     x-displayName: after-action-controller
-  - description: OrderRoutingAuth
-    name: auth-controller
+  - name: auth-controller
     x-displayName: auth-controller
-  - description: 'OrderRoutingDataList '
-    name: data-list-controller
+  - name: data-list-controller
     x-displayName: data-list-controller
-  - description: OrderRoutingEnvironment
-    name: environment-controller
+  - name: environment-controller
     x-displayName: environment-controller
-  - description: OrderRoutingFilter
-    name: filter-controller
+  - name: filter-controller
     x-displayName: filter-controller
-  - description: OrderRoutingGroup
-    name: group-controller
+  - name: group-controller
     x-displayName: group-controller
-  - description: OrderRoutingRouting
-    name: routing-controller
+  - name: routing-controller
     x-displayName: routing-controller
-  - description: OrderRoutingSettings
-    name: settings-controller
+  - name: settings-controller
     x-displayName: settings-controller
-  - description: OrderRoutingSite
-    name: site-controller
+  - name: site-controller
     x-displayName: site-controller
-  - description: OrderRoutingSort
-    name: sort-controller
+  - name: sort-controller
     x-displayName: sort-controller
-  - description: OrderRoutingTenant
-    name: tenant-controller
+  - name: tenant-controller
     x-displayName: tenant-controller
   - name: DiscountRuntime
     x-displayName: DiscountRuntime
@@ -32528,25 +32546,23 @@ x-tagGroups:
   - name: inventory
     tags:
       - InventoryBin
-      - 'InventoryExportInventory '
-      - InventoryInventoryExportInventory
-      - 'InventoryFetchFile Config '
-      - 'InventoryModifyInventory '
-      - 'InventoryPendingItems '
-      - 'InventoryProductMapping '
+      - InventoryExportInventory
+      - InventoryFetchFileConfig
+      - InventoryModifyInventory
+      - InventoryPendingItems
+      - InventoryProductMapping
       - InventorySilo
-      - InventoryInventorySite
+      - InventorySite
       - InventoryTag
-      - 'InventoryTagCategory '
-      - 'InventoryTagcategory '
+      - InventoryTagCategory
+      - InventoryTagcategory
       - InventoryTenant
-      - InventoryInventoryTenant
       - InventoryAllocation
       - InventoryAudit
-      - InventoryInventory
+      - Inventory
       - InventoryJob
-      - 'InventoryOrderItem '
-      - 'InventoryTenantConfig '
+      - InventoryOrderItem
+      - InventoryTenantConfig
       - InventoryWave
   - name: location
     tags:
@@ -32566,6 +32582,17 @@ x-tagGroups:
       - UserData
   - name: orderrouting
     tags:
+      - OrderRoutingafterActionController
+      - OrderRoutingauthController
+      - OrderRoutingdataListController
+      - OrderRoutingenvironmentController
+      - OrderRoutingfilterController
+      - OrderRoutinggroupController
+      - OrderRoutingroutingController
+      - OrderRoutingsettingsController
+      - OrderRoutingsiteController
+      - OrderRoutingsortController
+      - OrderRoutingtenantController
       - after-action-controller
       - auth-controller
       - data-list-controller
