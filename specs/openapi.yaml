@@ -18715,7 +18715,7 @@ paths:
   '/api/v1/action/delete/{actionID}':
     delete:
       tags:
-        - after-action-controller
+        - OrderRoutingAfterAction
       summary: deleteAction
       parameters:
         - name: actionID
@@ -18742,7 +18742,7 @@ paths:
   /api/v1/action/noinv:
     post:
       tags:
-        - after-action-controller
+        - OrderRoutingAfterAction
       summary: saveNoInvAction
       parameters:
         - name: groupID
@@ -18783,7 +18783,7 @@ paths:
   /api/v1/action/partial:
     post:
       tags:
-        - after-action-controller
+        - OrderRoutingAfterAction
       summary: savePartialAction
       parameters:
         - name: groupID
@@ -18824,7 +18824,7 @@ paths:
   /api/v1/action/test:
     get:
       tags:
-        - after-action-controller
+        - OrderRoutingAfterAction
       summary: testAction
       responses:
         '200':
@@ -18846,7 +18846,7 @@ paths:
   '/api/v1/action/{actionID}':
     get:
       tags:
-        - after-action-controller
+        - OrderRoutingAfterAction
       summary: getAction
       parameters:
         - name: actionID
@@ -18876,7 +18876,7 @@ paths:
   /api/v1/authtest:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: orderRouting
       responses:
         '200':
@@ -18901,7 +18901,7 @@ paths:
   /api/v1/authtest/associate:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: storeAssociate
       responses:
         '200':
@@ -18926,7 +18926,7 @@ paths:
   /api/v1/authtest/filters:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: getFilters
       responses:
         '200':
@@ -18945,7 +18945,7 @@ paths:
   /api/v1/authtest/manager:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: storeManager
       responses:
         '200':
@@ -18970,7 +18970,7 @@ paths:
   /api/v1/authtest/user/behaviors:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: getAuthorizedUserRoles
       responses:
         '200':
@@ -18999,7 +18999,7 @@ paths:
   /api/v1/authtest/user/hello:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: home
       responses:
         '200':
@@ -19024,7 +19024,7 @@ paths:
   /api/v1/authtest/user/principal:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: getPrincipal
       parameters:
         - name: name
@@ -19054,7 +19054,7 @@ paths:
   /api/v1/authtest/user/username:
     get:
       tags:
-        - auth-controller
+        - OrderRoutingAuth
       summary: getAuthorizedUserName
       responses:
         '200':
@@ -19079,7 +19079,7 @@ paths:
   /api/v1/dataList:
     post:
       tags:
-        - data-list-controller
+        - OrderRoutingDataList
       summary: createCustomDataList
       requestBody:
         description: customDataList
@@ -19112,7 +19112,7 @@ paths:
   '/api/v1/dataList/{dataListID}':
     get:
       tags:
-        - data-list-controller
+        - OrderRoutingDataList
       summary: getCustomDataList
       parameters:
         - name: dataListID
@@ -19141,7 +19141,7 @@ paths:
       deprecated: false
     put:
       tags:
-        - data-list-controller
+        - OrderRoutingDataList
       summary: updateCustomDataList
       parameters:
         - name: dataListID
@@ -19181,7 +19181,7 @@ paths:
       x-codegen-request-body-name: newDataList
     delete:
       tags:
-        - data-list-controller
+        - OrderRoutingDataList
       summary: deleteCustomDataList
       parameters:
         - name: dataListID
@@ -19205,7 +19205,7 @@ paths:
   /api/v1/environment/export:
     get:
       tags:
-        - environment-controller
+        - OrderRoutingEnvironment
       summary: exportEnvironment
       parameters:
         - name: environmentID
@@ -19248,7 +19248,7 @@ paths:
       deprecated: false
     post:
       tags:
-        - environment-controller
+        - OrderRoutingEnvironment
       summary: importEnvironment
       requestBody:
         description: request
@@ -19282,7 +19282,7 @@ paths:
   /api/v1/filter/criteriaSet:
     post:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: saveCriteriaSetFilter
       requestBody:
         description: loc
@@ -19315,7 +19315,7 @@ paths:
   /api/v1/filter/customDataListFilter:
     post:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: saveCustomDataListFilter
       requestBody:
         description: filter
@@ -19348,7 +19348,7 @@ paths:
   /api/v1/filter/customDataValueFilter:
     post:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: saveCustomDataValueFilter
       requestBody:
         description: customDataValueFilter
@@ -19381,7 +19381,7 @@ paths:
   '/api/v1/filter/delete/{filterID}':
     delete:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: deleteFilter
       parameters:
         - name: filterID
@@ -19408,7 +19408,7 @@ paths:
   /api/v1/filter/testcriteria:
     get:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: testFilter
       responses:
         '200':
@@ -19430,7 +19430,7 @@ paths:
   /api/v1/filter/testset:
     get:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: testSetFilter
       responses:
         '200':
@@ -19452,7 +19452,7 @@ paths:
   '/api/v1/filter/{filterID}':
     get:
       tags:
-        - filter-controller
+        - OrderRoutingFilter
       summary: getFilter
       parameters:
         - name: filterID
@@ -19482,7 +19482,7 @@ paths:
   '/api/v1/group/delete/{groupID}':
     delete:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: deleteGroup
       parameters:
         - name: groupID
@@ -19509,7 +19509,7 @@ paths:
   /api/v1/group/test:
     get:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: testGroup
       responses:
         '200':
@@ -19531,7 +19531,7 @@ paths:
   '/api/v1/group/{groupID}':
     get:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: getGroup
       parameters:
         - name: groupID
@@ -19561,7 +19561,7 @@ paths:
   '/api/v1/group/{groupID}/setFilters':
     post:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: setGroupFilters
       parameters:
         - name: groupID
@@ -19605,7 +19605,7 @@ paths:
   '/api/v1/group/{groupID}/setSorts':
     post:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: setGroupSorts
       parameters:
         - name: groupID
@@ -19648,7 +19648,7 @@ paths:
   /api/v1/routing/candidates:
     post:
       tags:
-        - routing-controller
+        - OrderRoutingRouting
       summary: suggestCandidates
       requestBody:
         description: request
@@ -19681,7 +19681,7 @@ paths:
   /api/v1/routing/samplerequest:
     get:
       tags:
-        - routing-controller
+        - OrderRoutingRouting
       summary: getSampleRequest
       responses:
         '200':
@@ -19703,7 +19703,7 @@ paths:
   /api/v1/routing/suggestion:
     post:
       tags:
-        - routing-controller
+        - OrderRoutingRouting
       summary: suggestRouting
       parameters:
         - name: returnSuggestionLog
@@ -19743,7 +19743,7 @@ paths:
   /api/v1/settings:
     get:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: getSettings
       parameters:
         - name: getDefaults
@@ -19783,7 +19783,7 @@ paths:
       deprecated: false
     put:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: saveSettings
       requestBody:
         description: settings
@@ -19815,7 +19815,7 @@ paths:
       x-codegen-request-body-name: settings
     delete:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: deleteSettings
       parameters:
         - name: siteID
@@ -19850,7 +19850,7 @@ paths:
   /api/v1/settings/filterAttributes:
     get:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: getFilterAttributes
       responses:
         '200':
@@ -19873,7 +19873,7 @@ paths:
       deprecated: false
     put:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: saveFilterAttribute
       requestBody:
         description: attribute
@@ -19906,7 +19906,7 @@ paths:
   '/api/v1/settings/filterAttributes/{attributeName}':
     get:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: getFilterAttribute
       parameters:
         - name: attributeName
@@ -19934,7 +19934,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - settings-controller
+        - OrderRoutingSettings
       summary: deleteFilterAttribute
       parameters:
         - name: attributeName
@@ -19963,7 +19963,7 @@ paths:
   /api/v1/site:
     post:
       tags:
-        - site-controller
+        - OrderRoutingSite
       summary: createSite
       requestBody:
         description: request
@@ -19995,7 +19995,7 @@ paths:
       x-codegen-request-body-name: request
     delete:
       tags:
-        - site-controller
+        - OrderRoutingSite
       summary: deleteTenantData
       requestBody:
         description: request
@@ -20025,7 +20025,7 @@ paths:
   '/api/v1/sort/delete/{sortID}':
     delete:
       tags:
-        - sort-controller
+        - OrderRoutingSort
       summary: deleteSort
       parameters:
         - name: sortID
@@ -20052,7 +20052,7 @@ paths:
   /api/v1/sort/test:
     get:
       tags:
-        - sort-controller
+        - OrderRoutingSort
       summary: testSort
       responses:
         '200':
@@ -20074,7 +20074,7 @@ paths:
   '/api/v1/sort/{sortID}':
     get:
       tags:
-        - sort-controller
+        - OrderRoutingSort
       summary: getSort
       parameters:
         - name: sortID
@@ -20104,7 +20104,7 @@ paths:
   /api/v1/tenant:
     post:
       tags:
-        - tenant-controller
+        - OrderRoutingTenant
       summary: createTenant
       requestBody:
         description: request
@@ -20136,7 +20136,7 @@ paths:
       x-codegen-request-body-name: request
     delete:
       tags:
-        - tenant-controller
+        - OrderRoutingTenant
       summary: deleteTenantData
       requestBody:
         description: request
@@ -20166,7 +20166,7 @@ paths:
   /api/v1/tenant/clone:
     post:
       tags:
-        - tenant-controller
+        - OrderRoutingTenant
       summary: cloneTenantData
       requestBody:
         description: request
@@ -20199,7 +20199,7 @@ paths:
   /api/v1/group:
     post:
       tags:
-        - group-controller
+        - OrderRoutingGroup
       summary: saveGroup
       requestBody:
         description: loc
@@ -20232,7 +20232,7 @@ paths:
   /api/v1/routing/suggestionLog:
     get:
       tags:
-        - routing-controller
+        - OrderRoutingRouting
       summary: getSuggestionLog
       parameters:
         - name: externalResponseID
@@ -20280,7 +20280,7 @@ paths:
   /api/v1/sort:
     post:
       tags:
-        - sort-controller
+        - OrderRoutingSort
       summary: saveSort
       requestBody:
         description: loc
@@ -32355,61 +32355,39 @@ tags:
     x-displayName: TenantData
   - name: UserData
     x-displayName: UserData
-  - description: OrderRoutingafterActionController
-    name: OrderRoutingafterActionController
-    x-displayName: OrderRoutingafterActionController
-  - description: OrderRoutingauthController
-    name: OrderRoutingauthController
-    x-displayName: OrderRoutingauthController
-  - description: OrderRoutingdataListController
-    name: OrderRoutingdataListController
-    x-displayName: OrderRoutingdataListController
-  - description: OrderRoutingenvironmentController
-    name: OrderRoutingenvironmentController
-    x-displayName: OrderRoutingenvironmentController
-  - description: OrderRoutingfilterController
-    name: OrderRoutingfilterController
-    x-displayName: OrderRoutingfilterController
-  - description: OrderRoutinggroupController
-    name: OrderRoutinggroupController
-    x-displayName: OrderRoutinggroupController
-  - description: OrderRoutingroutingController
-    name: OrderRoutingroutingController
-    x-displayName: OrderRoutingroutingController
-  - description: OrderRoutingsettingsController
-    name: OrderRoutingsettingsController
-    x-displayName: OrderRoutingsettingsController
-  - description: OrderRoutingsiteController
-    name: OrderRoutingsiteController
-    x-displayName: OrderRoutingsiteController
-  - description: OrderRoutingsortController
-    name: OrderRoutingsortController
-    x-displayName: OrderRoutingsortController
-  - description: OrderRoutingtenantController
-    name: OrderRoutingtenantController
-    x-displayName: OrderRoutingtenantController
-  - name: after-action-controller
-    x-displayName: after-action-controller
-  - name: auth-controller
-    x-displayName: auth-controller
-  - name: data-list-controller
-    x-displayName: data-list-controller
-  - name: environment-controller
-    x-displayName: environment-controller
-  - name: filter-controller
-    x-displayName: filter-controller
-  - name: group-controller
-    x-displayName: group-controller
-  - name: routing-controller
-    x-displayName: routing-controller
-  - name: settings-controller
-    x-displayName: settings-controller
-  - name: site-controller
-    x-displayName: site-controller
-  - name: sort-controller
-    x-displayName: sort-controller
-  - name: tenant-controller
-    x-displayName: tenant-controller
+  - description: OrderRoutingAfterAction
+    name: OrderRoutingAfterAction
+    x-displayName: OrderRoutingAfterAction
+  - description: OrderRoutingAuth
+    name: OrderRoutingAuth
+    x-displayName: OrderRoutingAuth
+  - description: OrderRoutingDataList
+    name: OrderRoutingDataList
+    x-displayName: OrderRoutingDataList
+  - description: OrderRoutingEnvironment
+    name: OrderRoutingEnvironment
+    x-displayName: OrderRoutingEnvironment
+  - description: OrderRoutingFilter
+    name: OrderRoutingFilter
+    x-displayName: OrderRoutingFilter
+  - description: OrderRoutingGroup
+    name: OrderRoutingGroup
+    x-displayName: OrderRoutingGroup
+  - description: OrderRoutingRouting
+    name: OrderRoutingRouting
+    x-displayName: OrderRoutingRouting
+  - description: OrderRoutingSettings
+    name: OrderRoutingSettings
+    x-displayName: OrderRoutingSettings
+  - description: OrderRoutingSite
+    name: OrderRoutingSite
+    x-displayName: OrderRoutingSite
+  - description: OrderRoutingSort
+    name: OrderRoutingSort
+    x-displayName: OrderRoutingSort
+  - description: OrderRoutingTenant
+    name: OrderRoutingTenant
+    x-displayName: OrderRoutingTenant
   - name: DiscountRuntime
     x-displayName: DiscountRuntime
   - name: TaxCapability
@@ -32582,28 +32560,17 @@ x-tagGroups:
       - UserData
   - name: orderrouting
     tags:
-      - OrderRoutingafterActionController
-      - OrderRoutingauthController
-      - OrderRoutingdataListController
-      - OrderRoutingenvironmentController
-      - OrderRoutingfilterController
-      - OrderRoutinggroupController
-      - OrderRoutingroutingController
-      - OrderRoutingsettingsController
-      - OrderRoutingsiteController
-      - OrderRoutingsortController
-      - OrderRoutingtenantController
-      - after-action-controller
-      - auth-controller
-      - data-list-controller
-      - environment-controller
-      - filter-controller
-      - group-controller
-      - routing-controller
-      - settings-controller
-      - site-controller
-      - sort-controller
-      - tenant-controller
+      - OrderRoutingAfterAction
+      - OrderRoutingAuth
+      - OrderRoutingDataList
+      - OrderRoutingEnvironment
+      - OrderRoutingFilter
+      - OrderRoutingGroup
+      - OrderRoutingRouting
+      - OrderRoutingSettings
+      - OrderRoutingSite
+      - OrderRoutingSort
+      - OrderRoutingTenant
     description: Api Documentation
   - name: pricingruntime
     tags:
