@@ -2,14 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+  <script type="module" src="https://dirkelfman.github.io/other_samples/rapidoc/rapidoc-min.js" ></script>
 </head>
 <body>
   <rapi-doc id="docElement" spec-url="https://dirkelfman.github.io/specs/openapi.yaml"
-    render-style="focused"
-    heading-text="Kibo"
-    use-path-in-nav-bar="true"
-    sort-tags="true"
-    show-header="false"></rapi-doc>
-</body> 
+    render-style="focused" heading-text="Kibo" use-path-in-nav-bar="false"
+    sort-tags="true" show-header="false" nav-text-color="#2b2b2b"
+    nav-accent-color="#FFA306" nav-bg-color="#ffffff" primary-color="#E02020">
+  <slot name="logo">
+    <img src="logo.png" height="75" valign="middle" alt="Kibo Software, Inc." />
+  </slot></rapi-doc>
+</body>
 </html>
