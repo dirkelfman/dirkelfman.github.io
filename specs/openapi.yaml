@@ -8,12 +8,8 @@ info:
   description: The Kibo Commerce platform HTTP API provides an interface for programmatic access to the data stored on the platform and associated functionality. While the API can be used directly, for experimentation or custom integration solutions, we recommend taking a look at the available client libraries and SDKs, which provide a more comfortable development experience.
 
 servers:
-  - url: https://{domain}/api
+  - url: /api
     description: relative
-    variables:
-      domain:
-        default: mydomain.com
-        description: Domain of the client's site
   - url: https://t{tenantId}.{environment}.mozu.com/api
     description: Production Tenant Api
     variables:
@@ -55,7 +51,7 @@ servers:
     variables:
       tenantId:
         default: "0"
-        description: Id of the Tenant  
+        description: Id of the Tenant
 paths:
   "/platform/adminuser/authtickets/wsfed/auth/{id}":
     post:
@@ -29051,8 +29047,7 @@ paths:
     get:
       tags:
         - Product
-      summary:
-        Gets a List of Products
+      summary: Gets a List of Products
       parameters:
         - name: startIndex
           in: query
@@ -29247,7 +29242,7 @@ paths:
     delete:
       tags:
         - Product
-      summary: Deletes a product 
+      summary: Deletes a product
       parameters:
         - name: productCode
           in: path
@@ -29561,8 +29556,7 @@ paths:
     put:
       tags:
         - Product
-      summary:
-        Modify multiple product variations
+      summary: Modify multiple product variations
       parameters:
         - name: productCode
           in: path
@@ -29604,8 +29598,7 @@ paths:
     get:
       tags:
         - Product
-      summary:
-        Get  Product Variation 
+      summary: Get  Product Variation
       parameters:
         - name: productCode
           in: path
@@ -66589,7 +66582,7 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: /api/platform/applications/authtickets/oauth
+          tokenUrl: /platform/applications/authtickets/oauth
           scopes: {}
   parameters:
     x-vol-tenant:
