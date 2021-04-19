@@ -8,19 +8,19 @@ info:
   description: The Kibo Commerce platform HTTP API provides an interface for programmatic access to the data stored on the platform and associated functionality. While the API can be used directly, for experimentation or custom integration solutions, we recommend taking a look at the available client libraries and SDKs, which provide a more comfortable development experience.
 
 servers:
-  - url: http://{domain}/api
+  - url: https://{domain}/api
     description: relative
     variables:
       domain:
         default: mydomain.com
         description: Domain of the client's site
-  - url: https://t{tenantId}.mozu.com/api
+  - url: https://t{tenantId}.{environment}.mozu.com/api
     description: Production Tenant Api
     variables:
       tenantId:
         default: "0"
         description: Id of the Tenant
-  - url: https://t{tenantId}-s{siteId}.mozu.com/api
+  - url: https://t{tenantId}-s{siteId}.{environment}.mozu.com/api
     description: Production Site Api
     variables:
       tenantId:
@@ -29,36 +29,22 @@ servers:
       siteId:
         default: "0"
         description: Id of the Site
+      environment:
+        enum:
+          - sandbox
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+        default: sandbox
   - url: https://t{tenantId}.sb.mozu.com/api
     description: Sandbox Tenant  Api
     variables:
       tenantId:
         default: "0"
-        description: Id of the Tenant
-  - url: https://t{tenantId}-s{siteId}.sb.mozu.com/api
-    description: Sandbox Site Api
-    variables:
-      tenantId:
-        default: "0"
-        description: Id of the Tenant
-      siteId:
-        default: "0"
-        description: Id of the Site
-  - url: https://t{tenantId}.stg1.mozu.com/api
-    description: PreProd Tenant  Api
-    variables:
-      tenantId:
-        default: "0"
-        description: Id of the Tenant
-  - url: https://t{tenantId}-s{siteId}.stg1.mozu.com/api
-    description: PreProd Site Api
-    variables:
-      tenantId:
-        default: "0"
-        description: Id of the Tenant
-      siteId:
-        default: "0"
-        description: Id of the Site
+        description: Id of the Tenant  
 paths:
   "/platform/adminuser/authtickets/wsfed/auth/{id}":
     post:
