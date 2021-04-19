@@ -20,6 +20,17 @@ servers:
       tenantId:
         default: "0"
         description: Id of the Tenant
+      environment:
+        description: Enviroment
+        enum:
+          - sandbox
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+        default: sandbox
   - url: https://t{tenantId}-s{siteId}.{environment}.mozu.com/api
     description: Production Site Api
     variables:
@@ -29041,8 +29052,7 @@ paths:
       tags:
         - Product
       summary:
-        Retrieves a list of products according to any specified filter criteria
-        and sort options
+        Gets a List of Products
       parameters:
         - name: startIndex
           in: query
@@ -29160,7 +29170,7 @@ paths:
     get:
       tags:
         - Product
-      summary: Retrieves details about a product based on the specified response group
+      summary: Gets a Product
       parameters:
         - name: productCode
           in: path
@@ -29199,7 +29209,7 @@ paths:
     put:
       tags:
         - Product
-      summary: Modifies an existing product
+      summary: Updates a Product
       parameters:
         - name: productCode
           in: path
@@ -29237,7 +29247,7 @@ paths:
     delete:
       tags:
         - Product
-      summary: Deletes the product specified by its product code
+      summary: Deletes a product 
       parameters:
         - name: productCode
           in: path
@@ -29447,7 +29457,7 @@ paths:
     post:
       tags:
         - Product
-      summary: Action that allows productCodes to be Renamed
+      summary: Rename Product Code
       requestBody:
         description: An array specifying the existing productCode and the new
           productCode it should be renamed to
@@ -29552,8 +29562,7 @@ paths:
       tags:
         - Product
       summary:
-        Modifies multiple product variations for an existing product in one
-        operation
+        Modify multiple product variations
       parameters:
         - name: productCode
           in: path
@@ -29596,8 +29605,7 @@ paths:
       tags:
         - Product
       summary:
-        Retrieves an existing product variation for a specific product and
-        variation key
+        Get  Product Variation 
       parameters:
         - name: productCode
           in: path
@@ -29635,7 +29643,7 @@ paths:
     put:
       tags:
         - Product
-      summary: Modifies an existing product variation specified by its variation key
+      summary: Update Product Variaiton
       parameters:
         - name: productCode
           in: path
@@ -29682,7 +29690,7 @@ paths:
     delete:
       tags:
         - Product
-      summary: Deletes an existing product variation
+      summary: Deletes Product Variation
       parameters:
         - name: productCode
           in: path
@@ -66581,7 +66589,7 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: https://home.dev10.kubedev.kibo-dev.com/api/platform/applications/authtickets/oauth
+          tokenUrl: /api/platform/applications/authtickets/oauth
           scopes: {}
   parameters:
     x-vol-tenant:
