@@ -29198,6 +29198,63 @@ paths:
               schema:
                 $ref: "#/components/schemas/ProductAdminProduct"
       description: For example, to get the BaseProductCode of a product.
+      x-codeSamples:
+        - lang: Java + Okhttp
+          source: >-
+            OkHttpClient client = new OkHttpClient();
+
+
+            Request request = new Request.Builder()
+              .url("https://t26507-s41315.sandbox.mozu.com/api/commerce/catalog/admin/products/%7BproductCode%7D?responseGroups=SOME_STRING_VALUE")
+              .get()
+              .addHeader("Authorization", "Bearer REPLACE_BEARER_TOKEN")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Node + Request
+          source: >
+            const request = require('request');
+
+
+            const options = {
+              method: 'GET',
+              url: 'https://t26507-s41315.sandbox.mozu.com/api/commerce/catalog/admin/products/{productCode},
+              qs: {responseGroups: 'SOME_STRING_VALUE'},
+              headers: {Authorization: 'Bearer REPLACE_BEARER_TOKEN'}
+            };
+
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Python + Python3
+          source: >-
+            import http.client
+
+
+            conn = http.client.HTTPConnection("")
+
+
+            headers = { 'Authorization': "Bearer REPLACE_BEARER_TOKEN" }
+
+
+            conn.request("GET", "https://t26507-s41315.sandbox.mozu.com/api/commerce/catalog/admin/products/{productCode}", headers=headers)
+
+
+            res = conn.getresponse()
+
+            data = res.read()
+
+
+            print(data.decode("utf-8"))
+        - lang: Shell + Curl
+          source: >-
+            curl --request GET \
+              --url 'https://t26507-s41315.sandbox.mozu.com/api/commerce/catalog/admin/products/{productCode} \
+              --header 'Authorization: Bearer REPLACE_BEARER_TOKEN'
+
       security:
         - bearerAuth: []
           clientOauth2: []
