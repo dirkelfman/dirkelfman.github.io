@@ -29263,6 +29263,7 @@ paths:
   : put:
       tags:
         - Product
+      summary: Add a Product to a Catalog
       parameters:
         - name: productCode
           in: path
@@ -29299,6 +29300,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: Remove a Product in Catalog Info
       parameters:
         - name: productCode
           in: path
@@ -29320,6 +29322,7 @@ paths:
     get:
       tags:
         - Product
+      summary: Get a Product in Catalog Info
       parameters:
         - name: productCode
           in: path
@@ -29352,6 +29355,7 @@ paths:
     get:
       tags:
         - Product
+      summary: List Product in Catalog Infos
       parameters:
         - name: productCode
           in: path
@@ -29383,6 +29387,7 @@ paths:
     put:
       tags:
         - Product
+      summary: Update a  Product in Catalog Info
       parameters:
         - name: productCode
           in: path
@@ -29421,6 +29426,7 @@ paths:
     post:
       tags:
         - Product
+      summary: Add a  Product in Catalog Info
       parameters:
         - name: productCode
           in: path
@@ -29475,11 +29481,7 @@ paths:
     get:
       tags:
         - Product
-      summary:
-        "Retrieves a paged list of product variations for a specific product
-        according to any specified filter criteria and\r
-
-        sort options"
+      summary: list of product variations
       parameters:
         - name: productCode
           in: path
@@ -29712,6 +29714,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: get variation Delta Prices
       parameters:
         - name: productCode
           in: path
@@ -29748,6 +29751,7 @@ paths:
     put:
       tags:
         - Product
+      summary: update variation Delta Prices
       parameters:
         - name: productCode
           in: path
@@ -29791,6 +29795,7 @@ paths:
     post:
       tags:
         - Product
+      summary: add variation Delta Price
       parameters:
         - name: productCode
           in: path
@@ -29827,6 +29832,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: update variation Delta Price
       parameters:
         - name: productCode
           in: path
@@ -29862,6 +29868,7 @@ paths:
     put:
       tags:
         - Product
+      summary: add variation Delta Price by Currecy
       parameters:
         - name: productCode
           in: path
@@ -29902,6 +29909,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: delete variation Delta Price by currency
       parameters:
         - name: productCode
           in: path
@@ -29928,6 +29936,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: add variation Price
       parameters:
         - name: productCode
           in: path
@@ -29964,6 +29973,7 @@ paths:
     put:
       tags:
         - Product
+      summary: update variation Price
       parameters:
         - name: productCode
           in: path
@@ -30007,6 +30017,7 @@ paths:
     post:
       tags:
         - Product
+      summary: add variation Price
       parameters:
         - name: productCode
           in: path
@@ -30043,6 +30054,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: get variation Prices by currecey
       parameters:
         - name: productCode
           in: path
@@ -30078,6 +30090,7 @@ paths:
     put:
       tags:
         - Product
+      summary: update variation Prices by currecey
       parameters:
         - name: productCode
           in: path
@@ -30118,6 +30131,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: delete variation Prices by currecey
       parameters:
         - name: productCode
           in: path
@@ -30312,6 +30326,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: Get Extra Delta Price
       parameters:
         - name: productCode
           in: path
@@ -30353,6 +30368,7 @@ paths:
     put:
       tags:
         - Product
+      summary: Updates Extra Delta Price
       parameters:
         - name: productCode
           in: path
@@ -30401,6 +30417,7 @@ paths:
     post:
       tags:
         - Product
+      summary: Sets Extra Delta Price
       parameters:
         - name: productCode
           in: path
@@ -30442,6 +30459,7 @@ paths:
   : put:
       tags:
         - Product
+      summary: Set Extra Delta Price Localized
       parameters:
         - name: productCode
           in: path
@@ -30487,6 +30505,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: Delete Extra Delta Price Localized
       parameters:
         - name: productCode
           in: path
@@ -30517,6 +30536,7 @@ paths:
     get:
       tags:
         - Product
+      summary: Get Extra Delta Price Localized
       parameters:
         - name: productCode
           in: path
@@ -30558,6 +30578,7 @@ paths:
     get:
       tags:
         - Product
+      summary: Set Location Inventories
       parameters:
         - name: productCode
           in: path
@@ -30603,6 +30624,7 @@ paths:
     post:
       tags:
         - Product
+      summary: Add Location Inventory
       parameters:
         - name: productCode
           in: path
@@ -30646,6 +30668,7 @@ paths:
     put:
       tags:
         - Product
+      summary: Update Location Inventories
       parameters:
         - name: productCode
           in: path
@@ -30685,6 +30708,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: Get Location Inventory at Location
       parameters:
         - name: productCode
           in: path
@@ -30715,6 +30739,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: Delete Location Inventory at Location
       parameters:
         - name: productCode
           in: path
@@ -31072,6 +31097,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: Get Property Localizations
       parameters:
         - name: productCode
           in: path
@@ -31113,6 +31139,7 @@ paths:
     post:
       tags:
         - Product
+      summary: Add Property Localization
       parameters:
         - name: productCode
           in: path
@@ -31153,6 +31180,7 @@ paths:
     put:
       tags:
         - Product
+      summary: Update Property Localization
       parameters:
         - name: productCode
           in: path
@@ -31202,6 +31230,7 @@ paths:
   : get:
       tags:
         - Product
+      summary: Get Property Localization
       parameters:
         - name: productCode
           in: path
@@ -31242,6 +31271,7 @@ paths:
     put:
       tags:
         - Product
+      summary: update Property Localization
       parameters:
         - name: productCode
           in: path
@@ -31287,6 +31317,7 @@ paths:
     delete:
       tags:
         - Product
+      summary: Delete Property Localization
       parameters:
         - name: productCode
           in: path
@@ -31319,8 +31350,7 @@ paths:
       tags:
         - ProductSortDefinition
       summary:
-        Retrieves a list of product sort definitions according to any specified
-        filter criteria and sort options
+        Retrieves a list of product sort definitions
       parameters:
         - name: startIndex
           in: query
