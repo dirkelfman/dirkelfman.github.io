@@ -1,20 +1,45 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://dirkelfman.github.io/Fonts/fonts.css" />
-  <script type="module" src="https://dirkelfman.github.io/other_samples/rapidoc/rapidoc-min.js" ></script>
+  <script type="module" src="https://dirkelfman.github.io/other_samples/rapidoc/rapidoc-min.js"></script>
+  <style>
+    .sub-spec {
+      padding: 16px 10px;
+      font-weight: 700
+    }
+  </style>
+  <script>
+    function chnageSpec(item) {
+      const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
+      document.getElementById('docElement').loadSpec(specUri);
+    }
+  </script>
   <!-- <script type="module" src="http://localhost/rapidoc-dist/rapidoc-min.js"></script> -->
 </head>
+
 <body>
-  <rapi-doc id="docElement" spec-url="https://dirkelfman.github.io/specs/openapi.yaml"
-    render-style="focused" heading-text="Kibo" use-path-in-nav-bar="false"
-    sort-tags="true" show-header="false" nav-text-color="#2b2b2b"
-    nav-accent-color="#FFA306" nav-bg-color="#ffffff" primary-color="#2EA195"
-    regular-font="Source Sans Pro" mono-font="Fira Code">
+  <rapi-doc id="docElement" spec-url="https://dirkelfman.github.io/specs/openapi.yaml" render-style="focused"
+    heading-text="Kibo" use-path-in-nav-bar="false" sort-tags="true" show-header="false" nav-text-color="#2b2b2b"
+    nav-accent-color="#FFA306" nav-bg-color="#ffffff" primary-color="#2EA195" regular-font="Source Sans Pro"
+    mono-font="Fira Code">
     <div slot="nav-logo">
       <a href="#overview"><img src="logo.png" width="284" alt="Kibo Software, Inc." style="border: none;" /></a>
+      <div id="sub-specs">
+        <div class="sub-spec"></div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_order_management.yaml">Order Management
+        </div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_content.yaml">Content</div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
+        <div class="sub-spec" onclick="chnageSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
+      </div>
     </div>
   </rapi-doc>
 </body>
+
 </html>
