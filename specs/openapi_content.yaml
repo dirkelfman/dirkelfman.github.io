@@ -1,0 +1,4697 @@
+openapi: 3.0.1
+info:
+  title: Kibo Content API Services Documentation
+  version: v1
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  description: OpenAPI Spec for Kibo Content API Services
+servers:
+  - url: https://t{tenantId}.{env}.mozu.com/api
+    description: Tenant Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://t{tenantId}-s{siteId}.{env}.mozu.com/api
+    description: Site Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      siteId:
+        default: "0"
+        description: Id of the Site
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://home.mozu.com/api
+    description: HomePod Api
+paths:
+  "/content/documentlists/files/documents/{documentId}/content":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    head:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documents/{documentId}/content":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    head:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: includeInactive
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documents/{documentId}/transform":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: width
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: height
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: max
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: maxWidth
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: maxHeight
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: crop
+          in: query
+          schema:
+            type: string
+        - name: quality
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/files/documentTree/{documentName}/content":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    head:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documentTree/{documentName}/content":
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves the binary content for a specific Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    head:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      summary: Updates a Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: The Mozu.Content.Contracts.DocumentList in which the document resides
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Binary document content to store must be less than 16M
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      summary: Updates a Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: The Mozu.Content.Contracts.DocumentList in which the document resides
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Binary document content to store must be less than 16M
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documentTree/{documentName}/transform":
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves the binary content for a specific Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: width
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: height
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: max
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: maxWidth
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: maxHeight
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: crop
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: quality
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documentlists/files/documents:
+    post:
+      tags:
+        - DocumentList
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocumentCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocumentCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentDocumentCollection"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documents":
+    post:
+      tags:
+        - DocumentList
+      summary: Creates a new Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The Mozu.Content.Contracts.Document to Add to the
+          Mozu.Content.Contracts.DocumentList
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Document"
+      description: ontent.Contracts.Document within the specified
+        Mozu.Content.Contracts.DocumentList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves a filtered Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Mozu.Content.Contracts.PropertyType filter expression to match
+            against document properties. <seealso
+            cref="T:Mozu.Core.FilterParsing.FilterParser" />
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: Sort expression.  <seealso
+            cref="T:Mozu.Core.FilterParsing.SortParser" />
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Page size
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          description: First item in the page to return from the total result set
+          schema:
+            type: integer
+            format: int32
+        - name: includeInactive
+          in: query
+          description: if this call should include a adocument that isn't active in the
+            given preview date
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+      description: ontent.Contracts.DocumentCollection of Mozu.Content.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/files/documents/{documentId}":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContentDocument"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documents/{documentId}":
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves a specific Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: includeInactive
+          in: query
+          description: if this call should include a adocument that isn't active in the
+            given preview date
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Document"
+      description: "ontent.Contracts.Document within the specified ContentCollection
+        using the specified document ID\r
+
+        with the specified documentId, version, and status."
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      summary: Updates a Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: DocumentListName name where the document resides
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          description: Id of the document to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Document"
+      description: ontent.Contracts.Document
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    patch:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/Document"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Document"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      summary: Deletes a specific Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document based on the specified documentId
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/files/documentTree/{documentName}":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentDocument"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/documentTree/{documentName}":
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves a specific Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: documentName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: includeInactive
+          in: query
+          description: if this call should include a adocument that isn't active in the
+            given preview date
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Document"
+      description: "ontent.Contracts.Document within the specified ContentCollection
+        using the specified document name, unique within a specific folder\r
+
+        with the specified documentId, version, and status."
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documentlists:
+    post:
+      tags:
+        - DocumentList
+      summary: Creates a new documentList
+      requestBody:
+        description: DocumentListName
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+      description: Creates a new documentList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieve a paged documentListName of all document lists
+      parameters:
+        - name: pageSize
+          in: query
+          description: maximum number of items to return
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentListCollection"
+      description: Retrieve a paged documentListName of all document lists
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}":
+    get:
+      tags:
+        - DocumentList
+      summary: Retrieves a specific documentList by name
+      parameters:
+        - name: documentListName
+          in: path
+          description: Name of document documentListName to retrieve
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+      description: Retrieves a specific documentList by name
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentList
+      summary: Updates a DocumentListName
+      parameters:
+        - name: documentListName
+          in: path
+          description: The name of the documentList to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Content Collection values to apply
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentList"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentList"
+      description: Updates a DocumentListName
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentList
+      summary: Deletes the specified DocumentListName
+      parameters:
+        - name: documentListName
+          in: path
+          description: Name of content documentListName to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: Deletes the specified DocumentListName
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/views/{viewName}/documents":
+    get:
+      tags:
+        - DocumentList
+      parameters:
+        - name: documentListName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: includeInactive
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentCollection"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlists/{documentListName}/facets/{propertyName}":
+    get:
+      tags:
+        - DocumentList
+      summary: Returns a List of Mozu
+      parameters:
+        - name: documentListName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: propertyName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContentFacet"
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContentFacet"
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContentFacet"
+      description: ontent.Contracts.Facets for the requested property provided the
+        property is aggregatable.  If not, throws an
+        Mozu.Core.Exceptions.VaeMissingOrInvalidParameterException
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documentlistTypes:
+    post:
+      tags:
+        - DocumentListType
+      summary: Creates a new documentListType
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+      description: Creates a new documentListType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentListType
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListTypeCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListTypeCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentListTypeCollection"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documentlistTypes/{documentListTypeFQN}":
+    put:
+      tags:
+        - DocumentListType
+      summary: Updates a DocumentListType
+      parameters:
+        - name: documentListTypeFQN
+          in: path
+          description: The name of the document documentListName to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Content Collection values to apply
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentListType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+      description: Updates a DocumentListType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentListType
+      parameters:
+        - name: documentListTypeFQN
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentListType"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documentpublishing/draft:
+    get:
+      tags:
+        - DocumentPublishing
+      summary: Retrieve a paged collection of all draft documents
+      parameters:
+        - name: pageSize
+          in: query
+          description: maximum number of items to return
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: documentLists
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+      description: Retrieve a paged collection of all draft documents
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - DocumentPublishing
+      summary: Remove draft of each Mozu
+      parameters:
+        - name: documentLists
+          in: query
+          description: ""
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              type: array
+              items:
+                type: string
+          application/octet-stream:
+            schema:
+              type: array
+              items:
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document associated with te id in documentIds.
+        Send empty body to remove all drafts
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documentpublishing/active:
+    put:
+      tags:
+        - DocumentPublishing
+      summary: Publishes draft of each Mozu
+      parameters:
+        - name: documentLists
+          in: query
+          description: ""
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              type: array
+              items:
+                type: string
+          application/octet-stream:
+            schema:
+              type: array
+              items:
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.Document associated with the id in documentIds.
+        Send empty body to publish all drafts
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/publishsets/{code}/items":
+    get:
+      tags:
+        - DocumentPublishSet
+      summary: Retrieve a paged collection of publish set Items
+      parameters:
+        - name: code
+          in: path
+          description: code of the publish set.  Use UNASSIGNED or ALL to denote those
+            special cases
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: maximum number of items to return
+          schema:
+            type: integer
+            format: int32
+            default: 100
+        - name: startIndex
+          in: query
+          description: start index
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentDraftSummaryPagedCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentPublishSet
+      summary: Adds a set of documents by id to a publish set
+      parameters:
+        - name: code
+          in: path
+          description: code of the publish set.  Use UNASSIGNED or ALL to denote those
+            special cases
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: documentId/doclist pairs to add to the publish set
+        content:
+          text/plain:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AddOrDeletePublishItem"
+          application/octet-stream:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AddOrDeletePublishItem"
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AddOrDeletePublishItem"
+      responses:
+        "200":
+          description: Success
+      description: Adds a set of documents by id to a publish set
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/publishsets/{code}":
+    post:
+      tags:
+        - DocumentPublishSet
+      summary: Adds a set of documents by id to a publish set
+      parameters:
+        - name: code
+          in: path
+          description: code of the publish set.  Use UNASSIGNED or ALL to denote those
+            special cases
+          required: true
+          schema:
+            type: string
+        - name: shouldDiscard
+          in: query
+          description: should trash the drafts in the publish set as well
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Success
+      description: Adds a set of documents by id to a publish set
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/publishsets:
+    get:
+      tags:
+        - DocumentPublishSet
+      summary: Returns a List of current Publishing sets with counts of drafts in each
+      parameters:
+        - name: pageSize
+          in: query
+          description: maximum number of items to return
+          schema:
+            type: integer
+            format: int32
+            default: 100
+        - name: startIndex
+          in: query
+          description: start index
+          schema:
+            type: integer
+            format: int32
+            default: 0
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublishSetSummaryPagedCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PublishSetSummaryPagedCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PublishSetSummaryPagedCollection"
+      description: Returns a List of current Publishing sets with counts of drafts in each
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/documenttypes:
+    post:
+      tags:
+        - DocumentType
+      summary: Creates a new DocumentType
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+      description: Creates a new DocumentType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - DocumentType
+      summary: Retrieves a paged list of DocumentTypes
+      parameters:
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentTypeCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentTypeCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentTypeCollection"
+      description: Retrieves a paged list of DocumentTypes
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/documenttypes/{documentTypeName}":
+    get:
+      tags:
+        - DocumentType
+      summary: Retrieves a specific DocumentType
+      parameters:
+        - name: documentTypeName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+      description: Retrieves a specific DocumentType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentType
+      summary: Updates a DocumentType
+      parameters:
+        - name: documentTypeName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentType"
+      description: Updates a DocumentType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /content/propertytypes:
+    get:
+      tags:
+        - DocumentPropertyType
+      summary: Retrieves a PagedCollection of Mozu
+      parameters:
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PropertyTypeCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PropertyTypeCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PropertyTypeCollection"
+      description: ontent.Contracts.PropertyTypes
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - DocumentPropertyType
+      summary: Creates a new Mozu
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+      description: ontent.Contracts.PropertyType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/content/propertytypes/{propertyTypeName}":
+    get:
+      tags:
+        - DocumentPropertyType
+      summary: Retrieves a specific Mozu
+      parameters:
+        - name: propertyTypeName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+      description: ontent.Contracts.PropertyType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DocumentPropertyType
+      summary: Updates a Mozu
+      parameters:
+        - name: propertyTypeName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+          application/octet-stream:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PropertyType"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PropertyType"
+      description: ontent.Contracts.PropertyType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DocumentPropertyType
+      summary: Delete a specific Mozu
+      parameters:
+        - name: propertyTypeName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ontent.Contracts.PropertyType
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/entities/{id}":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a specific Entity from an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: The unique id of the Entity
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
+            text/plain:
+              schema: {}
+      description: Get a specific Entity from an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - EntityLists
+      summary: Update an existing Entity in an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: The unique id of the Entity
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The Entity in json format
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MZDBHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
+            text/plain:
+              schema: {}
+      description: Update an existing Entity in an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - EntityLists
+      summary: Delete an existing Entity from an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: The unique id of the Entity
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: Delete an existing Entity from an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/entities":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a filtered collection of Entities from an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+      description: Get a filtered collection of Entities from an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - EntityLists
+      summary: Insert an Entity into an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The Entity in json format
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MZDBHttpRequestMessage"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
+            text/plain:
+              schema: {}
+      description: Insert an Entity into an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/entityContainers/{id}":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a specific EntityContainer from an  EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: The unique id of the Entity
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+      description: Get a specific EntityContainer from an  EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/entityContainers":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a filtered collection of EntityContainers from an EntityList instance
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+      description: Get a filtered collection of EntityContainers from an EntityList instance
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}":
+    get:
+      tags:
+        - EntityLists
+      summary: Get an existing EntityList definition for a specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+      description: Get an existing EntityList definition for a specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - EntityLists
+      summary: Update an existing Entitylist for a specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The EntityList definition
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityList"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - EntityLists
+      summary: Delete an existing EntityList for a specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: This will also delete all Entities in all instances of this
+        EntityList for the tenant.
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/entitylists:
+    post:
+      tags:
+        - EntityLists
+      summary: Create a new EntityList for a specific tenant
+      requestBody:
+        description: The EntityList definition
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityList"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityList"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - EntityLists
+      summary: Get a filtered list of EntityLists for a specific tenant
+      parameters:
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityListCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityListCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityListCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views":
+    get:
+      tags:
+        - EntityLists
+      summary: Get all of the defined ListViews for a specific EntityList for a
+        specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListViewCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ListViewCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ListViewCollection"
+      description: Get all of the defined ListViews for a specific EntityList for a
+        specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - EntityLists
+      summary: Create a new ListView definition for a specific EntityList for a
+        specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The new ListView definition
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListView"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ListView"
+      description: Create a new ListView definition for a specific EntityList for a
+        specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views/{viewName}":
+    get:
+      tags:
+        - EntityLists
+      summary: Returns a specific ListView definition for a specific EntityList for a
+        specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ListView"
+      description: Returns a specific ListView definition for a specific EntityList
+        for a specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - EntityLists
+      summary: Update an existing ListView definition for a specific EntityList for a
+        specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The udpated ListView definition
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListView"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ListView"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ListView"
+      description: Update an existing ListView definition for a specific EntityList
+        for a specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - EntityLists
+      summary: Delete an existing ListView definition for a specific EntityList for a
+        specific tenant
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: Delete an existing ListView definition for a specific EntityList
+        for a specific tenant
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views/{viewName}/entityContainers":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a filtered collection of EntityContainers for a ListView on an
+        EntityList
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityContainerCollection"
+      description: Get a filtered collection of EntityContainers for a ListView on an
+        EntityList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views/{viewName}/entities":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a filtered collection of Entities for a ListView on an EntityList
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityCollection"
+      description: Get a filtered collection of Entities for a ListView on an EntityList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views/{viewName}/entityContainers/{entityId}":
+    get:
+      tags:
+        - EntityLists
+      summary: Get an EntityContainer for a specific Entity in a ListView on an
+        EntityList
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+        - name: entityId
+          in: path
+          description: The unique Entity id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EntityContainer"
+      description: Get an EntityContainer for a specific Entity in a ListView on an
+        EntityList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/entitylists/{entityListFullName}/views/{viewName}/entities/{entityId}":
+    get:
+      tags:
+        - EntityLists
+      summary: Get a specific Entity in a ListView on an EntityList
+      parameters:
+        - name: entityListFullName
+          in: path
+          description: The full name of the EntityList including namespace in
+            name@nameSpace format
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          description: The name of the ListView
+          required: true
+          schema:
+            type: string
+        - name: entityId
+          in: path
+          description: The unique Entity id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
+            text/plain:
+              schema: {}
+      description: Get a specific Entity in a ListView on an EntityList
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/secureappdata/{appKeyId}/{dbEntryQuery}":
+    get:
+      tags:
+        - SecureAppData
+      parameters:
+        - name: appKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
+            text/plain:
+              schema: {}
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - SecureAppData
+      parameters:
+        - name: appKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - SecureAppData
+      parameters:
+        - name: appKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - SecureAppData
+      parameters:
+        - name: appKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/sitedata/{dbEntryQuery}":
+    get:
+      tags:
+        - SiteData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - SiteData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - SiteData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - SiteData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/tenantdata/{dbEntryQuery}":
+    get:
+      tags:
+        - TenantData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - TenantData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - TenantData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - TenantData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/userdata/{dbEntryQuery}":
+    get:
+      tags:
+        - UserData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - UserData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - UserData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - UserData
+      parameters:
+        - name: dbEntryQuery
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+tags:
+  - name: DocumentList
+    x-displayName: DocumentList
+  - name: DocumentListType
+    x-displayName: DocumentListType
+  - name: DocumentPublishing
+    x-displayName: DocumentPublishing
+  - name: DocumentPublishSet
+    x-displayName: DocumentPublishSet
+  - name: DocumentType
+    x-displayName: DocumentType
+  - name: DocumentPropertyType
+    x-displayName: DocumentPropertyType
+  - name: EntityLists
+    x-displayName: EntityLists
+  - name: SecureAppData
+    x-displayName: SecureAppData
+  - name: SiteData
+    x-displayName: SiteData
+  - name: TenantData
+    x-displayName: TenantData
+  - name: UserData
+    x-displayName: UserData
+x-tagGroups:
+  - name: content
+    tags:
+      - DocumentList
+      - DocumentListType
+      - DocumentPublishing
+      - DocumentPublishSet
+      - DocumentType
+      - DocumentPropertyType
+  - name: mzdb
+    tags:
+      - EntityLists
+      - SecureAppData
+      - SiteData
+      - TenantData
+      - UserData
+components:
+  schemas:
+    KeyValuePair`2:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        value:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    AppDevHttpContent:
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    HttpMethod:
+      type: object
+      properties:
+        method:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AppDevHttpRequestMessage:
+      type: object
+      properties:
+        version:
+          type: string
+          nullable: true
+        content:
+          $ref: "#/components/schemas/AppDevHttpContent"
+        method:
+          $ref: "#/components/schemas/HttpMethod"
+        requestUri:
+          type: string
+          format: uri
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+        properties:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    PropertyValue:
+      type: object
+      properties:
+        propertyType:
+          type: string
+          nullable: true
+        value:
+          nullable: true
+      additionalProperties: false
+    ContentDocument:
+      type: object
+      properties:
+        contentLength:
+          type: integer
+          format: int64
+        contentMimeType:
+          type: string
+          nullable: true
+        contentUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        documentListName:
+          type: string
+          nullable: true
+        documentType:
+          type: string
+          nullable: true
+        extension:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        properties:
+          type: array
+          items:
+            $ref: "#/components/schemas/PropertyValue"
+          nullable: true
+        publishState:
+          type: string
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        publishSetCode:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ContentDocumentCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContentDocument"
+          nullable: true
+      additionalProperties: false
+    ContentActiveDateRange:
+      type: object
+      properties:
+        startDate:
+          type: string
+          description: The beginning of the active date range of this document
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          description: The end of the active date range for this document
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Read-only, system generated 32 digit alpha-numeric string that
+            uniquely identifies the document.
+          nullable: true
+        name:
+          type: string
+          description: The name of the document, unique within the documentList. This
+            field is a required field, but it can be updated.
+          nullable: true
+        publishSetCode:
+          type: string
+          description: The name of the publish set that this document belongs to, if any.
+          nullable: true
+        extension:
+          type: string
+          description: If applicable, the file extension associated with the document
+            content.
+          nullable: true
+        documentTypeFQN:
+          type: string
+          description: The full name of the documentType that underlies this document.
+            This field must be supplied upon document creation and cannot be
+            updated.
+          nullable: true
+        listFQN:
+          type: string
+          description: The fully qualified name of the documentList to which the document
+            belongs. This field is read-only and represents which documentList
+            the document is created in.
+          nullable: true
+        contentLength:
+          type: integer
+          description: "The size of the content subresource in decimal number of OCTETs.
+            When updating the content subresource, the contentLength is captured
+            from the Content-Length header, if present, or is otherwise
+            computed\r
+
+            from the total size of the http body."
+          format: int64
+          nullable: true
+        contentMimeType:
+          type: string
+          description: The mime type of the document's binary content, provided via the
+            Content-Type header when updating the content subresource. If no
+            value is provided then "application/octet-stream" is set by default.
+          nullable: true
+        contentUpdateDate:
+          type: string
+          description: The date and time the most recent content update was made via the
+            content subresource. UTC date/time. System-supplied and read-only.
+          format: date-time
+          nullable: true
+        publishState:
+          type: string
+          description: "The current publish status of the document. If publishing is not
+            supported or is currently disabled in the documentList then the
+            value will be \"active\".\r
+
+            If publishing is supported and enabled, then the publish
+            state may be \"draft\" or \"active\". A document may have both an
+            \"active\" and \"draft\" version. The publishState\r
+
+            denotes which version of the document being interacted
+            with. This field is read-only."
+          nullable: true
+        properties:
+          description: "A JSON object of name/value pairs. Name parts are matched against
+            the underlying documentType properties names. Any matching name
+            parts must have a value part that conforms to the matching property
+            schema.\r
+
+            Any non-matching name/value pairs are considered dynamic
+            schema and may have a value part of valid JSON.\r
+
+            The properties field can be used for sorting/filtering
+            and can be projected in the documents returned within a documentList
+            view."
+          nullable: true
+        insertDate:
+          type: string
+          description: The date and time the document was added to the documentList. This
+            field is system-supplied and read-only.
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          description: "The date and time the most recent document update was made. If
+            publishing is enabled, then this value will represent\r
+
+            the last draft update if the publishState is draft, or
+            the last publish date if the publishState is active."
+          format: date-time
+          nullable: true
+        activeDateRange:
+          $ref: "#/components/schemas/ContentActiveDateRange"
+      additionalProperties: false
+      description: "Container for schema-enforced and schemaless data. A document is
+        primarily used to store content (html, text, numbers, dates, JSON,
+        binary data) \r
+
+        that is directly or indirectly used for the storefront website
+        experience and may be addressed via the Hypr theming engine language. A
+        document belongs to a documentList and has an underlying documentType.
+        \r
+
+        The documentType describes any required and optional schema.
+        Additionally, a binary object may be stored on the document's content
+        subresource and edge cached via the Mozu CDN."
+    DocumentCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Document"
+          nullable: true
+      additionalProperties: false
+    ViewField:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "The name of the field projected into the view document, meaning
+            the name given to the target field after it is projected.\r
+
+            The name must be unique within the list of viewFields
+            provided in the view."
+          nullable: true
+        target:
+          type: string
+          description: "Specifies the document field to project. First-class fields will
+            be returned on the document, but can be projected into the view
+            properties. \r
+
+            Valid first-class fields include name, id,
+            documentTypeFqn, listFqn and publishState. Dynamic fields within the
+            properties field can be projected by prefixing the target string
+            with \"properties.\"\r
+
+            Example: \"properties.property1\". If a property is an
+            object, then dot notation can be used to walk to particular
+            subelements. Example: \"properties.property1.subProperty1\"\r
+
+            Individual array elements can be selected as well.
+            Example:
+            \"properties.property1.subProperty1.subSubArray[2].propertyOnArrayI\
+            tem\"\r
+
+            Any target miss will result in a null value returning
+            for the projected field."
+          nullable: true
+      additionalProperties: false
+      description: The projection of an individual field in a view.
+    View:
+      type: object
+      properties:
+        name:
+          type: string
+          description: A view is addressed via its name, which is unique within the
+            documentList or documentListType in which it is defined.
+          nullable: true
+        usages:
+          type: array
+          items:
+            type: string
+          description: tbd
+          nullable: true
+        metadata:
+          description: The metadata field allows arbitrary data to be stored on the view.
+          nullable: true
+        isVisibleInStorefront:
+          type: boolean
+          description: "The isVisibleInStorefront field indicates whether documents in the
+            view can be accessed from the Mozu storefront application. If true,
+            the storefront application and storefront client application
+            (javascript tier) \r
+
+            can GET documents from the view."
+          nullable: true
+        filter:
+          type: string
+          description: "Filter criteria to apply automatically when documents from this
+            view are accessed, using the standard Mozu filter syntax. Only
+            documents matching the filter criteria will be returned. \r
+
+            Any filter provided by an operation is combined with the
+            view filter."
+          nullable: true
+        includeInactiveMode:
+          type: string
+          description: "If view documents are requested with includeInactive=true, then
+            this controls which documents return. If includeInactive is not
+            provided or set to false, then only active documents return.\r
+
+            If not set, or set to \"all\", then all documents
+            return.\r
+
+            If set to \"active\", then only documents within the
+            active date range and documents with no active date range are
+            returned.\r
+
+            If set to \"scheduled\", then only documents with an
+            active date range in the future are returned.\r
+
+            If set to \"activeOrScheduled\", then only documents
+            that are active or documents with an active date range in the future
+            are returned.\r
+
+            If set to \"ended\", then only documents with an active
+            date range in the past are returned."
+          nullable: true
+        isAdminDefault:
+          type: boolean
+          nullable: true
+        fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/ViewField"
+          description: Designation of which document fields are returned (projection) when
+            GETing documents from the view.
+          nullable: true
+      additionalProperties: false
+      description: "A view provides GET access to documents within the documentList
+        the view belongs to. The view can designate which document fields are
+        returned (projection) and\r
+
+        a security model for providing GET access independent of the
+        documentList's security model."
+    DocumentList:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "The name component of the listFQN, name@namespace. The name must
+            be unique within the namespace component and cannot be updated.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType."
+          nullable: true
+        namespace:
+          type: string
+          description: "The namespace component of the listFQN, name@namespace. The issued
+            dev account namespace must be used unless elevated privileges allow
+            a blank namespace to be used. The namespace cannot be updated.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType."
+          nullable: true
+        listFQN:
+          type: string
+          description: "The unique identifier of the documentList, represented by
+            name@namespace. The listFQN must be provided when creating the
+            documentList, or the name and namespace fields must be provided.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType."
+          nullable: true
+        documentTypes:
+          type: array
+          items:
+            type: string
+          description: "An array of the full names (name@namespace) of the documentTypes
+            supported by the documentList. A document in the documentList must
+            belong to one of these documentTypes.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType. DocumentTypes
+            can be added/removed to the documentList, even when\r
+
+            based on a documentListType. Existing documents that
+            belong to a documentType removed from the documentList will not be
+            removed."
+          nullable: true
+        supportsPublishing:
+          type: boolean
+          description: "Determines if the documentList will support drafting and
+            publishing documents. \r
+
+            This field defaults to false and cannot be updated.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType."
+          nullable: true
+        enablePublishing:
+          type: boolean
+          description: "Determines if the documentList has publishing turned on or off. If
+            the documentList has a supportsPublishing value of true, then the
+            enablePublishing value will be honored.\r
+
+            If enablePublishing is true, then a document draft will
+            be created for a document create or update operation. A document
+            must then be published to become \"active\".\r
+
+            If enablePublish is false, then all document changes are
+            immediately \"active\".\r
+
+            If enablePublish is true, then updating it to false will
+            immediately publish all draft changes.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType, but can be
+            overridden on update."
+          nullable: true
+        supportsActiveDateRanges:
+          type: boolean
+          description: "Determines if the documentList will support ranges of dates that
+            documents are considered 'active'. \r
+
+            This field defaults to false and cannot be updated.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType."
+          nullable: true
+        enableActiveDateRanges:
+          type: boolean
+          description: "Determines if the documentList has ActiveDateRanges turned on or
+            off. If the documentList has a supportsActiveDateRanges value of
+            true, then the enableActiveDateRanges value will be honored.\r
+
+            If enableActiveDateRanges is true, then a document will
+            only be returned if the request is made within the time frame the
+            document has been set to be 'active'.\r
+
+            If enableActiveDateRanges is false, then the properties
+            can be set but will not be honored.\r
+
+            If enableActiveDateRanges is true, then updating it to
+            false will immediately start honoring the previously-set date
+            range.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType, but can be
+            overridden on update."
+          nullable: true
+        views:
+          type: array
+          items:
+            $ref: "#/components/schemas/View"
+          description: "An array of one or more views, which each allow GET access to a
+            projection of fields from the documents in the given documentList.
+            \r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType. Views can be
+            added/removed to the documentList, even when\r
+
+            the documentList derives from a documentListType."
+          nullable: true
+        usages:
+          type: array
+          items:
+            type: string
+          description: "An array of strings that describes to the Mozu platform the
+            manner(s) in which a documentList can be used. The following values
+            are valid:\r
+
+            entitymanager -- the documentList should be visible in
+            the Admin Content/Entities UI, which allows admin users to create,
+            manage and publish documents within the documentList.\r
+
+            sitebuilder -- the documentList should be visible in
+            Site Builder. A documentList will display in the Site Builder
+            Navigation Content List node, which supports document creation,
+            management and web cms integration.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType. Usages can be
+            added or removed from the documentList, even when the documentList
+            derives from a\r
+
+            documentListType."
+          nullable: true
+        security:
+          type: string
+          description: tbd
+          nullable: true
+        scopeId:
+          type: integer
+          description: "Used in conjunction with the scopeType field to determine the
+            exact context within which the documentList resides.\r
+
+            Example: A documentList with a scopeId of 5 and
+            scopeType of masterCatalog belongs to masterCatalog 5.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType. This value is
+            read-only after the documentList is created."
+          format: int32
+          nullable: true
+        scopeType:
+          type: string
+          description: "The context level the documentList resides in. Valid values are
+            \"tenant\", \"masterCatalog\", \"catalog\" and \"site\". This field
+            is used in conjunction with the scopeId field\r
+
+            to determine the exact context within which this
+            documentList resides. This field is read-only after insert.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType. This value is
+            read-only after the documentList is created."
+          nullable: true
+        documentListType:
+          type: string
+          description: "The full name of the documentListType (name@namespace) that
+            underlies the documentList. This value is only populated when the
+            Mozu platform creates a documentList from a documentListType.\r
+
+            A documentList that is directly created cannot specify a
+            documentListType. This field is therefore read-only."
+          nullable: true
+        metadata:
+          description: "Allows arbitrary data to be stored on the documentList.\r
+
+            If the documentList is based on a documentListType, then
+            this value will be derived from the documentListType, but can be
+            overridden on update."
+          nullable: true
+      additionalProperties: false
+      description: "A container for documents and related settings, such as supported
+        documentTypes and publishing. \r
+
+        A documentList belongs to a Mozu context, denoted by the
+        documentList scopyeType and scopeId fields. \r
+
+        Example: documentList A belongs to catalog 123, denoted by the
+        documentList scopeType value of catalog and scopeId value of 123.\r
+
+        A documentList can only be accessed if the API context is
+        inclusive of the documentList's scope.\r
+
+        Example: documentList A belongs to catalog 123. An API call with
+        an API context of catalog 123 will be able to address documentList A.\r
+
+        Example: site 456 uses catalog 123. An API call with an API
+        context of site 456 will be able to address documentList A.\r
+
+        Example: masterCatalog 789 is the parent of catalog 123. An API
+        call with an API context of masterCatalog 789 will NOT be able to
+        address documentList A.\r
+
+        Documents can be created, queried, managed and published from
+        within a documentList. A documentList may be directly created, or
+        indirectly created from a documentListType."
+    DocumentListCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentList"
+          nullable: true
+      additionalProperties: false
+    ContentFacet:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        count:
+          type: integer
+          format: int32
+      additionalProperties: false
+    DocumentInstallation:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the document to create.
+          nullable: true
+        documentTypeFQN:
+          type: string
+          description: The full name of the documentType that underlies this document.
+          nullable: true
+        properties:
+          description: The properties of this document.
+          nullable: true
+        locale:
+          type: string
+          description: tbd
+          nullable: true
+      additionalProperties: false
+      description: The definition of a document to create when a documentList is created.
+    DocumentListType:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "The name component of the documentListTypeFQN, name@namespace. The
+            name must be unique within the namespace component and cannot be
+            updated.\r
+
+            Each documentList created from the documentListType will
+            use this value."
+          nullable: true
+        namespace:
+          type: string
+          description: "The namespace component of the documentListTypeFQN,
+            name@namespace. The issued dev account namespace must be used unless
+            elevated privileges allow a blank namespace to be used. The
+            namespace cannot be updated.\r
+
+            Each documentList created from the documentListType will
+            use this value."
+          nullable: true
+        documentListTypeFQN:
+          type: string
+          description: "The unique identifier of the documentListType, represented by
+            name@namespace. The documentListTypeFQN must be provided when
+            creating the documentListType, or the name and namespace fields must
+            be provided.\r
+
+            This field cannot be updated and each documentList
+            created from the documentListType will use this value."
+          nullable: true
+        scopeType:
+          type: string
+          description: The context level at which this documentListType will create
+            documentLists. Valid values are "tenant", "masterCatalog", "catalog"
+            and "site". This field is read-only after insert.
+          nullable: true
+        installationPackage:
+          type: string
+          description: "Optionally, a documentListType can be defined in an
+            installationPackage and then installed into a tenant. Installed
+            documentListsTypes can only be updated via installation upgrades. \r
+
+            Currently only internal Mozu platform components can
+            create installations. This field is system-supplied and read-only."
+          nullable: true
+        version:
+          type: string
+          description: The version of the installationPackge installed. This field is
+            read-only.
+          nullable: true
+        defaultDocuments:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentInstallation"
+          description: The definition of any documents to create when a documentList is
+            created.
+          nullable: true
+        documentTypeFQNs:
+          type: array
+          items:
+            type: string
+          description: "The full names (name@namespace) of the types of documents that can
+            be created within the documentLists belonging to this
+            documentListType. \r
+
+            Each documentList created from the documentListType will
+            use this value, but it can be overridden in an individual
+            documentList."
+          nullable: true
+        supportsPublishing:
+          type: boolean
+          description: "Determines if documentLists belonging to this documentListType
+            will support drafting and publishing documents. \r
+
+            This field defaults to false and cannot be updated. Each
+            documentList created from the documentListType will use this value."
+        enablePublishing:
+          type: boolean
+          description: "Determines if documentLists belonging to this documentListType
+            have publishing turned on or off. \r
+
+            Each documentList created from the documentListType will
+            use this value, but it can be overridden in an individual
+            documentList."
+          nullable: true
+        supportsActiveDateRanges:
+          type: boolean
+          description: "Determines if documentLists belonging to this documentListType
+            will support drafting and ActiveDateRanges documents. \r
+
+            This field defaults to false and cannot be updated. Each
+            documentList created from the documentListType will use this value."
+        enableActiveDateRanges:
+          type: boolean
+          description: "Determines if documentLists belonging to this documentListType
+            have ActiveDateRanges turned on or off. \r
+
+            Each documentList created from the documentListType will
+            use this value, but it can be overridden in an individual
+            documentList."
+          nullable: true
+        views:
+          type: array
+          items:
+            $ref: "#/components/schemas/View"
+          description: "An array of one or more views, which each allow GET access to a
+            projection of fields from the documents in the given documentList.
+            \r
+
+            Each documentList created from this documentListType
+            will use this value, but it can be overridden in an individual
+            documentList."
+          nullable: true
+        usages:
+          type: array
+          items:
+            type: string
+          description: "An array of strings that describes to the Mozu platform the
+            manner(s) in which a documentList can be used. The following values
+            are valid:\r
+
+            entitymanager -- the documentList should be visible in
+            the Admin Content/Entities screen, which allows admin users to
+            create, manage and publish documents within the documentList.\r
+
+            sitebuilder -- the documentList should be visible in
+            Sitebuilder. A documentList will display in the Sitebuilder
+            Navigation Content List node, which supports document creation,
+            management and web cms integration.\r
+
+            Each documentList created from this documentListType
+            will use this value, but it can be overridden in an individual
+            documentList."
+          nullable: true
+        metadata:
+          description: "Allows arbitrary data to be stored on the documentListType. Each
+            documentList created from this documentListType will use this value,
+            \r
+
+            but it can be overridden in an individual documentList."
+          nullable: true
+      additionalProperties: false
+      description: "A documentListType instructs the Mozu platform to automatically
+        create documentLists within a scopeType. Example: Creating a
+        documentListType in tenant X with a \r
+
+        scopeType of site tells the Mozu platform to immediately create
+        a documentList in each site tenant X has. The Mozu platform will also
+        automatically create a new \r
+
+        documentList for every site subsequently provisioned in tenant
+        X. Any defaultDocuments defined on the documentListType will be created
+        within \r
+
+        each documentList. Each documentList will be addressable via the
+        documenetListType's fully qualified name and will, by default, use the
+        documentListType's views, \r
+
+        usages and metadata. Therefore the documentListType can be used
+        to centrally manage each associated documentList."
+    DocumentListTypeCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentListType"
+          nullable: true
+      additionalProperties: false
+    DocumentDraftSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The system generated 32 digit alpha-numeric string that uniquely
+            identifies the document.
+          nullable: true
+        name:
+          type: string
+          description: The unique name of the document.
+          nullable: true
+        documentTypeFQN:
+          type: string
+          description: The full name of the documentType that underlies this document.
+          nullable: true
+        listFQN:
+          type: string
+          description: The fully qualified name of the documentList to which the document
+            belongs.
+          nullable: true
+        activeUpdateDate:
+          type: string
+          description: The date and time the document was last published, if any.
+          format: date-time
+          nullable: true
+        draftUpdateDate:
+          type: string
+          description: The date and time the document draft was last updated.
+          format: date-time
+        updatedBy:
+          type: string
+          description: The userId or applicationId that last updated the draft document.
+          nullable: true
+        activeUpdatedBy:
+          type: string
+          nullable: true
+        publishType:
+          type: string
+          description: "Denotes the type of draft. \r
+
+            \"Created\" -- the document has never been published. \r
+
+            \"Updated\" -- the document has an \"active\" version
+            and this is a subsequent draft.\r
+
+            \"Deleted\" -- the \"active\" document will be
+            permanently deleted when this draft is published."
+          nullable: true
+        publishSetCode:
+          type: string
+          nullable: true
+        masterCatalogId:
+          type: integer
+          format: int32
+          nullable: true
+        catalogId:
+          type: integer
+          format: int32
+          nullable: true
+        siteId:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+      description: Summary information on a Document Draft
+    DocumentDraftSummaryPagedCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentDraftSummary"
+          nullable: true
+      additionalProperties: false
+    AddOrDeletePublishItem:
+      type: object
+      properties:
+        documentId:
+          type: string
+          nullable: true
+        docListFQN:
+          type: string
+          nullable: true
+        scopeType:
+          type: string
+          nullable: true
+        scopeId:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PublishSetSummary:
+      type: object
+      properties:
+        publishSetCode:
+          type: string
+          description: the code of the associated publish set
+          nullable: true
+        count:
+          type: integer
+          description: the count of documents in the associated publish set
+          format: int32
+      additionalProperties: false
+      description: Summary information of documents in a publishing set
+    PublishSetSummaryPagedCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublishSetSummary"
+          nullable: true
+      additionalProperties: false
+    PropertyType:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name component of the propertyType, name@namespace. The name
+            must be unique within the namespace component and cannot be updated.
+          nullable: true
+        namespace:
+          type: string
+          description: The namespace component of the propertyType, name@namespace. The
+            issued dev account namespace must be used unless elevated privileges
+            allow a blank namespace to be used. The namespace cannot be updated.
+          nullable: true
+        propertyTypeFQN:
+          type: string
+          description: The unique identifier of the propertyTYpe, represented by
+            name@namespace. The propertyTypeFQN must be provided when creating
+            the propertyType, or the name and namespace fields must be provided.
+          nullable: true
+        adminName:
+          type: string
+          description: The administrative name of the propertyType.
+          nullable: true
+        installationPackage:
+          type: string
+          description: "Optionally, a propertyType can be defined in an
+            installationPackage and then installed into a tenant. Installed
+            propertyTypes can only be updated via installation upgrades. \r
+
+            Currently only internal Mozu platform components can
+            create installations. This field is system-supplied and read-only."
+          nullable: true
+        version:
+          type: string
+          description: The version of the installationPackge installed. This field is
+            read-only.
+          nullable: true
+        dataType:
+          type: string
+          description: "The underlying value type that can be held in the document's
+            property value. Valid values are\r
+
+            string\r
+
+            number\r
+
+            boolean\r
+
+            datetime\r
+
+            json\r
+
+            The dataType is analogous to an intrinsic value type in
+            object oriented programming, or to a column data type in relational
+            database terminology."
+          nullable: true
+        isQueryable:
+          type: boolean
+          description: tbd
+          nullable: true
+        isSortable:
+          type: boolean
+          description: tbd
+          nullable: true
+        isAggregatable:
+          type: boolean
+          description: tbd
+          nullable: true
+      additionalProperties: false
+      description: "The schema a document property value must implement. A
+        propertyType is created at a tenant scope and is therefore shared
+        amongst all child contexts (masterCatalog, catalog, site).\r
+
+        A propertyType is analogous to the type argument of a class
+        property in object oriented programming. \r
+
+        A propertyType's dataType field is analogous to an intrinsic
+        value type in object oriented programming, or to a column data type in
+        relational database terminology."
+    Property:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "The name portion of the name/value pair stored on a document's
+            properties field. The property name value must be unique within the
+            properties defined on the documentType.\r
+
+            This value cannot be updated after property creation."
+          nullable: true
+        isRequired:
+          type: boolean
+          description: True if the property must be present on the document. This value is
+            false by default.
+        isMultiValued:
+          type: boolean
+          description: True if the property value is an array, where each array value must
+            conform to the propertyType. When false, the property value must
+            directly conform to the propertyType. This value is false by
+            default.
+        propertyType:
+          $ref: "#/components/schemas/PropertyType"
+      additionalProperties: false
+      description: A schema element describing a name/value pair that can be stored on
+        a document's properties field, where the name is directly defined by the
+        propertyName and the value is constrained by the propertyType.
+    DocumentType:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name component of the documentType, name@namespace. The name
+            must be unique within the namespace component and cannot be updated.
+          nullable: true
+        namespace:
+          type: string
+          description: The namespace component of the documentType, name@namespace. The
+            issued dev account namespace must be used unless elevated privileges
+            allow a blank namespace to be used. The namespace cannot be updated.
+          nullable: true
+        documentTypeFQN:
+          type: string
+          description: The unique identifier of the documentType, represented by
+            name@namespace. The documentTypeFQN must be provided when creating
+            the documentType, or the name and namespace fields must be provided.
+          nullable: true
+        adminName:
+          type: string
+          description: The administrative name of the documentType.
+          nullable: true
+        installationPackage:
+          type: string
+          description: "Optionally, a documentType can be defined in an
+            installationPackage and then installed into a tenant. Installed
+            documentTypes can only be updated via installation upgrades. \r
+
+            Currently only internal Mozu platform components can
+            create installations. This field is system-supplied and read-only."
+          nullable: true
+        version:
+          type: string
+          description: The version of the installationPackge installed. This field is
+            read-only.
+          nullable: true
+        metadata:
+          description: Allows arbitrary data to be stored on the documentType.
+          nullable: true
+        properties:
+          type: array
+          items:
+            $ref: "#/components/schemas/Property"
+          description: An array of the schema elements that a document implementing this
+            documentType will have.
+          nullable: true
+      additionalProperties: false
+      description: The schema a document must implement and associated metadata. A
+        documentType is created at a tenant scope and is therefore shared
+        amongst all child contexts (masterCatalog, catalog, site).
+    DocumentTypeCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentType"
+          nullable: true
+      additionalProperties: false
+    PropertyTypeCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/PropertyType"
+          nullable: true
+      additionalProperties: false
+    StringStringIEnumerableKeyValuePair:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        value:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    MZDBHttpContent:
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/StringStringIEnumerableKeyValuePair"
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    MZDBHttpRequestMessage:
+      type: object
+      properties:
+        version:
+          type: string
+          nullable: true
+        content:
+          $ref: "#/components/schemas/MZDBHttpContent"
+        method:
+          $ref: "#/components/schemas/HttpMethod"
+        requestUri:
+          type: string
+          format: uri
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/StringStringIEnumerableKeyValuePair"
+          nullable: true
+          readOnly: true
+        properties:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    EntityCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items: {}
+          nullable: true
+      additionalProperties: false
+    EntityContainer:
+      type: object
+      properties:
+        tenantId:
+          type: integer
+          format: int32
+        siteId:
+          type: integer
+          format: int32
+          nullable: true
+        masterCatalogId:
+          type: integer
+          format: int32
+          nullable: true
+        catalogId:
+          type: integer
+          format: int32
+          nullable: true
+        localeCode:
+          type: string
+          description: The localeCode for the Entity. This will only be populated for
+            EntityLists that are created with IsLocaleSpecific set to true.
+          nullable: true
+        listFullName:
+          type: string
+          description: The nameSpace and name for the EntityList in the format
+            name@nameSpace.
+          nullable: true
+        userId:
+          type: string
+          description: The userId of the shopper account associated with this Entity. This
+            will only be populated for EntityLists that are creaetd with
+            IsShopperSpecific set to true.
+          nullable: true
+        id:
+          type: string
+          description: The unique identifier for the Entity.
+          nullable: true
+        item:
+          description: The entity in json format.
+          nullable: true
+        createBy:
+          type: string
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+        updateBy:
+          type: string
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+      description: The metadata and Entity contents for an entity persisted in an
+        EntityList in MZDB. The Item property contains the json representation
+        of the Entity
+    EntityContainerCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/EntityContainer"
+          nullable: true
+      additionalProperties: false
+    IndexedProperty:
+      type: object
+      properties:
+        propertyName:
+          type: string
+          description: A JPath query indicating the property that should be indexed to
+            enable querying and sorting.  Non-indexed properties may be used in
+            queries as long as at least one indexed property is also provided in
+            the query.
+          nullable: true
+        dataType:
+          type: string
+          description: The datatype of the property. Valid values are "string", "integer",
+            "decimal", "date", "bool". See SharedConstants.DataTypeConst
+          nullable: true
+      additionalProperties: false
+    ListViewField:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the field in the view.
+          nullable: true
+        type:
+          type: string
+          description: The datatype of the field. Valid values are "string", "integer",
+            "decimal", "date", "bool". See SharedConstants.DataTypeConst
+          nullable: true
+        target:
+          type: string
+          description: A JPath query to the source property for this ViewField.
+          nullable: true
+      additionalProperties: false
+      description: shared by cms/mzdb.
+    ListView:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the ListView. This must be unique for the EntityList.
+          nullable: true
+        usages:
+          type: array
+          items:
+            type: string
+          description: Usages are arbitratry sting values used to provide instructions for
+            other applications as to the intended areas where the view should be
+            used. Mozu uses the "admin" usage valued to indicate that a ListView
+            should appear in the EntityManager in the Admin UI.  The values are
+            open ended and applications may provide any value for a usage. This
+            field can be used in queries to the EntityList.
+          nullable: true
+        metaData:
+          description: An arbitrary json property to be used by external applications for
+            any purpose. MZDB will persist and retrieve the metadata without any
+            restrictions.
+          nullable: true
+        security:
+          type: string
+          description: less restrictive than collection/list security. public | admin |
+            owner
+          nullable: true
+        filter:
+          type: string
+          description: Indicates a implicitly applied filter to the EntityList for to
+            which the ListView is associated. All queries to the ListView will
+            have this filter applied implicitly.
+          nullable: true
+        defaultSort:
+          type: string
+          description: Indicates a default sort to be applied to the ListView.
+          nullable: true
+        fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/ListViewField"
+          description: The list of ViewFields for this view. ViewFields can be used to
+            filter or transform the underlying Entity to provide an optimized
+            format for applications which query the ListView.  If no ViewFields
+            are specified, entities will be returned for the View with no
+            transform applied.
+          nullable: true
+      additionalProperties: false
+    EntityList:
+      type: object
+      properties:
+        tenantId:
+          type: integer
+          format: int32
+        nameSpace:
+          type: string
+          description: The nameSpace for the EntityList which must be within the nameSpace
+            scope of the developer Account for the creating application.  The
+            name and namespace are formatted as name@nameSpace when specified as
+            fullName. An EntityLists fullName must be unique within the tenant
+            in which it is created.
+          nullable: true
+        name:
+          type: string
+          description: The name for the EntityList which must be unique within the
+            namespace provided.  The name and namespace are formatted as
+            name@nameSpace when specified as fullName. An EntityLists fullName
+            must be unique within the tenant in which it is created.
+          nullable: true
+        contextLevel:
+          type: string
+          description: At which context level are entities stored in the list. Possible
+            values are "tenant", "site", "masterCatalog" or "catalog".  Each
+            list instance will exist at this context level for the tenant.
+          nullable: true
+        useSystemAssignedId:
+          type: boolean
+          description: Indicates whether or not Mozu should assign a generated identifier
+            for each entity in the list or whether a unique identifier will be
+            provided for each identity. If set to false, then a value must be
+            provided for the IdProperty for the list.
+        idProperty:
+          $ref: "#/components/schemas/IndexedProperty"
+        indexA:
+          $ref: "#/components/schemas/IndexedProperty"
+        indexB:
+          $ref: "#/components/schemas/IndexedProperty"
+        indexC:
+          $ref: "#/components/schemas/IndexedProperty"
+        indexD:
+          $ref: "#/components/schemas/IndexedProperty"
+        isVisibleInStorefront:
+          type: boolean
+          description: Indicates whether Enitities in the EntityList are allowed to be
+            accessed from a Mozu storefront.
+        isLocaleSpecific:
+          type: boolean
+          description: Indicates whether MZDB should store entities in the EntityList
+            instance specific to the localeCode provided.  If true, all
+            operations on the EntityList will be filtered by the provided
+            localeCode on the request or using the defautLocaleCode for the
+            context.  All entities created in the EntityList will be stored with
+            the localeCode provided on the request or the defautLocaleCode for
+            the context as an additional implicit key. The default value is
+            false.
+        isShopperSpecific:
+          type: boolean
+          description: Indicates whether MZDB should store entities in the EntityList
+            instance specific to the current shopper on the request.  If true,
+            all operations on the EntityList will be filtered by the id of the
+            shopper from the shopper claims provided on the request.  All
+            entities created in the EntityList will be stored with the id of the
+            shopper from the shopper claims provided on the request as an
+            additional implicit key. The default value is false.
+        isSandboxDataCloningSupported:
+          type: boolean
+          description: Indicates whether MZDB should clone all of the Entities in the
+            EntityList when cloning an existing sandbox for which this list is
+            already defined.  The default value is false.
+        views:
+          type: array
+          items:
+            $ref: "#/components/schemas/ListView"
+          description: The ListViews defined for this EntityList.  ListViews may be used
+            to automatically filter an EntityList or transform the Entities in
+            the list to a new Schema.
+          nullable: true
+        usages:
+          type: array
+          items:
+            type: string
+          description: Usages are arbitratry sting values used to provide instructions for
+            other applications as to the intended areas where the list should be
+            used. Mozu uses the "admin" usage valued to indicate that an
+            EntityList should appear in the EntityManager in the Admin UI.  The
+            values are open ended and applications may provide any value for a
+            usage. This field can be used in queries to the EntityList.
+          nullable: true
+        metadata:
+          description: An arbitrary json property to be used by external applications for
+            any purpose. MZDB will persist and retrieve the metadata without any
+            restrictions.
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+        updateDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+      description: The definition of an MZDB EntityList which describes the
+        characteristics of the EntityList on a per tenant basis. EntityLists are
+        created at the tenant level, but instances of the EntityLists are
+        implicitly created at the appropriate context level as entities are
+        added or removed from the EntityList.
+    EntityListCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/EntityList"
+          nullable: true
+      additionalProperties: false
+    ListViewCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ListView"
+          nullable: true
+      additionalProperties: false

@@ -1,0 +1,1835 @@
+openapi: 3.0.1
+info:
+  title: Kibo Settings API Services Documentation
+  version: v1
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  description: OpenAPI Spec for Kibo Settings API Services
+servers:
+  - url: https://t{tenantId}.{env}.mozu.com/api
+    description: Tenant Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://t{tenantId}-s{siteId}.{env}.mozu.com/api
+    description: Site Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      siteId:
+        default: "0"
+        description: Id of the Site
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://home.mozu.com/api
+    description: HomePod Api
+paths:
+  /commerce/settings/cart/cartsettings:
+    get:
+      tags:
+        - CartSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+    post:
+      tags:
+        - CartSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CartSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+    put:
+      tags:
+        - CartSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CartSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CartSettings"
+  /commerce/settings/checkout:
+    get:
+      tags:
+        - CheckoutSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckoutSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CheckoutSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CheckoutSettings"
+  /commerce/settings/checkout/paymentsettings/thirdpartyworkflows:
+    get:
+      tags:
+        - CheckoutSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+    put:
+      tags:
+        - CheckoutSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+      responses:
+        "200":
+          description: Success
+  "/commerce/settings/checkout/paymentsettings/thirdpartyworkflows/{fullyQualifiedName}":
+    delete:
+      tags:
+        - CheckoutSettings
+      parameters:
+        - name: fullyQualifiedName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+  "/commerce/settings/checkout/paymentsettings/thirdpartyworkflow/{fullyQualifiedName}":
+    get:
+      tags:
+        - CheckoutSettings
+      parameters:
+        - name: fullyQualifiedName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+  /commerce/settings/checkout/customercheckoutsettings:
+    get:
+      tags:
+        - CheckoutSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+    put:
+      tags:
+        - CheckoutSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerCheckoutSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CustomerCheckoutSettings"
+  /commerce/settings/fulfillment/fulfillmentsettings:
+    get:
+      tags:
+        - FulfillmentSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+    post:
+      tags:
+        - FulfillmentSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FulfillmentSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+    put:
+      tags:
+        - FulfillmentSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FulfillmentSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FulfillmentSettings"
+  /commerce/settings/general/customroutes:
+    post:
+      tags:
+        - GeneralSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomRouteSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+    get:
+      tags:
+        - GeneralSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+    put:
+      tags:
+        - GeneralSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomRouteSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CustomRouteSettings"
+    delete:
+      tags:
+        - GeneralSettings
+      responses:
+        "200":
+          description: Success
+  /commerce/settings/general:
+    get:
+      tags:
+        - GeneralSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+    put:
+      tags:
+        - GeneralSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GeneralSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/GeneralSettings"
+  /commerce/settings/general/taxableterritories:
+    get:
+      tags:
+        - GeneralSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+    post:
+      tags:
+        - GeneralSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaxableTerritory"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaxableTerritory"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TaxableTerritory"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TaxableTerritory"
+    put:
+      tags:
+        - GeneralSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/TaxableTerritory"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxableTerritory"
+  /commerce/settings/inventory/inventorySettings:
+    get:
+      tags:
+        - InventorySettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+    post:
+      tags:
+        - InventorySettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InventorySettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+    put:
+      tags:
+        - InventorySettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InventorySettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/InventorySettings"
+  /commerce/settings/return/returnsettings:
+    get:
+      tags:
+        - ReturnSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+    post:
+      tags:
+        - ReturnSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReturnSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+    put:
+      tags:
+        - ReturnSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReturnSettings"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ReturnSettings"
+  /commerce/settings/shipping:
+    get:
+      tags:
+        - ShippingSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingSettings"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingSettings"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SiteShippingSettings"
+  /commerce/settings/shipping/orderhandlingfee:
+    get:
+      tags:
+        - ShippingSettings
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+      deprecated: true
+    post:
+      tags:
+        - ShippingSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteShippingHandlingFee"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+      deprecated: true
+    put:
+      tags:
+        - ShippingSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteShippingHandlingFee"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SiteShippingHandlingFee"
+      deprecated: true
+security:
+  - bearerAuth: []
+    clientOauth2: []
+components:
+  schemas:
+    AdminUserAuditInfo:
+      type: object
+      properties:
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateBy:
+          type: string
+          nullable: true
+        createBy:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CartSettings:
+      type: object
+      properties:
+        enableHandlingFee:
+          type: boolean
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: Cart settings defined for this site.
+    SupportedCard:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        friendlyName:
+          type: string
+          nullable: true
+        paymentType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    GatewayCredentialFieldDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        adminDisplayOrder:
+          type: integer
+          format: int32
+        isPublic:
+          type: boolean
+      additionalProperties: false
+    PreAuthorizeTransactionTypeDataContract:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        type:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+    PreAuthorizeDefinition:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        preAuthorizeTestUrl:
+          type: string
+          nullable: true
+        preAuthorizeProdUrl:
+          type: string
+          nullable: true
+        type:
+          $ref: "#/components/schemas/PreAuthorizeTransactionTypeDataContract"
+      additionalProperties: false
+    GatewayDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        countryCode:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        prodServiceURL:
+          type: string
+          nullable: true
+        testServiceURL:
+          type: string
+          nullable: true
+        integrationImplTypeName:
+          type: string
+          nullable: true
+        supportedCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/SupportedCard"
+          nullable: true
+        features:
+          type: array
+          items:
+            type: string
+          nullable: true
+        credentialDefinitions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GatewayCredentialFieldDefinition"
+          nullable: true
+        preAuthorizeDefinition:
+          $ref: "#/components/schemas/PreAuthorizeDefinition"
+        administationUi:
+          type: array
+          items:
+            type: object
+          nullable: true
+      additionalProperties: false
+    GatewayCredentialFieldValue:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        isValueSet:
+          type: boolean
+      additionalProperties: false
+    GatewayAccount:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        gatewayDefinitionId:
+          type: string
+          nullable: true
+        countryCode:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+        credentialFields:
+          type: array
+          items:
+            $ref: "#/components/schemas/GatewayCredentialFieldValue"
+          nullable: true
+        binPatterns:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    SiteGatewaySupportedCard:
+      type: object
+      properties:
+        gatewayAccountId:
+          type: string
+          nullable: true
+        processingGatewayAccountId:
+          type: string
+          nullable: true
+        cardTypeId:
+          type: string
+          nullable: true
+        paymentType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Gateway:
+      type: object
+      properties:
+        gatewayDefinition:
+          $ref: "#/components/schemas/GatewayDefinition"
+        areGatewayCredentialFieldsSet:
+          type: boolean
+          description: Returns true if Gateway CredentialsField is set. For security
+            purposes, Gateway subresource CredentialFields will not be returned.
+        gatewayAccount:
+          $ref: "#/components/schemas/GatewayAccount"
+        supportedCards:
+          type: array
+          items:
+            type: string
+          description: Which credit cards the Merchant supports
+          nullable: true
+        siteGatewaySupportedCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/SiteGatewaySupportedCard"
+          description: Which credit cards the Merchant supports
+          nullable: true
+      additionalProperties: false
+    LocalizedContent:
+      type: object
+      properties:
+        localeCode:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+      additionalProperties: false
+    VocabularyValue:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        contents:
+          type: array
+          items:
+            $ref: "#/components/schemas/LocalizedContent"
+          nullable: true
+      additionalProperties: false
+    ThirdPartyCredentialField:
+      type: object
+      properties:
+        displayName:
+          type: string
+          description: The displayable name of this credential field
+          nullable: true
+        apiName:
+          type: string
+          description: The name of this credential that should be used for web requests.
+          nullable: true
+        value:
+          type: string
+          description: The value for this credential that should be used for web requests.
+          nullable: true
+        vocabularyValues:
+          type: array
+          items:
+            $ref: "#/components/schemas/VocabularyValue"
+          nullable: true
+        inputType:
+          type: string
+          description: The input field type for the value.
+          nullable: true
+        isSensitive:
+          type: boolean
+          description: the value holds sensitive information.
+          nullable: true
+      additionalProperties: false
+      description: Describes the name and value of a third party credential field.
+    ExternalPaymentWorkflowDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Should be one of Contracts.Constants.ThirdPartyWorkflowNames.
+          nullable: true
+        namespace:
+          type: string
+          nullable: true
+        fullyQualifiedName:
+          type: string
+          nullable: true
+        description:
+          type: string
+          description: "Information about this definition for display purposes in the
+            'Payment and Checkout Settings'\r
+
+            admin ui.  This field may contain valid html tags"
+          nullable: true
+        isEnabled:
+          type: boolean
+        isLegacy:
+          type: boolean
+          description: "Indicates if this is a legacy implementation using ARC only\r
+
+            or using the new extensible implementation."
+          nullable: true
+        credentials:
+          type: array
+          items:
+            $ref: "#/components/schemas/ThirdPartyCredentialField"
+          nullable: true
+      additionalProperties: false
+      description: "This class describes credentials and enablement for the various
+        third-party payment workflows that we will integrate with.\r
+
+        Examples include Paypal Express, Amazon Payments, Google Wallet,
+        etc."
+    SiteSettingsPurchaseOrderPaymentTerm:
+      type: object
+      properties:
+        code:
+          type: string
+          description: A unique code for purchase order payment term
+          nullable: true
+        sequenceNumber:
+          type: integer
+          description: Sequence Number
+          format: int32
+        description:
+          type: string
+          description: Value of the net term
+          nullable: true
+      additionalProperties: false
+    SiteSettingsPurchaseOrderCustomField:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique code/name for memo field
+          nullable: true
+        label:
+          type: string
+          description: Memo field label that appers on the store front
+          nullable: true
+        sequenceNumber:
+          type: integer
+          description: Sequence Number
+          format: int32
+        isEnabled:
+          type: boolean
+          description: Whether this memo field is enabled
+        isRequired:
+          type: boolean
+          description: Whether this memo field is mandatory to be filled in when placing
+            an order
+      additionalProperties: false
+    PurchaseOrderPaymentDefinition:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          description: Is purchase order payment enabled
+        paymentTerms:
+          type: array
+          items:
+            $ref: "#/components/schemas/SiteSettingsPurchaseOrderPaymentTerm"
+          description: Allowed net terms
+          nullable: true
+        allowSplitPayment:
+          type: boolean
+          description: Indicates whether another payment can be used with the purchase order
+        customFields:
+          type: array
+          items:
+            $ref: "#/components/schemas/SiteSettingsPurchaseOrderCustomField"
+          description: ""
+          nullable: true
+      additionalProperties: false
+    OrderJob:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      additionalProperties: false
+    FlexibleCaptureFlow:
+      type: object
+      properties:
+        captureBy:
+          type: string
+          nullable: true
+        captureOn:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    FlexibleCapture:
+      type: object
+      properties:
+        sthFlow:
+          $ref: "#/components/schemas/FlexibleCaptureFlow"
+        bopisFlow:
+          $ref: "#/components/schemas/FlexibleCaptureFlow"
+      additionalProperties: false
+    AutoCaptureJob:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/OrderJob"
+      properties:
+        flexibleCapture:
+          $ref: "#/components/schemas/FlexibleCapture"
+      additionalProperties: false
+    ForceCaptureJob:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/OrderJob"
+      properties:
+        captureAfterDays:
+          type: integer
+          format: int32
+      additionalProperties: false
+    OrderJobSettings:
+      type: object
+      properties:
+        autoCaptureJob:
+          $ref: "#/components/schemas/AutoCaptureJob"
+        forceCaptureJob:
+          $ref: "#/components/schemas/ForceCaptureJob"
+      additionalProperties: false
+    PaymentSettings:
+      type: object
+      properties:
+        gateways:
+          type: array
+          items:
+            $ref: "#/components/schemas/Gateway"
+          nullable: true
+        externalPaymentWorkflowDefinitions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExternalPaymentWorkflowDefinition"
+          nullable: true
+        payByMail:
+          type: boolean
+        purchaseOrder:
+          $ref: "#/components/schemas/PurchaseOrderPaymentDefinition"
+        jobSettings:
+          $ref: "#/components/schemas/OrderJobSettings"
+        paymentRanking:
+          type: string
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: "Payment gateway settings defined for this site. A payment gateway
+        is an e-commerce application service provider that authorizes \r
+
+        payments for e-businesses and online retailers. You can define
+        multiple payment gateway settings but only one is active at a time. \r
+
+        Authorize.net is the only payment gateway supported currently."
+    CustomerCheckoutSettings:
+      type: object
+      properties:
+        customerCheckoutType:
+          type: string
+          description: "Checkout login setting. Value can be either \"LoginOptional,\"
+            where shoppers are prompted to sign in\r
+
+            but are not required to do so, or \"LoginRequired,\"
+            where shopppers must login before purchasing."
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: "Checkout requirements for customers, for example, whether they
+        must login before purchasing from your store. \r
+
+        Other customized checkout requirements can be defined."
+    ThirdPartyPaymentSetting:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        paymentProcessingFlowType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OrderProcessingSettings:
+      type: object
+      properties:
+        paymentProcessingFlowType:
+          type: string
+          description: "Credit card payment authorization setting. Options can be
+            authorize and charge the shopper's credit card when the order is
+            placed, \"AuthorizeAndCaptureOnOrderPlacement,\" \r
+
+            authorize the shopper's credit card when the order is
+            placed and charge the credit card when the shipped,
+            \"AuthorizeOnOrderPlacementAndCaptureOnOrderShipment,\" \r
+
+            or authorize and charge the shopper's credit card for
+            the full amount when the order is shipped,
+            \"AuthorizeAndCaptureOnOrderShipment.\""
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+        useOverridePriceToCalculateDiscounts:
+          type: boolean
+          description: Use the override price on products to calculate discounts
+        abandonedOrderThresholdInMinutes:
+          type: integer
+          description: Abandoned Order Threshold in minutes indicates the number of
+            minutes until a pending order is considered abandoned.
+          format: int32
+          nullable: true
+        giftCardProcessingType:
+          type: string
+          description: "Gift card payment authorization setting. Options can be authorize
+            and charge the shopper's credit card when the order is placed,
+            \"AuthorizeAndCaptureOnOrderPlacement,\" \r
+
+            authorize the shopper's gift card when the order is
+            placed and charge the gift card when it is shipped,
+            \"AuthorizeOnOrderPlacementAndCaptureOnOrderShipment,\" \r
+
+            or authorize and charge the shopper's gift card for the
+            full amount when the order is shipped,
+            \"AuthorizeAndCaptureOnOrderShipment.\""
+          nullable: true
+        thirdPartyPaymentSettings:
+          type: array
+          items:
+            $ref: "#/components/schemas/ThirdPartyPaymentSetting"
+          description: "Order processing settings for Third party payments\r
+
+            Ex- ApplePay using
+            AuthorizeOnOrderPlacementAndCaptureOnOrderShipment for processing
+            orders"
+          nullable: true
+      additionalProperties: false
+      description: "Order processing (credit card payment authorization) setting
+        defined for this site. \r
+
+        Can choose when the shopper’s credit card is authorized and
+        charged. Possibilities include, \"authorize and charge the shopper's
+        credit card for the full \r
+
+        order amount when the order is placed,\" \"authorize the
+        shopper's credit card for the full amount when the order is placed and
+        charge the credit card when the order is shipped,\" or \r
+
+        \"authorize and charge the shopper's credit card for the full
+        amount when the order is shipped.\""
+    CheckoutSettings:
+      type: object
+      properties:
+        paymentSettings:
+          $ref: "#/components/schemas/PaymentSettings"
+        customerCheckoutSettings:
+          $ref: "#/components/schemas/CustomerCheckoutSettings"
+        orderProcessingSettings:
+          $ref: "#/components/schemas/OrderProcessingSettings"
+      additionalProperties: false
+      description: "Checkout and payment settings defined for this site. Can set which
+        payment gateway to use, whether a shopper is required to login to place
+        an order,\r
+
+        when credit cards are authorized and charged (when the order is
+        placed or shipped), and, in the future, \r
+
+        whether the checkout page displays an option for shoppers to
+        receive your email marketing campaigns."
+    BPMConfiguration:
+      type: object
+      properties:
+        containerId:
+          type: string
+          nullable: true
+        processId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FulfillmentJob:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PickupReminderJob:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/FulfillmentJob"
+      additionalProperties: false
+    ReleaseBackorderJob:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/FulfillmentJob"
+      additionalProperties: false
+    FulfillmentJobSettings:
+      type: object
+      properties:
+        pickupReminderJob:
+          $ref: "#/components/schemas/PickupReminderJob"
+        releaseBackorderJob:
+          $ref: "#/components/schemas/ReleaseBackorderJob"
+      additionalProperties: false
+    ShippingMethod:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Cancellation:
+      type: object
+      properties:
+        onParentShipment:
+          type: boolean
+        restrictedSteps:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    ShipToStore:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+        alwaysCreateTransferShipments:
+          type: boolean
+        shippingMethod:
+          $ref: "#/components/schemas/ShippingMethod"
+        cancellation:
+          $ref: "#/components/schemas/Cancellation"
+      additionalProperties: false
+    FulfillerSettings:
+      type: object
+      properties:
+        editShipment:
+          type: boolean
+      additionalProperties: false
+    FulfillmentSettings:
+      type: object
+      properties:
+        defaultBackOrderDays:
+          type: integer
+          format: int32
+          nullable: true
+        bpmConfiguration:
+          $ref: "#/components/schemas/BPMConfiguration"
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+        fulfillmentJobSettings:
+          $ref: "#/components/schemas/FulfillmentJobSettings"
+        shipToStore:
+          $ref: "#/components/schemas/ShipToStore"
+        fulfillerSettings:
+          $ref: "#/components/schemas/FulfillerSettings"
+        actionOnBOPISReject:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Mapping:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        beforeRouting:
+          type: boolean
+          nullable: true
+        listFqn:
+          type: string
+          nullable: true
+        docId:
+          type: string
+          nullable: true
+        mapTo:
+          type: string
+          nullable: true
+        facetId:
+          type: string
+          nullable: true
+        pattern:
+          type: string
+          nullable: true
+        replacement:
+          type: string
+          nullable: true
+        mappings:
+          type: object
+          additionalProperties: {}
+          nullable: true
+      additionalProperties: false
+    Validator:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        pattern:
+          type: string
+          nullable: true
+        listFqn:
+          type: string
+          nullable: true
+        field:
+          type: string
+          nullable: true
+        docId:
+          type: string
+          nullable: true
+        values:
+          type: array
+          items:
+            type: string
+          nullable: true
+        attributeFQN:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Route:
+      type: object
+      properties:
+        template:
+          type: string
+          nullable: true
+        defaults:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        internalRoute:
+          type: string
+          nullable: true
+        functionId:
+          type: string
+          nullable: true
+        mappings:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        canonical:
+          type: boolean
+          nullable: true
+        validators:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        urlScheme:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CustomRouteSettings:
+      type: object
+      properties:
+        mappings:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/Mapping"
+          nullable: true
+        validators:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/Validator"
+          nullable: true
+        routes:
+          type: array
+          items:
+            $ref: "#/components/schemas/Route"
+          nullable: true
+      additionalProperties: false
+    CacheSettings:
+      type: object
+      properties:
+        cdnCacheBustKey:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TaxableTerritory:
+      type: object
+      properties:
+        countryCode:
+          type: string
+          nullable: true
+        stateOrProvinceCode:
+          type: string
+          nullable: true
+        isShippingTaxable:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    EmailTransactionSettings:
+      type: object
+      properties:
+        backInStock:
+          type: boolean
+          nullable: true
+        orderChanged:
+          type: boolean
+          nullable: true
+        orderShipped:
+          type: boolean
+          nullable: true
+        orderFulfillmentDetailsChanged:
+          type: boolean
+          nullable: true
+        shopperLoginCreated:
+          type: boolean
+          nullable: true
+        shopperPasswordReset:
+          type: boolean
+          nullable: true
+        returnCreated:
+          type: boolean
+          nullable: true
+        returnAuthorized:
+          type: boolean
+          nullable: true
+        returnUpdated:
+          type: boolean
+          nullable: true
+        returnRejected:
+          type: boolean
+          nullable: true
+        returnCancelled:
+          type: boolean
+          nullable: true
+        returnClosed:
+          type: boolean
+          nullable: true
+        refundCreated:
+          type: boolean
+          nullable: true
+        storeCreditCreated:
+          type: boolean
+          nullable: true
+        storeCreditUpdated:
+          type: boolean
+          nullable: true
+        giftCardCreated:
+          type: boolean
+          nullable: true
+        orderCancellation:
+          type: boolean
+          nullable: true
+        backorder:
+          type: boolean
+          nullable: true
+        shipmentConfirmation:
+          type: boolean
+          nullable: true
+        orderPickupReady:
+          type: boolean
+          nullable: true
+        orderPickupReminder:
+          type: boolean
+          nullable: true
+        shipmentBackorderDateChanged:
+          type: boolean
+          nullable: true
+        shipmentItemCanceled:
+          type: boolean
+          nullable: true
+        shipmentAssigned:
+          type: boolean
+          nullable: true
+        transferShipmentCreated:
+          type: boolean
+          nullable: true
+        transferShipmentShipped:
+          type: boolean
+          nullable: true
+        partialPickupReady:
+          type: boolean
+          nullable: true
+        transferShipmentCreatedByFulfiller:
+          type: boolean
+          nullable: true
+        intransitConfirmation:
+          type: boolean
+          nullable: true
+        curbsideReady:
+          type: boolean
+          nullable: true
+        partialCurbsideReady:
+          type: boolean
+          nullable: true
+        gatewayGiftCardCreated:
+          type: boolean
+          nullable: true
+        customerIntransit:
+          type: boolean
+          nullable: true
+        customerAtCurbside:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    ViewAuthorizations:
+      type: object
+      properties:
+        requireAuthForLive:
+          type: boolean
+        requireAuthForPending:
+          type: boolean
+        enforceSitewideSSL:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    EmailTypeSetting:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        senderEmailAddressOverride:
+          type: string
+          nullable: true
+        senderEmailAliasOverride:
+          type: string
+          nullable: true
+        replyToEmailAddressOverride:
+          type: string
+          nullable: true
+        bccEmailAddressOverride:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SMSTransactionSettings:
+      type: object
+      properties:
+        shipmentItemCanceled:
+          type: boolean
+          nullable: true
+        shipmentAssigned:
+          type: boolean
+          nullable: true
+        customerIntransit:
+          type: boolean
+          nullable: true
+        customerAtCurbside:
+          type: boolean
+          nullable: true
+        intransitConfirmation:
+          type: boolean
+          nullable: true
+        shipmentFulfilled:
+          type: boolean
+          nullable: true
+        orderConfirmation:
+          type: boolean
+          nullable: true
+        curbsideReady:
+          type: boolean
+          nullable: true
+        storeItemsCanceled:
+          type: boolean
+          nullable: true
+        optOutAcknowledgement:
+          type: boolean
+          nullable: true
+        orderPickupReady:
+          type: boolean
+          nullable: true
+        orderPickupReminder:
+          type: boolean
+          nullable: true
+        customerAtStore:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    SMSTypeSetting:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+      additionalProperties: false
+    GeneralSettings:
+      type: object
+      properties:
+        isMozuWebSite:
+          type: boolean
+        websiteName:
+          type: string
+          nullable: true
+        customCdnHostName:
+          type: string
+          nullable: true
+        missingImageSubstitute:
+          type: string
+          nullable: true
+        cacheSettings:
+          $ref: "#/components/schemas/CacheSettings"
+        templateSiteId:
+          type: integer
+          format: int32
+          nullable: true
+        siteTimeZone:
+          type: string
+          nullable: true
+        siteTimeFormat:
+          type: string
+          nullable: true
+        senderEmailAddress:
+          type: string
+          nullable: true
+        senderEmailAlias:
+          type: string
+          nullable: true
+        replyToEmailAddress:
+          type: string
+          nullable: true
+        bccEmailAddress:
+          type: string
+          nullable: true
+        favIconPath:
+          type: string
+          nullable: true
+        favIconMobilePath:
+          type: string
+          nullable: true
+        logoText:
+          type: string
+          nullable: true
+        logoPath:
+          type: string
+          nullable: true
+        theme:
+          type: string
+          nullable: true
+        mobileTheme:
+          type: string
+          nullable: true
+        tabletTheme:
+          type: string
+          nullable: true
+        googleAnalyticsCode:
+          type: string
+          nullable: true
+        isGoogleAnalyticsEnabled:
+          type: boolean
+          nullable: true
+        isGoogleAnalyticsEcommerceEnabled:
+          type: boolean
+          nullable: true
+        isWishlistCreationEnabled:
+          type: boolean
+          nullable: true
+        isMultishipEnabled:
+          type: boolean
+          nullable: true
+        isAddressValidationEnabled:
+          type: boolean
+          nullable: true
+        allowInvalidAddresses:
+          type: boolean
+          nullable: true
+        taxableTerritories:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaxableTerritory"
+          nullable: true
+        supressedEmailTransactions:
+          $ref: "#/components/schemas/EmailTransactionSettings"
+        emailTransactionsOnlyOnRequest:
+          $ref: "#/components/schemas/EmailTransactionSettings"
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+        viewAuthorizations:
+          $ref: "#/components/schemas/ViewAuthorizations"
+        customRoutes:
+          $ref: "#/components/schemas/CustomRouteSettings"
+        emailTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/EmailTypeSetting"
+          nullable: true
+        supressedSmsTransactions:
+          $ref: "#/components/schemas/SMSTransactionSettings"
+        smsTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/SMSTypeSetting"
+          nullable: true
+      additionalProperties: false
+    Job:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+        timesOfDay:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    InventoryExportJob:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/Job"
+      additionalProperties: false
+    InventorySettings:
+      type: object
+      properties:
+        inventoryExportJob:
+          $ref: "#/components/schemas/InventoryExportJob"
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+    ReturnSettings:
+      type: object
+      properties:
+        defaultProcessingFee:
+          type: number
+          format: double
+        defaultShippingLocation:
+          type: string
+          nullable: true
+        createLabelOnFulfillment:
+          type: boolean
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+    SiteShippingHandlingFee:
+      type: object
+      properties:
+        amount:
+          type: number
+          description: Site setting for the name that appears as the sender of the
+            shipping origin.
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: The site setting that specifies the store's handling fees
+    SiteShippingSignatureRequirement:
+      type: object
+      properties:
+        minimumValueThreshold:
+          type: number
+          description: If set, this is exact amount a shipment must be greater than to
+            trigger usage of the IsSignatureRequired property
+          format: double
+          nullable: true
+        isSignatureRequired:
+          type: boolean
+          description: Is Signature Required?
+          nullable: true
+      additionalProperties: false
+      description: The site setting that specifies the store's handling fees
+    SiteShippingSettings:
+      type: object
+      properties:
+        orderHandlingFee:
+          $ref: "#/components/schemas/SiteShippingHandlingFee"
+        signatureRequirement:
+          $ref: "#/components/schemas/SiteShippingSignatureRequirement"
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: "Defines the site setting for the active shipping rate provider
+        that rate provider calculates domestic and international shipping
+        rates.\r
+
+        Your site may have multiple shipping rate providers, for
+        example, FedEx, DHL, USPS. However, only one shipping rate provider can
+        be active at the same time."

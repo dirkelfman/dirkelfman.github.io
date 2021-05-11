@@ -1,0 +1,4596 @@
+openapi: 3.0.1
+info:
+  title: Kibo Platform API Services Documentation
+  version: v1
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  description: OpenAPI Spec for Kibo Platform API Services
+servers:
+  - url: https://t{tenantId}.{env}.mozu.com/api
+    description: Tenant Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://t{tenantId}-s{siteId}.{env}.mozu.com/api
+    description: Site Level Api
+    variables:
+      tenantId:
+        default: "0"
+        description: Id of the Tenant
+      siteId:
+        default: "0"
+        description: Id of the Site
+      env:
+        default: sb
+        enum:
+          - sb
+          - tp1
+          - tp2
+          - tp3
+          - tp4
+          - tp5
+          - stg1
+          - perf1
+  - url: https://home.mozu.com/api
+    description: HomePod Api
+paths:
+  "/platform/adminuser/authtickets/wsfed/auth/{id}":
+    post:
+      tags:
+        - TenantAuthTicket
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scopeid
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: scopeType
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/authtickets/wsfed/SignOut/{id}":
+    get:
+      tags:
+        - TenantAuthTicket
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: redirect
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/authtickets/wsfed/challenge/{id}":
+    get:
+      tags:
+        - TenantAuthTicket
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scopeid
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: scopeType
+          in: query
+          schema:
+            type: string
+        - name: redirect
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/adminuser/authtickets/tenants:
+    post:
+      tags:
+        - TenantAuthTicket
+      summary: Authenticates a user for a particular tenant given a set of user
+        credentials adn a tenantId
+      parameters:
+        - name: tenantId
+          in: query
+          description: Optional tenant Id parameter
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        description: User's email address and password.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserAuthInfo"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - TenantAuthTicket
+      summary: Reauthenticates the current user for a different tenant
+      parameters:
+        - name: tenantId
+          in: query
+          description: The tenant to authenticate the user in
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        description: An existing valid auth ticket containing the refresh token.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TenantAdminUserAuthTicket"
+      description: If the user does not have access to the tenant, the operation fails.
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/adminuser/authtickets:
+    delete:
+      tags:
+        - TenantAuthTicket
+      summary: Logs out a user by deleting the refresh token
+      parameters:
+        - name: refreshToken
+          in: query
+          description: The refresh token to delete.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: Logs out a user by deleting the refresh token
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/tenants":
+    get:
+      tags:
+        - TenenantUser
+      summary: Get tenant scope for users
+      parameters:
+        - name: userId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TenantCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TenantCollection"
+      description: Get tenant scope for users
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}":
+    get:
+      tags:
+        - TenenantUser
+      summary: Retrieves the details of a user specified by user ID
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user whose details you want to view.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/User"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - TenenantUser
+      summary: Modifies user information for a specified user
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user whose login information you want to
+            change.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: "Details of the new user account. Required properties:
+          EmailAddress, FirstName, LastName, and Password. Note that the site ID
+          is passed in the request header."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/User"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - TenenantUser
+      summary: Removes a user account from the site
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user account to delete.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/userbyid":
+    get:
+      tags:
+        - TenenantUser
+      summary: Retrieves the details of a user specified by user ID
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user whose details you want to view.
+          required: true
+          schema:
+            type: string
+        - name: responseGroups
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/User"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/adminuser/accounts:
+    get:
+      tags:
+        - TenenantUser
+      summary: Retrieves a list of Admin users for a specified site according to any
+        specified filter criteria and sort options
+      parameters:
+        - name: emailAddress
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 20
+        - name: sortBy
+          in: query
+          description: The element to sort the results by and the order in which the
+            results appear. Either ascending (a-z) or descending (z-a) order.
+            Optional.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: "A set of filter expressions representing the search parameters for
+            a query: eq=equals, ne=not equals, gt=greater than, lt = less than
+            or equals, gt = greater than or equals, lt = less than or equals, sw
+            = starts with, or cont = contains. Optional."
+          schema:
+            type: string
+        - name: responseGroups
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    post:
+      tags:
+        - TenenantUser
+      summary: Creates a new user
+      requestBody:
+        description: The user to be created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/User"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/User"
+      description: Creates a new user
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/roles":
+    get:
+      tags:
+        - TenenantUser
+      summary: Retrieves all the roles for a specified user on the specified tenant
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminUserUserRoleCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AdminUserUserRoleCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AdminUserUserRoleCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/roles/{roleId}":
+    post:
+      tags:
+        - TenenantUser
+      summary: Adds a role to the specified user's Admin account
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user who receives the role.
+          required: true
+          schema:
+            type: string
+        - name: roleId
+          in: path
+          description: Unique identifier of the role to add.
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - TenenantUser
+      summary: Removes a role from the specified Admin account
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user with the role to delete.
+          required: true
+          schema:
+            type: string
+        - name: roleId
+          in: path
+          description: Unique identifer of the role to delete.
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/Change-Password":
+    post:
+      tags:
+        - TenenantUser
+      summary: Changes a user's password
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user for whom to change the password.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Old password and new password.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminUserPasswordInfo"
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/adminuser/accounts/{userId}/Change-User-Password":
+    post:
+      tags:
+        - TenenantUser
+      summary: Changes a user's password to the provided new password
+      parameters:
+        - name: userId
+          in: path
+          description: Unique identifier of the user for whom to change the password.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: New password info for this user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChangeUserPasswordInfo"
+      responses:
+        "200":
+          description: Success
+      description: Changes a user's password to the provided new password
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/adminuser/accounts/Reset-Password:
+    post:
+      tags:
+        - TenenantUser
+      summary: Resets the password for a user specified by email address
+      requestBody:
+        description: "Email address of the user who has requested a password reset. \r
+
+          \            Note that the site ID is passed in the request
+          header."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminUserResetPasswordInfo"
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/developer/authtickets:
+    post:
+      tags:
+        - DeveloperAuthTicket
+      summary: Authenticates a user for a particular tenant given a set of user
+        credentials adn a tenantId
+      parameters:
+        - name: developerAccountId
+          in: query
+          description: The users developer account Id
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        description: User's email address and password.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserAuthInfo"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    put:
+      tags:
+        - DeveloperAuthTicket
+      summary: Reauthenticates the current user for a different tenant
+      parameters:
+        - name: developerAccountId
+          in: query
+          description: The users developer account Id
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        description: An existing valid auth ticket containing the refresh token.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DeveloperAdminUserAuthTicket"
+      description: If the user does not have access to the tenant, the operation fails.
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - DeveloperAuthTicket
+      summary: Logs out a user by deleting the refresh token
+      parameters:
+        - name: refreshToken
+          in: query
+          description: The refresh token to delete.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: Logs out a user by deleting the refresh token
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/adminuser/roles:
+    get:
+      tags:
+        - TenantRole
+      summary: Retrieves a list of all roles defined for this tenant
+      parameters:
+        - name: startIndex
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 25
+        - name: filter
+          in: query
+          description: Optional filter param to filter the roles
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoleCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/RoleCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/RoleCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/applications/authtickets:
+    post:
+      tags:
+        - AppAuthTickets
+      summary: Authenticates an application using shared secret and application id
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppAuthInfo"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+      description: The method returns a set of authentication tokens used to manage
+        application authentication.
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/applications/authtickets/oauth:
+    post:
+      tags:
+        - AppAuthTickets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OauthAuthRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/OAuthAccessTokenResponse"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OAuthAccessTokenResponse"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/OAuthAccessTokenResponse"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/applications/authtickets/refresh-ticket:
+    put:
+      tags:
+        - AppAuthTickets
+      summary: Returns the AppAuthTicket with a refreshed AccessToken
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthTicketRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AuthTicket"
+      description: Returns the AppAuthTicket with a refreshed AccessToken
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/applications/authtickets/{refreshToken}":
+    delete:
+      tags:
+        - AppAuthTickets
+      summary: "This method is used to expire an application's current refresh token
+        which \r
+
+        will force the application to reauthenticate once the current
+        access token expires"
+      parameters:
+        - name: refreshToken
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/appdev/filebasedpackage/packages/{applicationKey}":
+    get:
+      tags:
+        - FilebasedPackage
+      parameters:
+        - name: applicationKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: fileName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevHttpResponseMessage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevHttpResponseMessage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevHttpResponseMessage"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/appdev/apppackages/project:
+    post:
+      tags:
+        - Package
+      summary: ""
+      parameters:
+        - name: projectId
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevPackage"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/appdev/apppackages/{applicationKey}":
+    put:
+      tags:
+        - Package
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppDevPackage"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    get:
+      tags:
+        - Package
+      summary: "Use this operation to retrieve the package for the requested\r
+
+        package and its associated application core information"
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: includeChildren
+          in: query
+          description: ""
+          schema:
+            type: boolean
+            default: false
+        - name: skipDevAccountCheck
+          in: query
+          description: ""
+          schema:
+            type: boolean
+            default: false
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - Package
+      summary: Use thi operatin to logically delete a package
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/appdev/apppackages/collection:
+    get:
+      tags:
+        - Package
+      summary: ""
+      parameters:
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 20
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ApplicationSummaryCollection"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationSummaryCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationSummaryCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/appdev/apppackages/apps/{appId}":
+    get:
+      tags:
+        - Package
+      summary: ""
+      parameters:
+        - name: appId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ApplicationSummary"
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ApplicationSummary"
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ApplicationSummary"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/appdev/apppackages/{applicationKey}/clone/{packageName}":
+    post:
+      tags:
+        - Package
+      summary: Use this operation to clone an existing package
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: packageName
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/appdev/apppackages/applications/{applicationKey}/packages":
+    get:
+      tags:
+        - Package
+      summary: Use this operation to retieve all packages for a given applicationKey
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 50
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PackageCollection"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PackageCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PackageCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/appdev/apppackages:
+    get:
+      tags:
+        - Package
+      summary: Get all packages for a given Developer Account
+      parameters:
+        - name: startIndex
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: ""
+          schema:
+            type: integer
+            format: int32
+            default: 20
+        - name: sortBy
+          in: query
+          description: ""
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PackageSummaryCollection"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PackageSummaryCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PackageSummaryCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/appdev/apppackages/create:
+    post:
+      tags:
+        - Package
+      summary: Save as new version of the application core with only a release package
+        included
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PackageRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AppDevPackage"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/packages/{applicationKey}/files/{filepath}":
+    post:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: filepath
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: lastModifiedTime
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+    delete:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: filepath
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/packages/{applicationKey}/files_rename":
+    post:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RenameInfo"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/packages/{applicationKey}/metadata":
+    get:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FolderMetadata"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderMetadata"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FolderMetadata"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/packages/{applicationKey}/filemetadata/{filepath}":
+    get:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: filepath
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/FileMetadata"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/applications/versions/{nsAndAppId}":
+    get:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: nsAndAppId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ApplicationVersionsCollection"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationVersionsCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationVersionsCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/developer/applications/{applicationKey}/packagenames":
+    get:
+      tags:
+        - PublicApplication
+      summary: ""
+      parameters:
+        - name: applicationKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PackageNamesCollection"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PackageNamesCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/PackageNamesCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /event/pull:
+    get:
+      tags:
+        - Event
+      summary: Retrieves a list of events according to any specified filter criteria
+        and sort options
+      parameters:
+        - name: startIndex
+          in: query
+          description: Used to page results from a query. Indicates the zero-based offset
+            in the complete result set where the returned entities begin. For
+            example, with a PageSize of 25, to get the 51st through the 75th
+            items, startIndex=3. The default value is 0. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: Used to page results from a query. Indicates the maximum number of
+            entities to return from a query. The default value is 20 and the
+            maximum value is 200. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: sortBy
+          in: query
+          description: The element to sort the results by and the order in which the
+            results appear. Either ascending (a-z) or descending (z-a) order.
+            Optional.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: "A set of filter expressions representing the search parameters for
+            a query: eq=equals, ne=not equals, gt=greater than, lt = less than
+            or equals, gt = greater than or equals, lt = less than or equals, sw
+            = starts with, or cont = contains. Optional."
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EventCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EventCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/event/pull/{eventId}":
+    get:
+      tags:
+        - Event
+      summary: Retrieves the details of a single event
+      parameters:
+        - name: eventId
+          in: path
+          description: Unique identifier of the event. System-supplied and read-only.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventEvent"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EventEvent"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EventEvent"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/event/push/subscriptions/{subscriptionId}/deliveryattempts":
+    get:
+      tags:
+        - Subscription
+      summary: Get delivery attempts
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: Subscription Identifier.
+          required: true
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: Used to page results from a query. Indicates the zero-based offset
+            in the complete result set where the returned entities begin. For
+            example, with a PageSize of 25, to get the 51st through the 75th
+            items, startIndex=3. The default value is 0. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: Used to page results from a query. Indicates the maximum number of
+            entities to return from a query. The default value is 20 and the
+            maximum value is 200. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: sortBy
+          in: query
+          description: The element to sort the results by and the order in which the
+            results appear. Either ascending (a-z) or descending (z-a) order.
+            Optional.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: "A set of filter expressions representing the search parameters for
+            a query: eq=equals, ne=not equals, gt=greater than, lt = less than
+            or equals, gt = greater than or equals, lt = less than or equals, sw
+            = starts with, or cont = contains. Optional."
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummaryCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummaryCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummaryCollection"
+      description: Get delivery attempts
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/event/push/subscriptions/{subscriptionId}/deliveryattempts/{id}":
+    get:
+      tags:
+        - Subscription
+      summary: Get delivery attempt summary
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: string
+        - name: processId
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummary"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummary"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/EventDeliverySummary"
+      description: Get delivery attempt summary
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /event/push/subscriptions:
+    get:
+      tags:
+        - Subscription
+      summary: Retrieves a list of events according to any specified filter criteria
+        and sort options
+      parameters:
+        - name: startIndex
+          in: query
+          description: Used to page results from a query. Indicates the zero-based offset
+            in the complete result set where the returned entities begin. For
+            example, with a PageSize of 25, to get the 51st through the 75th
+            items, startIndex=3. The default value is 0. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          description: Used to page results from a query. Indicates the maximum number of
+            entities to return from a query. The default value is 20 and the
+            maximum value is 200. Optional.
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: sortBy
+          in: query
+          description: The element to sort the results by and the order in which the
+            results appear. Either ascending (a-z) or descending (z-a) order.
+            Optional.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: "A set of filter expressions representing the search parameters for
+            a query: eq=equals, ne=not equals, gt=greater than, lt = less than
+            or equals, gt = greater than or equals, lt = less than or equals, sw
+            = starts with, or cont = contains. Optional."
+          schema:
+            type: string
+        - name: responseGroups
+          in: query
+          description: "Used to get more specific information from the request.  Available
+            response groups: SubscribingSites."
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubscriptionCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SubscriptionCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SubscriptionCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/contentLocales:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get the full list of Content Locales supported by the system
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentLocaleCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ContentLocaleCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ContentLocaleCollection"
+      description: Get the full list of Content Locales supported by the system
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/topleveldomains:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get a full list of the supported top level domains
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TopLevelDomainCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TopLevelDomainCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TopLevelDomainCollection"
+      description: Get a full list of the supported top level domains
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/unitsofmeasure:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get a full list of the units of measure
+      parameters:
+        - name: filter
+          in: query
+          description: ""
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnitOfMeasureCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/UnitOfMeasureCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/UnitOfMeasureCollection"
+      description: Get a full list of the units of measure
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/countries:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get the full list of Countries supported by the system
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CountryCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CountryCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CountryCollection"
+      description: Get the full list of Countries supported by the system
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/currencies:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get the full list of Currencies supported by the system
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrencyCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CurrencyCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CurrencyCollection"
+      description: Get the full list of Currencies supported by the system
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/timezones:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get the full list of TimeZones supported by the system
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TimeZoneCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/TimeZoneCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/TimeZoneCollection"
+      description: Get the full list of TimeZones supported by the system
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/addressschemas:
+    get:
+      tags:
+        - ReferenceData
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddressSchemaCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AddressSchemaCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AddressSchemaCollection"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/reference/addressschema/{countryCode}":
+    get:
+      tags:
+        - ReferenceData
+      parameters:
+        - name: countryCode
+          in: path
+          required: true
+          schema:
+            type: string
+            default: US
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddressSchema"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AddressSchema"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AddressSchema"
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/behaviors:
+    get:
+      tags:
+        - ReferenceData
+      summary: Retrieves a list of all behaviors
+      parameters:
+        - name: userType
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/BehaviorCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/behaviors/categories:
+    get:
+      tags:
+        - ReferenceData
+      summary: Retrieves a list of all behavior categories
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategoryCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategoryCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategoryCollection"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/reference/behaviors/{behaviorId}":
+    get:
+      tags:
+        - ReferenceData
+      summary: Retrieves the details of a behavior specified by its behavior ID
+      parameters:
+        - name: behaviorId
+          in: path
+          description: Unique identifier of the behavior for which you want details.
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Behavior"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/Behavior"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Behavior"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/reference/behaviors/categories/{categoryId}":
+    get:
+      tags:
+        - ReferenceData
+      summary: Retrieves the details of a behavior specified by its behavior ID
+      parameters:
+        - name: categoryId
+          in: path
+          description: Unique identifier of the behavior category for which you want
+            details.
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategory"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategory"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/BehaviorCategory"
+      description: ""
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  /platform/reference/countrieswithstates:
+    get:
+      tags:
+        - ReferenceData
+      summary: Get the full list of Countries supported by the system
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CountryWithStatesCollection"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/CountryWithStatesCollection"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/CountryWithStatesCollection"
+      description: Get the full list of Countries supported by the system
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+  "/platform/tenants/{tenantId}":
+    get:
+      tags:
+        - Tenants
+      summary: Get Tenant by ID
+      parameters:
+        - name: tenantId
+          in: path
+          description: ""
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminUserTenant"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AdminUserTenant"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AdminUserTenant"
+      description: Get Tenant by ID
+      security:
+        - bearerAuth: []
+          clientOauth2: []
+tags:
+  - name: TenantAuthTicket
+    x-displayName: TenantAuthTicket
+  - name: TenenantUser
+    x-displayName: TenenantUser
+  - name: DeveloperAuthTicket
+    x-displayName: DeveloperAuthTicket
+  - name: TenantRole
+    x-displayName: TenantRole
+  - name: AppAuthTickets
+    x-displayName: AppAuthTickets
+  - name: FilebasedPackage
+    x-displayName: FilebasedPackage
+  - name: Package
+    x-displayName: Package
+  - name: PublicApplication
+    x-displayName: PublicApplication
+  - name: Event
+    x-displayName: Event
+  - name: Subscription
+    x-displayName: Subscription
+  - name: ReferenceData
+    x-displayName: ReferenceData
+  - name: Tenants
+    x-displayName: Tenants
+x-tagGroups:
+  - name: adminuser
+    tags:
+      - TenantAuthTicket
+      - TenenantUser
+      - DeveloperAuthTicket
+      - TenantRole
+  - name: appdev
+    tags:
+      - AppAuthTickets
+      - FilebasedPackage
+      - Package
+      - PublicApplication
+  - name: event
+    tags:
+      - Event
+      - Subscription
+  - name: reference
+    tags:
+      - ReferenceData
+  - name: tenant
+    tags:
+      - Tenants
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: "JWT Authorization header using the Bearer scheme. \r
+
+        \r
+
+        \ Enter 'Bearer' [space] and then your token in the text input
+        below.\r
+
+        \r
+
+        Example: \"Bearer 12345abcdef\""
+      scheme: bearer
+      bearerFormat: JWT
+    clientOauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://home.dev10.kubedev.kibo-dev.com/api/platform/applications/authtickets/oauth
+          scopes: {}
+  schemas:
+    UserProfile:
+      type: object
+      properties:
+        userId:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        emailAddress:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    BaseTenantEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TenantAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        value:
+          nullable: true
+        createBy:
+          type: string
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+        updateBy:
+          type: string
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    AdminUserSite:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BaseTenantEntity"
+      properties:
+        tenantId:
+          type: integer
+          format: int32
+        catalogId:
+          type: integer
+          format: int32
+        localeCode:
+          type: string
+          nullable: true
+        countryCode:
+          type: string
+          nullable: true
+        currencyCode:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        primaryCustomDomain:
+          type: string
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/TenantAttribute"
+          nullable: true
+      additionalProperties: false
+    Catalog:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BaseTenantEntity"
+      properties:
+        tenantId:
+          type: integer
+          format: int32
+        masterCatalogId:
+          type: integer
+          format: int32
+        defaultLocaleCode:
+          type: string
+          nullable: true
+        defaultCurrencyCode:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AdminUserMasterCatalog:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BaseTenantEntity"
+      properties:
+        tenantId:
+          type: integer
+          format: int32
+        defaultLocaleCode:
+          type: string
+          nullable: true
+        defaultCurrencyCode:
+          type: string
+          nullable: true
+        catalogs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Catalog"
+          nullable: true
+      additionalProperties: false
+    AdminUserTenant:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BaseTenantEntity"
+      properties:
+        isDevTenant:
+          type: boolean
+        sites:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminUserSite"
+          nullable: true
+        masterCatalogs:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminUserMasterCatalog"
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        omsMerchantId:
+          type: integer
+          format: int32
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/TenantAttribute"
+          nullable: true
+        isUnified:
+          type: boolean
+      additionalProperties: false
+    TenantAdminUserAuthTicket:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/UserProfile"
+        createdOn:
+          type: string
+          format: date-time
+        jwtAccessToken:
+          type: string
+          nullable: true
+        accessToken:
+          type: string
+          nullable: true
+        accessTokenExpiration:
+          type: string
+          format: date-time
+        refreshToken:
+          type: string
+          nullable: true
+        redirect:
+          type: string
+          nullable: true
+        refreshTokenExpiration:
+          type: string
+          format: date-time
+        tenant:
+          $ref: "#/components/schemas/AdminUserTenant"
+        availableTenants:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminUserTenant"
+          nullable: true
+        grantedBehaviors:
+          type: array
+          items:
+            type: integer
+            format: int32
+          nullable: true
+      additionalProperties: false
+    UserAuthInfo:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TenantCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminUserTenant"
+          nullable: true
+      additionalProperties: false
+    UserSystemData:
+      type: object
+      properties:
+        isPasswordChangeRequired:
+          type: boolean
+        lastPasswordChangeOn:
+          type: string
+          format: date-time
+          nullable: true
+        isLocked:
+          type: boolean
+        lastLockedOn:
+          type: string
+          format: date-time
+          nullable: true
+        failedLoginAttemptCount:
+          type: integer
+          format: int32
+        remainingLoginAttempts:
+          type: integer
+          format: int32
+        firstFailedLoginAttemptOn:
+          type: string
+          format: date-time
+          nullable: true
+        lastLoginOn:
+          type: string
+          format: date-time
+          nullable: true
+        createdOn:
+          type: string
+          format: date-time
+          nullable: true
+        updatedOn:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    UserScope:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AdminUserAuditInfo:
+      type: object
+      properties:
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateBy:
+          type: string
+          nullable: true
+        createBy:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserRole:
+      type: object
+      properties:
+        userId:
+          type: string
+          nullable: true
+        assignedInScope:
+          $ref: "#/components/schemas/UserScope"
+        roleId:
+          type: integer
+          format: int32
+        roleName:
+          type: string
+          nullable: true
+        roleTags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+    User:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        externalId:
+          type: string
+          nullable: true
+        localeCode:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+        optInToEmail:
+          type: boolean
+          nullable: true
+        optInToTextMessage:
+          type: boolean
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        systemData:
+          $ref: "#/components/schemas/UserSystemData"
+        roles:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserRole"
+          nullable: true
+        isActive:
+          type: boolean
+        identityProviderId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AdminUserUserRoleCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserRole"
+          nullable: true
+      additionalProperties: false
+      description: Collection of UserRoles for given user.
+    AdminUserPasswordInfo:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+          description: Old password.
+          nullable: true
+        newPassword:
+          type: string
+          description: New password.
+          nullable: true
+      additionalProperties: false
+      description: Old password and new password.
+    ChangeUserPasswordInfo:
+      type: object
+      properties:
+        newPassword:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AdminUserResetPasswordInfo:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          nullable: true
+      additionalProperties: false
+      description: Email address of the user who is requesting a new password.
+    DeveloperAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DeveloperAdminUserAuthTicket:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/UserProfile"
+        createdOn:
+          type: string
+          format: date-time
+        jwtAccessToken:
+          type: string
+          nullable: true
+        accessToken:
+          type: string
+          nullable: true
+        accessTokenExpiration:
+          type: string
+          format: date-time
+        refreshToken:
+          type: string
+          nullable: true
+        refreshTokenExpiration:
+          type: string
+          format: date-time
+        account:
+          $ref: "#/components/schemas/DeveloperAccount"
+        availableAccounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/DeveloperAccount"
+          nullable: true
+        grantedBehaviors:
+          type: array
+          items:
+            type: integer
+            format: int32
+          nullable: true
+      additionalProperties: false
+    Behavior:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        categoryId:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        requiresBehaviorIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          nullable: true
+        validUserTypes:
+          type: array
+          items:
+            type: string
+          nullable: true
+        isPrivate:
+          type: boolean
+        systemRoles:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    Resource:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Owner:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Role:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        isSystemRole:
+          type: boolean
+        behaviors:
+          type: array
+          items:
+            $ref: "#/components/schemas/Behavior"
+          nullable: true
+        resources:
+          type: array
+          items:
+            $ref: "#/components/schemas/Resource"
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        id:
+          type: integer
+          format: int32
+        userScope:
+          $ref: "#/components/schemas/UserScope"
+        owners:
+          type: array
+          items:
+            $ref: "#/components/schemas/Owner"
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+    CollectionOfRole:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Role"
+          nullable: true
+      additionalProperties: false
+    RoleCollection:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/CollectionOfRole"
+      additionalProperties: false
+    AppAuthInfo:
+      type: object
+      properties:
+        applicationId:
+          type: string
+          nullable: true
+        sharedSecret:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AuthTicket:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+          nullable: true
+        accessToken:
+          type: string
+          nullable: true
+        accessTokenExpiration:
+          type: string
+          format: date-time
+        refreshTokenExpiration:
+          type: string
+          format: date-time
+      additionalProperties: false
+    OauthAuthRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          nullable: true
+        client_secret:
+          type: string
+          nullable: true
+        refresh_token:
+          type: string
+          nullable: true
+        grant_type:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OAuthAccessTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          nullable: true
+        token_type:
+          type: string
+          nullable: true
+        expires_in:
+          type: integer
+          format: int32
+        refresh_token:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AuthTicketRequest:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+          description: The refresh token for renewing the authorization.
+          nullable: true
+      additionalProperties: false
+      description: Complex object to have the refresh token sent in the body intead of
+        as clear text in the query string.
+    KeyValuePair`2:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        value:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    AppDevHttpContent:
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    HttpStatusCode:
+      enum:
+        - 100
+        - 101
+        - 102
+        - 103
+        - 200
+        - 201
+        - 202
+        - 203
+        - 204
+        - 205
+        - 206
+        - 207
+        - 208
+        - 226
+        - 300
+        - 301
+        - 302
+        - 303
+        - 304
+        - 305
+        - 306
+        - 307
+        - 308
+        - 400
+        - 401
+        - 402
+        - 403
+        - 404
+        - 405
+        - 406
+        - 407
+        - 408
+        - 409
+        - 410
+        - 411
+        - 412
+        - 413
+        - 414
+        - 415
+        - 416
+        - 417
+        - 421
+        - 422
+        - 423
+        - 424
+        - 426
+        - 428
+        - 429
+        - 431
+        - 451
+        - 500
+        - 501
+        - 502
+        - 503
+        - 504
+        - 505
+        - 506
+        - 507
+        - 508
+        - 510
+        - 511
+      type: integer
+      format: int32
+    HttpMethod:
+      type: object
+      properties:
+        method:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AppDevHttpRequestMessage:
+      type: object
+      properties:
+        version:
+          type: string
+          nullable: true
+        content:
+          $ref: "#/components/schemas/AppDevHttpContent"
+        method:
+          $ref: "#/components/schemas/HttpMethod"
+        requestUri:
+          type: string
+          format: uri
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+        properties:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    AppDevHttpResponseMessage:
+      type: object
+      properties:
+        version:
+          type: string
+          nullable: true
+        content:
+          $ref: "#/components/schemas/AppDevHttpContent"
+        statusCode:
+          $ref: "#/components/schemas/HttpStatusCode"
+        reasonPhrase:
+          type: string
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+        trailingHeaders:
+          type: array
+          items:
+            $ref: "#/components/schemas/KeyValuePair`2"
+          nullable: true
+          readOnly: true
+        requestMessage:
+          $ref: "#/components/schemas/AppDevHttpRequestMessage"
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    ApplicationBehavior:
+      type: object
+      properties:
+        behaviorId:
+          type: integer
+          description: ""
+          format: int32
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+      additionalProperties: false
+      description: ""
+    AppDevEvent:
+      type: object
+      properties:
+        eventId:
+          type: integer
+          description: Unique identifier of an Event record.
+          format: int32
+        eventName:
+          type: string
+          description: The name of the event.
+          nullable: true
+        eventCategory:
+          type: string
+          description: The category the event belongs to.
+          nullable: true
+        apiVersionNumber:
+          type: string
+          description: The Api Version Number which defines what events are available for
+            a given API version.
+          nullable: true
+      additionalProperties: false
+      description: Describes an event that a 3rd party developer can subscribe to.
+    ApplicationSubscription:
+      type: object
+      properties:
+        applicationSubscriptionId:
+          type: integer
+          description: The unique identifier of an ApplicationVersionEvent record.
+          format: int32
+        applicationEndPoint:
+          type: string
+          description: The End Point where the event information will be sent to when the
+            event is fired.
+          nullable: true
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppDevEvent"
+          description: ""
+          nullable: true
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+        noCallback:
+          type: boolean
+          description: ""
+      additionalProperties: false
+      description: Defines an event that an Application Version is subscribed to.
+    ApplicationCapability:
+      type: object
+      properties:
+        applicationCapabilityId:
+          type: integer
+          description: ""
+          format: int32
+        capabilityTypeContractId:
+          type: integer
+          description: ""
+          format: int32
+        applicationEndPoint:
+          type: string
+          description: ""
+          nullable: true
+        applicationCapabilityTypeId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+      additionalProperties: false
+      description: ""
+    ApplicationCapabilityDomainValue:
+      type: object
+      properties:
+        applicationCapabilityDomainValueId:
+          type: integer
+          description: ""
+          format: int32
+        applicationCapabilityDomainId1:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        applicationCapabilityDomainId2:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        valueName:
+          type: string
+          description: ""
+          nullable: true
+        displayName:
+          type: string
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: ""
+    ApplicationCapabilityDomain:
+      type: object
+      properties:
+        applicationCapabilityDomainId:
+          type: integer
+          description: ""
+          format: int32
+        applicationCapabilityTypeId:
+          type: integer
+          description: ""
+          format: int32
+        name:
+          type: string
+          description: ""
+          nullable: true
+        applicationCapabilityDomainValues1:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapabilityDomainValue"
+          description: ""
+          nullable: true
+        applicationCapabilityDomainValues2:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapabilityDomainValue"
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: ""
+    ApplicationCapabilityType:
+      type: object
+      properties:
+        applicationCapabilityTypeId:
+          type: integer
+          description: ""
+          format: int32
+        applicationId:
+          type: integer
+          description: ""
+          format: int32
+        capabilityTypeId:
+          type: integer
+          description: ""
+          format: int32
+        capabilityTypeName:
+          type: string
+          description: ""
+          nullable: true
+        isImplemented:
+          type: boolean
+          description: ""
+        isInitializedByDefault:
+          type: boolean
+          description: ""
+        applicationCapabilities:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapability"
+          description: ""
+          nullable: true
+        applicationCapabilityDomains:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapabilityDomain"
+          description: ""
+          nullable: true
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+      additionalProperties: false
+      description: ""
+    AppDevAttribute:
+      type: object
+      properties:
+        attributeId:
+          type: integer
+          description: ""
+          format: int32
+        code:
+          type: string
+          description: ""
+          nullable: true
+        type:
+          type: string
+          description: ""
+          nullable: true
+        fqn:
+          type: string
+          description: ""
+          nullable: true
+        sequence:
+          type: integer
+          description: ""
+          format: int32
+        vocabularyJson:
+          type: string
+          description: ""
+          nullable: true
+        applicationAttributeId:
+          type: integer
+          description: ""
+          format: int32
+        name:
+          type: string
+          description: ""
+          nullable: true
+        inputType:
+          type: string
+          description: ""
+          nullable: true
+        adminName:
+          type: string
+          description: ""
+          nullable: true
+        vocabularyValues:
+          type: string
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: ""
+    ApplicationAttribute:
+      type: object
+      properties:
+        subsystem:
+          type: string
+          description: Customer, Order, or Product
+          nullable: true
+        attributeJson:
+          type: string
+          description: json representation of attribute definitions
+          nullable: true
+        productTypeJson:
+          type: string
+          description: Will contain ProductTypeCollection if Product, else AttributeSet
+          nullable: true
+        isAppliedToBase:
+          type: boolean
+        sourceTenantId:
+          type: integer
+          description: Source Tenant Id
+          format: int32
+        sourceTenantName:
+          type: string
+          description: Source Tenant Name
+          nullable: true
+        attributeCodes:
+          type: string
+          description: Comma delimited list of attribute codes.
+          nullable: true
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+        attributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppDevAttribute"
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: Holds attribute definitions for AppVersion
+    ApplicationTransaction:
+      type: object
+      properties:
+        applicationTransactionId:
+          type: integer
+          description: ""
+          format: int32
+        applicationId:
+          type: integer
+          description: ""
+          format: int32
+        applicationEntitlementId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        tenantId:
+          type: integer
+          description: ""
+          format: int32
+        siteId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        localeCode:
+          type: integer
+          description: ""
+          format: int32
+        isoCurrencyCode:
+          type: string
+          description: ""
+          nullable: true
+        transactionDate:
+          type: string
+          description: ""
+          format: date-time
+        transactionPrice:
+          type: number
+          description: ""
+          format: double
+        transactionTax:
+          type: number
+          description: ""
+          format: double
+        transactionTotal:
+          type: number
+          description: ""
+          format: double
+        orderNumber:
+          type: string
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: ""
+    ApplicationEntitlement:
+      type: object
+      properties:
+        appKey:
+          type: string
+          description: ""
+          nullable: true
+        applicationEntitlementId:
+          type: integer
+          description: ""
+          format: int32
+        packageId:
+          type: integer
+          description: ""
+          format: int32
+        applicationLicenseType:
+          type: string
+          description: ""
+          nullable: true
+        entitlementStatus:
+          type: string
+          description: ""
+          nullable: true
+        tenantId:
+          type: integer
+          description: ""
+          format: int32
+        siteId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        effectiveStartDate:
+          type: string
+          description: ""
+          format: date-time
+          nullable: true
+        effectiveEndDate:
+          type: string
+          description: ""
+          format: date-time
+          nullable: true
+        applicationTransactions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationTransaction"
+          description: ""
+          nullable: true
+        applicationName:
+          type: string
+          description: ""
+          nullable: true
+        applicationVersion:
+          type: string
+          description: ""
+          nullable: true
+        installedByFirstName:
+          type: string
+          description: ""
+          nullable: true
+        installedByLastName:
+          type: string
+          description: ""
+          nullable: true
+        installedDate:
+          type: string
+          description: ""
+          format: date-time
+        packageName:
+          type: string
+          description: ""
+          nullable: true
+        tenantName:
+          type: string
+          description: ""
+          nullable: true
+        applicationStatusId:
+          type: string
+          description: ""
+          nullable: true
+        applicationId:
+          type: integer
+          description: ""
+          format: int32
+        devAccountId:
+          type: integer
+          description: Denotes which DevAccountId is the application installed in
+          format: int32
+        installedAppsApplicationId:
+          type: string
+          description: ""
+          nullable: true
+        appOwnerDevAccountId:
+          type: integer
+          description: Denotes the application owner dev account id
+          format: int32
+      additionalProperties: false
+      description: ""
+    AppDevPackage:
+      type: object
+      properties:
+        updateDate:
+          type: string
+          description: ""
+          format: date-time
+        applicationUpdateDate:
+          type: string
+          description: ""
+          format: date-time
+          nullable: true
+        id:
+          type: integer
+          description: ""
+          format: int32
+        applicationName:
+          type: string
+          description: ""
+          nullable: true
+        applicationTypeId:
+          type: integer
+          description: ""
+          format: int32
+        applicationTypeName:
+          type: string
+          description: ""
+          nullable: true
+        majorVersion:
+          type: integer
+          description: ""
+          format: int32
+        minorVersion:
+          type: integer
+          description: ""
+          format: int32
+        revision:
+          type: integer
+          description: ""
+          format: int32
+        sharedSecret:
+          type: string
+          description: ""
+          nullable: true
+        applicationStatusId:
+          type: integer
+          description: ""
+          format: int32
+        applicationStatusName:
+          type: string
+          description: ""
+          nullable: true
+        apiVersion:
+          type: string
+          description: ""
+          nullable: true
+        applicationDescription:
+          type: string
+          description: ""
+          nullable: true
+        themeEngineVersion:
+          type: string
+          description: ""
+          nullable: true
+        namespace:
+          type: string
+          description: ""
+          nullable: true
+        validApplicationStatusIdList:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: "List of Statuses that the application can move to during the
+            application lifecycle.\r
+
+            This is based on what the current value of the
+            ApplicatinStatusId is."
+          nullable: true
+        appSchemeVersion:
+          type: integer
+          description: ""
+          format: int32
+        appConfigUrl:
+          type: string
+          description: "This will be used by the 3rd party developers to set a URL the
+            intalled \r
+
+            applications can call from the Tenant installation/"
+          nullable: true
+        isReleasePackage:
+          type: boolean
+          description: ""
+        packageName:
+          type: string
+          description: ""
+          nullable: true
+        packageDescription:
+          type: string
+          description: ""
+          nullable: true
+        dataNamespace:
+          type: string
+          description: ""
+          nullable: true
+        userId:
+          type: string
+          description: ""
+          nullable: true
+        appId:
+          type: string
+          description: ""
+          nullable: true
+        applicationId:
+          type: integer
+          description: ""
+          format: int32
+        applicationDetailId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        isLocked:
+          type: boolean
+          description: ""
+        isDeleted:
+          type: boolean
+          description: ""
+        assetFileCount:
+          type: integer
+          description: ""
+          format: int32
+        packageGuid:
+          type: string
+          description: ""
+          nullable: true
+        applicationStatus:
+          type: string
+          description: ""
+          nullable: true
+        applicationBehaviors:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationBehavior"
+          description: List of Application Behaviors that apply to this version of the
+            application.
+          nullable: true
+        applicationSubscriptions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationSubscription"
+          description: ""
+          nullable: true
+        applicationCapabilityTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapabilityType"
+          description: ""
+          nullable: true
+        applicationAttributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationAttribute"
+          description: ""
+          nullable: true
+        applicationCapabilities:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationCapability"
+          description: ""
+          nullable: true
+        applicationEntitlements:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationEntitlement"
+          description: ""
+          nullable: true
+        attributeNamespace:
+          type: string
+          description: ""
+          nullable: true
+        hasApplicationVersions:
+          type: boolean
+          description: ""
+        legacyNamespace:
+          type: string
+          description: ""
+          nullable: true
+        namespaceRegistryId:
+          type: string
+          description: ""
+          nullable: true
+        publishedParentThemeId:
+          type: integer
+          description: ""
+          format: int32
+          nullable: true
+        publishedParentSemanticVersion:
+          type: string
+          description: ""
+          nullable: true
+        semanticVersionRange:
+          type: string
+          description: ""
+          nullable: true
+        parentThemeName:
+          type: string
+          description: ""
+          nullable: true
+        parentThemeAppKey:
+          type: string
+          description: "The parent theme AppKey if this is a theme and \r
+
+            the theme extends a valid, published theme."
+          nullable: true
+        updateParentAppKey:
+          type: string
+          description: "The AppKey is a runtime type.\r
+
+            This only applies for themes that inherit from another
+            theme.\r
+
+            It shows the most current update available."
+          nullable: true
+        updateAvailable:
+          type: boolean
+          description: Whether or not there's a theme update.
+        appKey:
+          type: string
+          description: App Key for the package in question.
+          nullable: true
+        updateParentThemeName:
+          type: string
+          description: "This only applies for themes that inherit from another theme.\r
+
+            It shows the name of the most current update available."
+          nullable: true
+        updateParentThemeVersion:
+          type: string
+          description: "This only applies for themes that inherit from another theme.\r
+
+            It shows the version of the most current update
+            available."
+          nullable: true
+        applicationOwnerDevAccountId:
+          type: integer
+          description: This is the DevAccountId that owns the application
+          format: int32
+      additionalProperties: false
+      description: ""
+    AppVersion:
+      type: object
+      properties:
+        majorVersion:
+          type: integer
+          description: ""
+          format: int32
+        minorVersion:
+          type: integer
+          description: ""
+          format: int32
+        revision:
+          type: integer
+          description: ""
+          format: int32
+      additionalProperties: false
+      description: ""
+    ApplicationSummary:
+      type: object
+      properties:
+        parentName:
+          type: string
+          description: ""
+          nullable: true
+        applicationId:
+          type: integer
+          description: ""
+          format: int32
+        applicationTypeId:
+          type: integer
+          description: ""
+          format: int32
+        releasePackageId:
+          type: integer
+          description: ""
+          format: int32
+        releasePackageName:
+          type: string
+          description: ""
+          nullable: true
+        name:
+          type: string
+          description: ""
+          nullable: true
+        applicationNamespace:
+          type: string
+          description: ""
+          nullable: true
+        applicationVersion:
+          $ref: "#/components/schemas/AppVersion"
+        applicationStatusId:
+          type: integer
+          description: ""
+          format: int32
+        appId:
+          type: string
+          description: ""
+          nullable: true
+        applicationStatusName:
+          type: string
+          description: ""
+          nullable: true
+        hasVersions:
+          type: boolean
+          description: ""
+        appSchemeVersion:
+          type: integer
+          description: ""
+          format: int32
+        appKey:
+          type: string
+          description: The AppKey is a runtime type.
+          nullable: true
+        parentAppKey:
+          type: string
+          description: "The AppKey is a runtime type.\r
+
+            This only applies for themes that inherit from another
+            theme."
+          nullable: true
+        updateParentAppKey:
+          type: string
+          description: "The AppKey is a runtime type.\r
+
+            This only applies for themes that inherit from another
+            theme.\r
+
+            It shows the most current update available."
+          nullable: true
+        updateAvailable:
+          type: boolean
+          description: ""
+      additionalProperties: false
+    ApplicationSummaryCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationSummary"
+          nullable: true
+      additionalProperties: false
+      description: Collection of products returned as a whole. A collection is not paged.
+    PackageCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppDevPackage"
+          nullable: true
+      additionalProperties: false
+      description: ""
+    PackageSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Package Id
+          format: int32
+        name:
+          type: string
+          description: Package Name
+          nullable: true
+        applicationName:
+          type: string
+          description: Application Name
+          nullable: true
+        applicationTypeId:
+          type: integer
+          description: Application Type Id
+          format: int32
+        majorVersion:
+          type: integer
+          description: Application Major Version
+          format: int32
+        minorVersion:
+          type: integer
+          description: Application Minor Version
+          format: int32
+        revision:
+          type: integer
+          description: Application Revision
+          format: int32
+        isLocked:
+          type: boolean
+          description: IsLocked
+        applicationId:
+          type: integer
+          description: ApplicationId
+          format: int32
+      additionalProperties: false
+      description: ""
+    PackageSummaryCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackageSummary"
+          nullable: true
+      additionalProperties: false
+      description: ""
+    PackageRequest:
+      type: object
+      properties:
+        appKey:
+          type: string
+          description: ""
+          nullable: true
+        parentThemeAppKey:
+          type: string
+          description: ""
+          nullable: true
+      additionalProperties: false
+      description: ""
+    FileMetadata:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        path:
+          type: string
+          nullable: true
+        checkSum:
+          type: string
+          nullable: true
+        sizeInBytes:
+          type: integer
+          format: int64
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+    RenameInfo:
+      type: object
+      properties:
+        oldFullPath:
+          type: string
+          nullable: true
+        newFullPath:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FolderMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        fullPath:
+          type: string
+          nullable: true
+        files:
+          type: array
+          items:
+            $ref: "#/components/schemas/FileMetadata"
+          nullable: true
+        subFolders:
+          type: array
+          items:
+            $ref: "#/components/schemas/FolderMetadata"
+          nullable: true
+      additionalProperties: false
+    ApplicationVersionsCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    PackageNamesCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    EventExtendedProperty:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        value:
+          nullable: true
+      additionalProperties: false
+      description: Event Extended Property
+    EventEvent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for an event
+          nullable: true
+        tenantId:
+          type: integer
+          description: TenantId
+          format: int32
+          nullable: true
+        masterCatalogId:
+          type: integer
+          description: MasterCatalogId
+          format: int32
+          nullable: true
+        catalogId:
+          type: integer
+          description: CatalogId
+          format: int32
+          nullable: true
+        siteId:
+          type: integer
+          description: SiteId
+          format: int32
+          nullable: true
+        topic:
+          type: string
+          description: The topic of the event (i.e. product.created)
+          nullable: true
+        entityId:
+          type: string
+          description: The identifier / ID of the entity that changed (i.e. product code)
+          nullable: true
+        isTest:
+          type: boolean
+          description: Is this a test?
+          nullable: true
+        correlationId:
+          type: string
+          description: The Correlation Id of the original API request that caused this
+            event to occur
+          nullable: true
+        extendedProperties:
+          type: array
+          items:
+            $ref: "#/components/schemas/EventExtendedProperty"
+          description: "Extended properties. Note: This is purposefully not a
+            CollectionBase type wrapper so consumers start to get used to not
+            having counts returned."
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: The external/public Event entity used specifically in PULL/POLL
+        event scenarios
+    EventCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/EventEvent"
+          nullable: true
+      additionalProperties: false
+      description: Collection of events returned as a whole.
+    EventSummary:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: 'Note: Remember in the contract version to convert this Guid to
+            ToString("N") so the dashes are not present'
+          nullable: true
+        tenantId:
+          type: integer
+          description: Tenant Id
+          format: int32
+          nullable: true
+        masterCatalogId:
+          type: integer
+          description: Master Catalog Id
+          format: int32
+          nullable: true
+        catalogId:
+          type: integer
+          description: Catalog Id
+          format: int32
+          nullable: true
+        siteId:
+          type: integer
+          description: Site Id
+          format: int32
+          nullable: true
+        entityId:
+          type: string
+          description: Entity Id
+          nullable: true
+        topic:
+          type: string
+          description: Topic
+          nullable: true
+        extendedProperties:
+          type: array
+          items:
+            $ref: "#/components/schemas/EventExtendedProperty"
+          description: "Extended properties. Note: This is purposefully not a
+            CollectionBase type wrapper so consumers start to get used to not
+            having counts returned."
+          nullable: true
+        correlationId:
+          type: string
+          description: Correlation Id
+          nullable: true
+        createDate:
+          type: string
+          description: Create Date
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: Event Summary is a trimmed version of an event that is utilized
+        when displaying the event delivery (aka webhook, HTTP callback, HTTP
+        POST) process history/details
+    HttpStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: The higher-level integer based HTTP Status Code returned by the
+            remote endpoint
+          format: int32
+        name:
+          type: string
+          description: Friendly text the HTTP Status Code returned by the remote endpoint
+          nullable: true
+      additionalProperties: false
+      description: Http Status
+    EventDeliveryAttempt:
+      type: object
+      properties:
+        deliveryStatus:
+          type: string
+          description: Status of the delivery process (EventDeliveryStatusType).
+            System-supplied and read-only.
+          nullable: true
+        errorType:
+          type: string
+          description: Type of error that occurred, if the delivery was unsuccessful
+          nullable: true
+        httpStatus:
+          $ref: "#/components/schemas/HttpStatus"
+        message:
+          type: string
+          description: HTTP message returned by the remote endpoint
+          nullable: true
+        executionDate:
+          type: string
+          description: The date that the delivery was attempted
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: The external/public Event entity used specifically in PULL/POLL
+        event scenarios
+    EventDeliverySummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for an event delivery summary
+          format: int32
+          nullable: true
+        deliveryStatus:
+          type: string
+          description: Status of the delivery process (EventDeliveryStatusType)
+          nullable: true
+        eventSummary:
+          $ref: "#/components/schemas/EventSummary"
+        isRunning:
+          type: boolean
+          description: Indicates whether delivery of the event is currently being
+            attempted at this moment in time
+        lastExecutionDate:
+          type: string
+          description: The date that the delivery was last attempted (either successfully
+            or not)
+          format: date-time
+        nextExecutionDate:
+          type: string
+          description: The date that the delivery will next be attempted, if the event has
+            not been successfully delivered yet and there are still retries
+            remaining
+          format: date-time
+        retriesRemaining:
+          type: integer
+          description: Number of delivery attempts remaining
+          format: int32
+          nullable: true
+        createDate:
+          type: string
+          description: Create Date
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          description: Update Date
+          format: date-time
+          nullable: true
+        deliveryAttempts:
+          type: array
+          items:
+            $ref: "#/components/schemas/EventDeliveryAttempt"
+          description: Details about each attempted delivery of the event to the endpoint
+          nullable: true
+      additionalProperties: false
+      description: The external/public Event entity used specifically in PULL/POLL
+        event scenarios
+    EventDeliverySummaryCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/EventDeliverySummary"
+          nullable: true
+      additionalProperties: false
+      description: Collection of event deliver summaries
+    SubscribingSite:
+      type: object
+      properties:
+        siteId:
+          type: integer
+          description: The site identifier
+          format: int32
+          nullable: true
+        isActive:
+          type: boolean
+          description: Is the subscription active at the site level?
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+      additionalProperties: false
+      description: A site that is associated with a subscription
+    SubscribingTenant:
+      type: object
+      properties:
+        subscribingContextLevelType:
+          type: string
+          description: "Type of Subscribing Context\r
+
+            !:SubscribingContextLevelTypeConst\r
+
+            Derived from state of the subscription.  If any
+            Subscribing Sites exist (e.g. subscription is not at the Tenant
+            Level, then the value will be Site)"
+          nullable: true
+        tenantId:
+          type: integer
+          description: The tenant identifier
+          format: int32
+          nullable: true
+        isActive:
+          type: boolean
+          description: Is the subscription active at the tenant level?  If the
+            subscription context is at the Tenant Level this property will be
+            utilized over the SiteLevel
+          nullable: true
+        auditInfo:
+          $ref: "#/components/schemas/AdminUserAuditInfo"
+        subscribingSites:
+          type: array
+          items:
+            $ref: "#/components/schemas/SubscribingSite"
+          description: Subscribing Sites
+          nullable: true
+      additionalProperties: false
+      description: A tenant that is associated with a subscription
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for a subscription
+          nullable: true
+        appId:
+          type: string
+          description: Application identifier for subscription
+          nullable: true
+        apiVersion:
+          type: string
+          description: ApiVersion
+          nullable: true
+        topics:
+          type: array
+          items:
+            type: string
+          description: A list of topics that the subscription relates to
+          nullable: true
+        subscribingTenants:
+          type: array
+          items:
+            $ref: "#/components/schemas/SubscribingTenant"
+          description: A list of subscribers or subscribing tenants that the subscription
+            relates to
+          nullable: true
+        notificationDeliveryType:
+          type: string
+          description: "Notification delivery type which is a string representation of an
+            enumeration of values.  Example: Http (this is case insensitive, so
+            http may also be passed in)"
+          nullable: true
+        contentType:
+          type: string
+          description: "Content type of the payload that will be delivered.  This is
+            utilized in combination with the notification delivery
+            type.  Example:  A HTTP Post (notification delivery type) is
+            performed with a JSON representation of the event data (content
+            type)."
+          nullable: true
+        endpoint:
+          type: string
+          description: The delivery endpoint that will receive notifications when events
+            concerning the specified topics on the subscription occur.  The
+            format of the endpoint may differ depending on the notification
+            type.  For example, the endpoint may be a URL in some cases and an
+            email address in others if multiple notification types are
+            available.
+          nullable: true
+        confirmed:
+          type: boolean
+          description: A boolean value that indicates if the subscription endpoint has
+            been confirmed
+          nullable: true
+        isActive:
+          type: boolean
+          description: A boolean value that indicates if the subscription is active.  The
+            subscription may be inactive due to repeated downtimes at the
+            endpoint.  If they subscription is deactivated the subscription
+            owner or application will need to reactivate it for notifications to
+            be delivered.
+          nullable: true
+        noCallback:
+          type: boolean
+          description: A boolean value that indicates if events should be delivered that
+            resulted from an API call by the application.  If true, any events
+            that occur as a result of a direct API call by the same application
+            will not be delivered. This can prevent an endless loop in certain
+            scenarios.
+          nullable: true
+        createDate:
+          type: string
+          description: When the entity was created. System-supplied and read-only.
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          description: When the entity was updated. System-supplied and read-only.
+          format: date-time
+          nullable: true
+        createBy:
+          type: string
+          description: Identifier of the user who created the entity. System-supplied and
+            read-only.
+          nullable: true
+        updateBy:
+          type: string
+          description: Identifier of the user who updated the entity. System-supplied and
+            read-only.
+          nullable: true
+      additionalProperties: false
+      description: The subscription entity used specifically in PUSH event scenarios
+        where a third-party desires to receive notification of events
+    SubscriptionCollection:
+      type: object
+      properties:
+        startIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        pageCount:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Subscription"
+          nullable: true
+      additionalProperties: false
+      description: Collection of subscriptions returned as a whole.
+    ContentLocale:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ContentLocaleCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContentLocale"
+          nullable: true
+      additionalProperties: false
+    TopLevelDomainCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    UnitOfMeasure:
+      type: object
+      properties:
+        symbol:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        pluralName:
+          type: string
+          nullable: true
+        unitOfMeasureType:
+          type: string
+          description: This value can be "Length", "Weight", or "Volume"
+          nullable: true
+      additionalProperties: false
+    UnitOfMeasureCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/UnitOfMeasure"
+          nullable: true
+      additionalProperties: false
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CountryCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Country"
+          nullable: true
+      additionalProperties: false
+    Currency:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CurrencyCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Currency"
+          nullable: true
+      additionalProperties: false
+    TimeZone:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'The Id of the TimeZone (examples include: "Central Standard Time",
+            ...)'
+          nullable: true
+        offset:
+          type: number
+          description: The current offset for this TimeZone in hours
+          format: double
+        isDaylightSavingsTime:
+          type: boolean
+      additionalProperties: false
+    TimeZoneCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/TimeZone"
+          nullable: true
+      additionalProperties: false
+    FieldData:
+      type: object
+      properties:
+        value:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Field:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        label:
+          type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/FieldData"
+          nullable: true
+        id:
+          type: integer
+          format: int32
+        order:
+          type: integer
+          format: int32
+      additionalProperties: false
+    AddressSchema:
+      type: object
+      properties:
+        countryCode:
+          type: string
+          nullable: true
+        id:
+          type: integer
+          format: int32
+        countryLabel:
+          type: string
+          nullable: true
+        fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/Field"
+          nullable: true
+      additionalProperties: false
+    AddressSchemaCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AddressSchema"
+          nullable: true
+      additionalProperties: false
+    BehaviorCollectionBase:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Behavior"
+          nullable: true
+      additionalProperties: false
+    BehaviorCollection:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BehaviorCollectionBase"
+      additionalProperties: false
+    BehaviorCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    BehaviorCategoryCollectionBase:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/BehaviorCategory"
+          nullable: true
+      additionalProperties: false
+    BehaviorCategoryCollection:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/BehaviorCategoryCollectionBase"
+      additionalProperties: false
+    ReferenceState:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        tags:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CountryWithStates:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        states:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReferenceState"
+          nullable: true
+      additionalProperties: false
+    CountryWithStatesCollection:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/CountryWithStates"
+          nullable: true
+      additionalProperties: false
