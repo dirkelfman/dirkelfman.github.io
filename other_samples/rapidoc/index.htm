@@ -17,7 +17,6 @@
     }
     .sub-spec.selected {
       border-left: solid 4px #FFA306;
-      margin-left: -4px;
     }
   </style>
   <script>
@@ -25,15 +24,13 @@
     function changeSpec(item) {
       const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
       document.getElementById('docElement').loadSpec(specUri);
-      if (els.length === 0) {
-        els = [...document.getElementsByClassName('sub-spec')];
-      }
       els.forEach(el => {
         el.classList.remove('selected');
       });
       item.classList.add('selected');
     }
     setTimeout(() => {
+      els = [...document.getElementsByClassName('sub-spec')];
       changeSpec(document.getElementsByClassName('sub-spec')[0]);
     }, 1);
   </script>
