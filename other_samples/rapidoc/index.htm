@@ -26,12 +26,12 @@
       const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
       document.getElementById('docElement').loadSpec(specUri);
       if (els.length === 0) {
-        els = document.getElementsByClassName('sub-spec');
+        els = [...document.getElementsByClassName('sub-spec')];
       }
       els.forEach(el => {
         el.classList.remove('selected');
       });
-      this.classList.add('selected');
+      item.classList.add('selected');
     }
   </script>
   <!-- <script type="module" src="http://localhost/rapidoc-dist/rapidoc-min.js"></script> -->
