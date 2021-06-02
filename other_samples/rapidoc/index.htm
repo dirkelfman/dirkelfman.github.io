@@ -20,21 +20,12 @@
     }
   </style>
   <script>
-    let els = [];
-    function changeSpec(item) {
-      const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
-      document.getElementById('docElement').loadSpec(specUri);
-      els.forEach(el => {
-        el.classList.remove('selected');
-      });
-      item.classList.add('selected');
-    }
   </script>
   <!-- <script type="module" src="http://localhost/rapidoc-dist/rapidoc-min.js"></script> -->
 </head>
 
 <body>
-  <rapi-doc id="docElement" spec-url="https://dirkelfman.github.io/specs/openapi.yaml" render-style="focused"
+  <rapi-doc id="docElement" render-style="focused"
     heading-text="Kibo" use-path-in-nav-bar="false" sort-tags="true" show-header="false" nav-text-color="#2b2b2b"
     nav-accent-color="#FFA306" nav-bg-color="#ffffff" primary-color="#2EA195" regular-font="Source Sans Pro"
     mono-font="Fira Code">
@@ -42,22 +33,34 @@
       <a href="#overview"><img src="logo.png" width="284" alt="Kibo Software, Inc." style="border: none;" /></a>
     </div>
     <div slot="middle-nav">
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_order_management.yaml">Order Management</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_content.yaml">Content</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
-      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
+      <div id="spec_catalog" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
+      <div id="spec_commerce" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
+      <div id="spec_fulfillment" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
+      <div id="spec_order_management" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_order_management.yaml">Order Management</div>
+      <div id="spec_content" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_content.yaml">Content</div>
+      <div id="spec_settings" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
+      <div id="spec_platform" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
     </div>
   </rapi-doc>
   <script>
-    document.getElementById('docElement').addEventListener('spec-loaded', _ => {
-      if (els.length === 0) {
-        els = [...document.getElementsByClassName('sub-spec')];
-        changeSpec(els[0]);
+    const els = [...document.getElementsByClassName('sub-spec')];
+    const qs = new URLSearchParams(window.location.search);
+    function changeSpec(item) {
+      const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
+      document.getElementById('docElement').loadSpec(specUri);
+      els.forEach(el => {
+        el.classList.remove('selected');
+      });
+      item.classList.add('selected');
+      qs.set('spec', item.id.replace('spec_', ''));
+      window.location.search = qs.toString();
+    }
+    if (qs.has('spec')) {
+      const el = document.getElementById(`spec_${qs.get('spec')}`);
+      if (el) {
+        changeSpec(el);
       }
-    });    
+    }
   </script>
 </body>
 
