@@ -29,10 +29,6 @@
       });
       item.classList.add('selected');
     }
-    setTimeout(() => {
-      els = [...document.getElementsByClassName('sub-spec')];
-      changeSpec(document.getElementsByClassName('sub-spec')[0]);
-    }, 1);
   </script>
   <!-- <script type="module" src="http://localhost/rapidoc-dist/rapidoc-min.js"></script> -->
 </head>
@@ -55,6 +51,14 @@
       <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
     </div>
   </rapi-doc>
+  <script>
+    document.getElementById('docElement').addEventListener('spec-loaded', _ => {
+      if (els.length === 0) {
+        els = [...document.getElementsByClassName('sub-spec')];
+        changeSpec(els[0]);
+      }
+    });    
+  </script>
 </body>
 
 </html>
