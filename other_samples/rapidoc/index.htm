@@ -33,33 +33,62 @@
       <a href="#overview"><img src="logo.png" width="284" alt="Kibo Software, Inc." style="border: none;" /></a>
     </div>
     <div slot="middle-nav">
-      <div id="spec_catalog" class="sub-spec selected" onclick="changeSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
-      <div id="spec_commerce" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
-      <div id="spec_fulfillment" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
-      <div id="spec_order_management" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_order_management.yaml">Order Management</div>
-      <div id="spec_content" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_content.yaml">Content</div>
-      <div id="spec_settings" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
-      <div id="spec_platform" class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
+      <div id="spec_catalog" class="sub-spec selected" onclick="spec_onClick(this)" data-spec="openapi_catalog.yaml">Catalog</div>
+      <div id="spec_commerce" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_commerce.yaml">Commerce</div>
+      <div id="spec_fulfillment" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
+      <div id="spec_order_management" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_order_management.yaml">Order Management</div>
+      <div id="spec_content" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_content.yaml">Content</div>
+      <div id="spec_settings" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_settings.yaml">Settings</div>
+      <div id="spec_platform" class="sub-spec" onclick="spec_onClick(this)" data-spec="openapi_platform.yaml">Platform</div>
     </div>
   </rapi-doc>
   <script>
+
     const els = [...document.getElementsByClassName('sub-spec')];
     const qs = new URLSearchParams(window.location.search);
-    function changeSpec(item) {
-      const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
-      document.getElementById('docElement').loadSpec(specUri);
-      els.forEach(el => {
-        el.classList.remove('selected');
-      });
-      item.classList.add('selected');
-      qs.set('spec', item.id.replace('spec_', ''));
-      window.location.search = qs.toString();
+    const url = new URL(window.location.href);
+
+    function spec_onClick(el) {
+      url.hash = '#overview';
+      changeSpec(el);
     }
+
+    function changeSpec(item) {
+      const docEl = document.getElementById('docElement');
+      docEl.addEventListener('spec-loaded', function specLoaded() {
+        els.forEach(el => {
+          el.classList.remove('selected');
+        });
+        item.classList.add('selected');
+        docEl.removeEventListener('spec-loaded', specLoaded);
+      });
+      const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
+      docEl.loadSpec(specUri);      
+      qs.set('spec', item.id.replace('spec_', ''));
+      url.search = qs.toString();
+      window.history.pushState(null, null, url.toString());
+    }
+
     if (qs.has('spec')) {
-      const el = document.getElementById(`spec_${qs.get('spec')}`);
+      const qsSpec = qs.get('spec');
+      const el = document.getElementById(`spec_${qsSpec}`);
+      let scrollToPath = url.hash.length > 0 ? url.hash.substring(1) : null;
       if (el) {
-        changeSpec(el);
+        const docEl = document.getElementById('docElement');
+        (function specLoader() {
+          if (typeof docEl.loadSpec !== 'function') return setTimeout(specLoader, 100);
+          if (scrollToPath)
+            docEl.addEventListener('spec-loaded', function setScrollTo() {
+              docEl.scrollTo(scrollToPath);
+              docEl.removeEventListener('spec-loaded', setScrollTo);
+            });
+          changeSpec(el);
+        })();
       }
+    } else {      
+      qs.set('spec', 'catalog');
+      url.search = qs.toString();
+      window.history.pushState(null, null, url.toString());
     }
   </script>
 </body>
