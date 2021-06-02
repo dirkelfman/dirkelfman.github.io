@@ -8,17 +8,30 @@
   <style>
     .sub-spec {
       padding: 16px 10px;
-      font-weight: 700
-    }
-    .nav-bar-info {
-      padding: 16px 10px;
       font-weight: 700;
+      font-size: 14px;
+    }
+    .sub-spec:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .sub-spec.selected {
+      border-left: solid 4px #FFA306;
+      margin-left: -4px;
     }
   </style>
   <script>
-    function chnageSpec(item) {
+    let els = [];
+    function changeSpec(item) {
       const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
       document.getElementById('docElement').loadSpec(specUri);
+      if (els.length === 0) {
+        els = document.getElementsByClassName('sub-spec');
+      }
+      els.forEach(el => {
+        el.classList.remove('selected');
+      });
+      this.classList.add('selected');
     }
   </script>
   <!-- <script type="module" src="http://localhost/rapidoc-dist/rapidoc-min.js"></script> -->
@@ -33,13 +46,13 @@
       <a href="#overview"><img src="logo.png" width="284" alt="Kibo Software, Inc." style="border: none;" /></a>
     </div>
     <div slot="middle-nav">
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_order_management.yaml">Order Management</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_content.yaml">Content</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
-      <div class="nav-bar-info" onclick="chnageSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_catalog.yaml">Catalog</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_commerce.yaml">Commerce</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_fulfillment.yaml">FulFillment</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_order_management.yaml">Order Management</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_content.yaml">Content</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_settings.yaml">Settings</div>
+      <div class="sub-spec" onclick="changeSpec(this)" data-spec="openapi_platform.yaml">Platform</div>
     </div>
   </rapi-doc>
 </body>
