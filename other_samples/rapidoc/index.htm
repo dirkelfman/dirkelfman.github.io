@@ -57,6 +57,7 @@
     }
 
     function changeSpec(item) {
+      const scrollTop = document.children[0].children[1].children[0].shadowRoot.children[2].children[0]?.children[2]?.children[0]?.scrollTop || 0;
       const docEl = document.getElementById('docElement');
       docEl.addEventListener('spec-loaded', function specLoaded() {
         els.forEach(el => {
@@ -64,6 +65,10 @@
         });
         item.classList.add('selected');
         docEl.removeEventListener('spec-loaded', specLoaded);
+        window.setTimeout(function scrollNav () {
+          if (!document.children[0].children[1].children[0].shadowRoot.children[2].children[0].children[2].classList.contains('nav-scroll')) return setTimeout(scrollNav, 10);
+          setTimeout(() => { document.children[0].children[1].children[0].shadowRoot.children[2].children[0].children[2].children[0].scrollTop = scrollTop; });
+        });
       });
       const specUri = 'https://dirkelfman.github.io/specs/' + item.dataset.spec;
       docEl.loadSpec(specUri);      
@@ -75,16 +80,10 @@
     if (qs.has('spec')) {
       const qsSpec = qs.get('spec');
       const el = document.getElementById(`spec_${qsSpec}`);
-      let scrollToPath = url.hash.length > 0 ? url.hash.substring(1) : null;
       if (el) {
         const docEl = document.getElementById('docElement');
         (function specLoader() {
           if (typeof docEl.loadSpec !== 'function') return setTimeout(specLoader, 100);
-          if (scrollToPath)
-            docEl.addEventListener('spec-loaded', function setScrollTo() {
-              docEl.scrollTo(scrollToPath);
-              docEl.removeEventListener('spec-loaded', setScrollTo);
-            });
           changeSpec(el);
         })();
       }
